@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{Title}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="http://static.tumblr.com/3hbpjha/P5xo7ifhl/shortcut.jpg">
+    <!-- jQuery 1.11.3 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- bootsctrap 3.3.6 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!--  -->
+</head>
+<style type="text/css">
+ul,
+ol,
+li {
+    list-style-type: none;
+}
+
+ul {
+    padding-left: 0px;
+}
+
+li {
+    margin-top: 20px;
+}
+
+a {
+    text-decoration-color: none;
+    color: black;
+}
+
+.navigation-list {
+    background-color: gray;
+    text-align: left;
+    width: 100%;
+}
+
+.navigation-icon {
+    width: 10%;
+}
+
+.navigation-label {
+    margin-right: 0px;
+}
+
+img {
+    width: 100%;
+}
+
+#wrapper {
+    width: 100%;
+    max-width: 1100px;
+    min-width: 800px;
+    margin: 50px auto;
+}
+
+#posts {
+    -webkit-column-count: 4;
+    -webkit-column-gap: 10px;
+    -webkit-column-fill: auto;
+    -moz-column-count: 4;
+    -moz-column-gap: 10px;
+    -moz-column-fill: auto;
+    column-count: 4;
+    column-gap: 15px;
+    column-fill: auto;
+}
+
+.post {
+    display: inline-block;
+    background: #FEFEFE;
+    border: 2px solid #FAFAFA;
+    box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+    margin: 0 2px 15px;
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    column-break-inside: avoid;
+    padding: 15px;
+    padding-bottom: 5px;
+    background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
+    opacity: 1;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.post img {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+    margin-bottom: 5px;
+}
+
+.post p {
+    font: 12px/18px Arial, sans-serif;
+    color: #333;
+    margin: 0;
+}
+
+.post iframe{
+	width: 100%;
+}
+
+#posts:hover .post:not(:hover) {
+    opacity: 0.4;
+}
+
+#top{
+	width: 100%;
+    max-width: 1100px;
+    min-width: 800px;
+    margin: 50px auto;
+}
+
+#top-posts{
+	-webkit-column-count: 2;
+    -webkit-column-gap: 10px;
+    -webkit-column-fill: auto;
+    -moz-column-count: 2;
+    -moz-column-gap: 10px;
+    -moz-column-fill: auto;
+    column-count: 2;
+    column-gap: 15px;
+    column-fill: auto;
+}
+</style>
+
+<body class="container-fluid">
+    <div class="row">
+        <div id="menu" class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <div id="shortcut">
+                <img src="http://static.tumblr.com/3hbpjha/P5xo7ifhl/shortcut.jpg" width="100%">
+                <h3 id="title">{Title}</h3>
+                <div id="description">
+                    <p>我們努力創作有趣的動畫與圖文並分享笑容，</p>
+                    <p>希望能為彼此的生活點綴</p>
+                    <p>一些無厘頭的樂趣！</p>
+                </div>
+            </div>
+            <div id="navigation">
+                <ul>
+                    <li>
+                        <a href="">
+                            <div class="navigation-list">
+                                <img class="navigation-icon" src="http://static.tumblr.com/3hbpjha/MMqo7ifnd/icon-about.png">
+                                <label>About Woolito</label>
+                                <label class="navigation-label">關於我們</label>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="navigation-list">
+                                <img class="navigation-icon" src="http://static.tumblr.com/3hbpjha/4Aoo7if62/icon-service.png">
+                                <label>Serivce</label>
+                                <label class="navigation-label">商業服務</label>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="navigation-list">
+                                <img class="navigation-icon" src="http://static.tumblr.com/3hbpjha/WqPo7if64/icon-works.png">
+                                <label>Works</label>
+                                <label class="navigation-label">作品集</label>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="navigation-list">
+                                <img class="navigation-icon" src="http://static.tumblr.com/3hbpjha/7rDo7ife4/icon-contact.png">
+                                <label>Contact</label>
+                                <label class="navigation-label">聯繫我們</label>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="navigation-list">
+                                <img class="navigation-icon" src="http://static.tumblr.com/3hbpjha/YpNo7if63/icon-shop.png">
+                                <label>Shop</label>
+                                <label class="navigation-label">原創商品</label>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="navigation-list">
+                                <img class="navigation-icon" src="http://static.tumblr.com/3hbpjha/Qt9o7if62/icon-line.png">
+                                <label>LINE Stickers</label>
+                                <label class="navigation-label">LINE 貼圖</label>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="content" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+            <div id="top">
+            	<div id="top-posts">
+	                <div id="works" class="post">
+	                    <img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png">
+	                </div>
+	                <div id="aboutus" class="post">
+	                    <img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png">
+	                </div>
+	                <div id="serivce" class="post">
+	                    <img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png">
+	                </div>
+	                <div id="contact" class="post">
+	                    <img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png">
+	                </div>
+                </div>
+            </div>
+            <div id="wrapper">
+                <div id="posts">
+                    <div class="post">
+                        <img src="http://67.media.tumblr.com/b51d5cf04c640d7a5580972c43aa6c83/tumblr_o7ibbclA1Z1vvnk3jo1_500.png" alt="里他爸 - 摸魚中">
+                        <div class="caption">
+                            <p>里他爸 - 摸魚中1</p>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <img src="http://67.media.tumblr.com/b51d5cf04c640d7a5580972c43aa6c83/tumblr_o7ibbclA1Z1vvnk3jo1_500.png" alt="里他爸 - 摸魚中">
+                        <div class="caption">
+                            <p>里他爸 - 摸魚中1</p>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <img src="http://cssdeck.com/uploads/media/items/1/1swi3Qy.png" />
+                        <p>
+                            Donec a fermentum nisi. Integer dolor est, commodo ut sagittis vitae, egestas at augue.
+                        </p>
+                    </div>
+                    <div class="post">
+                        <img src="http://cssdeck.com/uploads/media/items/6/6f3nXse.png" />
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat consectetur pellentesque. Nam ac elit risus, ac blandit dui. Duis rutrum porta tortor ut convallis. Duis rutrum porta tortor ut convallis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
