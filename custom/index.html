@@ -38,24 +38,28 @@ a {
     background-color: gray;
     text-align: left;
     width: 100%;
+    height: 30px;
 }
 
 .navigation-icon {
-    width: 10%;
+    height: 100%;
+    width: auto;
 }
 
 .navigation-label {
+    text-align: right;
+    float: right;
     margin-right: 0px;
+    line-height: 2em;
 }
 
 img {
     width: 100%;
+    height: auto;
 }
 
 #wrapper {
     width: 100%;
-    max-width: 1100px;
-    min-width: 800px;
     margin: 50px auto;
 }
 
@@ -92,6 +96,7 @@ img {
 
 .post img {
     width: 100%;
+    height: auto;
     border-bottom: 1px solid #ccc;
     padding-bottom: 15px;
     margin-bottom: 5px;
@@ -113,8 +118,6 @@ img {
 
 #top{
 	width: 100%;
-    max-width: 1100px;
-    min-width: 800px;
     margin: 50px auto;
 }
 
@@ -129,6 +132,33 @@ img {
     column-gap: 15px;
     column-fill: auto;
 }
+#top-posts .post img{
+    border-bottom: 0px solid #ccc;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+#works, #aboutus, #service, #contact{
+    height: 100%;
+    padding: 0px;
+}
+#works{
+    margin-right: 7.5px;
+}
+#aboutus, #service, #contact{
+    margin-left: 7.5px;
+}
+.top-post{
+    background: #FEFEFE;
+    border: 2px solid #FAFAFA;
+    box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+    background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
+    opacity: 1;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+}
+{CustomCSS}
 </style>
 
 <body class="container-fluid">
@@ -159,7 +189,7 @@ img {
                             <div class="navigation-list">
                                 <img class="navigation-icon" src="http://static.tumblr.com/3hbpjha/4Aoo7if62/icon-service.png">
                                 <label>Serivce</label>
-                                <label class="navigation-label">商業服務</label>
+                                <label class="navigation-label" style="text-align: right;">商業服務</label>
                             </div>
                         </a>
                     </li>
@@ -203,51 +233,188 @@ img {
             </div>
         </div>
         <div id="content" class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-            <div id="top">
-            	<div id="top-posts">
-	                <div id="works" class="post">
-	                    <img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png">
-	                </div>
-	                <div id="aboutus" class="post">
-	                    <img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png">
-	                </div>
-	                <div id="serivce" class="post">
-	                    <img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png">
-	                </div>
-	                <div id="contact" class="post">
-	                    <img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png">
-	                </div>
-                </div>
-            </div>
+            {block:IndexPage} 
+            <table id="top">
+                <tbody>
+                    <tr>
+                        <td rowspan="4">
+                            <div id="works" class="top-post">
+        	                    <img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png">
+        	                </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="aboutus" class="top-post">
+        	                    <img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png">
+        	                </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="service" class="top-post">
+        	                    <img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png">
+        	                </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="contact" class="top-post">
+        	                    <img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png">
+        	                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--<div id="top">-->
+            <!--	<div id="top-posts">-->
+	           <!--     <div id="works" class="post">-->
+	           <!--         <img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png">-->
+	           <!--     </div>-->
+	           <!--     <div id="aboutus" class="post">-->
+	           <!--         <img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png">-->
+	           <!--     </div>-->
+	           <!--     <div id="serivce" class="post">-->
+	           <!--         <img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png">-->
+	           <!--     </div>-->
+	           <!--     <div id="contact" class="post">-->
+	           <!--         <img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png">-->
+	           <!--     </div>-->
+            <!--    </div>-->
+            <!--</div>-->
             <div id="wrapper">
                 <div id="posts">
-                    <div class="post">
-                        <img src="http://67.media.tumblr.com/b51d5cf04c640d7a5580972c43aa6c83/tumblr_o7ibbclA1Z1vvnk3jo1_500.png" alt="里他爸 - 摸魚中">
-                        <div class="caption">
-                            <p>里他爸 - 摸魚中1</p>
-                        </div>
+                    {block:Posts}
+                    {block:Text}
+                    <div class="post text">
+                        <h3><a href="{Permalink}">{Title}</a></h3>
+                        {Body}
                     </div>
-                    <div class="post">
-                        <img src="http://67.media.tumblr.com/b51d5cf04c640d7a5580972c43aa6c83/tumblr_o7ibbclA1Z1vvnk3jo1_500.png" alt="里他爸 - 摸魚中">
-                        <div class="caption">
-                            <p>里他爸 - 摸魚中1</p>
-                        </div>
+                    {/block:Text}
+                    
+                    {block:Photo}
+                    <div class="post photo">
+                        <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
                     </div>
-                    <div class="post">
-                        <img src="http://cssdeck.com/uploads/media/items/1/1swi3Qy.png" />
-                        <p>
-                            Donec a fermentum nisi. Integer dolor est, commodo ut sagittis vitae, egestas at augue.
-                        </p>
+                    {/block:Photo}
+                    
+                    {block:Panorama}
+                    <div class="post panorama">
+                        {LinkOpenTag}
+                            <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+                        {LinkCloseTag}{block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
                     </div>
-                    <div class="post">
-                        <img src="http://cssdeck.com/uploads/media/items/6/6f3nXse.png" />
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat consectetur pellentesque. Nam ac elit risus, ac blandit dui. Duis rutrum porta tortor ut convallis. Duis rutrum porta tortor ut convallis.
-                        </p>
+                    {/block:Panorama}
+                    
+                    <!--{block:Photoset}-->
+                    <!--<div class="post photoset photo">-->
+                    <!--    {Photoset-500}{block:Caption}-->
+                    <!--    <div class="caption">{Caption}</div>-->
+                    <!--    {/block:Caption}-->
+                    <!--</div>-->
+                    <!--{/block:Photoset}-->
+                    
+                    {block:Quote}
+                    <div class="post quote">
+                        "{Quote}"
+
+                        {block:Source}
+                            <div class="source">{Source}</div>
+                        {/block:Source}
                     </div>
+                    {/block:Quote}
+                    
+                    {block:Link}
+                    <div class="post link">
+                        <a href="{URL}" class="link" {Target}>{Name}</a>
+
+                        {block:Description}
+                            <div class="description">{Description}</div>
+                        {/block:Description}
+                    </div>
+                    {/block:Link}
+                    
+                    {block:Chat}
+                    <div class="post chat">
+                        {block:Title}
+                            <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+
+                        <ul class="chat">
+                            {block:Lines}
+                                <li class="{Alt} user_{UserNumber}">
+                                    {block:Label}
+                                        <span class="label">{Label}</span>
+                                    {/block:Label}{Line}
+                                </li>
+                            {/block:Lines}
+                        </ul>
+                    </div>
+                    {/block:Chat}
+                    
+                    {block:Video}
+                    <div class="post video">
+                        {VideoEmbed-250}
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                    {/block:Video}
+                    
+                    {block:Audio}
+                    <div class="post audio">
+                        {AudioEmbed}{block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </div>
+                    {/block:Audio}
+                    
+                    {/block:Posts}
                 </div>
             </div>
+            {block:Pagination}{block:PreviousPage}
+                <a href="{PreviousPage}">Previous</a>
+            {/block:PreviousPage}{block:JumpPagination length="5"}{block:CurrentPage}
+                    <span class="current_page">{PageNumber}</span>
+                {/block:CurrentPage}{block:JumpPage}
+                    <a class="jump_page" href="{URL}">{PageNumber}</a>
+                {/block:JumpPage}{/block:JumpPagination}{block:NextPage}
+                <a href="{NextPage}">Next</a>
+            {/block:NextPage}{/block:Pagination}
         </div>
+        {block:IndexPage}
+        
+        {block:PostTitle}
+        <h3>{PostTitle}</h3>
+        {/block:PostTitle}
+        
+        {block:PostSummary}
+        {PostSummary}
+        {/block:PostSummary}
+        
+        {block:Pagination}{block:PreviousPage}
+            <a href="{PreviousPage}">Previous</a>
+        {/block:PreviousPage}{block:JumpPagination length="5"}{block:CurrentPage}
+                <span class="current_page">{PageNumber}</span>
+            {/block:CurrentPage}{block:JumpPage}
+                <a class="jump_page" href="{URL}">{PageNumber}</a>
+            {/block:JumpPage}{/block:JumpPagination}{block:NextPage}
+            <a href="{NextPage}">Next</a>
+        {/block:NextPage}{/block:Pagination}
+        
+        {block:Pagination}
+            {block:PreviousPage}
+            {PreviousPage}
+            {/block:PreviousPage}
+            {block:NextPage}
+            {NextPage}
+            {/block:NextPage}
+        {/block:Pagination}
     </div>
 </body>
 
