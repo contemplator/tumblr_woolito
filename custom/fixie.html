@@ -37,7 +37,8 @@
 	<link rel="apple-touch-icon" href="{PortraitURL-128}">
 	<link rel="alternate" type="application/rss+xml" href="{RSS}">
 
-    
+
+
 
 	<!-- Main Style Settings -->
 
@@ -378,45 +379,7 @@
 
 
 	<!-- Sharing meta tags -->
-	<meta property="og:site_name" content="{Title}"/>
-	{block:IndexPage}
-	<meta property="og:title" content="{block:TagPage}&quot;{PlaintextTag}&quot;-{/block:TagPage}{block:SearchPage}{lang:Search results for SearchQuery}-{/block:SearchPage}{Title}"/>
-	<meta property="og:url" content="{blogURL}{block:TagPage}tagged/{URLSafeTag}{/block:TagPage}"/>
-	<meta property="og:type" content="blog"/>
-	<meta property="og:description" content="{MetaDescription}{block:TagPage}{PlaintextDescription}{/block:TagPage}"/>
-	<meta property="og:image" content="{PortraitURL-128}"/>
-	{/block:IndexPage}
-	
-	{block:PermalinkPage}
-	<meta property="og:url" content="{Permalink}"/>
-	<meta property="og:type" content="article"/>
-	    {block:Posts}{block:Text}{block:Title}
-    <meta property="og:title" content="{PlaintextTitle}"/>
-    {/block:Title}<meta property="og:description" content="{PlaintextBody}"/>
-    <meta property="og:image" content="{PortraitURL-128}"/>
-        {/block:Text}{block:Photo}
-    <meta property="og:image" content="{PhotoURL-HighRes}"/>
-    {block:Caption}<meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}{/block:Photo}{block:Photoset}{block:Photos}
-    <meta property="og:image" content="{PhotoURL-HighRes}"/>
-    {/block:Photos}{block:Caption}
-    <meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}{/block:Photoset}{block:Quote}
-    <meta property="og:title" content="{PlaintextQuote}"/>
-    <meta property="og:description" content="{PlaintextSource}"/>
-    <meta property="og:image" content="{PortraitURL-128}"/>{/block:Quote}{block:Link}
-    <meta property="og:title" content="{PlaintextName}"/>
-    <meta property="og:description" content="{PlaintextDescription}"/>{block:Thumbnail}
-    <meta property="og:image" content="{Thumbnail}"/>{/block:Thumbnail}{/block:Link}{block:Chat}
-    <meta property="og:title" content="{PlaintextTitle}"/>
-    <meta property="og:description" content="{block:Lines}{block:Label}{Label}:{/block:Label}{Line}&bull;{/block:Lines}"/>
-    <meta property="og:image" content="{PortraitURL-128}"/>{/block:Chat}{block:Audio}
-    <meta property="og:title" content="{block:Artist}{Artist}-{/block:Artist}{block:TrackName}{TrackName}{/block:TrackName}"/>
-    <meta property="og:description" content="{PlaintextCaption}"/>{block:AlbumArt}
-    <meta property="og:image" content="{AlbumArtURL}"/>{/block:AlbumArt}{/block:Audio}{block:Video}{block:Caption}
-    <meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}{block:VideoThumbnail}
-    <meta property="og:image" content="{VideoThumbnailURL}"/>{/block:VideoThumbnail}{/block:Video}{block:Answer}
-    <meta property="og:title" content="{PlaintextQuestion}"/>
-    <meta property="og:description" content="{PlaintextAnswer}"/>
-    <meta property="og:image" content="{PortraitURL-128}"/>{/block:Answer}{/block:Posts}{/block:PermalinkPage}
+	<meta property="og:site_name" content="{Title}"/>{block:IndexPage}<meta property="og:title" content="{block:TagPage}&quot;{PlaintextTag}&quot;-{/block:TagPage}{block:SearchPage}{lang:Search results for SearchQuery}-{/block:SearchPage}{Title}"/><meta property="og:url" content="{blogURL}{block:TagPage}tagged/{URLSafeTag}{/block:TagPage}"/><meta property="og:type" content="blog"/><meta property="og:description" content="{MetaDescription}{block:TagPage}{PlaintextDescription}{/block:TagPage}"/><meta property="og:image" content="{PortraitURL-128}"/>{/block:IndexPage}{block:PermalinkPage}<meta property="og:url" content="{Permalink}"/><meta property="og:type" content="article"/>{block:Posts}{block:Text}{block:Title}<meta property="og:title" content="{PlaintextTitle}"/>{/block:Title}<meta property="og:description" content="{PlaintextBody}"/><meta property="og:image" content="{PortraitURL-128}"/>{/block:Text}{block:Photo}<meta property="og:image" content="{PhotoURL-HighRes}"/>{block:Caption}<meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}{/block:Photo}{block:Photoset}{block:Photos}<meta property="og:image" content="{PhotoURL-HighRes}"/>{/block:Photos}{block:Caption}<meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}{/block:Photoset}{block:Quote}<meta property="og:title" content="{PlaintextQuote}"/><meta property="og:description" content="{PlaintextSource}"/><meta property="og:image" content="{PortraitURL-128}"/>{/block:Quote}{block:Link}<meta property="og:title" content="{PlaintextName}"/><meta property="og:description" content="{PlaintextDescription}"/>{block:Thumbnail}<meta property="og:image" content="{Thumbnail}"/>{/block:Thumbnail}{/block:Link}{block:Chat}<meta property="og:title" content="{PlaintextTitle}"/><meta property="og:description" content="{block:Lines}{block:Label}{Label}:{/block:Label}{Line}&bull;{/block:Lines}"/><meta property="og:image" content="{PortraitURL-128}"/>{/block:Chat}{block:Audio}<meta property="og:title" content="{block:Artist}{Artist}-{/block:Artist}{block:TrackName}{TrackName}{/block:TrackName}"/><meta property="og:description" content="{PlaintextCaption}"/>{block:AlbumArt}<meta property="og:image" content="{AlbumArtURL}"/>{/block:AlbumArt}{/block:Audio}{block:Video}{block:Caption}<meta property="og:description" content="{PlaintextCaption}"/>{/block:Caption}{block:VideoThumbnail}<meta property="og:image" content="{VideoThumbnailURL}"/>{/block:VideoThumbnail}{/block:Video}{block:Answer}<meta property="og:title" content="{PlaintextQuestion}"/><meta property="og:description" content="{PlaintextAnswer}"/><meta property="og:image" content="{PortraitURL-128}"/>{/block:Answer}{/block:Posts}{/block:PermalinkPage}
 
 	{block:PermalinkPage}<meta name="twitter:url" content="{Permalink}"/>{block:Posts}{block:Text}<meta name="twitter:card" content="summary">{block:Title}<meta name="twitter:title" content="{PlaintextTitle}"/>{/block:Title}<meta name="twitter:description" content="{PlaintextBody}"/><meta name="twitter:image" content="{PortraitURL-128}"/>{/block:Text}{block:Photo}<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{Title}"/><meta name="twitter:image" content="{PhotoURL-500}"/>{block:Caption}<meta name="twitter:description" content="{PlaintextCaption}"/>{/block:Caption}{/block:Photo}{block:Photoset}<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{Title}"/>{block:Photos}<meta name="twitter:image" content="{PhotoURL-500}"/>{/block:Photos}{block:Caption}<meta name="twitter:description" content="{PlaintextCaption}"/>{/block:Caption}{/block:Photoset}{block:Quote}<meta name="twitter:card" content="summary"><meta name="twitter:title" content="{PlaintextQuote}"/><meta name="twitter:description" content="{PlaintextSource}"/><meta name="twitter:image" content="{PortraitURL-128}"/>{/block:Quote}{block:Link}<meta name="twitter:card" content="summary"><meta name="twitter:title" content="{PlaintextName}"/><meta name="twitter:description" content="{PlaintextDescription}"/>{block:Thumbnail}<meta name="twitter:image" content="{Thumbnail}"/>{/block:Thumbnail}{/block:Link}{block:Chat}<meta name="twitter:card" content="summary"><meta name="twitter:title" content="{PlaintextTitle}"/><meta name="twitter:description" content="{block:Lines}{block:Label}{Label}:{/block:Label}{Line}&bull;{/block:Lines}"/><meta name="twitter:image" content="{PortraitURL-128}"/>{/block:Chat}{block:Audio}<meta name="twitter:card" content="summary"><meta name="twitter:title" content="{block:Artist}{Artist}-{/block:Artist}{block:TrackName}{TrackName}{/block:TrackName}"/><meta name="twitter:description" content="{PlaintextCaption}"/>{block:AlbumArt}<meta name="twitter:image" content="{AlbumArtURL}"/>{/block:AlbumArt}{/block:Audio}{block:Video}<meta name="twitter:card" content="summary"><meta name="twitter:title" content="{PlaintextTitle}"/>{block:Caption}<meta name="twitter:description" content="{PlaintextCaption}"/>{/block:Caption}{block:VideoThumbnail}<meta name="twitter:image" content="{VideoThumbnailURL}"/>{/block:VideoThumbnail}{/block:Video}{block:Answer}<meta name="twitter:card" content="summary"><meta name="twitter:title" content="{PlaintextQuestion}"/><meta name="twitter:description" content="{PlaintextAnswer}"/><meta name="twitter:image" content="{PortraitURL-128}"/>{/block:Answer}{/block:Posts}{/block:PermalinkPage}
 
@@ -623,7 +586,7 @@
 
 		{block:IndexPage}<div class="grid-sizer"></div>{/block:IndexPage}
    
-        
+
 		{block:Posts inlineMediaWidth="1280" inlineNestedMediaWidth="1280"}
 
 		<article id="{PostID}" class="type_{PostType} {TagsAsClasses}" rel="{ReblogURL}">
@@ -1127,73 +1090,7 @@
 
 <script src="http://static.tumblr.com/e6lc7yi/ewpneh29l/fixie-plugins.js"></script>
 <script src="http://static.tumblr.com/e6lc7yi/y7Yo1ifc4/fixie-app.js"></script>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-<script type="text/javascript">
-    var modal = '<div id="myModal" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="myModalLabel">Modal title</h4></div><div class="modal-body">...</div><div class="modal-footer"><button type="button" class="btn btn-default" data-dismiss="modal">Close</button><button type="button" class="btn btn-primary">Save changes</button></div></div></div></div>';
-    var modal_footer = '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button><button type="button" class="btn btn-primary">Save changes</button>';
-    
-    $(function(){
-        $('body').append(modal);
-        topArticle();
-        stopDefaultEvent();
-    });
-    
-    function stopDefaultEvent(){
-        $('.photo--post a').click(function(e) { 
-            e.preventDefault();
-            showModal(this);
-            console.log("version 25");
-            filtPostId(this);
-        });
-    }
-    
-    function showModal(element){
-        console.log(element);
-        element = $(element);
-        var img = element.find("img").clone();
-        $("#myModal").find('.modal-body').html(img[0]);
-        console.log(element.parent().parent());
-        var caption = element.parent().parent().parent().parent().find(".caption").find("p").text();
-        
-        var url = $(element).attr("href");
-        var full = '<a href="'+ url +'"><button type="button" class="btn btn-primary">觀看全文</button>';
-        var close = '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
-        var footer = "<p>" + caption + "</p>" + full + close;
-        
-        $("#myModal").find('.modal-footer').html(footer);
-        console.log(caption);
-        $("#myModal").modal('show');
-    }
-    
-    function filtPostId(element){
-        // console.log(element);
-        element = $(element);
-        
-        var url = $(element).attr("href");
-        // console.log(url);
-        var start_index = url.indexOf("post")+5;
-        // console.log(url.substring(start_index));
-        var end_index = url.indexOf("/", start_index);
-        // console.log(url.substring(start_index, end_index));
-    }
-    
-    function topArticle(){
-        var href = window.location.href;
-        if(href == 'http://woolito.tumblr.com/'){
-            var topElement = $("#134897560694");
-            // console.log(topElement);
-            $(topElement).insertAfter(".grid-sizer");
-            
-            var top2Element = $("#134322750564");
-            // console.log(top2Element);
-            $(top2Element).insertAfter("#134897560694");
-        };
-    }
-</script>
 
 
 </body>
