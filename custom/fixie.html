@@ -403,39 +403,110 @@
 				<img src="{image:Logo}" alt="{Title}"/>
 			</a>
 			{/block:IfLogoImage}
-
-			{block:IfNotLogoImage}
-			{block:ShowAvatar}
-			<div class="avatar">
-				<a href="/" title="{Title}" class="avatar {AvatarShape}">
-					{block:IfAvatarImage}
-					<img src="{image:Avatar}" alt="{Title}"/>
-					{/block:IfAvatarImage}
-					{block:IfNotAvatarImage}
-					<img src="{PortraitURL-128}" alt="{Title}" class="default"/>
-					{/block:IfNotAvatarImage}
-				</a>
+    
+            <div id="shortcut">
+			
+    			{block:IfNotLogoImage}
+    			
+    			{block:ShowAvatar}
+    			<div class="avatar">
+    				<a href="/" title="{Title}" class="avatar {AvatarShape}">
+    					{block:IfAvatarImage}
+    					<img src="{image:Avatar}" alt="{Title}"/>
+    					{/block:IfAvatarImage}
+    					{block:IfNotAvatarImage}
+    					<img src="{PortraitURL-128}" alt="{Title}" class="default"/>
+    					{/block:IfNotAvatarImage}
+    				</a>
+    			</div>
+    			{/block:ShowAvatar}
+    			{/block:IfNotLogoImage}
+    			
+    			{block:ShowTitle}
+    			<div class="logo">
+    				<h1><a href="/" title="{Title}">{Title}</a></h1>
+    			</div>
+    			{block:ShowTitle}
+    
+    			{block:ShowDescription}
+    			<p class="description">{Description}</p>
+    			{/block:ShowDescription}
+			
 			</div>
-			{/block:ShowAvatar}
-			{/block:IfNotLogoImage}
 
-			{block:ShowTitle}
-			<div class="logo">
-				<h1><a href="/" title="{Title}">{Title}</a></h1>
-			</div>
-			{block:ShowTitle}
-
-			{block:ShowDescription}
-			<p class="description">{Description}</p>
-			{/block:ShowDescription}
+			
 
 
 			<nav>
-
+			    <div id="navigation">
+			        <ul>
+			            <li>
+			                <a href="aboutus.html">
+			                    <div class="navigation-bottom"></div>
+			                    <div class="navigation-icon">
+			                        <img src="http://static.tumblr.com/3hbpjha/MMqo7ifnd/icon-about.png">
+			                        <span>About Woolito</span>
+			                    </div>
+			                    <div class="navigation-label">
+			                        關於我們
+			                    </div>
+			                </a>
+			            </li>
+			            <li>
+			                <a href="service.html">
+			                    <div class="navigation-bottom"></div>
+			                    <div class="navigation-icon">
+			                        <img src="http://static.tumblr.com/3hbpjha/4Aoo7if62/icon-service.png">
+			                        <span>Service</span>
+			                    </div>
+			                    <div class="navigation-label">
+			                        商業服務
+			                    </div>
+			                </a>
+			            </li>
+			            <li>
+			                <a href="works.html">
+			                    <div class="navigation-bottom"></div>
+			                    <div class="navigation-icon">
+			                        <img src="http://static.tumblr.com/3hbpjha/WqPo7if64/icon-works.png">
+			                        <span>Works</span>
+			                    </div>
+			                    <div class="navigation-label">
+			                        作品集
+			                    </div>
+			                </a>
+			            </li>
+			            <li>
+			                <a href="contact.html">
+			                    <div class="navigation-bottom"></div>
+			                    <div class="navigation-icon">
+			                        <img src="http://static.tumblr.com/3hbpjha/7rDo7ife4/icon-contact.png">
+			                        <span>Contact</span>
+			                    </div>
+			                    <div class="navigation-label">
+			                        聯繫我們
+			                    </div>
+			                </a>
+			            </li>
+			            <li>
+			                <a href="shop.html">
+			                    <div class="navigation-bottom"></div>
+			                    <div class="navigation-icon">
+			                        <img src="http://static.tumblr.com/3hbpjha/YpNo7if63/icon-shop.png">
+			                        <span>Shop</span>
+			                    </div>
+			                    <div class="navigation-label">
+			                        原創商品
+			                    </div>
+			                </a>
+			            </li>
+			        </ul>
+			    </div>
+			    
 				<ul>
 					{block:HasPages}
 					{block:Pages}
-					<li><a href="{URL}" title="{Label}">{Label}</a></li>
+					<!--<li><a href="{URL}" title="{Label}">{Label}</a></li>-->
 					{/block:Pages}
 					{/block:HasPages}
 					{block:AskEnabled}
@@ -445,7 +516,7 @@
 					<li><a href="/submit" title="{SubmitLabel}">{SubmitLabel}</a></li>
 					{/block:SubmissionsEnabled}
 					{block:IfShowArchiveLink}
-					<li><a href="/archive" title="Archive">{lang:Archive}</a></li>
+					<!--<li><a href="/archive" title="Archive">{lang:Archive}</a></li>-->
 					{/block:IfShowArchiveLink}
 				</ul>
 
@@ -1080,7 +1151,25 @@
 
 </footer>
 
-
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <p>One fine body&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 
 
 <!-- Javascript Assets -->
@@ -1091,7 +1180,21 @@
 <script src="http://static.tumblr.com/e6lc7yi/ewpneh29l/fixie-plugins.js"></script>
 <script src="http://static.tumblr.com/e6lc7yi/y7Yo1ifc4/fixie-app.js"></script>
 
-
+<!-- Custom Javascript -->
+<script>
+    $(".photo--post a").click(function(event){
+        // event.preventDefault();
+        var id = $(this).parent().parent().parent().parent().attr("id");
+        showModal(id);
+    });
+    // $('#myModal').on('shown.bs.modal', function() {
+    //     $('#myInput').focus()
+    // })
+    function showModal(id){
+        console.log(id);
+    }
+</script>
+    
 
 </body>
 <!--
