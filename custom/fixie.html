@@ -53,6 +53,8 @@
 
 	<link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/z3pnekdqv/precrafted-social.css">
 	<link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/g6Fnsuud3/fixie-styles.css">
+	<!--bootstrap css-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
 
 
@@ -1161,9 +1163,13 @@
             <div class="modal-body">
                 <p>One fine body&hellip;</p>
             </div>
+            <div id="arrow">
+                <button type="button" id="cboxPrevious" style="display: block;">previous</button>
+                <button type="button" id="cboxNext" style="display: block;">next</button>
+            </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary">Send message</button>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -1179,19 +1185,58 @@
 
 <script src="http://static.tumblr.com/e6lc7yi/ewpneh29l/fixie-plugins.js"></script>
 <script src="http://static.tumblr.com/e6lc7yi/y7Yo1ifc4/fixie-app.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 <!-- Custom Javascript -->
+<script type="text/javascript" src="http://woolito.tumblr.com/api/read/json"></script>
 <script>
+    console.log("version: " + 7);
+    
     $(".photo--post a").click(function(event){
-        // event.preventDefault();
+        event.preventDefault();
         var id = $(this).parent().parent().parent().parent().attr("id");
         showModal(id);
     });
-    // $('#myModal').on('shown.bs.modal', function() {
-    //     $('#myInput').focus()
-    // })
+    
     function showModal(id){
-        console.log(id);
+        var tumblr_data = tumblr_api_read;
+        var post = query_post(id);
+        var type = post.type;
+        console.log(type);
+        switch(type){
+            case "photo":
+                setPhoto(post);
+                break;
+            default:
+                break;
+        }
+        $('#myModal').modal('show');
+        
+    }
+    
+    function setPhoto(post){
+        console.log(post);
+        // var modal = $("#myModal .modal-dialog .modal-content");
+        // console.log(modal);
+        var title = $(".modal-title")[0];
+        var body = $(".modal-body")[0];
+        var footer = $(".modal-footer")[0];
+        $(title).text("");
+        $(body).html("<img src=\"" + post["photo-url-500"] + " \">");
+        var footer_html = post["photo-caption"] + '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>' + '<a href="/post/'+post.id+'"><button type="button" class="btn btn-primary">觀看全文</button></a>';
+        $(footer).html(footer_html);
+        
+        // $(modal .modal-header .modal title).text("Post Photo");
+    }
+    
+    function query_post(id){
+        var tumblr_data = tumblr_api_read.posts;
+        for(var i=0; i<tumblr_data.length; i++){
+            post = tumblr_data[i];
+            if(post.id == id){
+                return post;
+            }
+        }
     }
 </script>
     
