@@ -433,6 +433,13 @@
     			{block:ShowDescription}
     			<p class="description">{Description}</p>
     			{/block:ShowDescription}
+    			
+    			<div class="social_network">
+    			    <img src="http://static.tumblr.com/sirdwhf/vcKo81mrj/facebook.png">
+    			    <img src="http://static.tumblr.com/sirdwhf/eI6o81mt8/youtube.png">
+    			    <img src="http://static.tumblr.com/sirdwhf/pFco81mtq/line.png">
+    			    <img src="http://static.tumblr.com/sirdwhf/2fVo81mu3/instagram.png">
+    			</div>
 			
 			</div>
 
@@ -443,7 +450,7 @@
 			    <div id="navigation">
 			        <ul>
 			            <li>
-			                <a href="aboutus.html">
+			                <a href="aboutus">
 			                    <div class="navigation-bottom"></div>
 			                    <div class="navigation-icon">
 			                        <img src="http://static.tumblr.com/3hbpjha/MMqo7ifnd/icon-about.png">
@@ -455,7 +462,7 @@
 			                </a>
 			            </li>
 			            <li>
-			                <a href="service.html">
+			                <a href="service">
 			                    <div class="navigation-bottom"></div>
 			                    <div class="navigation-icon">
 			                        <img src="http://static.tumblr.com/3hbpjha/4Aoo7if62/icon-service.png">
@@ -467,7 +474,7 @@
 			                </a>
 			            </li>
 			            <li>
-			                <a href="works.html">
+			                <a href="works">
 			                    <div class="navigation-bottom"></div>
 			                    <div class="navigation-icon">
 			                        <img src="http://static.tumblr.com/3hbpjha/WqPo7if64/icon-works.png">
@@ -479,7 +486,7 @@
 			                </a>
 			            </li>
 			            <li>
-			                <a href="contact.html">
+			                <a href="contact">
 			                    <div class="navigation-bottom"></div>
 			                    <div class="navigation-icon">
 			                        <img src="http://static.tumblr.com/3hbpjha/7rDo7ife4/icon-contact.png">
@@ -491,7 +498,7 @@
 			                </a>
 			            </li>
 			            <li>
-			                <a href="shop.html">
+			                <a href="shop">
 			                    <div class="navigation-bottom"></div>
 			                    <div class="navigation-icon">
 			                        <img src="http://static.tumblr.com/3hbpjha/YpNo7if63/icon-shop.png">
@@ -648,9 +655,43 @@
 
 </header>
 
-
 <section class="the-posts{block:IndexPage} index{/block:IndexPage}{block:PermalinkPage} single-post{/block:PermalinkPage}">
-
+    
+    {block:IndexPage}
+    <table id="top">
+        <tbody>
+            <tr>
+                <td rowspan="4">
+                    <div id="works" class="top-post">
+	                    <a href="works"><img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png"></a>
+	                </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="aboutus" class="top-post">
+	                    <a href="aboutus"><img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png"></a>
+	                </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="service" class="top-post">
+	                    <a href="service"><img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png"></a>
+	                </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="contact" class="top-post">
+	                    <a href="contact"><img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png"></a>
+	                </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    {/block:IndexPage}
+    
 	<div class="posts-holder
 	{block:IndexPage} posts-grid
 	{block:IfFocusMode}focus-mode{/block:IfFocusMode}
@@ -1190,11 +1231,21 @@
 <!-- Custom Javascript -->
 <script type="text/javascript" src="http://woolito.tumblr.com/api/read/json"></script>
 <script>
-    console.log("version: " + 7);
+    console.log("version: " + 13);
+    var modalHidden;
+    $(document).ready(function(){
+        $(".posts-holder").bind("DOMSubtreeModified", function() {
+            $(".photo-wrap").click(function(event){
+                event.preventDefault();
+                var id = $(this).parent().parent().attr("id");
+                showModal(id);
+            });
+        });
+    });
     
-    $(".photo--post a").click(function(event){
+    $(".photo-wrap").click(function(event){
         event.preventDefault();
-        var id = $(this).parent().parent().parent().parent().attr("id");
+        var id = $(this).parent().parent().attr("id");
         showModal(id);
     });
     
@@ -1211,13 +1262,18 @@
                 break;
         }
         $('#myModal').modal('show');
+        if(modalHidden != null){
+            modalHidden = null;
+        }
         
+        modalHidden = $('#myModal').on('hidden.bs.modal', function () {
+            document.location.href="#"+id;
+            // var thisPosition = $('#'+id).offset().top;
+            // $("body").animate({ scrollTop: thisPosition }, 1000);
+        });
     }
     
     function setPhoto(post){
-        console.log(post);
-        // var modal = $("#myModal .modal-dialog .modal-content");
-        // console.log(modal);
         var title = $(".modal-title")[0];
         var body = $(".modal-body")[0];
         var footer = $(".modal-footer")[0];

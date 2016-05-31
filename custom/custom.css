@@ -36,3 +36,72 @@
     position: absolute;
     bottom: 0px;
 }
+
+#shortcut{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px 10px 50px 10px ;
+}
+.modal-body img{
+    margin: 0px auto;
+}
+.modal-footer button{
+    margin-left: 20px;
+}
+.modal-footer p{
+    line-height: 30px;
+    text-align: left;
+}
+#top{
+    margin-left: -2px;
+    margin-bottom: -2px;
+}
+#top tbody tr td{
+    padding: 15px;
+    background: #FFF;
+    border: 4px #e6e6e6 solid;
+}
+.social_network img{
+    display: inline;
+    height: 35px;
+    width: auto;
+}
+.single-post article{
+    margin: 30px auto;
+    width: 100%;
+}
+.single-post article.type_text{
+    max-width: 1024px;
+}
+.article-content{
+    padding: 0px;
+}
+#work-header{
+    height: 100px;
+    width: 100%;
+    background-image: url('http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png');
+    background-size: 50% 270%;
+    background-repeat: no-repeat;
+    background-position: -50px -80px;
+}
+#selector{
+    width: 100%;
+    border: 5px #000 dashed;
+}
+.choice{
+    display: table-cell;
+    vertical-align: middle;
+    border: 1px #000 solid;
+}
+.choice label{
+    display: inline;
+}
+.choice input[type="checkbox"]{
+    display: inline;
+}
+ul{
+    padding: 0px;
+}
+ul li{
+    list-style-type: none;
+}
