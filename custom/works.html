@@ -1,104 +1,499 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title></title>
+    <title></title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/z3pnekdqv/precrafted-social.css">
+    <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/g6Fnsuud3/fixie-styles.css">
+    <!--bootstrap css-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script type="text/javascript" src="http://woolito.tumblr.com/api/read/json"></script>
 </head>
 <style type="text/css">
-	#work-header{
-		height: 100px;
-		width: 100%;
-		background-image: url('http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png');
-		background-size: 40% 230%;
-		background-repeat: no-repeat;
-		background-position: -100px -50px;
-	}
-	#selector{
-		width: 100%;
-		border: 5px #000 dashed;
-	}
-	.choice{
-		display: table-cell;
-		vertical-align: middle;
-		border: 1px #000 solid;
-	}
-	.choice label{
-		display: inline;
-	}
-	.choice input[type="checkbox"]{
-		display: inline;
-	}
-	ul{
-		padding: 0px;
-	}
-	ul li{
-		list-style-type: none;
-	}
-</style>
-<body>
-	<div id="work-header">
-	</div>
+body {
+    background-color: #e6e6e6;
+}
 
-	<table id="selector">
-		<tbody>
-			<tr>
-				<td>
-					<h4>原創內容 Original</h4>
-					<ul>
-						<li>
-							<div class="choice">
-								<label>原創角色 Original Character</label>
-								<input type="checkbox" name="selection" value="origin_character">
-							</div>
-						</li>
-						<li>
-							<div class="choice">
-								<label>原創角色 Original Character</label>
-								<input type="checkbox" name="selection" value="origin_character">
-							</div>
-						</li>
-						<li>
-							<div class="choice">
-								<label>原創角色 Original Character</label>
-								<input type="checkbox" name="selection" value="origin_character">
-							</div>
-						</li>
-						<li>
-							<div class="choice">
-								<label>原創角色 Original Character</label>
-								<input type="checkbox" name="selection" value="origin_character">
-							</div>
-						</li>
-					</ul>
-				</td>
-				<td>
-					<h4>動畫用途 Purpose</h4>
-				</td>
-				<td>
-					<h4>內容表現 Plot</h4>
-				</td>
-				<td>
-					<h4>視覺風格 Visual Style</h4>
-				</td>
-				<td>
-					<h4>動畫形式 Animation Style</h4>
-				</td>
-			</tr>
-		</tbody>
-	    <!-- <div id="selector-original">
-	    	
-	    </div>
-	    <div id="selector-purpose">
-	    	
-	    </div>
-	    <div id="selector-plot">
-	    	
-	    </div>
-	    <div id="selector-visual">
-	    	
-	    </div>
-	    <div id="selector-animation">
-	    	
-	    </div> -->
-	</table>
+#work-header {
+    height: 100px;
+    width: 100%;
+    background-image: url('http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png');
+    background-size: 40% 230%;
+    background-repeat: no-repeat;
+    background-position: -100px -50px;
+}
+
+#selector {
+    width: 100%;
+}
+
+table,
+td {
+    border: 5px #000 dashed;
+    border-collapse: collapse;
+}
+
+td {
+    border-collapse: separate;
+    vertical-align: top;
+}
+
+.choice {
+    border-radius: 10px;
+    display: table-cell;
+    vertical-align: middle;
+    border: 1px #000 solid;
+    padding: 4px;
+}
+
+.choice label {
+    display: inline;
+}
+
+.choice input[type="radio"] {
+    display: inline;
+}
+
+ul {
+    padding: 0px;
+}
+
+ul li {
+    list-style-type: none;
+    margin: 5px;
+}
+
+.arrow_up {}
+
+.arrow_down,
+#effect span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.arrow_down {
+    display: table-cell;
+    vertical-align: middle;
+    -ms-transform: rotate(0deg);
+    /* IE 9 */
+    -webkit-transform: rotate(0deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(0deg);
+}
+
+.arrow_down img {
+    height: 30px;
+    width: 30px;
+}
+
+#effect {
+    display: table;
+    vertical-align: middle;
+}
+
+.top-posts {
+    padding: 32px;
+}
+
+#select_section {
+    background-color: #fff;
+    margin: 2px;
+    padding: 7px;
+}
+</style>
+<script>
+$(function() {
+    // run the currently selected effect
+    function runEffect() {
+        var options = {};
+        $('#selector').toggle('blind', function() {
+            if ($(this).is(':hidden')) {
+                $(".arrow_down").css("transform", "rotate(180deg)");
+                // console.log('This element is hidden.');
+            } else {
+                $(".arrow_down").css("transform", "rotate(0deg)");
+                // console.log('This element is visible.');
+            }
+        }, 500);
+    };
+
+    // set effect from select menu value
+    $("#effect").click(function() {
+        runEffect();
+    });
+
+    // $("input[name='selection']").    
+    $("input[name='selection']").click(enable_radio);
+
+    function enable_radio() {
+        if ($(this).is(":checked")) {
+            var label_text = $(this).parent().find("label").text();
+            var end_index = label_text.indexOf(" ");
+            label_text = label_text.substring(0, end_index);
+            console.log(label_text);
+            $("#chosen").text(label_text);
+        }
+    }
+
+    query_post();
+
+    function query_post() {
+        var tumblr_data = tumblr_api_read;
+        console.log(tumblr_data);
+    }
+});
+</script>
+
+<body ng-app="myApp">
+    <header>
+        <div class="center">
+            <div class="centered">
+                <div id="shortcut">
+                    <div class="avatar">
+                        <a href="/" title="Woolito Studio" class="avatar circle">
+                            <img src="http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" alt="Woolito Studio" class="default">
+                        </a>
+                    </div>
+                    <div class="logo">
+                        <h1><a href="/" title="Woolito Studio">Woolito Studio</a></h1>
+                    </div>
+                    <p class="description">我們努力創作並分享笑容，希望能為彼此的生活點綴一些無厘頭的樂趣！</p>
+                    <div class="social_network">
+                        <img src="http://static.tumblr.com/sirdwhf/vcKo81mrj/facebook.png">
+                        <img src="http://static.tumblr.com/sirdwhf/eI6o81mt8/youtube.png">
+                        <img src="http://static.tumblr.com/sirdwhf/pFco81mtq/line.png">
+                        <img src="http://static.tumblr.com/sirdwhf/2fVo81mu3/instagram.png">
+                    </div>
+                </div>
+                <nav>
+                    <div id="navigation">
+                        <ul>
+                            <li>
+                                <a href="aboutus">
+                                    <div class="navigation-bottom"></div>
+                                    <div class="navigation-icon">
+                                        <img src="http://static.tumblr.com/3hbpjha/MMqo7ifnd/icon-about.png">
+                                        <span>About Woolito</span>
+                                    </div>
+                                    <div class="navigation-label">
+                                        關於我們
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="service">
+                                    <div class="navigation-bottom"></div>
+                                    <div class="navigation-icon">
+                                        <img src="http://static.tumblr.com/3hbpjha/4Aoo7if62/icon-service.png">
+                                        <span>Service</span>
+                                    </div>
+                                    <div class="navigation-label">
+                                        商業服務
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="works">
+                                    <div class="navigation-bottom"></div>
+                                    <div class="navigation-icon">
+                                        <img src="http://static.tumblr.com/3hbpjha/WqPo7if64/icon-works.png">
+                                        <span>Works</span>
+                                    </div>
+                                    <div class="navigation-label">
+                                        作品集
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="contact">
+                                    <div class="navigation-bottom"></div>
+                                    <div class="navigation-icon">
+                                        <img src="http://static.tumblr.com/3hbpjha/7rDo7ife4/icon-contact.png">
+                                        <span>Contact</span>
+                                    </div>
+                                    <div class="navigation-label">
+                                        聯繫我們
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="shop">
+                                    <div class="navigation-bottom"></div>
+                                    <div class="navigation-icon">
+                                        <img src="http://static.tumblr.com/3hbpjha/YpNo7if63/icon-shop.png">
+                                        <span>Shop</span>
+                                    </div>
+                                    <div class="navigation-label">
+                                        原創商品
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul>
+                        <!--<li><a href="/business" title="企業合作伙伴">企業合作伙伴</a></li>-->
+                        <!--<li><a href="/dms" title="Woolito 專業動畫製作團隊">Woolito 專業動畫製作團隊</a></li>-->
+                    </ul>
+                    <ul class="social-menu">
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <section class="top-posts index">
+        <div id="select_section">
+            <div id="work-header">
+            </div>
+            <div class="toggle">
+                <table id="selector">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h4>原創內容 Original</h4>
+                                <ul>
+                                    <li>
+                                        <div class="choice">
+                                            <label for="origin_character">原創角色 Original Character</label>
+                                            <input type="radio" id="origin_character" name="selection" value="origin_character">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label for="origin_sticker">原創貼圖 Original Sticker</label>
+                                            <input type="radio" id="origin_sticker" name="selection" value="origin_sticker">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label for="origin_animation">原創動畫 Original Animation</label>
+                                            <input type="radio" id="origin_animation" name="selection" value="origin_animation">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label for="origin_film">原創影片 Original Film</label>
+                                            <input type="radio" id="origin_film" name="selection" value="origin_film">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label for="origin_picture">原創圖文 Original Picture</label>
+                                            <input type="radio" id="origin_picture" name="selection" value="origin_picture">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <h4>動畫用途 Purpose</h4>
+                                <ul>
+                                    <li>
+                                        <div class="choice">
+                                            <label for="animated_stickers">動態貼圖 Animated Stickers</label>
+                                            <input type="radio" id="animated_stickers" name="selection" value="animated_stickers">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label for="event_promote">活動宣傳 Event Promote</label>
+                                            <input type="radio" id="event_promote" name="selection" value="event_promote">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label for="product_introduce">服務/產品介紹 Service / Product Introduce</label>
+                                            <input type="radio" id="product_introduce" name="selection" value="product_introduce">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label for="propaganda_film">宣導影片 Propaganda Film</label>
+                                            <input type="radio" id="propaganda_film" name="selection" value="propaganda_film">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label for="drama_animation">劇情動畫 Drama Animation</label>
+                                            <input type="radio" id="drama_animation" name="selection" value="drama_animation">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label for="opening">片頭片尾 Opening / Run out</label>
+                                            <input type="radio" id="opening" name="selection" value="opening">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label for="wedding_animation">婚禮動畫 Wedding Animation</label>
+                                            <input type="radio" id="wedding_animation" name="selection" value="wedding_animation">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <h4>內容表現 Plot</h4>
+                                <ul>
+                                    <li>
+                                        <div class="choice">
+                                            <label for="government_project">政府專案 Government Project</label>
+                                            <input type="radio" id="government_project" name="selection" value="government_project">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label for="famous_illustrator">知名插畫家代言 Famous Illustrator</label>
+                                            <input type="radio" id="famous_illustrator" name="selection" value="famous_illustrator">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label for="professional_introduce">專業介紹 Professional Introduce</label>
+                                            <input type="radio" id="professional_introduce" name="selection" value="professional_introduce">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label for="comedy_story">趣味故事 Comedy Story</label>
+                                            <input type="radio" id="comedy_story" name="selection" value="comedy_story">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label>浪漫感人 Romance</label>
+                                            <input type="radio" name="selection" value="romance">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <h4>視覺風格 Visual Style</h4>
+                                <ul>
+                                    <li>
+                                        <div class="choice">
+                                            <label>歐美 Western</label>
+                                            <input type="radio" name="selection" value="western">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label>日式 Anime</label>
+                                            <input type="radio" name="selection" value="anime">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label>可愛 Cute</label>
+                                            <input type="radio" name="selection" value="cute">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label>簡約 Simple</label>
+                                            <input type="radio" name="selection" value="simple">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label>科技 Technology</label>
+                                            <input type="radio" name="selection" value="technology">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label>插畫 Illustration</label>
+                                            <input type="radio" name="selection" value="illustration">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                <h4>動畫形式 Animation Style</h4>
+                                <ul>
+                                    <li>
+                                        <div class="choice">
+                                            <label for="2d_animation">2D動畫 2D Animation</label>
+                                            <input type="radio" id="2d_animation" name="selection" value="2d_animation">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label>停格動畫 Stop Motion</label>
+                                            <input type="radio" name="selection" value="stop_motion">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label>動態漫畫 Moving Comic</label>
+                                            <input type="radio" name="selection" value="moving_comic">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label>動態圖像 Motion Graphic</label>
+                                            <input type="radio" name="selection" value="motion_graphic">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label>3D動畫 3D Animation</label>
+                                            <input type="radio" name="selection" value="3d_animation">
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="choice">
+                                            <label>角色動畫 Character Animation</label>
+                                            <input type="radio" name="selection" value="character_animation">
+                                        </div>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="effect">
+                <div class="arrow_down">
+                    <img src="http://static.tumblr.com/sirdwhf/NSNo893xp/arrow.png">
+                </div>
+                <span>作品篩選：</span>
+                <span id="chosen">全部</span>
+                <span>&nbsp/&nbsp</span>
+                <span>168部作品</span>
+            </div>
+        </div>
+        <div class="posts-holder posts-grid" ng-controller="ctrl_post_photo">
+            <div w3-test-directive  ng-repeat="friend in friends"></div>
+        </div>
+    </section>
 </body>
+<script type="text/javascript">
+var app = angular.module("myApp", []);
+app.controller('ctrl_post_photo', function($scope) {
+    $scope.friends = tumblr_api_read.posts;
+});
+app.directive("w3TestDirective", function() {
+    return {
+        restrict: "A",
+        templateUrl: "post_photo.html"
+    };
+});
+app.filter('post_type', function() {
+    return function(type) {
+        switch(type){
+            case 'regular':
+                return "type_text";
+            case 'photo':
+                return "type_photo";
+            default:
+                return type;
+        }
+    };
+});
+</script>
+
 </html>
