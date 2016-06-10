@@ -5,22 +5,71 @@
     <title></title>
     <!-- jQuery 1.11.3 -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- <script type="text/javascript" src="require.js"></script> -->
-    <!-- <script type="text/javascript" src="tumblr.js"></script> -->
+    <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
+    <!-- Tumblr api -->
     <script type="text/javascript" src="http://woolito-beta.tumblr.com/api/read/json"></script>
 </head>
 <style type="text/css">
-#menu{
-	position: fixed;
-	display: inline-block;
-	width: 25%;
-	overflow: hidden;
+* {
+    box-sizing: border-box;
 }
-#content{
-	float: right;
-	display: inline-block;
-	width: 74%;
-	/*overflow:auto*/
+
+body {
+    font-family: sans-serif;
+}
+
+
+/* ---- grid ---- */
+
+.grid {
+    background: #EEE;
+    max-width: 1200px;
+}
+
+
+/* clearfix */
+
+.grid:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+
+/* ---- grid-item ---- */
+
+.grid-sizer,
+.grid-item {
+    width: 20%;
+}
+
+.grid-item {
+    height: 120px;
+    float: left;
+    background: #D26;
+    border: 2px solid #333;
+    border-color: hsla(0, 0%, 0%, 0.5);
+    border-radius: 5px;
+}
+
+.grid-item--width2 {
+    width: 40%;
+}
+
+.grid-item--width3 {
+    width: 60%;
+}
+
+.grid-item--height2 {
+    height: 200px;
+}
+
+.grid-item--height3 {
+    height: 260px;
+}
+
+.grid-item--height4 {
+    height: 360px;
 }
 </style>
 <script type="text/javascript">
@@ -28,35 +77,42 @@ console.log(tumblr_api_read);
 </script>
 
 <body>
-    <div id="menu">
-    	<div id="menu-content">
-    		<h3>menu</h3>	
-    	</div>
-    </div>
-    <div id="content">
-    	<h3>content</h3>
-    	<h3>content</h3>
-    	<h3>content</h3>
-    	<h3>content</h3>
-    	<h3>content</h3>
-    	<h3>content</h3>
-    	<h3>content</h3>
-    	<h3>content</h3>
-    	<h3>content</h3>
-    	<h3>content</h3>
-    	<h3>content</h3>
-    	<h3>content</h3>
-    	<h3>content</h3>
-    	<h3>content</h3>
-    	<h3>content</h3>
-    	<h3>content</h3>
-    	<h3>content</h3>
-    	<h3>content</h3>
-    	<h3>content</h3>
-    	<h3>content</h3>
-    	<h3>content</h3>
-
+    <h1>Masonry - fluid columnWidth</h1>
+    <div class="grid">
+        <div class="grid-sizer"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--width2 grid-item--height2"></div>
+        <div class="grid-item grid-item--height3"></div>
+        <div class="grid-item grid-item--height2"></div>
+        <div class="grid-item grid-item--width3"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--height2"></div>
+        <div class="grid-item grid-item--width2 grid-item--height3"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--height2"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--width2 grid-item--height2"></div>
+        <div class="grid-item grid-item--width2"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--height2"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--height3"></div>
+        <div class="grid-item grid-item--height2"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item grid-item--height2"></div>
     </div>
 </body>
+<script type="text/javascript">
+// external js: masonry.pkgd.js
+
+$('.grid').masonry({
+    itemSelector: '.grid-item',
+    columnWidth: '.grid-sizer',
+    percentPosition: true
+});
+</script>
 
 </html>

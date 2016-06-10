@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
     <script type="text/javascript" src="http://woolito.tumblr.com/api/read/json"></script>
 </head>
@@ -193,23 +194,6 @@ article,
 .grid-item {
     width: 33.33%;
 }
-
-.grid-item {
-    background-color: #fff;
-    /*margin: 2px;*/
-    border: 2px #e6e6e6 solid;
-}
-
-.article_content iframe {
-    width: 100%;
-    /*height: auto;*/
-}
-
-.video-container iframe {
-    width: 100%;
-    height: 300px;
-    /*height: auto;*/
-}
 </style>
 <style type="text/css">
 * {
@@ -353,6 +337,7 @@ body {
                             <td>
                                 <h4>原創內容 Original</h4>
                                 <ul id="Original">
+                                    <li><div class="choice"><label for="origin_character">原創角色 Origin Character</label><input type="radio" ng-click="$scope.enable_radio($event)" name="selection" value="origin_character" id="origin_character"></div></li>
                                 </ul>
                             </td>
                             <td>
@@ -380,7 +365,7 @@ body {
                 </table>
             </div>
             <div id="effect">
-                <div class="arrow_down" onclick="runEffect()">
+                <div class="arrow_down" ng-click="runEffect()">
                     <img src="http://static.tumblr.com/sirdwhf/NSNo893xp/arrow.png">
                 </div>
                 <span>作品篩選：</span>
@@ -415,224 +400,135 @@ body {
 </body>
 <script type="text/javascript">
 // external js: masonry.pkgd.js
-$(window).on('load', function() {
-    $('.grid').masonry({
-        itemSelector: '.grid-item',
-        columnWidth: '.grid-sizer',
-        percentPosition: true
-    });
+$('.grid').masonry({
+    itemSelector: '.grid-item',
+    columnWidth: '.grid-sizer',
+    percentPosition: true
 });
 </script>
 <script type="text/javascript">
-$(function() {
-    $('#selector').toggle('blind', function() {
-        $(".arrow_down").css("transform", "rotate(180deg)");
-    });
-    initSelector();
-    query_post("");
+var app = angular.module("myApp", []);
+app.controller('ctrl-post', function($scope, $http) {
+    $scope.posts = tumblr_api_read.posts;
+
+    $scope.init = function() {
+        $http.get('https://spreadsheets.google.com/feeds/list/1HjUlFgljXvK76g2wEGAAlBpGTZKkHUZBIdBTM4BVmZs/od6/public/values?alt=json').success(function(data) {
+            console.log(data);
+            for (var i = 0; i < data.feed.entry.length; i++) {
+                var post = data.feed.entry[i];
+                var type = post.gsx$type.$t;
+                var chinese = post.gsx$chinese.$t;
+                var english = post.gsx$english.$t;
+                var tag = post.gsx$tag.$t;
+
+                type = "#" + type;
+                var element = $(type);
+
+                var html = "";
+                var li_element = $("<li></li>");
+                var div_element = $("<div></div>");
+                div_element.addClass("choice");
+                var label_element = $("<label></label>");
+                label_element.attr("for", tag);
+                label_element.text(chinese + " " + english);
+                var input_element = $('<input type="radio" ng-click="enable_radio($event)">');
+                input_element.attr("name", "selection");
+                input_element.val(tag);
+                input_element.attr("id", tag);
+                div_element.append(label_element);
+                div_element.append(input_element);
+                li_element.append(div_element);
+
+                element.append(li_element);
+            }
+        });
+    };
+
+    $scope.init();
+
+    $scope.enable_radio = function($event) {
+        console.log("hi");
+        var currentTarget = $($event.currentTarget);
+        console.log(currentTarget);
+        if (currentTarget.is(":checked")) {
+            var label_text = currentTarget.parent().find("label").text();
+            var end_index = label_text.indexOf(" ");
+            label_text = label_text.substring(0, end_index);
+            var selected_tag = currentTarget.val();
+            $("#chosen").text(label_text);
+            // console.log(label_text);
+            $scope.runEffect();
+            $scope.query_post(selected_tag);
+        }
+    }
+
+    $scope.runEffect = function() {
+        var options = {};
+        $('#selector').toggle('blind', function() {
+            if ($(this).is(':hidden')) {
+                $(".arrow_down").css("transform", "rotate(180deg)");
+                // console.log('This element is hidden.');
+            } else {
+                $(".arrow_down").css("transform", "rotate(0deg)");
+                // console.log('This element is visible.');
+            }
+        }, 500);
+    }
+
+    $scope.query_post = function(tag) {
+        var posts = [];
+        var tags = [];
+        var tumblr_data = tumblr_api_read.posts;
+        // console.log(tumblr_data);
+        for (var i = 0; i < tumblr_data.length; i++) {
+            if (tag == "") {
+                posts = tumblr_data;
+                continue;
+            }
+            try {
+                tags = tumblr_data[i].tags;
+                if (tags == undefined) {
+                    tags = [];
+                };
+                if (tags.indexOf(tag) > -1) {
+                    posts.push(tumblr_data[i]);
+                }
+            } catch (err) {
+                console.log(err);
+                continue;
+            }
+        }
+        $("#total_post").text(posts.length);
+        $scope.render_posts(posts);
+    }
+
+    $scope.render_posts = function(posts) {}
 });
 
-function initSelector() {
-    $.ajax({
-        dataType: "json",
-        url: 'https://spreadsheets.google.com/feeds/list/1HjUlFgljXvK76g2wEGAAlBpGTZKkHUZBIdBTM4BVmZs/od6/public/values?alt=json'
-    }).done(function(data) {
-        for (var i = 0; i < data.feed.entry.length; i++) {
-            var post = data.feed.entry[i];
-            var type = post.gsx$type.$t;
-            var chinese = post.gsx$chinese.$t;
-            var english = post.gsx$english.$t;
-            var tag = post.gsx$tag.$t;
-
-            type = "#" + type;
-            var element = $(type);
-
-            var html = "";
-            var li_element = $("<li></li>");
-            var div_element = $("<div></div>");
-            div_element.addClass("choice");
-            var label_element = $("<label></label>");
-            label_element.attr("for", tag);
-            label_element.text(chinese + " " + english);
-            var input_element = $('<input type="radio">');
-            input_element.attr("onclick", "enable_radio(this)");
-            input_element.attr("name", "selection");
-            input_element.val(tag);
-            input_element.attr("id", tag);
-            div_element.append(label_element);
-            div_element.append(input_element);
-            li_element.append(div_element);
-
-            element.append(li_element);
-        }
-    });
-}
-
-function enable_radio(element) {
-    var currentTarget = $(element);
-    if (currentTarget.is(":checked")) {
-        var label_text = currentTarget.parent().find("label").text();
-        var end_index = label_text.indexOf(" ");
-        label_text = label_text.substring(0, end_index);
-        var selected_tag = currentTarget.val();
-        $("#chosen").text(label_text);
-        runEffect();
-        query_post(selected_tag);
-    }
-}
-
-function runEffect() {
-    var options = {};
-    $('#selector').toggle('blind', function() {
-        if ($(this).is(':hidden')) {
-            $(".arrow_down").css("transform", "rotate(180deg)");
-            // console.log('This element is hidden.');
-        } else {
-            $(".arrow_down").css("transform", "rotate(0deg)");
-            // console.log('This element is visible.');
-        }
-    }, 500);
-}
-
-function query_post(tag) {
-    console.log(tag);
-    var posts = [];
-    var tags = [];
-    var tumblr_data = tumblr_api_read.posts;
-    for (var i = 0; i < tumblr_data.length; i++) {
-        if (tag == "") {
-            posts = tumblr_data;
-            continue;
-        }
-        try {
-            tags = tumblr_data[i].tags;
-            if (tags == undefined) {
-                tags = [];
-            };
-            if (tags.indexOf(tag) > -1) {
-                posts.push(tumblr_data[i]);
-            }
-        } catch (err) {
-            console.log(err);
-            continue;
-        }
-    }
-    $("#total_post").text(posts.length);
-    render_posts(posts);
-}
-
-function render_posts(posts) {
-    var grid_holder = $(".grid");
-    grid_holder.html('<div class="grid-sizer"></div>');
-
-    for (var i = 0; i < posts.length; i++) {
-        var post_type = posts[i].type;
-        var post_html = null;
-        switch (post_type) {
-            case "video":
-                post_html = render_video(posts[i]);
-                break;
-            case "regular":
-                post_html = render_text(posts[i]);
-                break;
-            case "photo":
-                post_html = render_photo(posts[i]);
-                break;
+app.directive("directiveText", function() {
+    return {
+        restrict: "A",
+        templateUrl: "post_text.html"
+    };
+});
+app.directive("directivePhoto", function() {
+    return {
+        restrict: "A",
+        templateUrl: "post_photo.html"
+    };
+});
+app.filter('post_type', function() {
+    return function(type) {
+        switch (type) {
+            case 'regular':
+                return "type_text";
+            case 'photo':
+                return "type_photo";
             default:
-                break;
+                return type;
         }
-        grid_holder.append(post_html);
-    }
-}
-
-function render_photo(post) {
-    console.log("photo");
-    var article = $("<div></div>");
-    article.attr("id", post.id);
-    article.addClass("type_photo grid-item");
-    article.attr("rel", post['url-with-slug']);
-    var article_content = $('<div class="article-content"></div>');
-    var photo_wrap = $('<div class="photo-wrap post"></div>');
-    var photo_post = $('<div class="photo--post"></div>')
-    var photo_link = $('<a href="' + post['url-with-slug'] + '"></a>')
-    var photo_img = $('<img src="' + post['photo-url-400'] + '" data-highres="' + post['photo-url-1280'] + '" alt="' + post.slug + '">')
-    photo_link.append(photo_img);
-    photo_post.append(photo_link);
-    photo_wrap.append(photo_post);
-    var caption = $('<div class="caption">' + post['photo-caption'] + '</div>');
-    article_content.append(photo_wrap).append(caption);
-    // var icon = render_icon(post);
-    // article_content.append(icon);
-    article.append(article_content);
-    return article;
-}
-
-function render_video(post) {
-    var article = $("<div></div>");
-    article.attr("id", post.id);
-    article.addClass("type_video grid-item");
-    article.attr("rel", post['url-with-slug']);
-    var article_content = $('<div class="article-content"></div>');
-    var video_stage = $("<div class='video-stage'></div>");
-    var video_container = $("<div class='video-container ready video' id='" + post.id + "'></div>");
-    var iframe = render_iframe(post);
-    // var shortcut = video_shortcut(post);
-    // video_container.append(shortcut);
-    video_container.append(iframe);
-    video_stage.append(video_container);
-    var caption = $('<div class="caption">' + post['video-caption'] + '</div>');
-    article_content.append(video_stage).append(caption);
-    // var icon = render_icon(post);
-    // article_content.append(icon);
-    article.append(article_content);
-    return article;
-}
-
-function render_text(post) {
-    var article = $("<div></div>");
-    article.attr("id", post.id);
-    article.addClass("type_text grid-item");
-    article.attr("rel", post['url-with-slug']);
-    var article_content = $("<div></div>");
-    article_content.addClass("article_content");
-    var title = $("<h2></h2>");
-    var title_link = $("<a href='" + post['url-with-slug'] + "' title='" + post['regular-title'] + "'>" + post.slug + "</a>");
-    title.append(title_link);
-    var body = $(post['regular-body']);
-    article_content.append(title).append(body);
-    // var icon = render_icon(post);
-    // article_content.append(icon);
-    article.append(article_content);
-    return article;
-}
-
-function render_icon(post) {
-    var ul = $("<ul class='icons'></ul>");
-    var li_link = $('<li class="link"><a href="' + post['url-with-slug'] + '" title="View Post" class="social-eye"></a></li>');
-    var li_like = $('<li class="like"><div class="like_button" data-post-id="' + post.id + '" data-blog-name="woolito" id="like_button_' + post.id + '"></div></li>');
-    var iframe = $('<iframe id="like_iframe_' + post.id + '" src="http://assets.tumblr.com/assets/html/like_iframe.html?_v=c301660e229be2b44e2e912486577f3c#name=woolito&post_id=' + post.id + '&color=black&rk=' + post['reblog-key'] + '&root_id=' + post.id + '" scrolling="no" class="like_toggle" allowtransparency="true" name="like_iframe_' + post.id + '" width="16" height="16" frameborder="0"></iframe>');
-    li_like.append(iframe);
-    var li_reblog = $('<li class="reblog"><i class="reblog-icon"><a href="https://www.tumblr.com/reblog/' + post.id + '/' + post['reblog-key'] + '" class="reblog_button"><svg width="100%" height="100%" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000"><path d="M5.01092527,5.99908429 L16.0088498,5.99908429 L16.136,9.508 L20.836,4.752 L16.136,0.083 L16.1360004,3.01110845 L2.09985349,3.01110845 C1.50585349,3.01110845 0.979248041,3.44726568 0.979248041,4.45007306 L0.979248041,10.9999998 L3.98376463,8.30993634 L3.98376463,6.89801007 C3.98376463,6.20867902 4.71892527,5.99908429 5.01092527,5.99908429 Z"></path><path d="M17.1420002,13.2800293 C17.1420002,13.5720293 17.022957,14.0490723 16.730957,14.0490723 L4.92919922,14.0490723 L4.92919922,11 L0.5,15.806 L4.92919922,20.5103758 L5.00469971,16.9990234 L18.9700928,16.9990234 C19.5640928,16.9990234 19.9453125,16.4010001 19.9453125,15.8060001 L19.9453125,9.5324707 L17.142,12.203"></path></svg></a></i></li>')
-    var li_share = $('<li class="sharer"><a class="social-export"></a><div class="sharer-wrap"><ul><li class ="twitter">< a href = "https://twitter.com/intent/tweet?url=' + post['url-with-slug'] + '" title="Share on Twitter" class="social-tweets" target="_blank"></a></li><li class="facebook"><a href="http://www.facebook.com/sharer.php?u=' + post['url-with-slug'] + '" title="Share on Facebook" class="social-facebook" target="_blank" ></a></li><li class="gplus"><a href="https://plus.google.com/share?url=' + post['url-with-slug'] + '" title="Share on Google +" class ="social-gplus" target="_blank"></a></li><li class="pinterest" ><a href="https://pinterest.com/pin/create/button/?url=' + post['url-with-slug'] + '&amp;media=http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" title="Share on Pinterest" class="social-pinterest" target="_blank"></a></li></ul></div></li>');
-    ul.append(li_link).append(li_like).append(li_reblog).append(li_share);
-    return ul;
-}
-
-function video_shortcut(post) {
-
-}
-
-function render_iframe(post) {
-    var video_source = (post['video-player-250']);
-
-    if (video_source.indexOf("youtube") > -1) {
-        return video_source;
-    }
-
-    var url = 'https://www.tumblr.com/video/woolito/' + post.id + '/700/'
-    var html = $('<iframe src="' + url + '" class="embed_iframe tumblr_video_iframe" scrolling="no" frameborder="0" data-can-gutter data-can-resize allowfullscreen mozallowfunscreen webkitallowfullscreen></iframe>')
-    return html;
-}
+    };
+});
 </script>
 
 </html>
