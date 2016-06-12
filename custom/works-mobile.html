@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/z3pnekdqv/precrafted-social.css">
+    <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/g6Fnsuud3/fixie-styles.css">
+    <!--bootstrap css-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/css/bootstrap-drawer.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/js/drawer.min.js"></script>
+    <script type="text/javascript" src="http://woolito.tumblr.com/api/read/json"></script>
+</head>
+<style type="text/css">
+.container {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
+/* container header */
+
+#header {
+    display: table;
+    margin: 10px;
+}
+
+#header .drawer_icon {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#header .title {
+    display: table-cell;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+
+/* posts-holder */
+
+
+/* select-section */
+#select-section{
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    z-index: 1036;
+}
+/* selector */
+#selector {
+    width: 100%;
+    height: 25px;
+    transform: rotate(0deg);
+    display: table;
+    background-color: #73A89A;
+    padding: 5px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#selector .arrow {
+    display: table-cell;
+    height: 25px;
+    vertical-align: middle;
+}
+
+#selector .arrow img {
+    height: 100%;
+    width: auto;
+}
+
+#selector span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+/* accordion */
+
+#accordion {
+    display: none;
+}
+#accordion h3{
+    font-size: 1em;
+    margin: 0px;
+}
+</style>
+
+<body class="has-drawer">
+    <div id="drawerExample" class="drawer dw-xs-10 dw-sm-6 dw-md-4 fold" aria-labelledby="drawerExample">
+        <div class="drawer-controls">
+            <a href="#drawerExample" data-toggle="drawer" aria-foldedopen="false" aria-controls="drawerExample" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
+        </div>
+        <div class="drawer-contents">
+            <div class="drawer-body">
+                <header>
+                    <div class="center">
+                        <div class="centered">
+                            <div id="shortcut">
+                                <div class="avatar">
+                                    <a href="/" title="Woolito Studio" class="avatar circle">
+                                        <img src="http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" alt="Woolito Studio" class="default">
+                                    </a>
+                                </div>
+                                <div class="logo">
+                                    <h1><a href="/" title="Woolito Studio">Woolito Studio</a></h1>
+                                </div>
+                                <p class="description">我們努力創作並分享笑容，希望能為彼此的生活點綴一些無厘頭的樂趣！</p>
+                                <div class="social_network">
+                                    <img src="http://static.tumblr.com/sirdwhf/vcKo81mrj/facebook.png">
+                                    <img src="http://static.tumblr.com/sirdwhf/eI6o81mt8/youtube.png">
+                                    <img src="http://static.tumblr.com/sirdwhf/pFco81mtq/line.png">
+                                    <img src="http://static.tumblr.com/sirdwhf/2fVo81mu3/instagram.png">
+                                </div>
+                            </div>
+                            <nav>
+                                <div id="navigation">
+                                    <ul>
+                                        <li>
+                                            <a href="aboutus">
+                                                <div class="navigation-bottom"></div>
+                                                <div class="navigation-icon">
+                                                    <img src="http://static.tumblr.com/3hbpjha/MMqo7ifnd/icon-about.png">
+                                                    <span>About Woolito</span>
+                                                </div>
+                                                <div class="navigation-label">
+                                                    關於我們
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="service">
+                                                <div class="navigation-bottom"></div>
+                                                <div class="navigation-icon">
+                                                    <img src="http://static.tumblr.com/3hbpjha/4Aoo7if62/icon-service.png">
+                                                    <span>Service</span>
+                                                </div>
+                                                <div class="navigation-label">
+                                                    商業服務
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="works">
+                                                <div class="navigation-bottom"></div>
+                                                <div class="navigation-icon">
+                                                    <img src="http://static.tumblr.com/3hbpjha/WqPo7if64/icon-works.png">
+                                                    <span>Works</span>
+                                                </div>
+                                                <div class="navigation-label">
+                                                    作品集
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="contact">
+                                                <div class="navigation-bottom"></div>
+                                                <div class="navigation-icon">
+                                                    <img src="http://static.tumblr.com/3hbpjha/7rDo7ife4/icon-contact.png">
+                                                    <span>Contact</span>
+                                                </div>
+                                                <div class="navigation-label">
+                                                    聯繫我們
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="shop">
+                                                <div class="navigation-bottom"></div>
+                                                <div class="navigation-icon">
+                                                    <img src="http://static.tumblr.com/3hbpjha/YpNo7if63/icon-shop.png">
+                                                    <span>Shop</span>
+                                                </div>
+                                                <div class="navigation-label">
+                                                    原創商品
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <ul class="social-menu">
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </header>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div id="header">
+            <span class="drawer_icon btn btn-primary btn-sm"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></span>
+            <div class="title">Woolito Studio</div>
+            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+        </div>
+        <section class="top-posts index">
+            <div class="grid">
+                <div class="grid-sizer"></div>
+            </div>
+            <div id="readmore" class="loa-dmore">
+                <button class="load-more-loading" onclick="readmore()">Loading</button>
+                <button class="load-more-end" onclick="readmore()">No More Posts</button>
+                <button class="load-more-text" onclick="readmore()">LOAD MORE POSTS</button>
+            </div>
+        </section>
+    </div>
+    <div id="select-section">
+        <div id="selector" onclick="runEffect()">
+            <div class="arrow">
+                <img src="http://static.tumblr.com/sirdwhf/NSNo893xp/arrow.png" onclick="runEffect()">
+            </div>
+            <span>作品篩選：</span>
+            <span id="chosen">全部</span>
+            <span>&nbsp/&nbsp</span>
+            <span id="total_post">168</span>
+            <span>&nbsp部作品</span>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+var posts;
+var current_posts_number = 6;
+$(function() {
+    var window_width = $("html").width();
+    console.log(window_width);
+    // if (window_width <= 400) {
+    //     var section = $("section");
+    //     $('.container').append(section);
+    // }
+    // $('#selector').toggle('blind', function() {
+    //     $(".arrow").css("transform", "rotate(0deg)");
+    // });
+    initSelector();
+    // query_post("");
+});
+
+function readmore() {
+
+}
+
+function initSelector() {
+    $.ajax({
+        dataType: "json",
+        url: 'https://spreadsheets.google.com/feeds/list/1HjUlFgljXvK76g2wEGAAlBpGTZKkHUZBIdBTM4BVmZs/od6/public/values?alt=json'
+    }).done(function(data) {
+        var current_type = "";
+        var accordion_element = $("<div id='accordion'></div>");
+        var div_element = null;
+        for (var i = 0; i < data.feed.entry.length; i++) {
+            var post = data.feed.entry[i];
+            var type = post.gsx$type.$t;
+            var chinese = post.gsx$chinese.$t;
+            var english = post.gsx$english.$t;
+            var tag = post.gsx$tag.$t;
+            if (current_type == type) {
+                var choice_element = $("<div class='choice'></div>");
+                var label_element = $("<label></label>");
+                label_element.attr("for", tag);
+                label_element.text(chinese + " " + english);
+                var input_element = $('<input type="radio">');
+                input_element.attr("onclick", "enable_radio(this)");
+                input_element.attr("name", "selection");
+                input_element.val(tag);
+                input_element.attr("id", tag);
+                choice_element.append(label_element);
+                choice_element.append(input_element);
+                div_element.append(choice_element);
+            } else {
+                if (div_element) {
+                    accordion_element.append(div_element);
+                    div_element = null;
+                }
+                var h3_element = $("<h3>" + type + "</h3>");
+                current_type = type;
+                accordion_element.append(h3_element);
+                if (!div_element) {
+                    div_element = $("<div></div>");
+                }
+            }
+        }
+        $(accordion_element).insertAfter($("#selector"));
+        $( "#accordion" ).accordion({
+            collapsible: true,
+            heightStyle: "content"
+        });
+    });
+}
+
+function enable_radio(element) {
+    var currentTarget = $(element);
+    console.log(element);
+    if (currentTarget.is(":checked")) {
+        var label_text = currentTarget.parent().find("label").text();
+        currentTarget.parent().find("img").attr("src", "http://static.tumblr.com/sirdwhf/yRso8llbo/radio_checkd.png");
+        currentTarget.parent().css("background-color", "#84C2AF");
+        var choices = currentTarget.parent().parent().parent().parent().parent().find(".choice");
+        for (var i = 0; i < choices.length; i++) {
+            console.log()
+            if (!$(choices[i]).find("input").is(":checked")) {
+                $(choices[i]).css("background-color", "#fff");
+                $(choices[i]).find("img").attr("src", "http://static.tumblr.com/sirdwhf/0Iso8llbp/radio_uncheckd.png");
+            }
+        }
+        console.log(choices);
+        var end_index = label_text.indexOf(" ");
+        label_text = label_text.substring(0, end_index);
+        var selected_tag = currentTarget.val();
+        $("#chosen").text(label_text);
+        // runEffect();
+        $("#accordion").css("display", "none");
+        query_post(selected_tag);
+    }
+}
+
+function runEffect() {
+    $("#accordion").css("display", "block");
+    // var options = {};
+    // $('#selector').toggle('blind', function() {
+    //     if ($(this).is(':hidden')) {
+    //         $(".arrow").css("transform", "rotate(180deg)");
+    //         // console.log('This element is hidden.');
+    //     } else {
+    //         $(".arrow").css("transform", "rotate(0deg)");
+    //         // console.log('This element is visible.');
+    //     }
+    // }, 500);
+}
+
+function query_post(tag) {
+    var posts = [];
+    var tags = [];
+    var tumblr_data = tumblr_api_read.posts;
+    for (var i = 0; i < tumblr_data.length; i++) {
+        if (tag == "") {
+            posts = tumblr_data;
+            continue;
+        }
+        try {
+            tags = tumblr_data[i].tags;
+            if (tags == undefined) {
+                tags = [];
+            };
+            if (tags.indexOf(tag) > -1) {
+                posts.push(tumblr_data[i]);
+            }
+        } catch (err) {
+            console.log(err);
+            continue;
+        }
+    }
+    $("#total_post").text(posts.length);
+    render_posts(posts);
+}
+
+function render_posts(posts) {
+    var grid_holder = $(".grid");
+    grid_holder.html('<div class="grid-sizer"></div>');
+
+    for (var i = 0; i < 6; i++) {
+        // for (var i = 0; i < posts.length; i++) {
+        var post_type = posts[i].type;
+        var post_html = null;
+        switch (post_type) {
+            case "video":
+                post_html = render_video(posts[i]);
+                break;
+            case "regular":
+                post_html = render_text(posts[i]);
+                break;
+            case "photo":
+                post_html = render_photo(posts[i]);
+                break;
+            default:
+                break;
+        }
+        grid_holder.append(post_html);
+    }
+}
+
+function render_photo(post) {
+    var article = $("<div></div>");
+    article.attr("id", post.id);
+    article.addClass("type_photo grid-item");
+    article.attr("rel", post['url-with-slug']);
+    var article_content = $('<div class="article-content"></div>');
+    var photo_wrap = $('<div class="photo-wrap post"></div>');
+    var photo_post = $('<div class="photo--post"></div>')
+    var photo_link = $('<a href="' + post['url-with-slug'] + '"></a>')
+    var photo_img = $('<img src="' + post['photo-url-400'] + '" data-highres="' + post['photo-url-1280'] + '" alt="' + post.slug + '">')
+    photo_link.append(photo_img);
+    photo_post.append(photo_link);
+    photo_wrap.append(photo_post);
+    var caption = $('<div class="caption">' + post['photo-caption'] + '</div>');
+    article_content.append(photo_wrap).append(caption);
+    // var icon = render_icon(post);
+    // article_content.append(icon);
+    article.append(article_content);
+    return article;
+}
+
+function render_video(post) {
+    var article = $("<div></div>");
+    article.attr("id", post.id);
+    article.addClass("type_video grid-item");
+    article.attr("rel", post['url-with-slug']);
+    var article_content = $('<div class="article-content"></div>');
+    var video_stage = $("<div class='video-stage'></div>");
+    var video_container = $("<div class='video-container ready video' id='" + post.id + "'></div>");
+    var iframe = render_iframe(post);
+    // var shortcut = video_shortcut(post);
+    // video_container.append(shortcut);
+    video_container.append(iframe);
+    video_stage.append(video_container);
+    var caption = $('<div class="caption">' + post['video-caption'] + '</div>');
+    article_content.append(video_stage).append(caption);
+    // var icon = render_icon(post);
+    // article_content.append(icon);
+    article.append(article_content);
+    return article;
+}
+
+function render_text(post) {
+    var article = $("<div></div>");
+    article.attr("id", post.id);
+    article.addClass("type_text grid-item");
+    article.attr("rel", post['url-with-slug']);
+    var article_content = $("<div></div>");
+    article_content.addClass("article_content");
+    var title = $("<h2></h2>");
+    var title_link = $("<a href='" + post['url-with-slug'] + "' title='" + post['regular-title'] + "'>" + post.slug + "</a>");
+    title.append(title_link);
+    var body = post['regular-body'];
+    if (body.indexOf("<!-- more -->") > -1) {
+        var start_index = body.indexOf("<!-- more -->");
+        body = body.substring(0, start_index);
+        body += '<a href="' + post['url-with-slug'] + '">KEEP READING</a>';
+    }
+    article_content.append(title).append(body);
+    // var icon = render_icon(post);
+    // article_content.append(icon);
+    article.append(article_content);
+    return article;
+}
+
+function render_icon(post) {
+    var ul = $("<ul class='icons'></ul>");
+    var li_link = $('<li class="link"><a href="' + post['url-with-slug'] + '" title="View Post" class="social-eye"></a></li>');
+    var li_like = $('<li class="like"><div class="like_button" data-post-id="' + post.id + '" data-blog-name="woolito" id="like_button_' + post.id + '"></div></li>');
+    var iframe = $('<iframe id="like_iframe_' + post.id + '" src="http://assets.tumblr.com/assets/html/like_iframe.html?_v=c301660e229be2b44e2e912486577f3c#name=woolito&post_id=' + post.id + '&color=black&rk=' + post['reblog-key'] + '&root_id=' + post.id + '" scrolling="no" class="like_toggle" allowtransparency="true" name="like_iframe_' + post.id + '" width="16" height="16" frameborder="0"></iframe>');
+    li_like.append(iframe);
+    var li_reblog = $('<li class="reblog"><i class="reblog-icon"><a href="https://www.tumblr.com/reblog/' + post.id + '/' + post['reblog-key'] + '" class="reblog_button"><svg width="100%" height="100%" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000"><path d="M5.01092527,5.99908429 L16.0088498,5.99908429 L16.136,9.508 L20.836,4.752 L16.136,0.083 L16.1360004,3.01110845 L2.09985349,3.01110845 C1.50585349,3.01110845 0.979248041,3.44726568 0.979248041,4.45007306 L0.979248041,10.9999998 L3.98376463,8.30993634 L3.98376463,6.89801007 C3.98376463,6.20867902 4.71892527,5.99908429 5.01092527,5.99908429 Z"></path><path d="M17.1420002,13.2800293 C17.1420002,13.5720293 17.022957,14.0490723 16.730957,14.0490723 L4.92919922,14.0490723 L4.92919922,11 L0.5,15.806 L4.92919922,20.5103758 L5.00469971,16.9990234 L18.9700928,16.9990234 C19.5640928,16.9990234 19.9453125,16.4010001 19.9453125,15.8060001 L19.9453125,9.5324707 L17.142,12.203"></path></svg></a></i></li>')
+    var li_share = $('<li class="sharer"><a class="social-export"></a><div class="sharer-wrap"><ul><li class ="twitter">< a href = "https://twitter.com/intent/tweet?url=' + post['url-with-slug'] + '" title="Share on Twitter" class="social-tweets" target="_blank"></a></li><li class="facebook"><a href="http://www.facebook.com/sharer.php?u=' + post['url-with-slug'] + '" title="Share on Facebook" class="social-facebook" target="_blank" ></a></li><li class="gplus"><a href="https://plus.google.com/share?url=' + post['url-with-slug'] + '" title="Share on Google +" class ="social-gplus" target="_blank"></a></li><li class="pinterest" ><a href="https://pinterest.com/pin/create/button/?url=' + post['url-with-slug'] + '&amp;media=http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" title="Share on Pinterest" class="social-pinterest" target="_blank"></a></li></ul></div></li>');
+    ul.append(li_link).append(li_like).append(li_reblog).append(li_share);
+    return ul;
+}
+
+function video_shortcut(post) {
+
+}
+
+function render_iframe(post) {
+    var video_source = (post['video-player-250']);
+
+    if (video_source.indexOf("youtube") > -1) {
+        return video_source;
+    }
+
+    var url = 'https://www.tumblr.com/video/woolito/' + post.id + '/700/'
+    var html = $('<iframe src="' + url + '" class="embed_iframe tumblr_video_iframe" scrolling="no" frameborder="0" data-can-gutter data-can-resize allowfullscreen mozallowfunscreen webkitallowfullscreen></iframe>')
+    return html;
+}
+</script>
+
+</html>

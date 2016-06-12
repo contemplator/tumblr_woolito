@@ -445,12 +445,10 @@ $(window).on('load', function() {
 });
 </script>
 <script type="text/javascript">
-if($("html").width()<=400){
-    location.href="works-mobile.html";
-};
 var posts;
 var current_posts_number = 6;
 $(function() {
+    console.log($("html").width());
     $('#selector').toggle('blind', function() {
         $(".arrow_down").css("transform", "rotate(180deg)");
     });
