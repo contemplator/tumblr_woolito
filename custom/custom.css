@@ -1,3 +1,4 @@
+
 #navigation{
     margin-left: 0px;
     text-align: left;
@@ -53,13 +54,28 @@
     text-align: left;
 }
 #top{
-    margin-left: -2px;
-    margin-bottom: -2px;
+    width: 100%;
+    display: table;
+    margin: 5px -3px;
 }
-#top tbody tr td{
-    padding: 15px;
-    background: #FFF;
-    border: 4px #e6e6e6 solid;
+.top-post{
+    width: 50%;
+    display: table-cell;
+    vertical-align: middle;
+}
+.top-post a{
+    display: block;
+    padding: 1.2%;
+    background-color: #fff;
+    margin: 0px 5px 0px 5px;
+}
+.top-post a img{
+    width: 100%;
+    height: auto;
+}
+.top-post:nth-child(2) a:nth-child(2){
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 .social_network img{
     display: inline;
@@ -73,9 +89,10 @@
 .single-post article.type_text{
     max-width: 1024px;
 }
-.article-content{
+.single-post article .article-content{
     padding: 0px;
 }
+/*works css*/
 #work-header{
     height: 100px;
     width: 100%;
@@ -104,4 +121,104 @@ ul{
 }
 ul li{
     list-style-type: none;
+}
+#selector,
+td {
+    border: 5px #000 dashed;
+    border-collapse: collapse;
+}
+
+td {
+    border-collapse: separate;
+    vertical-align: top;
+}
+
+.choice {
+    border-radius: 10px;
+    display: table-cell;
+    vertical-align: middle;
+    border: 1px #000 solid;
+    padding: 4px;
+}
+
+.choice label {
+    display: inline;
+}
+
+.choice input[type="radio"] {
+    display: inline;
+}
+
+ul {
+    padding: 0px;
+}
+
+ul li {
+    list-style-type: none;
+    margin: 5px;
+}
+
+.arrow_up {}
+
+.arrow_down, #effect span{
+    display: table-cell;
+    vertical-align: middle;
+}
+.arrow_down {
+    display: table-cell;
+    vertical-align: middle;
+    -ms-transform: rotate(7deg);
+    /* IE 9 */
+    -webkit-transform: rotate(7deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+}
+.arrow_down img{
+    height: 30px;
+    width: 30px;
+}
+#effect{
+    display: table;
+    vertical-align: middle;
+}
+@media screen and (max-height: 850px) {
+    /*.tumblr_theme_marker_blogtitle{*/
+    /*    font-size: px;*/
+    /*}*/
+    .logo{
+        margin-top: 10px;
+    }
+    .description{
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+    .centered nav{
+        margin-top: 30px;
+    }
+}
+@media only screen and (min-width: 1800px) {
+    
+}
+@media only screen and (min-width: 1420px) {
+    
+}
+@media only screen and (max-width: 1024px) {
+    #top{
+        display: block;
+    }
+    .top-post{
+        width: 100%;
+        display: block;
+        margin: 5px 0px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    #top{
+        display: block;
+    }
+    .top-post{
+        width: 100%;
+        display: block;
+        margin: 5px 0px;
+    }
 }

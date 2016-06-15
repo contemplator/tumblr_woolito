@@ -9,110 +9,54 @@
     <!-- Tumblr api -->
     <script type="text/javascript" src="http://woolito-beta.tumblr.com/api/read/json"></script>
 </head>
+<script type="text/javascript">
+</script>
 <style type="text/css">
-* {
-    box-sizing: border-box;
+body{
+    background-color: #eee;
 }
-
-body {
-    font-family: sans-serif;
+#top{
+    width: 100%;
+    display: table;
 }
-
-
-/* ---- grid ---- */
-
-.grid {
-    background: #EEE;
-    max-width: 1200px;
+.top-post{
+    width: 50%;
+    display: table-cell;
+    vertical-align: middle;
 }
-
-
-/* clearfix */
-
-.grid:after {
-    content: '';
+.top-post a{
     display: block;
-    clear: both;
+    padding: 1.2%;
+    background-color: #fff;
+    margin: 0px 5px 0px 5px;
 }
-
-
-/* ---- grid-item ---- */
-
-.grid-sizer,
-.grid-item {
-    width: 20%;
+.top-post a img{
+    width: 100%;
+    height: auto;
 }
-
-.grid-item {
-    height: 120px;
-    float: left;
-    background: #D26;
-    border: 2px solid #333;
-    border-color: hsla(0, 0%, 0%, 0.5);
-    border-radius: 5px;
-}
-
-.grid-item--width2 {
-    width: 40%;
-}
-
-.grid-item--width3 {
-    width: 60%;
-}
-
-.grid-item--height2 {
-    height: 200px;
-}
-
-.grid-item--height3 {
-    height: 260px;
-}
-
-.grid-item--height4 {
-    height: 360px;
+.top-post:nth-child(2) a:nth-child(2){
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 </style>
-<script type="text/javascript">
-console.log(tumblr_api_read);
-</script>
 
 <body>
-    <h1>Masonry - fluid columnWidth</h1>
-    <div class="grid">
-        <div class="grid-sizer"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item grid-item--width2 grid-item--height2"></div>
-        <div class="grid-item grid-item--height3"></div>
-        <div class="grid-item grid-item--height2"></div>
-        <div class="grid-item grid-item--width3"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item grid-item--height2"></div>
-        <div class="grid-item grid-item--width2 grid-item--height3"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item grid-item--height2"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item grid-item--width2 grid-item--height2"></div>
-        <div class="grid-item grid-item--width2"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item grid-item--height2"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item grid-item--height3"></div>
-        <div class="grid-item grid-item--height2"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item grid-item--height2"></div>
+    <div id="top">
+        <div class="top-post">
+            <a href="works"><img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png"></a>
+        </div>
+        <div class="top-post">
+            <a href="aboutus"><img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png"></a>
+            <a href="service"><img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png"></a>
+            <a href="contact"><img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png"></a>
+        </div>
+        <!-- <div id="service" class="top-post">
+            
+        </div>
+        <div id="contact" class="top-post">
+            
+        </div> -->
     </div>
 </body>
-<script type="text/javascript">
-// external js: masonry.pkgd.js
-
-$('.grid').masonry({
-    itemSelector: '.grid-item',
-    columnWidth: '.grid-sizer',
-    percentPosition: true
-});
-</script>
 
 </html>
