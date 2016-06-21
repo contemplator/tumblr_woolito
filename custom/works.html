@@ -13,7 +13,9 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
+    <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
     <script type="text/javascript" src="http://woolito.tumblr.com/api/read/json"></script>
 </head>
 <style type="text/css">
@@ -21,7 +23,21 @@ body {
     background-color: #e6e6e6;
     font-family: 'Open Sans Condensed', sans-serif;
 }
-
+/* navigation */
+div.center{
+    padding-top: 0px;
+    padding-left: 0px;
+}
+div#shortcut{
+    border-radius: 0px 0px 50px 0px;
+}
+.logo a {
+    color: #000;
+    text-decoration: none;
+}
+header p.description {
+    margin: 0px;
+}
 #navigation {
     margin-left: 0px;
     text-align: left;
@@ -31,12 +47,19 @@ body {
 
 #navigation ul li {
     width: 100%;
+    margin-left: 0px;
+    max-height: 30px;
+}
+
+#navigation ul li:nth-child(4) {
+    margin-bottom: 30px;
 }
 
 #navigation ul li a {
     position: relative;
     background-color: #e6e6e6;
     padding: 0px;
+    width: 75%;
 }
 
 .navigation-icon {
@@ -44,6 +67,7 @@ body {
     border-radius: 0px 10px 0px 0px;
     background-color: #b3b3b3;
     padding-right: 5px;
+    width: 70%;
 }
 
 .navigation-icon img {
@@ -52,11 +76,27 @@ body {
     width: auto;
     vertical-align: middle;
 }
-
-.navigation-label {
-    display: inline-block;
+.navigation-icon span{
     float: right;
     line-height: 2.5em;
+    color: #000;
+}
+
+.navigation-label {
+    float: right;
+    display: block;
+    line-height: 2.5em;
+    color: #222;
+    width: 55px;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    -ms-text-justify: inter-ideograph;
+    -moz-text-align-last: justify;
+    -webkit-text-align-last: justify;
+}
+.navigation-label:after{
+    content: '';
+    display: inline-block;
 }
 
 .navigation-bottom {
@@ -72,7 +112,12 @@ body {
     padding: 20px;
     border-radius: 10px 10px 50px 10px;
 }
-
+.social_network img {
+    display: inline;
+    height: 35px;
+    width: auto;
+}
+/* modal */
 .modal-body img {
     margin: 0px auto;
 }
@@ -86,31 +131,29 @@ body {
     text-align: left;
 }
 
-.social_network img {
-    display: inline;
-    height: 35px;
-    width: auto;
+#work-header img {
+    width: 100%;
 }
 
-#work-header {
-    height: 100px;
-    width: 100%;
-    background-image: url('http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png');
-    background-size: 40% 230%;
-    background-repeat: no-repeat;
-    background-position: -100px -50px;
-}
+
 /* Selector */
+#select_section {
+    background-color: #fff;
+    margin: 2px;
+    padding: 7px;
+}
+
 #selector {
     width: 100%;
 }
 
-h4{
+#selector h4 {
     font-size: 14px;
     padding-left: 4px;
 }
 
-#selector, td {
+#selector,
+td {
     border: 3px #DBDBDB dashed;
     border-collapse: collapse;
 }
@@ -139,20 +182,25 @@ h4{
     display: none;
 }
 
-.choice img{
+.choice img {
     display: inline;
     margin-left: 5px;
+    width: 15px;
+    height: 15px;
 }
 
-.choice, .choice label, .choice input, .choice img{
+.choice,
+.choice label,
+.choice input,
+.choice img {
     cursor: pointer;
 }
 
-ul {
+#selector ul {
     padding: 0px;
 }
 
-ul li {
+#selector ul li {
     list-style-type: none;
     margin: 5px;
 }
@@ -184,19 +232,7 @@ ul li {
     display: table;
     vertical-align: middle;
 }
-
-.top-posts {
-    padding: 32px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-#select_section {
-    background-color: #fff;
-    margin: 2px;
-    padding: 7px;
-}
-
+/* article */
 article,
 .grid-item {
     width: 33.33%;
@@ -204,7 +240,6 @@ article,
 
 .grid-item {
     background-color: #fff;
-    /*margin: 2px;*/
     padding: 40px;
     border: 2px #e6e6e6 solid;
 }
@@ -219,14 +254,16 @@ article,
     height: 300px;
     /*height: auto;*/
 }
-#readmore{
+/* read more */
+#readmore {
     width: 33.33%;
     margin: 0px auto;
     text-align: center;
     margin-top: 32px;
 }
-#readmore button{
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+
+#readmore button {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     width: 100%;
     padding: 28px 24px;
     line-height: 12px;
@@ -239,13 +276,47 @@ article,
     font-weight: 600;
 }
 
-#readmore button:hover{
+#readmore button:hover {
     background-color: #4990b8;
     color: #fff;
 }
 
-.load-more-loading, .load-more-end{
+.load-more-loading,
+.load-more-end {
     display: none;
+}
+
+.selected {
+    display: table-cell;
+    background-color: #DDD;
+    border-radius: 5px;
+    padding: 2px 10px;
+    color: white;
+}
+
+.selected img,
+input,
+label {
+    vertical-align: middle;
+    display: initial;
+    margin: 0px 3px;
+}
+
+#selected_tag {
+    display: none;
+}
+
+.selected img{
+    width: 15px;
+    height: 15px;
+}
+
+img {
+    display: inline;
+}
+/* modal */
+.modal-body{
+    text-align: center;
 }
 
 </style>
@@ -297,7 +368,9 @@ article,
                     <div class="logo">
                         <h1><a href="/" title="Woolito Studio">Woolito Studio</a></h1>
                     </div>
-                    <p class="description">我們努力創作並分享笑容，希望能為彼此的生活點綴一些無厘頭的樂趣！</p>
+                    <p class="description">我們努力創作有趣的動畫與圖文並分享笑容</p>
+                    <p class="description">希望能為彼此的生活點綴</p>
+                    <p class="description">一些無厘頭的樂趣！</p>
                     <div class="social_network">
                         <img src="http://static.tumblr.com/sirdwhf/vcKo81mrj/facebook.png">
                         <img src="http://static.tumblr.com/sirdwhf/eI6o81mt8/youtube.png">
@@ -308,6 +381,18 @@ article,
                 <nav>
                     <div id="navigation">
                         <ul>
+                            <li>
+                                <a href="contact">
+                                    <div class="navigation-bottom"></div>
+                                    <div class="navigation-icon">
+                                        <img src="http://static.tumblr.com/3hbpjha/7rDo7ife4/icon-contact.png">
+                                        <span>Contact</span>
+                                    </div>
+                                    <div class="navigation-label">
+                                        聯繫我們
+                                    </div>
+                                </a>
+                            </li>
                             <li>
                                 <a href="aboutus">
                                     <div class="navigation-bottom"></div>
@@ -339,20 +424,7 @@ article,
                                         <img src="http://static.tumblr.com/3hbpjha/WqPo7if64/icon-works.png">
                                         <span>Works</span>
                                     </div>
-                                    <div class="navigation-label">
-                                        作品集
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="contact">
-                                    <div class="navigation-bottom"></div>
-                                    <div class="navigation-icon">
-                                        <img src="http://static.tumblr.com/3hbpjha/7rDo7ife4/icon-contact.png">
-                                        <span>Contact</span>
-                                    </div>
-                                    <div class="navigation-label">
-                                        聯繫我們
+                                    <div class="navigation-label">作品集
                                     </div>
                                 </a>
                             </li>
@@ -368,6 +440,18 @@ article,
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="line">
+                                    <div class="navigation-bottom"></div>
+                                    <div class="navigation-icon">
+                                        <img src="http://static.tumblr.com/sirdwhf/z9qo90jc4/icon-line.png">
+                                        <span>LINE Sticker</span>
+                                    </div>
+                                    <div class="navigation-label">
+                                        LINE 貼圖
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                     <ul class="social-menu">
@@ -379,6 +463,7 @@ article,
     <section class="top-posts index" ng-controller="ctrl-post">
         <div id="select_section">
             <div id="work-header">
+                <img src="http://static.tumblr.com/sirdwhf/1Evo8y6pj/works-bar.png">
             </div>
             <div class="toggle">
                 <table id="selector">
@@ -415,10 +500,11 @@ article,
             </div>
             <div id="effect">
                 <div class="arrow_down" onclick="runEffect()">
-                    <img src="http://static.tumblr.com/sirdwhf/NSNo893xp/arrow.png">
+                    <img src="http://static.tumblr.com/sirdwhf/rc7o90gy0/arrow.png">
                 </div>
                 <span>作品篩選：</span>
-                <span id="chosen">全部</span>
+                <span id="chosen">全部
+                </span>
                 <span>&nbsp/&nbsp</span>
                 <span id="total_post">168</span>
                 <span>&nbsp部作品</span>
@@ -427,39 +513,166 @@ article,
         <div class="grid">
             <div class="grid-sizer"></div>
         </div>
-        <div id="readmore" class="loa-dmore">
-            <button class="load-more-loading" onclick="readmore()">Loading</button>
-            <button class="load-more-end" onclick="readmore()">No More Posts</button>
+        <div id="readmore" class="load-dmore">
+            <button class="load-more-loading">Loading</button>
+            <button class="load-more-end"">No More Posts</button>
             <button class="load-more-text" onclick="readmore()">LOAD MORE POSTS</button>
         </div>
     </section>
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <p>One fine body&hellip;</p>
+                </div>
+                <div id="arrow">
+                    <button type="button" id="cboxPrevious" style="display: block;">previous</button>
+                    <button type="button" id="cboxNext" style="display: block;">next</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Send message</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    <p>One fine body&hellip;</p>
+                </div>
+                <div id="arrow">
+                    <button type="button" id="cboxPrevious" style="display: block;">previous</button>
+                    <button type="button" id="cboxNext" style="display: block;">next</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Send message</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 </body>
+
 <script type="text/javascript">
-// external js: masonry.pkgd.js
-$(window).on('load', function() {
-    $('.grid').masonry({
-        itemSelector: '.grid-item',
-        columnWidth: '.grid-sizer',
-        percentPosition: true
-    });
-});
-</script>
-<script type="text/javascript">
-if($("html").width()<=400){
-    location.href="works-mobile.html";
+if ($("html").width() <= 400) {
+    location.href = "works-mobile.html";
 };
 var posts;
-var current_posts_number = 6;
+var current_posts_number = 0;
+var modalHidden;
+
 $(function() {
     $('#selector').toggle('blind', function() {
         $(".arrow_down").css("transform", "rotate(180deg)");
     });
     initSelector();
-    query_post("");
+    query_posts("");
+
+    // $(".photo-wrap").click(function(event){
+    //     event.preventDefault();
+    //     var id = $(this).parent().parent().attr("id");
+    //     showModal(id);
+    // });
+
+    $("#cboxPrevious").click(function(){
+        prePost($(this).attr('data-post-id'));
+    });
+
+    $("#cboxNext").click(function(){
+        nextPost($(this).attr('data-post-id'));
+    });
 });
 
-function readmore(){
+function prePost(id){
+    console.log("pre post");
+    console.log(id);
+    var post = query_post(id);
+    setPhoto(post);
+};
 
+function nextPost(id){
+    console.log("next post");
+    console.log(id);
+    var post = query_post(id);
+    setPhoto(post);
+}
+
+function showModal(id){
+    var post = query_post(id);
+    var type = post.type;
+    switch(type){
+        case "photo":
+            setPhoto(post);
+            break;
+        default:
+            break;
+    }
+    $('#myModal').modal('show');
+    if(modalHidden != null){
+        modalHidden = null;
+    }
+    
+    modalHidden = $('#myModal').on('hidden.bs.modal', function () {
+        document.location.href="#"+id;
+        // var thisPosition = $('#'+id).offset().top;
+        // $("body").animate({ scrollTop: thisPosition }, 1000);
+    });
+}
+
+function query_post(id){
+    for(var i=0; i<posts.length; i++){
+        post = posts[i];
+        if(post.id == id){
+            return post;
+        }
+    }
+}
+
+function setPhoto(post){
+    var title = $(".modal-title")[0];
+    var body = $(".modal-body")[0];
+    var footer = $(".modal-footer")[0];
+    $(title).text("");
+    $(body).html("<img src=\"" + post["photo-url-500"] + " \">");
+    var footer_html = post["photo-caption"] + '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>' + '<a href="/post/'+post.id+'"><button type="button" class="btn btn-primary">觀看全文</button></a>';
+
+    $(footer).html(footer_html);
+
+    var current_post_index = 0;
+    for(var i=0; i<posts.length; i++){
+        if(posts[i].id == post.id){
+            current_post_index = i;
+        }
+    }
+    var previous_post_index = current_post_index-1;
+    var next_post_index = current_post_index+1;
+    $("#cboxPrevious").attr("data-post-id", posts[previous_post_index].id);
+    $("#cboxNext").attr("data-post-id", posts[next_post_index].id);
+    
+    // $(modal .modal-header .modal title).text("Post Photo");
+}
+
+function readmore() {
+    showLoading();
+    var new_posts_number = current_posts_number + 6;
+    if(posts.length - new_posts_number <= 0){
+        new_posts_number = posts.length;
+    }
+    render_posts(new_posts_number);
 }
 
 function initSelector() {
@@ -489,7 +702,7 @@ function initSelector() {
             input_element.attr("name", "selection");
             input_element.val(tag);
             input_element.attr("id", tag);
-            var img_element = $('<img src="http://static.tumblr.com/sirdwhf/0Iso8llbp/radio_uncheckd.png">');
+            var img_element = $('<img src="http://static.tumblr.com/sirdwhf/6fHo90gzy/unchecked.png">');
             label_element.append(img_element);
             div_element.append(label_element);
             div_element.append(input_element);
@@ -503,27 +716,39 @@ function initSelector() {
 
 function enable_radio(element) {
     var currentTarget = $(element);
-    console.log(element);
     if (currentTarget.is(":checked")) {
         var label_text = currentTarget.parent().find("label").text();
-        currentTarget.parent().find("img").attr("src", "http://static.tumblr.com/sirdwhf/yRso8llbo/radio_checkd.png");
+        currentTarget.parent().find("img").attr("src", "http://static.tumblr.com/sirdwhf/Ifwo90gyt/checked.png");
         currentTarget.parent().css("background-color", "#84C2AF");
         var choices = currentTarget.parent().parent().parent().parent().parent().find(".choice");
-        for(var i=0; i<choices.length; i++){
-            console.log()
-            if(!$(choices[i]).find("input").is(":checked")){
+        for (var i = 0; i < choices.length; i++) {
+            if (!$(choices[i]).find("input").is(":checked")) {
                 $(choices[i]).css("background-color", "#fff");
-                $(choices[i]).find("img").attr("src", "http://static.tumblr.com/sirdwhf/0Iso8llbp/radio_uncheckd.png");
+                $(choices[i]).find("img").attr("src", "http://static.tumblr.com/sirdwhf/6fHo90gzy/unchecked.png");
             }
         }
-        console.log(choices);
-        var end_index = label_text.indexOf(" ");
-        label_text = label_text.substring(0, end_index);
         var selected_tag = currentTarget.val();
-        $("#chosen").text(label_text);
+
+        var selected_element = $('<div class="selected" onclick="disable_radio(\'' + selected_tag + '\')">');
+        var selected_label = $('<label for="selected_tag">' + label_text + '</label>');
+        var selected_check = $('<input type="checkbox" name="selected" val="' + selected_tag + '" id="selected_tag">');
+        var selected_img = $('<img src="http://static.tumblr.com/sirdwhf/Ifwo90gyt/checked.png">');
+        selected_element.append(selected_label).append(selected_check).append(selected_img);
+
+        $("#chosen").html(selected_element);
+
         runEffect();
-        query_post(selected_tag);
+        query_posts(selected_tag);
     }
+}
+
+function disable_radio(tag) {
+    $("#chosen").html("全部");
+    query_posts("");
+    var input_element = $('input[value="' + tag + '"]');
+    var choice = input_element.parent();
+    choice.css("background-color", "#FFF");
+    choice.find("img").attr("src", "http://static.tumblr.com/sirdwhf/6fHo90gzy/unchecked.png");
 }
 
 function runEffect() {
@@ -539,8 +764,11 @@ function runEffect() {
     }, 500);
 }
 
-function query_post(tag) {
-    var posts = [];
+function query_posts(tag) {
+    showLoading();
+    posts = [];
+    $(".grid").html('<div class="grid-sizer"></div>');
+
     var tags = [];
     var tumblr_data = tumblr_api_read.posts;
     for (var i = 0; i < tumblr_data.length; i++) {
@@ -561,32 +789,64 @@ function query_post(tag) {
             continue;
         }
     }
-    $("#total_post").text(posts.length);
-    render_posts(posts);
+
+    if(!posts){
+        $("#total_post").text("0");
+    }else{
+        $("#total_post").text(posts.length);
+    }
+    current_posts_number = 0;
+    readmore();
+    // render_posts(posts, current_posts_number);
 }
 
-function render_posts(posts) {
-    var grid_holder = $(".grid");
-    grid_holder.html('<div class="grid-sizer"></div>');
+function render_posts(number_post) {
 
-    for (var i = 0; i < 6; i++) {
-    // for (var i = 0; i < posts.length; i++) {
-        var post_type = posts[i].type;
-        var post_html = null;
-        switch (post_type) {
-            case "video":
-                post_html = render_video(posts[i]);
-                break;
-            case "regular":
-                post_html = render_text(posts[i]);
-                break;
-            case "photo":
-                post_html = render_photo(posts[i]);
-                break;
-            default:
-                break;
+    if (posts.length > 0) {
+        for (var i = current_posts_number; i < number_post; i++) {
+            var post_type = posts[i].type;
+            var post_html = null;
+            switch (post_type) {
+                case "video":
+                    post_html = render_video(posts[i]);
+                    break;
+                case "regular":
+                    post_html = render_text(posts[i]);
+                    break;
+                case "photo":
+                    post_html = render_photo(posts[i]);
+                    break;
+                default:
+                    break;
+            }
+
+            $(".grid").append(post_html);
+            $(".grid").imagesLoaded(function(){
+                $(".grid").masonry({ 
+                    columnWidth: '.grid-sizer',
+                    itemSelector: '.grid-item',
+                    percentPosition: true
+                });
+            });
         }
-        grid_holder.append(post_html);
+        current_posts_number = number_post;
+    }
+    setTimeout(function(){
+        $(".grid").masonry();
+        $(".photo-wrap").click(function(event){
+            event.preventDefault();
+            var id = $(this).parent().parent().attr("id");
+            showModal(id);
+        });
+    }, 1500);
+
+    $(".grid").imagesLoaded().progress( function() {
+        $(".grid").masonry('reloadItems');
+    });
+    if(current_posts_number == posts.length){
+        showLoadEnd();
+    }else{
+        showLoadMore();
     }
 }
 
@@ -605,8 +865,8 @@ function render_photo(post) {
     photo_wrap.append(photo_post);
     var caption = $('<div class="caption">' + post['photo-caption'] + '</div>');
     article_content.append(photo_wrap).append(caption);
-    // var icon = render_icon(post);
-    // article_content.append(icon);
+    var icon = render_icon(post);
+    article_content.append(icon);
     article.append(article_content);
     return article;
 }
@@ -626,8 +886,8 @@ function render_video(post) {
     video_stage.append(video_container);
     var caption = $('<div class="caption">' + post['video-caption'] + '</div>');
     article_content.append(video_stage).append(caption);
-    // var icon = render_icon(post);
-    // article_content.append(icon);
+    var icon = render_icon(post);
+    article_content.append(icon);
     article.append(article_content);
     return article;
 }
@@ -643,14 +903,14 @@ function render_text(post) {
     var title_link = $("<a href='" + post['url-with-slug'] + "' title='" + post['regular-title'] + "'>" + post.slug + "</a>");
     title.append(title_link);
     var body = post['regular-body'];
-    if(body.indexOf("<!-- more -->")>-1){
+    if (body.indexOf("<!-- more -->") > -1) {
         var start_index = body.indexOf("<!-- more -->");
         body = body.substring(0, start_index);
-        body += '<a href="'+post['url-with-slug']+'">KEEP READING</a>';
+        body += '<a href="' + post['url-with-slug'] + '">KEEP READING</a>';
     }
     article_content.append(title).append(body);
-    // var icon = render_icon(post);
-    // article_content.append(icon);
+    var icon = render_icon(post);
+    article_content.append(icon);
     article.append(article_content);
     return article;
 }
@@ -659,16 +919,15 @@ function render_icon(post) {
     var ul = $("<ul class='icons'></ul>");
     var li_link = $('<li class="link"><a href="' + post['url-with-slug'] + '" title="View Post" class="social-eye"></a></li>');
     var li_like = $('<li class="like"><div class="like_button" data-post-id="' + post.id + '" data-blog-name="woolito" id="like_button_' + post.id + '"></div></li>');
-    var iframe = $('<iframe id="like_iframe_' + post.id + '" src="http://assets.tumblr.com/assets/html/like_iframe.html?_v=c301660e229be2b44e2e912486577f3c#name=woolito&post_id=' + post.id + '&color=black&rk=' + post['reblog-key'] + '&root_id=' + post.id + '" scrolling="no" class="like_toggle" allowtransparency="true" name="like_iframe_' + post.id + '" width="16" height="16" frameborder="0"></iframe>');
-    li_like.append(iframe);
-    var li_reblog = $('<li class="reblog"><i class="reblog-icon"><a href="https://www.tumblr.com/reblog/' + post.id + '/' + post['reblog-key'] + '" class="reblog_button"><svg width="100%" height="100%" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000"><path d="M5.01092527,5.99908429 L16.0088498,5.99908429 L16.136,9.508 L20.836,4.752 L16.136,0.083 L16.1360004,3.01110845 L2.09985349,3.01110845 C1.50585349,3.01110845 0.979248041,3.44726568 0.979248041,4.45007306 L0.979248041,10.9999998 L3.98376463,8.30993634 L3.98376463,6.89801007 C3.98376463,6.20867902 4.71892527,5.99908429 5.01092527,5.99908429 Z"></path><path d="M17.1420002,13.2800293 C17.1420002,13.5720293 17.022957,14.0490723 16.730957,14.0490723 L4.92919922,14.0490723 L4.92919922,11 L0.5,15.806 L4.92919922,20.5103758 L5.00469971,16.9990234 L18.9700928,16.9990234 C19.5640928,16.9990234 19.9453125,16.4010001 19.9453125,15.8060001 L19.9453125,9.5324707 L17.142,12.203"></path></svg></a></i></li>')
-    var li_share = $('<li class="sharer"><a class="social-export"></a><div class="sharer-wrap"><ul><li class ="twitter">< a href = "https://twitter.com/intent/tweet?url=' + post['url-with-slug'] + '" title="Share on Twitter" class="social-tweets" target="_blank"></a></li><li class="facebook"><a href="http://www.facebook.com/sharer.php?u=' + post['url-with-slug'] + '" title="Share on Facebook" class="social-facebook" target="_blank" ></a></li><li class="gplus"><a href="https://plus.google.com/share?url=' + post['url-with-slug'] + '" title="Share on Google +" class ="social-gplus" target="_blank"></a></li><li class="pinterest" ><a href="https://pinterest.com/pin/create/button/?url=' + post['url-with-slug'] + '&amp;media=http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" title="Share on Pinterest" class="social-pinterest" target="_blank"></a></li></ul></div></li>');
+    var iframe = $('<iframe id="like_iframe_' + post.id + '" src="http://assets.tumblr.com/assets/html/like_iframe.html?_v=c301660e229be2b44e2e912486577f3c#name=woolito&post_id='+post.id+'&color=black&rk='+post['reblog-key']+'&root_id='+post.id+'" scrolling="no" class="like_toggle" allowtransparency="true" width="16" height="16" frameborder="0" name="like_iframe_'+post.id+'"></iframe>');
+    li_like.find(".like_button").append(iframe);
+    var li_reblog = $('<li class="reblog"><i class="reblog-icon"><a targer="_blank" href="https://www.tumblr.com/reblog/' + post.id + '/' + post['reblog-key'] + '" class="reblog_button" style="display:block; width:16px; height:16px;"><svg width="100%" height="100%" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000"><path d="M5.01092527,5.99908429 L16.0088498,5.99908429 L16.136,9.508 L20.836,4.752 L16.136,0.083 L16.1360004,3.01110845 L2.09985349,3.01110845 C1.50585349,3.01110845 0.979248041,3.44726568 0.979248041,4.45007306 L0.979248041,10.9999998 L3.98376463,8.30993634 L3.98376463,6.89801007 C3.98376463,6.20867902 4.71892527,5.99908429 5.01092527,5.99908429 Z"></path><path d="M17.1420002,13.2800293 C17.1420002,13.5720293 17.022957,14.0490723 16.730957,14.0490723 L4.92919922,14.0490723 L4.92919922,11 L0.5,15.806 L4.92919922,20.5103758 L5.00469971,16.9990234 L18.9700928,16.9990234 C19.5640928,16.9990234 19.9453125,16.4010001 19.9453125,15.8060001 L19.9453125,9.5324707 L17.142,12.203"></path></svg></a></i></li>');
+    var li_share = $('<li class="sharer"><a class="social-export"></a><div class="sharer-wrap"><ul><li class="facebook"><a href="http://www.facebook.com/sharer.php?u=' + post['url-with-slug'] + '" title="Share on Facebook" class="social-facebook" target="_blank" ></a></li><li class="gplus"><a href="https://plus.google.com/share?url=' + post['url-with-slug'] + '" title="Share on Google +" class ="social-gplus" target="_blank"></a></li><li class="pinterest" ><a href="https://pinterest.com/pin/create/button/?url=' + post['url-with-slug'] + '&amp;media=http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" title="Share on Pinterest" class="social-pinterest" target="_blank"></a></li></ul></div></li>');
     ul.append(li_link).append(li_like).append(li_reblog).append(li_share);
     return ul;
 }
 
 function video_shortcut(post) {
-
 }
 
 function render_iframe(post) {
@@ -681,6 +940,24 @@ function render_iframe(post) {
     var url = 'https://www.tumblr.com/video/woolito/' + post.id + '/700/'
     var html = $('<iframe src="' + url + '" class="embed_iframe tumblr_video_iframe" scrolling="no" frameborder="0" data-can-gutter data-can-resize allowfullscreen mozallowfunscreen webkitallowfullscreen></iframe>')
     return html;
+}
+
+function showLoading(){
+    $(".load-more-loading").css("display", "inline");
+    $(".load-more-end").css("display", "none");
+    $(".load-more-text").css("display", "none");
+}
+
+function showLoadEnd(argument) {
+    $(".load-more-loading").css("display", "none");
+    $(".load-more-end").css("display", "inline");
+    $(".load-more-text").css("display", "none");
+}
+
+function showLoadMore(){
+    $(".load-more-loading").css("display", "none");
+    $(".load-more-end").css("display", "none");
+    $(".load-more-text").css("display", "inline");
 }
 </script>
 
