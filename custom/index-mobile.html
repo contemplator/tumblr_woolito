@@ -10,453 +10,292 @@
     <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/g6Fnsuud3/fixie-styles.css">
     <!--bootstrap css-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/css/bootstrap-drawer.min.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/js/drawer.min.js"></script>
     <script type="text/javascript" src="http://woolito.tumblr.com/api/read/json"></script>
 </head>
 <style type="text/css">
-body {
-    background-color: #e6e6e6;
-    font-family: 'Open Sans Condensed', sans-serif;
-}
-
-#navigation {
-    margin-left: 0px;
-    text-align: left;
-    width: 100%;
-    background-color: #e6e6e6;
-}
-
-#navigation ul li {
-    width: 100%;
-}
-
-#navigation ul li a {
-    position: relative;
-    background-color: #e6e6e6;
+/* drawer */
+.drawer-body{
     padding: 0px;
 }
-
-.navigation-icon {
-    display: inline-block;
-    border-radius: 0px 10px 0px 0px;
-    background-color: #b3b3b3;
-    padding-right: 5px;
+header{
+    padding: 0px;
+    background-color: #fff;
 }
-
-.navigation-icon img {
-    display: inline;
-    height: 30px;
-    width: auto;
-    vertical-align: middle;
+/* Navigation */
+div.center{
+    padding-top: 0px;
+    padding-left: 0px;
 }
-
-.navigation-label {
-    display: inline-block;
-    float: right;
-    line-height: 2.5em;
+.logo a {
+    color: #000;
+    text-decoration: none;
 }
-
-.navigation-bottom {
-    width: 100%;
-    height: 3px;
-    background: #b3b3b3;
-    position: absolute;
-    bottom: 0px;
+header .logo h1 a{
+    font-size: 30px;
 }
-
+header p.description {
+    margin: 0px;
+}
+#navigation ul li{
+    border-top: 5px #ddd solid;
+    width: 90%;
+    margin: 0px auto;
+    font-size: 16px;
+    line-height: 40px;
+    text-align: left;
+}
+#navigation ul li a {
+    margin-left: 70px;
+    color: #000;
+}
 #shortcut {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px 10px 50px 10px;
 }
-
-.modal-body img {
-    margin: 0px auto;
+.social_network{
+    margin-bottom: 40px;
+    padding: 10px;
 }
-
-.modal-footer button {
-    margin-left: 20px;
-}
-
-.modal-footer p {
-    line-height: 30px;
-    text-align: left;
-}
-
 .social_network img {
     display: inline;
-    height: 35px;
+    height: 50px;
+    width: auto;
+}
+/* container header */
+.container {
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: #e3e3e3;
+}
+
+#header {
+    background-color: #fff;
+    display: table;
+    padding: 10px 0px;
+}
+
+#header .drawer_icon {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#header .title {
+    display: table-cell;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5em;
+    text-transform: uppercase;
+}
+
+/* top post */
+.top-post{
+    padding: 20px;
+    margin: 5px;
+    background-color: #fff;
+}
+section{
+    margin-bottom: 40px;
+}
+/* posts-holder */
+
+
+/* select-section */
+#select-section{
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    z-index: 1036;
+}
+/* selector */
+#selector {
+    width: 100%;
+    height: 25px;
+    transform: rotate(0deg);
+    display: table;
+    background-color: #73A89A;
+    padding: 5px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#selector .arrow {
+    display: table-cell;
+    height: 25px;
+    vertical-align: middle;
+}
+
+#selector .arrow img {
+    height: 100%;
     width: auto;
 }
 
-#work-header {
-    height: 100px;
-    width: 100%;
-    background-image: url('http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png');
-    background-size: 40% 230%;
-    background-repeat: no-repeat;
-    background-position: -100px -50px;
-}
-/* Selector */
-#selector {
-    width: 100%;
-}
-
-h4{
-    font-size: 14px;
-    padding-left: 4px;
-}
-
-#selector, td {
-    border: 3px #DBDBDB dashed;
-    border-collapse: collapse;
-}
-
-#selector td {
-    border-collapse: separate;
-    vertical-align: top;
-    padding: 5px;
-}
-
-.choice {
-    border-radius: 10px;
+#selector span {
     display: table-cell;
     vertical-align: middle;
-    border: 1px #DBDBDB solid;
-    padding: 1px 4px;
 }
 
-.choice label {
-    display: inline;
-}
 
-.choice input[type="radio"] {
-    display: inline;
-    margin-left: 5px;
+/* accordion */
+
+#accordion {
     display: none;
 }
-
-.choice img{
-    display: inline;
-    margin-left: 5px;
+#accordion h3{
+    font-size: 1em;
+    margin: 0px;
 }
-
-.choice, .choice label, .choice input, .choice img{
-    cursor: pointer;
-}
-
-ul {
-    padding: 0px;
-}
-
-ul li {
-    list-style-type: none;
+/* grid-item */
+.grid-item{
+    padding: 20px;
     margin: 5px;
-}
-
-.arrow_up {}
-
-.arrow_down,
-#effect span {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.arrow_down {
-    display: table-cell;
-    vertical-align: middle;
-    -ms-transform: rotate(0deg);
-    /* IE 9 */
-    -webkit-transform: rotate(0deg);
-    /* Chrome, Safari, Opera */
-    transform: rotate(0deg);
-}
-
-.arrow_down img {
-    height: 30px;
-    width: 30px;
-}
-
-#effect {
-    display: table;
-    vertical-align: middle;
-}
-
-.top-posts {
-    padding: 32px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-#select_section {
     background-color: #fff;
-    margin: 2px;
-    padding: 7px;
 }
-
-article,
-.grid-item {
-    width: 33.33%;
-}
-
-.grid-item {
-    background-color: #fff;
-    /*margin: 2px;*/
-    padding: 40px;
-    border: 2px #e6e6e6 solid;
-}
-
-.article_content iframe {
+.grid-item iframe, .grid-item img{
     width: 100%;
-    /*height: auto;*/
-}
-
-.video-container iframe {
-    width: 100%;
-    height: 300px;
-    /*height: auto;*/
-}
-#readmore{
-    width: 33.33%;
-    margin: 0px auto;
-    text-align: center;
-    margin-top: 32px;
-}
-#readmore button{
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    width: 100%;
-    padding: 28px 24px;
-    line-height: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-size: 12px;
-    background-color: #fff;
-    border: none;
-    color: #3498DB;
-    font-weight: 600;
-}
-
-#readmore button:hover{
-    background-color: #4990b8;
-    color: #fff;
-}
-
-.load-more-loading, .load-more-end{
-    display: none;
-}
-
-</style>
-<style type="text/css">
-* {
-    box-sizing: border-box;
-}
-
-
-/* ---- grid ---- */
-
-.grid {
-    background: #E6E6E6;
-    max-width: 1200px;
-}
-
-
-/* clearfix */
-
-.grid:after {
-    content: '';
-    display: block;
-    clear: both;
-}
-
-
-/* ---- grid-item ---- */
-
-.grid-sizer,
-.grid-item {
-    width: 33.33%;
-}
-
-.grid-item {
-    float: left;
 }
 </style>
 
-<body ng-app="myApp">
-    <header>
-        <div class="center">
-            <div class="centered">
-                <div id="shortcut">
-                    <div class="avatar">
-                        <a href="/" title="Woolito Studio" class="avatar circle">
-                            <img src="http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" alt="Woolito Studio" class="default">
-                        </a>
+<body class="has-drawer">
+    <div id="drawerExample" class="drawer dw-xs-10 dw-sm-6 dw-md-4 fold" aria-labelledby="drawerExample">
+        <div class="drawer-controls">
+            <a href="#drawerExample" data-toggle="drawer" aria-foldedopen="false" aria-controls="drawerExample" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
+        </div>
+        <div class="drawer-contents">
+            <div class="drawer-body">
+                <header>
+                    <div class="center">
+                        <div class="centered">
+                            <div id="shortcut">
+                                <div class="avatar">
+                                    <a href="/" title="Woolito Studio" class="avatar circle">
+                                        <img src="http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" alt="Woolito Studio" class="default">
+                                    </a>
+                                </div>
+                                <div class="logo">
+                                    <h1><a href="/" title="Woolito Studio">Woolito Studio</a></h1>
+                                </div>
+                                <p class="description">我們努力創作有趣的動畫與圖文並分享笑容</p>
+                                <p class="description">希望能為彼此的生活點綴</p>
+                                <p class="description">一些無厘頭的樂趣！</p>
+                            </div>
+
+                            <div id="navigation">
+                                <ul>
+                                    <li>
+                                        <a href="contact">
+                                            <span class="label-chinese">
+                                                聯繫我們</span>
+                                            <span class="label-english">Contact</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="aboutus">
+                                            <span class="label-chinese">
+                                                關於我們</span>
+                                            <span class="label-english">About Woolito</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="service">
+                                            <span class="label-chinese">
+                                                商業服務</span>
+                                            <span class="label-english">Service</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="works">
+                                            <span class="label-chinese">
+                                                作品集</span>
+                                            <span class="label-english">Works</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="shop">
+                                            <span class="label-chinese">
+                                                原創商品</span>
+                                            <span class="label-english">Shop</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="line">
+                                            <span class="label-chinese">
+                                                LINE 貼圖</span>
+                                            <span class="label-english">LINE Sticker</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="social_network">
+                                <img src="http://static.tumblr.com/sirdwhf/fz1o96e68/facebook.png">
+                                <img src="http://static.tumblr.com/sirdwhf/ZqHo96e6b/youtube.png">
+                                <img src="http://static.tumblr.com/sirdwhf/WG8o96e6e/line.png">
+                                <img src="http://static.tumblr.com/sirdwhf/Ls8o96e6n/instagram.png">
+                            </div>
+                        </div>
                     </div>
-                    <div class="logo">
-                        <h1><a href="/" title="Woolito Studio">Woolito Studio</a></h1>
-                    </div>
-                    <p class="description">我們努力創作並分享笑容，希望能為彼此的生活點綴一些無厘頭的樂趣！</p>
-                    <div class="social_network">
-                        <img src="http://static.tumblr.com/sirdwhf/vcKo81mrj/facebook.png">
-                        <img src="http://static.tumblr.com/sirdwhf/eI6o81mt8/youtube.png">
-                        <img src="http://static.tumblr.com/sirdwhf/pFco81mtq/line.png">
-                        <img src="http://static.tumblr.com/sirdwhf/2fVo81mu3/instagram.png">
-                    </div>
+                </header>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div id="header">
+            <span class="drawer_icon btn btn-primary btn-sm" style="visibility: hidden; "><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></span>
+            <div class="title">Woolito Studio</div>
+            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+        </div>
+        <section class="top-posts index">
+            <div id="top">
+                <div class="top-post">
+                    <a href="works"><img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png"></a>
                 </div>
-                <nav>
-                    <div id="navigation">
-                        <ul>
-                            <li>
-                                <a href="aboutus">
-                                    <div class="navigation-bottom"></div>
-                                    <div class="navigation-icon">
-                                        <img src="http://static.tumblr.com/3hbpjha/MMqo7ifnd/icon-about.png">
-                                        <span>About Woolito</span>
-                                    </div>
-                                    <div class="navigation-label">
-                                        關於我們
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="service">
-                                    <div class="navigation-bottom"></div>
-                                    <div class="navigation-icon">
-                                        <img src="http://static.tumblr.com/3hbpjha/4Aoo7if62/icon-service.png">
-                                        <span>Service</span>
-                                    </div>
-                                    <div class="navigation-label">
-                                        商業服務
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="works">
-                                    <div class="navigation-bottom"></div>
-                                    <div class="navigation-icon">
-                                        <img src="http://static.tumblr.com/3hbpjha/WqPo7if64/icon-works.png">
-                                        <span>Works</span>
-                                    </div>
-                                    <div class="navigation-label">
-                                        作品集
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="contact">
-                                    <div class="navigation-bottom"></div>
-                                    <div class="navigation-icon">
-                                        <img src="http://static.tumblr.com/3hbpjha/7rDo7ife4/icon-contact.png">
-                                        <span>Contact</span>
-                                    </div>
-                                    <div class="navigation-label">
-                                        聯繫我們
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="shop">
-                                    <div class="navigation-bottom"></div>
-                                    <div class="navigation-icon">
-                                        <img src="http://static.tumblr.com/3hbpjha/YpNo7if63/icon-shop.png">
-                                        <span>Shop</span>
-                                    </div>
-                                    <div class="navigation-label">
-                                        原創商品
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <ul class="social-menu">
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
-    <section class="top-posts index" ng-controller="ctrl-post">
-        <div id="select_section">
-            <div id="work-header">
-            </div>
-            <div class="toggle">
-                <table id="selector">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <h4>原創內容 Original</h4>
-                                <ul id="Original">
-                                </ul>
-                            </td>
-                            <td>
-                                <h4>動畫用途 Purpose</h4>
-                                <ul id="Purpose">
-                                </ul>
-                            </td>
-                            <td>
-                                <h4>內容表現 Plot</h4>
-                                <ul id="Plot">
-                                </ul>
-                            </td>
-                            <td>
-                                <h4>視覺風格 Visual Style</h4>
-                                <ul id="Visual_Style">
-                                </ul>
-                            </td>
-                            <td>
-                                <h4>動畫形式 Animation Style</h4>
-                                <ul id="Animation_Style">
-                                </ul>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div id="effect">
-                <div class="arrow_down" onclick="runEffect()">
-                    <img src="http://static.tumblr.com/sirdwhf/NSNo893xp/arrow.png">
+                <div class="top-post">
+                    <a href="aboutus"><img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png"></a>
                 </div>
-                <span>作品篩選：</span>
-                <span id="chosen">全部</span>
-                <span>&nbsp/&nbsp</span>
-                <span id="total_post">168</span>
-                <span>&nbsp部作品</span>
+                <div class="top-post">
+                    <a href="service"><img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png"></a>
+                </div>
+                <div class="top-post">
+                    <a href="contact"><img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png"></a>
+                </div>
             </div>
+            <div class="grid">
+                <div class="grid-sizer"></div>
+
+            </div>
+        </section>
+    </div>
+    <div id="select-section">
+        <div id="selector" onclick="runEffect()">
+            <div class="arrow">
+                <img src="http://static.tumblr.com/sirdwhf/NSNo893xp/arrow.png" onclick="runEffect()">
+            </div>
+            <span>作品篩選：</span>
+            <span id="chosen">全部</span>
+            <span>&nbsp/&nbsp</span>
+            <span id="total_post">168</span>
+            <span>&nbsp部作品</span>
         </div>
-        <div class="grid">
-            <div class="grid-sizer"></div>
-        </div>
-        <div id="readmore" class="loa-dmore">
-            <button class="load-more-loading" onclick="readmore()">Loading</button>
-            <button class="load-more-end" onclick="readmore()">No More Posts</button>
-            <button class="load-more-text" onclick="readmore()">LOAD MORE POSTS</button>
-        </div>
-    </section>
+    </div>
 </body>
-<script type="text/javascript">
-// external js: masonry.pkgd.js
-$(window).on('load', function() {
-    $('.grid').masonry({
-        itemSelector: '.grid-item',
-        columnWidth: '.grid-sizer',
-        percentPosition: true
-    });
-});
-</script>
 <script type="text/javascript">
 var posts;
 var current_posts_number = 6;
 $(function() {
-    console.log($("html").width());
-    $('#selector').toggle('blind', function() {
-        $(".arrow_down").css("transform", "rotate(180deg)");
-    });
+    var window_width = $("html").width();
+    console.log(window_width);
     initSelector();
-    query_post("");
+    query_posts("");
 });
 
-function readmore(){
+function readmore() {
 
 }
 
@@ -465,37 +304,46 @@ function initSelector() {
         dataType: "json",
         url: 'https://spreadsheets.google.com/feeds/list/1HjUlFgljXvK76g2wEGAAlBpGTZKkHUZBIdBTM4BVmZs/od6/public/values?alt=json'
     }).done(function(data) {
+        var current_type = "";
+        var accordion_element = $("<div id='accordion'></div>");
+        var div_element = null;
         for (var i = 0; i < data.feed.entry.length; i++) {
             var post = data.feed.entry[i];
             var type = post.gsx$type.$t;
             var chinese = post.gsx$chinese.$t;
             var english = post.gsx$english.$t;
             var tag = post.gsx$tag.$t;
-
-            type = "#" + type;
-            var element = $(type);
-
-            var html = "";
-            var li_element = $("<li></li>");
-            var div_element = $("<div></div>");
-            div_element.addClass("choice");
-            var label_element = $("<label></label>");
-            label_element.attr("for", tag);
-            label_element.text(chinese + " " + english);
-            var input_element = $('<input type="radio">');
-            input_element.attr("onclick", "enable_radio(this)");
-            input_element.attr("name", "selection");
-            input_element.val(tag);
-            input_element.attr("id", tag);
-            var img_element = $('<img src="http://static.tumblr.com/sirdwhf/0Iso8llbp/radio_uncheckd.png">');
-            label_element.append(img_element);
-            div_element.append(label_element);
-            div_element.append(input_element);
-            // div_element.append(img_element);
-            li_element.append(div_element);
-
-            element.append(li_element);
+            if (current_type == type) {
+                var choice_element = $("<div class='choice'></div>");
+                var label_element = $("<label></label>");
+                label_element.attr("for", tag);
+                label_element.text(chinese + " " + english);
+                var input_element = $('<input type="radio">');
+                input_element.attr("onclick", "enable_radio(this)");
+                input_element.attr("name", "selection");
+                input_element.val(tag);
+                input_element.attr("id", tag);
+                choice_element.append(label_element);
+                choice_element.append(input_element);
+                div_element.append(choice_element);
+            } else {
+                if (div_element) {
+                    accordion_element.append(div_element);
+                    div_element = null;
+                }
+                var h3_element = $("<h3>" + type + "</h3>");
+                current_type = type;
+                accordion_element.append(h3_element);
+                if (!div_element) {
+                    div_element = $("<div></div>");
+                }
+            }
         }
+        $(accordion_element).insertAfter($("#selector"));
+        $( "#accordion" ).accordion({
+            collapsible: true,
+            heightStyle: "content"
+        });
     });
 }
 
@@ -507,9 +355,9 @@ function enable_radio(element) {
         currentTarget.parent().find("img").attr("src", "http://static.tumblr.com/sirdwhf/yRso8llbo/radio_checkd.png");
         currentTarget.parent().css("background-color", "#84C2AF");
         var choices = currentTarget.parent().parent().parent().parent().parent().find(".choice");
-        for(var i=0; i<choices.length; i++){
+        for (var i = 0; i < choices.length; i++) {
             console.log()
-            if(!$(choices[i]).find("input").is(":checked")){
+            if (!$(choices[i]).find("input").is(":checked")) {
                 $(choices[i]).css("background-color", "#fff");
                 $(choices[i]).find("img").attr("src", "http://static.tumblr.com/sirdwhf/0Iso8llbp/radio_uncheckd.png");
             }
@@ -519,27 +367,20 @@ function enable_radio(element) {
         label_text = label_text.substring(0, end_index);
         var selected_tag = currentTarget.val();
         $("#chosen").text(label_text);
-        runEffect();
-        query_post(selected_tag);
+        // runEffect();
+        $("#accordion").css("display", "none");
+        query_posts(selected_tag);
     }
 }
 
 function runEffect() {
-    var options = {};
-    $('#selector').toggle('blind', function() {
-        if ($(this).is(':hidden')) {
-            $(".arrow_down").css("transform", "rotate(180deg)");
-            // console.log('This element is hidden.');
-        } else {
-            $(".arrow_down").css("transform", "rotate(0deg)");
-            // console.log('This element is visible.');
-        }
-    }, 500);
+    $("#accordion").css("display", "block");
 }
 
-function query_post(tag) {
+function query_posts(tag) {
     var posts = [];
     var tags = [];
+    $(".grid").html('<div class="grid-sizer"></div>');
     var tumblr_data = tumblr_api_read.posts;
     for (var i = 0; i < tumblr_data.length; i++) {
         if (tag == "") {
@@ -559,32 +400,37 @@ function query_post(tag) {
             continue;
         }
     }
-    $("#total_post").text(posts.length);
+    if(!posts){
+        $("#total_post").text("0");
+    }else{
+        $("#total_post").text(posts.length);
+    }
     render_posts(posts);
 }
 
 function render_posts(posts) {
     var grid_holder = $(".grid");
-    grid_holder.html('<div class="grid-sizer"></div>');
 
-    for (var i = 0; i < 6; i++) {
-    // for (var i = 0; i < posts.length; i++) {
-        var post_type = posts[i].type;
-        var post_html = null;
-        switch (post_type) {
-            case "video":
-                post_html = render_video(posts[i]);
-                break;
-            case "regular":
-                post_html = render_text(posts[i]);
-                break;
-            case "photo":
-                post_html = render_photo(posts[i]);
-                break;
-            default:
-                break;
+    if (posts.length > 0) {
+        for (var i = 0; i < posts.length; i++) {
+            var post_type = posts[i].type;
+            var post_html = null;
+            switch (post_type) {
+                case "video":
+                    post_html = render_video(posts[i]);
+                    break;
+                case "regular":
+                    post_html = render_text(posts[i]);
+                    break;
+                case "photo":
+                    post_html = render_photo(posts[i]);
+                    break;
+                default:
+                    break;
+            }
+
+            $(".grid").append(post_html);
         }
-        grid_holder.append(post_html);
     }
 }
 
@@ -603,8 +449,8 @@ function render_photo(post) {
     photo_wrap.append(photo_post);
     var caption = $('<div class="caption">' + post['photo-caption'] + '</div>');
     article_content.append(photo_wrap).append(caption);
-    // var icon = render_icon(post);
-    // article_content.append(icon);
+    var icon = render_icon(post);
+    article_content.append(icon);
     article.append(article_content);
     return article;
 }
@@ -624,8 +470,8 @@ function render_video(post) {
     video_stage.append(video_container);
     var caption = $('<div class="caption">' + post['video-caption'] + '</div>');
     article_content.append(video_stage).append(caption);
-    // var icon = render_icon(post);
-    // article_content.append(icon);
+    var icon = render_icon(post);
+    article_content.append(icon);
     article.append(article_content);
     return article;
 }
@@ -641,14 +487,14 @@ function render_text(post) {
     var title_link = $("<a href='" + post['url-with-slug'] + "' title='" + post['regular-title'] + "'>" + post.slug + "</a>");
     title.append(title_link);
     var body = post['regular-body'];
-    if(body.indexOf("<!-- more -->")>-1){
+    if (body.indexOf("<!-- more -->") > -1) {
         var start_index = body.indexOf("<!-- more -->");
         body = body.substring(0, start_index);
-        body += '<a href="'+post['url-with-slug']+'">KEEP READING</a>';
+        body += '<a href="' + post['url-with-slug'] + '">KEEP READING</a>';
     }
     article_content.append(title).append(body);
-    // var icon = render_icon(post);
-    // article_content.append(icon);
+    var icon = render_icon(post);
+    article_content.append(icon);
     article.append(article_content);
     return article;
 }
@@ -657,10 +503,10 @@ function render_icon(post) {
     var ul = $("<ul class='icons'></ul>");
     var li_link = $('<li class="link"><a href="' + post['url-with-slug'] + '" title="View Post" class="social-eye"></a></li>');
     var li_like = $('<li class="like"><div class="like_button" data-post-id="' + post.id + '" data-blog-name="woolito" id="like_button_' + post.id + '"></div></li>');
-    var iframe = $('<iframe id="like_iframe_' + post.id + '" src="http://assets.tumblr.com/assets/html/like_iframe.html?_v=c301660e229be2b44e2e912486577f3c#name=woolito&post_id=' + post.id + '&color=black&rk=' + post['reblog-key'] + '&root_id=' + post.id + '" scrolling="no" class="like_toggle" allowtransparency="true" name="like_iframe_' + post.id + '" width="16" height="16" frameborder="0"></iframe>');
-    li_like.append(iframe);
-    var li_reblog = $('<li class="reblog"><i class="reblog-icon"><a href="https://www.tumblr.com/reblog/' + post.id + '/' + post['reblog-key'] + '" class="reblog_button"><svg width="100%" height="100%" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000"><path d="M5.01092527,5.99908429 L16.0088498,5.99908429 L16.136,9.508 L20.836,4.752 L16.136,0.083 L16.1360004,3.01110845 L2.09985349,3.01110845 C1.50585349,3.01110845 0.979248041,3.44726568 0.979248041,4.45007306 L0.979248041,10.9999998 L3.98376463,8.30993634 L3.98376463,6.89801007 C3.98376463,6.20867902 4.71892527,5.99908429 5.01092527,5.99908429 Z"></path><path d="M17.1420002,13.2800293 C17.1420002,13.5720293 17.022957,14.0490723 16.730957,14.0490723 L4.92919922,14.0490723 L4.92919922,11 L0.5,15.806 L4.92919922,20.5103758 L5.00469971,16.9990234 L18.9700928,16.9990234 C19.5640928,16.9990234 19.9453125,16.4010001 19.9453125,15.8060001 L19.9453125,9.5324707 L17.142,12.203"></path></svg></a></i></li>')
-    var li_share = $('<li class="sharer"><a class="social-export"></a><div class="sharer-wrap"><ul><li class ="twitter">< a href = "https://twitter.com/intent/tweet?url=' + post['url-with-slug'] + '" title="Share on Twitter" class="social-tweets" target="_blank"></a></li><li class="facebook"><a href="http://www.facebook.com/sharer.php?u=' + post['url-with-slug'] + '" title="Share on Facebook" class="social-facebook" target="_blank" ></a></li><li class="gplus"><a href="https://plus.google.com/share?url=' + post['url-with-slug'] + '" title="Share on Google +" class ="social-gplus" target="_blank"></a></li><li class="pinterest" ><a href="https://pinterest.com/pin/create/button/?url=' + post['url-with-slug'] + '&amp;media=http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" title="Share on Pinterest" class="social-pinterest" target="_blank"></a></li></ul></div></li>');
+    var iframe = $('<iframe id="like_iframe_' + post.id + '" src="http://assets.tumblr.com/assets/html/like_iframe.html?_v=c301660e229be2b44e2e912486577f3c#name=woolito&post_id='+post.id+'&color=black&rk='+post['reblog-key']+'&root_id='+post.id+'" scrolling="no" class="like_toggle" allowtransparency="true" width="16" height="16" frameborder="0" name="like_iframe_'+post.id+'"></iframe>');
+    li_like.find(".like_button").append(iframe);
+    var li_reblog = $('<li class="reblog"><i class="reblog-icon"><a targer="_blank" href="https://www.tumblr.com/reblog/' + post.id + '/' + post['reblog-key'] + '" class="reblog_button" style="display:block; width:16px; height:16px;"><svg width="100%" height="100%" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000"><path d="M5.01092527,5.99908429 L16.0088498,5.99908429 L16.136,9.508 L20.836,4.752 L16.136,0.083 L16.1360004,3.01110845 L2.09985349,3.01110845 C1.50585349,3.01110845 0.979248041,3.44726568 0.979248041,4.45007306 L0.979248041,10.9999998 L3.98376463,8.30993634 L3.98376463,6.89801007 C3.98376463,6.20867902 4.71892527,5.99908429 5.01092527,5.99908429 Z"></path><path d="M17.1420002,13.2800293 C17.1420002,13.5720293 17.022957,14.0490723 16.730957,14.0490723 L4.92919922,14.0490723 L4.92919922,11 L0.5,15.806 L4.92919922,20.5103758 L5.00469971,16.9990234 L18.9700928,16.9990234 C19.5640928,16.9990234 19.9453125,16.4010001 19.9453125,15.8060001 L19.9453125,9.5324707 L17.142,12.203"></path></svg></a></i></li>');
+    var li_share = $('<li class="sharer"><a class="social-export"></a><div class="sharer-wrap"><ul><li class="facebook"><a href="http://www.facebook.com/sharer.php?u=' + post['url-with-slug'] + '" title="Share on Facebook" class="social-facebook" target="_blank" ></a></li><li class="gplus"><a href="https://plus.google.com/share?url=' + post['url-with-slug'] + '" title="Share on Google +" class ="social-gplus" target="_blank"></a></li><li class="pinterest" ><a href="https://pinterest.com/pin/create/button/?url=' + post['url-with-slug'] + '&amp;media=http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" title="Share on Pinterest" class="social-pinterest" target="_blank"></a></li></ul></div></li>');
     ul.append(li_link).append(li_like).append(li_reblog).append(li_share);
     return ul;
 }
