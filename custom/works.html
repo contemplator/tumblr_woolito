@@ -2,9 +2,16 @@
 <html>
 
 <head>
-    <title></title>
+    <title>Woolito Animation Studio</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="shortcut icon" href="http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png">
+    <meta property="og:site_name" content="Woolito Animation Studio">
+    <meta property="og:title" content="Woolito Animation Studio">
+    <meta property="og:url" content="http://woolito.tumblr.com/">
+    <meta property="og:type" content="blog">
+    <meta property="og:description" content="我們努力創作並分享笑容，希望能為彼此的生活點綴一些無厘頭的樂趣！">
+    <meta property="og:image" content="http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/z3pnekdqv/precrafted-social.css">
     <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/g6Fnsuud3/fixie-styles.css">
@@ -20,14 +27,21 @@
     <script src="http://static.tumblr.com/sirdwhf/VFqo9dynz/youtube.js"></script>
 </head>
 <style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
 body {
     background-color: #e6e6e6;
-    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: 'Noto Sans TC', sans-serif;
 }
 /* navigation */
 div.center{
     padding-top: 0px;
     padding-left: 0px;
+}
+header .center .centered{
+    display: block;
+    height: 100vh;
+    overflow: auto;
 }
 div#shortcut{
     border-radius: 0px 0px 50px 0px;
@@ -60,7 +74,7 @@ header p.description {
     position: relative;
     background-color: #e6e6e6;
     padding: 0px;
-    width: 75%;
+    width: 80%;
 }
 
 .navigation-icon {
@@ -68,7 +82,7 @@ header p.description {
     border-radius: 0px 10px 0px 0px;
     background-color: #b3b3b3;
     padding-right: 5px;
-    width: 70%;
+    width: 65%;
 }
 
 .navigation-icon img {
@@ -88,7 +102,7 @@ header p.description {
     display: block;
     line-height: 2.5em;
     color: #222;
-    width: 55px;
+    width: 65px;
     text-align: justify;
     text-justify: inter-ideograph;
     -ms-text-justify: inter-ideograph;
@@ -107,6 +121,19 @@ header p.description {
     position: absolute;
     bottom: 0px;
 }
+div.justify {
+    text-align: justify;
+    text-justify: inter-ideograph;
+    -ms-text-justify: inter-ideograph;
+    -moz-text-align-last: justify;
+    -webkit-text-align-last: justify;
+}
+
+div.justify:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
 
 #shortcut {
     background-color: #fff;
@@ -117,6 +144,14 @@ header p.description {
     display: inline;
     height: 35px;
     width: auto;
+}
+.bottom-white{
+    width: calc(100% - 32px);
+    height: 30px;
+    background-color: #FFF;
+    border-radius: 0px 50px 0px 0px;
+    position: absolute;
+    bottom: 100px;
 }
 /* modal */
 .modal-body img {
@@ -142,6 +177,11 @@ header p.description {
     background-color: #fff;
     margin: 2px;
     padding: 7px;
+}
+
+#select_section hr{
+    border: 2px #ccc dashed;
+    margin-top: 0px;
 }
 
 #selector {
@@ -188,6 +228,7 @@ td {
     margin-left: 5px;
     width: 15px;
     height: 15px;
+    vertical-align: sub;
 }
 
 .choice,
@@ -217,6 +258,7 @@ td {
 .arrow_down {
     display: table-cell;
     vertical-align: middle;
+    padding: 5px;
     -ms-transform: rotate(0deg);
     /* IE 9 */
     -webkit-transform: rotate(0deg);
@@ -225,8 +267,8 @@ td {
 }
 
 .arrow_down img {
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
 }
 
 #effect {
@@ -247,13 +289,17 @@ article,
 
 .article_content iframe {
     width: 100%;
-    /*height: auto;*/
 }
 
 .video-container iframe {
     width: 100%;
-    height: 300px;
-    /*height: auto;*/
+    height: auto;
+}
+#youtube_iframe{
+    height: auto;
+}
+.readmore{
+    display: block;
 }
 /* read more */
 #readmore {
@@ -319,6 +365,31 @@ img {
 .modal-body{
     text-align: center;
 }
+/* youtube */
+.post_iframe{
+    position: relative;
+    height: auto;
+}
+div.play-button { 
+    height: 72px; 
+    width: 72px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -36px;
+    margin-left: -36px;
+    background: url("http://i.imgur.com/TxzC70f.png");
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+#product_video iframe{
+    width: 90%;
+    margin-bottom: 3%;
+}
+.labnolIframe{
+    width: 100%;
+    height: 100%;
+}
 
 </style>
 <style type="text/css">
@@ -356,7 +427,7 @@ img {
 }
 </style>
 
-<body ng-app="myApp">
+<body>
     <header>
         <div class="center">
             <div class="centered">
@@ -390,7 +461,9 @@ img {
                                         <span>Contact</span>
                                     </div>
                                     <div class="navigation-label">
-                                        聯繫我們
+                                        <div class="justify">
+                                            聯繫我們
+                                        </div>  
                                     </div>
                                 </a>
                             </li>
@@ -402,7 +475,9 @@ img {
                                         <span>About Woolito</span>
                                     </div>
                                     <div class="navigation-label">
-                                        關於我們
+                                        <div class="justify">
+                                            關於我們
+                                        </div>  
                                     </div>
                                 </a>
                             </li>
@@ -414,7 +489,9 @@ img {
                                         <span>Service</span>
                                     </div>
                                     <div class="navigation-label">
-                                        商業服務
+                                        <div class="justify">
+                                            商業服務
+                                        </div>  
                                     </div>
                                 </a>
                             </li>
@@ -425,7 +502,10 @@ img {
                                         <img src="http://static.tumblr.com/3hbpjha/WqPo7if64/icon-works.png">
                                         <span>Works</span>
                                     </div>
-                                    <div class="navigation-label">作品集
+                                    <div class="navigation-label">
+                                        <div class="justify">
+                                            作品集
+                                        </div>  
                                     </div>
                                 </a>
                             </li>
@@ -437,7 +517,9 @@ img {
                                         <span>Shop</span>
                                     </div>
                                     <div class="navigation-label">
-                                        原創商品
+                                        <div class="justify">
+                                            原創商品
+                                        </div>  
                                     </div>
                                 </a>
                             </li>
@@ -449,15 +531,17 @@ img {
                                         <span>LINE Sticker</span>
                                     </div>
                                     <div class="navigation-label">
-                                        LINE 貼圖
+                                        <div class="justify">
+                                            LINE 貼圖
+                                        </div>  
                                     </div>
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <ul class="social-menu">
-                    </ul>
                 </nav>
+
+                <div class="bottom-white"></div>
             </div>
         </div>
     </header>
@@ -466,6 +550,7 @@ img {
             <div id="work-header">
                 <img src="http://static.tumblr.com/sirdwhf/1Evo8y6pj/works-bar.png">
             </div>
+            <hr>
             <div class="toggle">
                 <table id="selector">
                     <tbody>
@@ -569,14 +654,20 @@ img {
 </body>
 
 <script type="text/javascript">
-if ($("html").width() <= 400) {
-    location.href = "works-mobile.html";
-};
 var posts;
 var current_posts_number = 0;
 var modalHidden;
 
 $(function() {
+    // console.log(judge_mobile());
+    // judge_window_size();
+    // $( window ).resize(function() {
+    //     judge_window_size();
+    // });
+    if(judge_mobile()){
+        location.href = "works-mobile ";
+    }
+
     $('#selector').toggle('blind', function() {
         $(".arrow_down").css("transform", "rotate(180deg)");
     });
@@ -591,6 +682,34 @@ $(function() {
         nextPost($(this).attr('data-post-id'));
     });
 });
+
+function judge_mobile(){
+    if( navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/iPad/i)
+        || navigator.userAgent.match(/iPod/i)
+        || navigator.userAgent.match(/BlackBerry/i)
+        || navigator.userAgent.match(/Windows Phone/i)){
+        return true;
+    }else {
+        return false;
+    }
+}
+
+function judge_window_size(){
+    var width = $(window).width();
+    $(".iframe-controls-container iframe-controls-container--mobile iframe-controls-container--handheld").css("display", "none");
+    var href = location.href;
+    var index = href.lastIndexOf("/")+1;
+    href = href.substring(index);
+    console.log(width + ", " + href);
+    if(width <= 400 && href == "works"){
+        location.href = "works-mobile";
+    }else if(width > 400 && href == "works-mobile"){
+        location.href = "works";
+    }
+}
 
 function prePost(id){
     console.log("pre post");
@@ -697,8 +816,8 @@ function initSelector() {
             input_element.attr("name", "selection");
             input_element.val(tag);
             input_element.attr("id", tag);
-            // var img_element = $('<img src="http://static.tumblr.com/sirdwhf/6fHo90gzy/unchecked.png">');
-            // label_element.append(img_element);
+            var img_element = $('<img src="http://static.tumblr.com/sirdwhf/6fHo90gzy/unchecked.png">');
+            label_element.append(img_element);
             div_element.append(label_element);
             div_element.append(input_element);
             // div_element.append(img_element);
@@ -748,14 +867,18 @@ function disable_radio(tag) {
 
 function runEffect() {
     var options = {};
+    if ($('#selector').is(':hidden')) {
+        $("#select_section hr").css("display", "none");
+        $(".arrow_down").css("transform", "rotate(180deg)");
+        // console.log('This element is hidden.');
+    } else {
+        $("#select_section hr").css("display", "inherit");
+        $(".arrow_down").css("transform", "rotate(0deg)");
+        // console.log('This element is visible.');
+    }
+
     $('#selector').toggle('blind', function() {
-        if ($(this).is(':hidden')) {
-            $(".arrow_down").css("transform", "rotate(180deg)");
-            // console.log('This element is hidden.');
-        } else {
-            $(".arrow_down").css("transform", "rotate(0deg)");
-            // console.log('This element is visible.');
-        }
+        
     }, 500);
 }
 
@@ -901,7 +1024,7 @@ function render_text(post) {
     if (body.indexOf("<!-- more -->") > -1) {
         var start_index = body.indexOf("<!-- more -->");
         body = body.substring(0, start_index);
-        body += '<a href="' + post['url-with-slug'] + '">KEEP READING</a>';
+        body += '<a href="' + post['url-with-slug'] + '" class="readmore">KEEP READING</a>';
     }
     article_content.append(title).append(body);
     var icon = render_icon(post);
@@ -929,7 +1052,14 @@ function render_iframe(post) {
     var video_source = (post['video-player-250']);
 
     if (video_source.indexOf("youtube") > -1) {
-        return video_source;
+        video_source = post['video-source'];
+        var div_element = $('<div id="iframe_'+post.id+'" class="post_iframe">');
+        var start_index = video_source.lastIndexOf("/")+1;
+        var youtube_id = video_source.substring(start_index);
+        var img_element = $('<img class="labnolIframe" src="https://i.ytimg.com/vi/'+youtube_id+'/hqdefault.jpg">');
+        var click_element = $('<div class="play-button" onclick="labnolIframe_order(\'iframe_'+post.id+'\', \''+youtube_id+'\')"></div>');
+        div_element.append(img_element).append(click_element);
+        return div_element;
     }
 
     var url = 'https://www.tumblr.com/video/woolito/' + post.id + '/700/'

@@ -1,14 +1,101 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>梅問題範例展示「CSS3-text-justify」</title>
-<meta charset="UTF-8">
-<style>div.justify{text-align:justify;text-justify:inter-ideograph;-ms-text-justify:inter-ideograph;-moz-text-align-last:justify;-webkit-text-align-last:justify;}div.justify:after{content:'';display:inline-block;width:100%;}</style>
+    <title>梅問題範例展示「CSS3-text-justify」</title>
+    <meta charset="UTF-8">
+    <style>
+    div.justify {
+        text-align: justify;
+        text-justify: inter-ideograph;
+        -ms-text-justify: inter-ideograph;
+        -moz-text-align-last: justify;
+        -webkit-text-align-last: justify;
+    }
+    
+    div.justify:after {
+        content: '';
+        display: inline-block;
+        width: 100%;
+    }
+    
+    #navigation ul li a {
+        position: relative;
+        background-color: #e6e6e6;
+        padding: 0px;
+        width: 80%;
+    }
+    
+    .navigation-icon {
+        display: inline-block;
+        border-radius: 0px 10px 0px 0px;
+        background-color: #b3b3b3;
+        padding-right: 5px;
+        width: 65%;
+    }
+    
+    .navigation-icon img {
+        display: inline;
+        height: 30px;
+        width: auto;
+        vertical-align: middle;
+    }
+    
+    .navigation-icon span {
+        float: right;
+        line-height: 2.5em;
+        color: #000;
+    }
+    .test{
+    	width: 70px;
+    }
+    .navigation-label {
+        float: right;
+        display: block;
+        line-height: 2.5em;
+        color: #222;
+        width: 70px;
+        text-align: justify;
+        text-justify: inter-ideograph;
+        -ms-text-justify: inter-ideograph;
+        -moz-text-align-last: justify;
+        -webkit-text-align-last: justify;
+    }
+    
+    .navigation-label:after {
+        content: '';
+        display: inline-block;
+    }
+    
+    .navigation-bottom {
+        width: 100%;
+        height: 3px;
+        background: #b3b3b3;
+        position: absolute;
+        bottom: 0px;
+    }
+    </style>
 </head>
+
 <body>
-<div class="justify">梅 問 題 minwt.com</div>
-<hr>
-<a href="http://minwt.com">回梅問題教學網</a>
+    <div class="justify">梅 問 題 minwt.com</div>
+    <hr>
+    <a href="http://minwt.com">回梅問題教學網</a>
+    <hr>
+
+    <a href="contact">
+        <div class="navigation-bottom"></div>
+        <div class="navigation-icon">
+            <img src="http://static.tumblr.com/3hbpjha/7rDo7ife4/icon-contact.png">
+            <span>Contact</span>
+        </div>
+        <div class="navigation-label">
+        	<div class="justify">
+	            聯繫我們
+	        </div>	
+        </div>
+        
+    </a>
 </body>
+
 </html>

@@ -17,8 +17,13 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/js/drawer.min.js"></script>
     <script type="text/javascript" src="http://woolito.tumblr.com/api/read/json"></script>
+    <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
+    <script src="http://static.tumblr.com/sirdwhf/VFqo9dynz/youtube.js"></script>
 </head>
 <style type="text/css">
+body{
+    background-color: #e3e3e3;
+}
 /* drawer */
 .drawer-body{
     padding: 0px;
@@ -95,62 +100,30 @@ header p.description {
 }
 
 /* top post */
-.top-post{
-    padding: 20px;
-    margin: 5px;
-    background-color: #fff;
-}
 section{
     margin-bottom: 40px;
 }
+#top{
+    width: 100%;
+    display: block;
+}
+.top-post{
+    width: 100%;
+    display: block;
+    margin: 2px;
+}
+.top-post a{
+    display: block;
+    padding: 1.2%;
+    background-color: #fff;
+    margin: 0px 5px 0px 5px;
+}
+.top-post a img{
+    width: 100%;
+    height: auto;
+}
 /* posts-holder */
 
-
-/* select-section */
-#select-section{
-    width: 100%;
-    position: fixed;
-    bottom: 0px;
-    z-index: 1036;
-}
-/* selector */
-#selector {
-    width: 100%;
-    height: 25px;
-    transform: rotate(0deg);
-    display: table;
-    background-color: #73A89A;
-    padding: 5px;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-#selector .arrow {
-    display: table-cell;
-    height: 25px;
-    vertical-align: middle;
-}
-
-#selector .arrow img {
-    height: 100%;
-    width: auto;
-}
-
-#selector span {
-    display: table-cell;
-    vertical-align: middle;
-}
-
-
-/* accordion */
-
-#accordion {
-    display: none;
-}
-#accordion h3{
-    font-size: 1em;
-    margin: 0px;
-}
 /* grid-item */
 .grid-item{
     padding: 20px;
@@ -159,6 +132,31 @@ section{
 }
 .grid-item iframe, .grid-item img{
     width: 100%;
+}
+/* youtube */
+.post_iframe{
+    position: relative;
+    height: auto;
+}
+div.play-button { 
+    height: 72px; 
+    width: 72px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -36px;
+    margin-left: -36px;
+    background: url("http://i.imgur.com/TxzC70f.png");
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+#product_video iframe{
+    width: 90%;
+    margin-bottom: 3%;
+}
+.labnolIframe{
+    width: 100%;
+    height: 100%;
 }
 </style>
 
@@ -246,11 +244,7 @@ section{
         </div>
     </div>
     <div class="container">
-        <div id="header">
-            <span class="drawer_icon btn btn-primary btn-sm" style="visibility: hidden; "><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></span>
-            <div class="title">Woolito Studio</div>
-            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-        </div>
+        
         <section class="top-posts index">
             <div id="top">
                 <div class="top-post">
@@ -258,11 +252,7 @@ section{
                 </div>
                 <div class="top-post">
                     <a href="aboutus"><img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png"></a>
-                </div>
-                <div class="top-post">
                     <a href="service"><img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png"></a>
-                </div>
-                <div class="top-post">
                     <a href="contact"><img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png"></a>
                 </div>
             </div>
@@ -272,109 +262,34 @@ section{
             </div>
         </section>
     </div>
-    <div id="select-section">
-        <div id="selector" onclick="runEffect()">
-            <div class="arrow">
-                <img src="http://static.tumblr.com/sirdwhf/NSNo893xp/arrow.png" onclick="runEffect()">
-            </div>
-            <span>作品篩選：</span>
-            <span id="chosen">全部</span>
-            <span>&nbsp/&nbsp</span>
-            <span id="total_post">168</span>
-            <span>&nbsp部作品</span>
-        </div>
-    </div>
 </body>
 <script type="text/javascript">
 var posts;
 var current_posts_number = 6;
 $(function() {
-    var window_width = $("html").width();
-    console.log(window_width);
-    initSelector();
+    judge_window_size();
+    $( window ).resize(function() {
+        judge_window_size();
+    });
+
     query_posts("");
 });
 
-function readmore() {
-
-}
-
-function initSelector() {
-    $.ajax({
-        dataType: "json",
-        url: 'https://spreadsheets.google.com/feeds/list/1HjUlFgljXvK76g2wEGAAlBpGTZKkHUZBIdBTM4BVmZs/od6/public/values?alt=json'
-    }).done(function(data) {
-        var current_type = "";
-        var accordion_element = $("<div id='accordion'></div>");
-        var div_element = null;
-        for (var i = 0; i < data.feed.entry.length; i++) {
-            var post = data.feed.entry[i];
-            var type = post.gsx$type.$t;
-            var chinese = post.gsx$chinese.$t;
-            var english = post.gsx$english.$t;
-            var tag = post.gsx$tag.$t;
-            if (current_type == type) {
-                var choice_element = $("<div class='choice'></div>");
-                var label_element = $("<label></label>");
-                label_element.attr("for", tag);
-                label_element.text(chinese + " " + english);
-                var input_element = $('<input type="radio">');
-                input_element.attr("onclick", "enable_radio(this)");
-                input_element.attr("name", "selection");
-                input_element.val(tag);
-                input_element.attr("id", tag);
-                choice_element.append(label_element);
-                choice_element.append(input_element);
-                div_element.append(choice_element);
-            } else {
-                if (div_element) {
-                    accordion_element.append(div_element);
-                    div_element = null;
-                }
-                var h3_element = $("<h3>" + type + "</h3>");
-                current_type = type;
-                accordion_element.append(h3_element);
-                if (!div_element) {
-                    div_element = $("<div></div>");
-                }
-            }
-        }
-        $(accordion_element).insertAfter($("#selector"));
-        $( "#accordion" ).accordion({
-            collapsible: true,
-            heightStyle: "content"
-        });
-    });
-}
-
-function enable_radio(element) {
-    var currentTarget = $(element);
-    console.log(element);
-    if (currentTarget.is(":checked")) {
-        var label_text = currentTarget.parent().find("label").text();
-        currentTarget.parent().find("img").attr("src", "http://static.tumblr.com/sirdwhf/yRso8llbo/radio_checkd.png");
-        currentTarget.parent().css("background-color", "#84C2AF");
-        var choices = currentTarget.parent().parent().parent().parent().parent().find(".choice");
-        for (var i = 0; i < choices.length; i++) {
-            console.log()
-            if (!$(choices[i]).find("input").is(":checked")) {
-                $(choices[i]).css("background-color", "#fff");
-                $(choices[i]).find("img").attr("src", "http://static.tumblr.com/sirdwhf/0Iso8llbp/radio_uncheckd.png");
-            }
-        }
-        console.log(choices);
-        var end_index = label_text.indexOf(" ");
-        label_text = label_text.substring(0, end_index);
-        var selected_tag = currentTarget.val();
-        $("#chosen").text(label_text);
-        // runEffect();
-        $("#accordion").css("display", "none");
-        query_posts(selected_tag);
+function judge_window_size(){
+    var width = $(window).width();
+    var href = location.href;
+    // var index = href.lastIndexOf("/")+1;
+    // href = href.substring(index);
+    console.log(width + ", " + href);
+    if(width <= 400 && href == "http://woolito.tumblr.com/"){
+        location.href = "index-mobile";
+    }else if(width > 400 && href == "http://woolito.tumblr.com/index-mobile"){
+        location.href = "http://woolito.tumblr.com/";
     }
 }
 
-function runEffect() {
-    $("#accordion").css("display", "block");
+function readmore() {
+
 }
 
 function query_posts(tag) {
@@ -464,8 +379,10 @@ function render_video(post) {
     var video_stage = $("<div class='video-stage'></div>");
     var video_container = $("<div class='video-container ready video' id='" + post.id + "'></div>");
     var iframe = render_iframe(post);
+
     // var shortcut = video_shortcut(post);
     // video_container.append(shortcut);
+
     video_container.append(iframe);
     video_stage.append(video_container);
     var caption = $('<div class="caption">' + post['video-caption'] + '</div>');
@@ -512,18 +429,30 @@ function render_icon(post) {
 }
 
 function video_shortcut(post) {
-
+    // <img class="labnolIframe" src="https://i.ytimg.com/vi/S2kSogoVzu4/hqdefault.jpg">
+    
+    // <div id="hospital_m" class="hospital">
+        
+    //     <div id="youtube_S2kSogoVzu4" class="play-button" onclick="labnolIframe_order('hospital_m', 'S2kSogoVzu4')"></div>
+    // </div>
 }
 
 function render_iframe(post) {
     var video_source = (post['video-player-250']);
 
     if (video_source.indexOf("youtube") > -1) {
-        return video_source;
+        video_source = post['video-source'];
+        var div_element = $('<div id="iframe_'+post.id+'" class="post_iframe">');
+        var start_index = video_source.lastIndexOf("/")+1;
+        var youtube_id = video_source.substring(start_index);
+        var img_element = $('<img class="labnolIframe" src="https://i.ytimg.com/vi/'+youtube_id+'/hqdefault.jpg">');
+        var click_element = $('<div class="play-button" onclick="labnolIframe_order(\'iframe_'+post.id+'\', \''+youtube_id+'\')"></div>');
+        div_element.append(img_element).append(click_element);
+        return div_element;
     }
 
     var url = 'https://www.tumblr.com/video/woolito/' + post.id + '/700/'
-    var html = $('<iframe src="' + url + '" class="embed_iframe tumblr_video_iframe" scrolling="no" frameborder="0" data-can-gutter data-can-resize allowfullscreen mozallowfunscreen webkitallowfullscreen></iframe>')
+    var html = $('<iframe src="' + url + '" class="embed_iframe tumblr_video_iframe" scrolling="no" frameborder="0" data-can-gutter data-can-resize allowfullscreen mozallowfunscreen webkitallowfullscreen></iframe>');
     return html;
 }
 </script>

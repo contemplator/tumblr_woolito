@@ -1,34 +1,90 @@
-
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+body{
+    font-family: 'Noto Sans TC', sans-serif;
+}
+div.center{
+    padding-top: 0px;
+    padding-left: 0px;
+}
+div#shortcut{
+    border-radius: 0px 0px 50px 0px;
+}
+.logo a {
+    color: #000;
+    text-decoration: none;
+}
+header p.description {
+    margin: 0px;
+    color: #000;
+}
 #navigation{
     margin-left: 0px;
     text-align: left;
     width: 100%;
     background-color: #e6e6e6;
 }
-#navigation ul li{
+#navigation ul li {
     width: 100%;
+    margin-left: 0px;
+    max-height: 30px;
 }
-#navigation ul li a{
+
+#navigation ul li:nth-child(4) {
+    margin-bottom: 30px;
+}
+
+#navigation ul li a {
     position: relative;
     background-color: #e6e6e6;
     padding: 0px;
+    width: 75%;
 }
-.navigation-icon{
+
+.navigation-bottom {
+    width: 100%;
+    height: 3px;
+    background: #b3b3b3;
+    position: absolute;
+    bottom: 0px;
+}
+
+.navigation-icon {
     display: inline-block;
     border-radius: 0px 10px 0px 0px;
     background-color: #b3b3b3;
     padding-right: 5px;
+    width: 70%;
+    margin-right: ;
 }
-.navigation-icon img{
+
+.navigation-icon img {
     display: inline;
     height: 30px;
     width: auto;
     vertical-align: middle;
+    margin-left: 10px;
 }
-.navigation-label{
-    display: inline-block;
+.navigation-icon span{
     float: right;
     line-height: 2.5em;
+    color: #000;
+}
+
+.navigation-label {
+    float: right;
+    display: block;
+    line-height: 2.5em;
+    color: #222;
+    width: 60px;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    -ms-text-justify: inter-ideograph;
+    -moz-text-align-last: justify;
+    -webkit-text-align-last: justify;
+}
+.navigation-label:after{
+    content: '';
+    display: inline-block;
 }
 .navigation-bottom{
     width: 100%;
@@ -37,11 +93,32 @@
     position: absolute;
     bottom: 0px;
 }
+div.justify {
+    text-align: justify;
+    text-justify: inter-ideograph;
+    -ms-text-justify: inter-ideograph;
+    -moz-text-align-last: justify;
+    -webkit-text-align-last: justify;
+}
+
+div.justify:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
 
 #shortcut{
     background-color: #fff;
     padding: 20px;
     border-radius: 10px 10px 50px 10px ;
+}
+.bottom-white{
+    width: calc(100% - 32px);
+    height: 30px;
+    background-color: #FFF;
+    border-radius: 0px 50px 0px 0px;
+    position: absolute;
+    bottom: 100px;
 }
 .modal-body img{
     margin: 0px auto;
@@ -77,6 +154,9 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+.social_network{
+    margin-top: 10px;
+}
 .social_network img{
     display: inline;
     height: 35px;
@@ -92,110 +172,18 @@
 .single-post article .article-content{
     padding: 0px;
 }
-/*works css*/
-#work-header{
-    height: 100px;
-    width: 100%;
-    background-image: url('http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png');
-    background-size: 50% 270%;
-    background-repeat: no-repeat;
-    background-position: -50px -80px;
-}
-#selector{
-    width: 100%;
-    border: 5px #000 dashed;
-}
-.choice{
-    display: table-cell;
-    vertical-align: middle;
-    border: 1px #000 solid;
-}
-.choice label{
-    display: inline;
-}
-.choice input[type="checkbox"]{
-    display: inline;
-}
-ul{
-    padding: 0px;
-}
-ul li{
-    list-style-type: none;
-}
-#selector,
-td {
-    border: 5px #000 dashed;
-    border-collapse: collapse;
-}
-
-td {
-    border-collapse: separate;
-    vertical-align: top;
-}
-
-.choice {
-    border-radius: 10px;
-    display: table-cell;
-    vertical-align: middle;
-    border: 1px #000 solid;
-    padding: 4px;
-}
-
-.choice label {
-    display: inline;
-}
-
-.choice input[type="radio"] {
-    display: inline;
-}
-
-ul {
-    padding: 0px;
-}
-
-ul li {
-    list-style-type: none;
-    margin: 5px;
-}
-
-.arrow_up {}
-
-.arrow_down, #effect span{
-    display: table-cell;
-    vertical-align: middle;
-}
-.arrow_down {
-    display: table-cell;
-    vertical-align: middle;
-    -ms-transform: rotate(7deg);
-    /* IE 9 */
-    -webkit-transform: rotate(7deg);
-    /* Chrome, Safari, Opera */
-    transform: rotate(90deg);
-}
-.arrow_down img{
-    height: 30px;
-    width: 30px;
-}
-#effect{
-    display: table;
-    vertical-align: middle;
-}
-@media screen and (max-height: 850px) {
-    /*.tumblr_theme_marker_blogtitle{*/
-    /*    font-size: px;*/
-    /*}*/
-    .logo{
-        margin-top: 10px;
-    }
-    .description{
-        margin-top: 0px;
-        margin-bottom: 10px;
-    }
-    .centered nav{
-        margin-top: 30px;
-    }
-}
+/*@media screen and (max-height: 850px) {*/
+/*    .logo{*/
+/*        margin-top: 10px;*/
+/*    }*/
+/*    .description{*/
+/*        margin-top: 0px;*/
+/*        margin-bottom: 10px;*/
+/*    }*/
+/*    .centered nav{*/
+/*        margin-top: 30px;*/
+/*    }*/
+/*}*/
 @media only screen and (min-width: 1800px) {
     
 }
