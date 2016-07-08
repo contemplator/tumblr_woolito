@@ -126,6 +126,14 @@ p.description {
     text-align: center;
     font-size: 3em;
     text-transform: uppercase;
+    vertical-align: middle;
+}
+#header .find-us{
+    display: inline;
+    max-height: 3em;
+    min-height: 3em;
+    max-width: 3em;
+    min-width: 3em;
 }
 
 /* top post */
@@ -234,9 +242,11 @@ section{
 }
 .grid-item iframe, .grid-item img{
     width: 100%;
+    max-width: 100%;
+    height: auto;
 }
 .grid-item iframe{
-    height: 30vh;
+    /*height: 30vh;*/
 }
 .grid-item p{
     margin: 2%;
@@ -392,7 +402,7 @@ div.play-button {
         <div id="header">
             <span class="drawer_icon btn btn-primary btn-sm" style="visibility: hidden; "><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></span>
             <div class="title">Woolito Studio</div>
-            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+            <img class="find-us" src="resources/find_us.png" >
         </div>
         <section class="top-posts index">
             <div class="grid">
@@ -418,11 +428,10 @@ div.play-button {
 var posts;
 var current_posts_number = 6;
 $(function() {
-    // judge_window_size();
-    // $( window ).resize(function() {
-    //     judge_window_size();
-    // });
-    if(!judge_mobile()){
+    console.log("width: " + $(window).width());
+    console.log("user agent: " + navigator.userAgent);
+    
+    if(!ismobile_browser()){
         location.href = "works";
     }
 
@@ -430,7 +439,7 @@ $(function() {
     query_posts("");
 });
 
-function judge_mobile(){
+function ismobile_browser(){
     var href = location.href;
     if( navigator.userAgent.match(/Android/i)
         || navigator.userAgent.match(/webOS/i)
@@ -445,17 +454,19 @@ function judge_mobile(){
     }
 }
 
-function judge_window_size(){
+function ismobile_size(){
     var width = $(window).width();
     var href = location.href;
     var index = href.lastIndexOf("/")+1;
     href = href.substring(index);
-    console.log(width + ", " + href);
-    // if(width <= 400 && href == "works"){
-    //     location.href = "works-mobile";
-    // }else if(width > 400 && href == "works-mobile"){
-    //     location.href = "works";
-    // }
+    // console.log(width + ", " + href);
+    if(width <= 768){
+        return true;
+        // location.href = "works-mobile.html";
+    }else{
+        return false;
+        // location.href = "works.html";
+    }
 }
 
 function readmore() {

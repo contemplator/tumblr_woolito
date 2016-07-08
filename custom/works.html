@@ -34,6 +34,9 @@ body {
     font-family: 'Noto Sans TC', sans-serif;
 }
 /* navigation */
+header .logo h1{
+    font-weight: bold;
+}
 div.center{
     padding-top: 0px;
     padding-left: 0px;
@@ -74,7 +77,7 @@ header p.description {
     position: relative;
     background-color: #e6e6e6;
     padding: 0px;
-    width: 80%;
+    width: 250px;
 }
 
 .navigation-icon {
@@ -82,11 +85,12 @@ header p.description {
     border-radius: 0px 10px 0px 0px;
     background-color: #b3b3b3;
     padding-right: 5px;
-    width: 65%;
+    width: 175px;
 }
 
 .navigation-icon img {
     display: inline;
+    margin-left: 10px;
     height: 30px;
     width: auto;
     vertical-align: middle;
@@ -139,6 +143,9 @@ div.justify:after {
     background-color: #fff;
     padding: 20px;
     border-radius: 10px 10px 50px 10px;
+}
+.social_network{
+    margin-top: 10px;
 }
 .social_network img {
     display: inline;
@@ -307,6 +314,7 @@ article,
     margin: 0px auto;
     text-align: center;
     margin-top: 32px;
+    margin-bottom: 32px;
 }
 
 #readmore button {
@@ -424,6 +432,30 @@ div.play-button {
 
 .grid-item {
     float: left;
+}
+@media only screen and (min-width: 768px) {
+    .grid-sizer,
+    .grid-item {
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .grid-sizer,
+    .grid-item {
+        width: 50%;
+    }
+}
+@media only screen and (min-width: 1420px) {
+    .grid-sizer,
+    .grid-item {
+        width: 33.33%;
+    }
+}
+@media only screen and (min-width: 1800px) {
+    .grid-sizer,
+    .grid-item {
+        width: 25%;
+    }
 }
 </style>
 
@@ -599,7 +631,7 @@ div.play-button {
         <div class="grid">
             <div class="grid-sizer"></div>
         </div>
-        <div id="readmore" class="load-dmore">
+        <div id="readmore" class="load-more">
             <button class="load-more-loading">Loading</button>
             <button class="load-more-end"">No More Posts</button>
             <button class="load-more-text" onclick="readmore()">LOAD MORE POSTS</button>
@@ -659,14 +691,22 @@ var current_posts_number = 0;
 var modalHidden;
 
 $(function() {
-    // console.log(judge_mobile());
-    // judge_window_size();
-    // $( window ).resize(function() {
-    //     judge_window_size();
-    // });
+    console.log("width: " + $(window).width());
+    console.log("user agent: " + navigator.userAgent);
     if(judge_mobile()){
-        location.href = "works-mobile ";
+        location.href = "works-mobile";
+    }else{
+        if(judge_ismobile_size()){
+            location.href = "works-mobile";
+        }
     }
+    
+    $( window ).resize(function() {
+        if(judge_ismobile_size()){
+            location.href = "works-mobile";
+        }
+    });
+    
 
     $('#selector').toggle('blind', function() {
         $(".arrow_down").css("transform", "rotate(180deg)");
@@ -697,17 +737,18 @@ function judge_mobile(){
     }
 }
 
-function judge_window_size(){
+function judge_ismobile_size(){
     var width = $(window).width();
-    $(".iframe-controls-container iframe-controls-container--mobile iframe-controls-container--handheld").css("display", "none");
     var href = location.href;
     var index = href.lastIndexOf("/")+1;
     href = href.substring(index);
-    console.log(width + ", " + href);
-    if(width <= 400 && href == "works"){
-        location.href = "works-mobile";
-    }else if(width > 400 && href == "works-mobile"){
-        location.href = "works";
+    // console.log(width + ", " + href);
+    if(width <= 768){
+        return true;
+        // location.href = "works-mobile.html";
+    }else{
+        return false;
+        // location.href = "works.html";
     }
 }
 
