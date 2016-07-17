@@ -46,9 +46,11 @@
         line-height: 2.5em;
         color: #000;
     }
-    .test{
-    	width: 70px;
+    
+    .test {
+        width: 70px;
     }
+    
     .navigation-label {
         float: right;
         display: block;
@@ -74,28 +76,51 @@
         position: absolute;
         bottom: 0px;
     }
+    #top{
+        margin-left: -2px;
+        margin-bottom: -2px;
+    }
+    #top tbody tr td{
+        padding: 15px;
+        background: #FFF;
+        border: 4px #e6e6e6 solid;
+    }
     </style>
 </head>
 
 <body>
-    <div class="justify">梅 問 題 minwt.com</div>
-    <hr>
-    <a href="http://minwt.com">回梅問題教學網</a>
-    <hr>
-
-    <a href="contact">
-        <div class="navigation-bottom"></div>
-        <div class="navigation-icon">
-            <img src="http://static.tumblr.com/3hbpjha/7rDo7ife4/icon-contact.png">
-            <span>Contact</span>
-        </div>
-        <div class="navigation-label">
-        	<div class="justify">
-	            聯繫我們
-	        </div>	
-        </div>
-        
-    </a>
+    <table id="top">
+        <tbody>
+            <tr>
+                <td rowspan="4">
+                    <div id="works" class="top-post">
+                        <img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="aboutus" class="top-post">
+                        <img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="service" class="top-post">
+                        <img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="contact" class="top-post">
+                        <img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png">
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 
 </html>

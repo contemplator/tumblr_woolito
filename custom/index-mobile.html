@@ -28,35 +28,55 @@ body{
 .drawer-body{
     padding: 0px;
 }
-header{
-    padding: 0px;
-    background-color: #fff;
+.glyphicon{
+    font-size: 4em;
 }
-/* Navigation */
-div.center{
+.center{
     padding-top: 0px;
     padding-left: 0px;
+    background-color: #fff;
+    text-align: center;
+}
+/* shortcut */
+.avatar{
+    width: 40%;
+    margin: 10% auto;
+}
+.avatar img{
+    width: 100%;
+}
+.avatar.circle img{
+    border-radius: 100%;
+}
+.avatar img{
+    overflow: hidden;
+    display: inline-block;
 }
 .logo a {
     color: #000;
     text-decoration: none;
 }
-header .logo h1 a{
-    font-size: 30px;
+.logo h1 a{
+    font-size: 2em;
 }
-header p.description {
+p.description {
     margin: 0px;
+    font-size: 2.5em;
 }
+/* Navigation */
 #navigation ul li{
-    border-top: 5px #ddd solid;
+    border-top: 10px #ddd solid;
     width: 90%;
     margin: 0px auto;
-    font-size: 16px;
-    line-height: 40px;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    font-size: 3em;
+    line-height: 1.5em;
+    font-weight: 400;
     text-align: left;
 }
 #navigation ul li a {
-    margin-left: 70px;
+    margin-left: 20%;
     color: #000;
 }
 #shortcut {
@@ -65,12 +85,12 @@ header p.description {
     border-radius: 10px 10px 50px 10px;
 }
 .social_network{
-    margin-bottom: 40px;
+    margin-bottom: 6vh;
     padding: 10px;
 }
 .social_network img {
     display: inline;
-    height: 50px;
+    height: 8vh;
     width: auto;
 }
 /* container header */
@@ -78,6 +98,7 @@ header p.description {
     padding-left: 0px;
     padding-right: 0px;
     background-color: #e3e3e3;
+    width: 100%;
 }
 
 #header {
@@ -89,19 +110,30 @@ header p.description {
 #header .drawer_icon {
     display: table-cell;
     vertical-align: middle;
+    height: 100%;
 }
 
 #header .title {
     display: table-cell;
     width: 100%;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 3em;
     text-transform: uppercase;
+    vertical-align: middle;
+}
+#header .find-us{
+    display: inline;
+    max-height: 3em;
+    min-height: 3em;
+    max-width: 3em;
+    min-width: 3em;
 }
 
 /* top post */
 section{
     margin-bottom: 40px;
+    float: none;
+    width: 100%;
 }
 #top{
     width: 100%;
@@ -158,93 +190,94 @@ div.play-button {
     width: 100%;
     height: 100%;
 }
+/* mobile */
+.tmblr-iframe--controls.iframe-controls--phone-mobile, .tmblr-iframe--mobile-logged-in-controls.iframe-controls--phone-mobile{
+    display: none;
+}
 </style>
 
 <body class="has-drawer">
-    <div id="drawerExample" class="drawer dw-xs-10 dw-sm-6 dw-md-4 fold" aria-labelledby="drawerExample">
+    <div id="drawerExample" class="drawer dw-xs-10 dw-sm-10 dw-md-10 fold" aria-labelledby="drawerExample">
         <div class="drawer-controls">
             <a href="#drawerExample" data-toggle="drawer" aria-foldedopen="false" aria-controls="drawerExample" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></a>
         </div>
         <div class="drawer-contents">
             <div class="drawer-body">
-                <header>
-                    <div class="center">
-                        <div class="centered">
-                            <div id="shortcut">
-                                <div class="avatar">
-                                    <a href="/" title="Woolito Studio" class="avatar circle">
-                                        <img src="http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" alt="Woolito Studio" class="default">
+                <div class="center">
+                    <div class="centered">
+                        <div id="shortcut">
+                            <div class="avatar">
+                                <a href="/" title="Woolito Studio" class="avatar circle">
+                                    <img src="http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" alt="Woolito Studio" class="default">
+                                </a>
+                            </div>
+                            <div class="logo">
+                                <h1><a href="/" title="Woolito Studio">Woolito Studio</a></h1>
+                            </div>
+                            <p class="description">我們努力創作有趣的動畫與圖文並分享笑容</p>
+                            <p class="description">希望能為彼此的生活點綴</p>
+                            <p class="description">一些無厘頭的樂趣！</p>
+                        </div>
+
+                        <div id="navigation">
+                            <ul>
+                                <li>
+                                    <a href="contact">
+                                        <span class="label-chinese">
+                                            聯繫我們</span>
+                                        <span class="label-english">Contact</span>
                                     </a>
-                                </div>
-                                <div class="logo">
-                                    <h1><a href="/" title="Woolito Studio">Woolito Studio</a></h1>
-                                </div>
-                                <p class="description">我們努力創作有趣的動畫與圖文並分享笑容</p>
-                                <p class="description">希望能為彼此的生活點綴</p>
-                                <p class="description">一些無厘頭的樂趣！</p>
-                            </div>
+                                </li>
+                                <li>
+                                    <a href="aboutus">
+                                        <span class="label-chinese">
+                                            關於我們</span>
+                                        <span class="label-english">About Woolito</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="service">
+                                        <span class="label-chinese">
+                                            商業服務</span>
+                                        <span class="label-english">Service</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="works">
+                                        <span class="label-chinese">
+                                            作品集</span>
+                                        <span class="label-english">Works</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="shop">
+                                        <span class="label-chinese">
+                                            原創商品</span>
+                                        <span class="label-english">Shop</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="line">
+                                        <span class="label-chinese">
+                                            LINE 貼圖</span>
+                                        <span class="label-english">LINE Sticker</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
 
-                            <div id="navigation">
-                                <ul>
-                                    <li>
-                                        <a href="contact">
-                                            <span class="label-chinese">
-                                                聯繫我們</span>
-                                            <span class="label-english">Contact</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="aboutus">
-                                            <span class="label-chinese">
-                                                關於我們</span>
-                                            <span class="label-english">About Woolito</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="service">
-                                            <span class="label-chinese">
-                                                商業服務</span>
-                                            <span class="label-english">Service</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="works">
-                                            <span class="label-chinese">
-                                                作品集</span>
-                                            <span class="label-english">Works</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="shop">
-                                            <span class="label-chinese">
-                                                原創商品</span>
-                                            <span class="label-english">Shop</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="line">
-                                            <span class="label-chinese">
-                                                LINE 貼圖</span>
-                                            <span class="label-english">LINE Sticker</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="social_network">
-                                <img src="http://static.tumblr.com/sirdwhf/fz1o96e68/facebook.png">
-                                <img src="http://static.tumblr.com/sirdwhf/ZqHo96e6b/youtube.png">
-                                <img src="http://static.tumblr.com/sirdwhf/WG8o96e6e/line.png">
-                                <img src="http://static.tumblr.com/sirdwhf/Ls8o96e6n/instagram.png">
-                            </div>
+                        <div class="social_network">
+                            <img src="http://static.tumblr.com/sirdwhf/fz1o96e68/facebook.png">
+                            <img src="http://static.tumblr.com/sirdwhf/ZqHo96e6b/youtube.png">
+                            <img src="http://static.tumblr.com/sirdwhf/WG8o96e6e/line.png">
+                            <img src="http://static.tumblr.com/sirdwhf/Ls8o96e6n/instagram.png">
                         </div>
                     </div>
-                </header>
+                </div>
             </div>
         </div>
     </div>
     <div class="container">
-        
         <section class="top-posts index">
             <div id="top">
                 <div class="top-post">
@@ -267,13 +300,34 @@ div.play-button {
 var posts;
 var current_posts_number = 6;
 $(function() {
-    judge_window_size();
-    $( window ).resize(function() {
-        judge_window_size();
-    });
+    console.log("width: " + $(window).width());
+    console.log("user agent: " + navigator.userAgent);
+    
+    if(!ismobile_browser()){
+        location.href = "http://woolito.tumblr.com/";
+    }
+    // judge_window_size();
+    // $( window ).resize(function() {
+    //     judge_window_size();
+    // });
 
     query_posts("");
 });
+
+function ismobile_browser(){
+    var href = location.href;
+    if( navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/iPad/i)
+        || navigator.userAgent.match(/iPod/i)
+        || navigator.userAgent.match(/BlackBerry/i)
+        || navigator.userAgent.match(/Windows Phone/i)){
+        return true;
+    }else {
+        return false;
+    }
+}
 
 function judge_window_size(){
     var width = $(window).width();

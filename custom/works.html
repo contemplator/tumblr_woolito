@@ -33,6 +33,9 @@ body {
     background-color: #e6e6e6;
     font-family: 'Noto Sans TC', sans-serif;
 }
+h2{
+    font-size: 24px;
+}
 /* navigation */
 header .logo h1{
     font-weight: bold;
@@ -180,19 +183,13 @@ div.justify:after {
 
 
 /* Selector */
-#select_section {
-    background-color: #fff;
-    margin: 2px;
-    padding: 7px;
+.toggle{
+    margin-top: -5px;
 }
-
-#select_section hr{
-    border: 2px #ccc dashed;
-    margin-top: 0px;
-}
-
 #selector {
     width: 100%;
+    background-color: #333;
+    color: #fff;
 }
 
 #selector h4 {
@@ -200,71 +197,72 @@ div.justify:after {
     padding-left: 4px;
 }
 
-#selector,
-td {
-    border: 3px #DBDBDB dashed;
-    border-collapse: collapse;
-}
-
 #selector td {
     border-collapse: separate;
     vertical-align: top;
     padding: 5px;
+    text-align: center;
+    width: 33.33%;
 }
 
-.choice {
-    border-radius: 10px;
-    display: table-cell;
-    vertical-align: middle;
-    border: 1px #DBDBDB solid;
-    padding: 1px 4px;
+#selector td .caption{
+    font-size: 18px;
+    color: #888;
+    margin: 8px;
+    word-spacing: 2px;
+    letter-spacing: 2px;
 }
 
-.choice label {
-    display: inline;
+#selector td .choice{
+    float: left;
+    width: 33.33%;
+    font-size: 14px;
+    padding: 5px;
+    border: 2px solid #333;
 }
-
-.choice input[type="radio"] {
-    display: inline;
-    margin-left: 5px;
-    display: none;
+#selector td .choice .choice-ch{
+    letter-spacing: 3px;
+    white-space: nowrap;
 }
-
-.choice img {
-    display: inline;
-    margin-left: 5px;
-    width: 15px;
-    height: 15px;
-    vertical-align: sub;
+#selector td .choice hr{
+    margin-top: 1px;
+    margin-bottom: 1px;
+    border-top: 2px solid #777;
 }
-
-.choice,
-.choice label,
-.choice input,
-.choice img {
-    cursor: pointer;
+#selector td .choice .choice-en{
+    font-size: 10px;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
 }
-
-#selector ul {
-    padding: 0px;
+.unselected_choice{
+    background-color: #eee;
+    color: #333;
 }
-
-#selector ul li {
-    list-style-type: none;
-    margin: 5px;
+.selected_choice{
+    background-color: #333;
+    color: #eee;
 }
-
-.arrow_up {}
-
+#selector td .choice .selected_hr{
+    border-top: 2px solid #eee;
+}
+/* effect*/
+#effect{
+    background-color: #333;
+    margin-bottom: 5px;
+    padding: 4px 5px;
+}
 .arrow_down,
-#effect span {
+#effect_table span {
     display: table-cell;
     vertical-align: middle;
+    font-size: 18px;
+    color: #ddd;
 }
 
 .arrow_down {
     display: table-cell;
     vertical-align: middle;
+    height: 30px;
     padding: 5px;
     -ms-transform: rotate(0deg);
     /* IE 9 */
@@ -274,13 +272,61 @@ td {
 }
 
 .arrow_down img {
-    height: 20px;
+    height: auto;
     width: 20px;
+    vertical-align: baseline;
 }
 
-#effect {
+#effect_table {
     display: table;
     vertical-align: middle;
+}
+
+.selected {
+    font-size: 14px;
+    display: table-cell;
+    background-color: #333;
+    border-radius: 5px;
+    border: 1px #eee solid;
+    padding: 2px 10px;
+    color: #eee;
+}
+
+.selected img,
+input,
+label {
+    vertical-align: middle;
+    display: initial;
+    margin: 0px 3px;
+}
+
+#selected_tag {
+    display: none;
+}
+
+.selected img{
+    width: 15px;
+    height: 15px;
+}
+/* divider */
+#dividers{
+    width: 100%;
+    height: 5px;
+    margin-bottom: 4px;
+}
+.divider{
+    float: left;
+    width: 33.33%;
+    height: inherit;
+}
+.divider:nth-child(1){
+    background-color: #DA9A9B;
+}
+.divider:nth-child(2){
+    background-color: #F9EC99;
+}
+.divider:nth-child(3){
+    background-color: #7FBBB0;
 }
 /* article */
 article,
@@ -339,31 +385,6 @@ article,
 .load-more-loading,
 .load-more-end {
     display: none;
-}
-
-.selected {
-    display: table-cell;
-    background-color: #DDD;
-    border-radius: 5px;
-    padding: 2px 10px;
-    color: white;
-}
-
-.selected img,
-input,
-label {
-    vertical-align: middle;
-    display: initial;
-    margin: 0px 3px;
-}
-
-#selected_tag {
-    display: none;
-}
-
-.selected img{
-    width: 15px;
-    height: 15px;
 }
 
 img {
@@ -578,47 +599,14 @@ div.play-button {
         </div>
     </header>
     <section class="top-posts index" ng-controller="ctrl-post">
-        <div id="select_section">
-            <div id="work-header">
-                <img src="http://static.tumblr.com/sirdwhf/1Evo8y6pj/works-bar.png">
-            </div>
-            <hr>
-            <div class="toggle">
-                <table id="selector">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <h4>原創內容 Original</h4>
-                                <ul id="Original">
-                                </ul>
-                            </td>
-                            <td>
-                                <h4>動畫用途 Purpose</h4>
-                                <ul id="Purpose">
-                                </ul>
-                            </td>
-                            <td>
-                                <h4>內容表現 Plot</h4>
-                                <ul id="Plot">
-                                </ul>
-                            </td>
-                            <td>
-                                <h4>視覺風格 Visual Style</h4>
-                                <ul id="Visual_Style">
-                                </ul>
-                            </td>
-                            <td>
-                                <h4>動畫形式 Animation Style</h4>
-                                <ul id="Animation_Style">
-                                </ul>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div id="effect">
+        <div id="work-header">
+            <img src="http://static.tumblr.com/sirdwhf/1Evo8y6pj/works-bar.png">
+        </div>
+        
+        <div id="effect">
+            <div id="effect_table">
                 <div class="arrow_down" onclick="runEffect()">
-                    <img src="http://static.tumblr.com/sirdwhf/rc7o90gy0/arrow.png">
+                    <img src="http://static.tumblr.com/sirdwhf/NEGoagmoc/arrow.png">
                 </div>
                 <span>作品篩選：</span>
                 <span id="chosen">全部
@@ -626,8 +614,44 @@ div.play-button {
                 <span>&nbsp/&nbsp</span>
                 <span id="total_post">168</span>
                 <span>&nbsp部作品</span>
-            </div>
+            </div>    
         </div>
+
+        <div class="toggle">
+            <table id="selector">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div id="Purpose">
+                                <div class="caption">動畫用途 Purpose</div>
+                                <!-- <div class="choice">
+                                    <div class="choice-ch">動畫貼圖</div>
+                                    <hr>
+                                    <div class="choice-en">Animation Stickers</div>
+                                </div> -->
+                            </div>
+                        </td>
+                        <td>
+                            <div id="Style">
+                                <div class="caption">動畫類型 Style</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div id="Original">
+                                <div class="caption">原創內容 Original</div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="dividers">
+            <div class="divider"></div>
+            <div class="divider"></div>
+            <div class="divider"></div>
+        </div>
+
         <div class="grid">
             <div class="grid-sizer"></div>
         </div>
@@ -660,35 +684,13 @@ div.play-button {
         </div>
         <!-- /.modal-dialog -->
     </div>
-    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Modal title</h4>
-                </div>
-                <div class="modal-body">
-                    <p>One fine body&hellip;</p>
-                </div>
-                <div id="arrow">
-                    <button type="button" id="cboxPrevious" style="display: block;">previous</button>
-                    <button type="button" id="cboxNext" style="display: block;">next</button>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Send message</button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
 </body>
 
 <script type="text/javascript">
 var posts;
 var current_posts_number = 0;
 var modalHidden;
+var selected_tag;
 
 $(function() {
     console.log("width: " + $(window).width());
@@ -709,7 +711,7 @@ $(function() {
     
 
     $('#selector').toggle('blind', function() {
-        $(".arrow_down").css("transform", "rotate(180deg)");
+        $(".arrow_down").css("transform", "rotate(0deg)");
     });
     initSelector();
     query_posts("");
@@ -720,6 +722,10 @@ $(function() {
 
     $("#cboxNext").click(function(){
         nextPost($(this).attr('data-post-id'));
+    });
+
+    $(".type_video").click(function(){
+        console.log("video click");
     });
 });
 
@@ -846,64 +852,55 @@ function initSelector() {
             var element = $(type);
 
             var html = "";
-            var li_element = $("<li></li>");
-            var div_element = $("<div></div>");
-            div_element.addClass("choice");
-            var label_element = $("<label></label>");
-            label_element.attr("for", tag);
-            label_element.text(chinese + " " + english);
-            var input_element = $('<input type="radio">');
-            input_element.attr("onclick", "enable_radio(this)");
-            input_element.attr("name", "selection");
-            input_element.val(tag);
-            input_element.attr("id", tag);
-            var img_element = $('<img src="http://static.tumblr.com/sirdwhf/6fHo90gzy/unchecked.png">');
-            label_element.append(img_element);
-            div_element.append(label_element);
-            div_element.append(input_element);
-            // div_element.append(img_element);
-            li_element.append(div_element);
+            var choice_element = $('<div class="choice unselected_choice"></div>');
+            choice_element.attr("onclick", "enable_radio(this)");
+            choice_element.attr("data-tag", tag);
+            choice_element.attr("data-label", chinese + " " + english);
+            var ch_element = $('<div class="choice-ch"></div>');
+            ch_element.text(chinese);
+            var hr_element = $("<hr>");
+            var en_element = $('<div class="choice-en"></div>');
+            en_element.text(english);
+            choice_element.append(ch_element).append(hr_element).append(en_element);
 
-            element.append(li_element);
+            element.append(choice_element);
         }
     });
 }
 
 function enable_radio(element) {
     var currentTarget = $(element);
-    if (currentTarget.is(":checked")) {
-        var label_text = currentTarget.parent().find("label").text();
-        currentTarget.parent().find("img").attr("src", "http://static.tumblr.com/sirdwhf/Ifwo90gyt/checked.png");
-        currentTarget.parent().css("background-color", "#84C2AF");
-        var choices = currentTarget.parent().parent().parent().parent().parent().find(".choice");
-        for (var i = 0; i < choices.length; i++) {
-            if (!$(choices[i]).find("input").is(":checked")) {
-                $(choices[i]).css("background-color", "#fff");
-                $(choices[i]).find("img").attr("src", "http://static.tumblr.com/sirdwhf/6fHo90gzy/unchecked.png");
-            }
-        }
-        var selected_tag = currentTarget.val();
 
-        var selected_element = $('<div class="selected" onclick="disable_radio(\'' + selected_tag + '\')">');
-        var selected_label = $('<label for="selected_tag">' + label_text + '</label>');
-        var selected_check = $('<input type="checkbox" name="selected" val="' + selected_tag + '" id="selected_tag">');
-        var selected_img = $('<img src="http://static.tumblr.com/sirdwhf/Ifwo90gyt/checked.png">');
-        selected_element.append(selected_label).append(selected_check).append(selected_img);
-
-        $("#chosen").html(selected_element);
-
-        runEffect();
-        query_posts(selected_tag);
+    var current_css = currentTarget.attr("class");
+    if(current_css.indexOf("choice selected_choice")>-1){
+        currentTarget.attr("class", "choice unselected_choice");
+        currentTarget.find("hr").removeClass("selected_hr");
+    }else{
+        currentTarget.attr("class","choice selected_choice");
+        currentTarget.find("hr").addClass("selected_hr");
+        currentTarget.attr("onclick", "disable_radio(\""+currentTarget.attr("data-tag")+"\")");
+        selected_tag = currentTarget.attr("data-tag");
     }
+
+    var selected_element = $('<div class="selected" onclick="disable_radio(\'' + selected_tag + '\')">');
+    var selected_label = $('<label for="selected_tag">' + currentTarget.attr("data-label") + '</label>');
+    var selected_img = $('<img src="http://static.tumblr.com/sirdwhf/Ifwo90gyt/checked.png">');
+    selected_element.append(selected_label).append(selected_img);
+    $("#chosen").html(selected_element);
+    
+    runEffect();
+    query_posts(selected_tag);
 }
 
 function disable_radio(tag) {
     $("#chosen").html("全部");
+    console.log(tag);
+    console.log($(".choice[data-tag='"+tag+"']"));
+    var choice = $(".choice[data-tag='"+tag+"']");
+    choice.attr("class", "choice unselected_choice");
+    choice.attr("onclick", "enable_radio(this)");
+    choice.find("hr").removeClass("selected_hr");
     query_posts("");
-    var input_element = $('input[value="' + tag + '"]');
-    var choice = input_element.parent();
-    choice.css("background-color", "#FFF");
-    choice.find("img").attr("src", "http://static.tumblr.com/sirdwhf/6fHo90gzy/unchecked.png");
 }
 
 function runEffect() {
