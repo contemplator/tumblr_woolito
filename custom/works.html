@@ -254,7 +254,6 @@ div.justify:after {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#393a3a', endColorstr='#403f3f',GradientType=0 ); /* IE6-9 */
 
     margin-bottom: 5px;
-    padding: 4px 5px;
 }
 .arrow_down,
 #effect_table span {
@@ -286,6 +285,7 @@ div.justify:after {
 #effect_table {
     display: table;
     vertical-align: middle;
+    margin: 4px 5px;
 }
 #effect_table .vertical_divider{
     margin: 0px 7px;
@@ -317,6 +317,12 @@ label {
 .selected img{
     width: 15px;
     height: 15px;
+}
+.tip-open{
+    display: block;
+    margin: -20px 0px 5px 0px;
+    color: #AAA;
+    text-align: center;
 }
 /* divider */
 #dividers{
@@ -609,9 +615,8 @@ div.play-button {
         
         <div id="effect">
             <div id="effect_table">
-                <div class="arrow_down" onclick="runEffect()">
-                    <img src="resources/arrow.png">
-                    <!-- <img src="http://static.tumblr.com/sirdwhf/NEGoagmoc/arrow.png"> -->
+                <div class="arrow_down">
+                    <img src="http://static.tumblr.com/sirdwhf/n6moaip0o/arrow.png">
                 </div>
                 <span>作品篩選 Filter</span>
                 <span class="vertical_divider">&nbsp|&nbsp</span>
@@ -620,42 +625,42 @@ div.play-button {
                 <span style="font-size:14px;">共計</span>
                 <span id="total_post" style="font-size:14px;">168</span>
                 <span style="font-size:14px;">&nbsp部作品</span>
-            </div>    
-        </div>
+            </div>
+            <div class="tip-open">・展開選單・</div>
+            <div class="toggle">
+                <table id="selector">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div id="Purpose">
+                                    <div class="caption">動畫用途 Purpose</div>
+                                    <!-- <div class="choice">
+                                        <div class="choice-ch">動畫貼圖</div>
+                                        <hr>
+                                        <div class="choice-en">Animation Stickers</div>
+                                    </div> -->
+                                </div>
+                            </td>
+                            <td>
+                                <div id="Style">
+                                    <div class="caption">動畫類型 Style</div>
+                                </div>
+                            </td>
+                            <td>
+                                <div id="Original">
+                                    <div class="caption">原創內容 Original</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-        <div class="toggle">
-            <table id="selector">
-                <tbody>
-                    <tr>
-                        <td>
-                            <div id="Purpose">
-                                <div class="caption">動畫用途 Purpose</div>
-                                <!-- <div class="choice">
-                                    <div class="choice-ch">動畫貼圖</div>
-                                    <hr>
-                                    <div class="choice-en">Animation Stickers</div>
-                                </div> -->
-                            </div>
-                        </td>
-                        <td>
-                            <div id="Style">
-                                <div class="caption">動畫類型 Style</div>
-                            </div>
-                        </td>
-                        <td>
-                            <div id="Original">
-                                <div class="caption">原創內容 Original</div>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div id="dividers">
-            <div class="divider"></div>
-            <div class="divider"></div>
-            <div class="divider"></div>
+            <div id="dividers">
+                <div class="divider"></div>
+                <div class="divider"></div>
+                <div class="divider"></div>
+            </div>
         </div>
 
         <div class="grid">
@@ -731,8 +736,13 @@ $(function() {
         nextPost($(this).attr('data-post-id'));
     });
 
-    $(".type_video").click(function(){
-        console.log("video click");
+    $("#effect").mouseenter(function(){
+        runEffect(true);
+        $(".tip-open").css("visibility", "hidden");
+    });
+
+    $("#effect").mouseleave(function(){
+        runEffect(false);
     });
 });
 
@@ -834,6 +844,10 @@ function setPhoto(post){
     // $(modal .modal-header .modal title).text("Post Photo");
 }
 
+function setVideo(post){
+
+}
+
 function readmore() {
     showLoading();
     var new_posts_number = current_posts_number + 6;
@@ -891,12 +905,11 @@ function enable_radio(element) {
 
     var selected_element = $('<div class="selected" onclick="disable_radio(\'' + selected_tag + '\')">');
     var selected_label = $('<label for="selected_tag">' + currentTarget.attr("data-label") + '</label>');
-    var selected_img = $('<img src="resources/checked.png">');
-    // var selected_img = $('<img src="http://static.tumblr.com/sirdwhf/Ifwo90gyt/checked.png">');
+    var selected_img = $('<img src="http://static.tumblr.com/sirdwhf/nsioaip0w/checked.png">');
     selected_element.append(selected_label).append(selected_img);
     $("#chosen").html(selected_element);
     
-    runEffect();
+    runEffect(false);
     query_posts(selected_tag);
 }
 
@@ -911,22 +924,38 @@ function disable_radio(tag) {
     query_posts("");
 }
 
-function runEffect() {
-    var options = {};
-    if ($('#selector').is(':hidden')) {
+function runEffect(todo) {
+    if(todo){ // true to open
+        if ($('#selector').is(':hidden')) {
+            $('#selector').toggle('blind', function() {}, 500);
+        }
         $("#select_section hr").css("display", "none");
         $(".arrow_down").css("transform", "rotate(180deg)");
-        // console.log('This element is hidden.');
-    } else {
+    }else{ // false to close
+        if (!$('#selector').is(':hidden')) {
+            $('#selector').toggle('blind', function() {}, 500);
+        }
         $("#select_section hr").css("display", "inherit");
         $(".arrow_down").css("transform", "rotate(0deg)");
-        // console.log('This element is visible.');
     }
-
-    $('#selector').toggle('blind', function() {
-        
-    }, 500);
 }
+
+// function runEffect() {
+//     var options = {};
+//     if ($('#selector').is(':hidden')) {
+//         $("#select_section hr").css("display", "none");
+//         $(".arrow_down").css("transform", "rotate(180deg)");
+//         // console.log('This element is hidden.');
+//     } else {
+//         $("#select_section hr").css("display", "inherit");
+//         $(".arrow_down").css("transform", "rotate(0deg)");
+//         // console.log('This element is visible.');
+//     }
+
+//     $('#selector').toggle('blind', function() {
+        
+//     }, 500);
+// }
 
 function query_posts(tag) {
     var key = "zcBf3tONWu9lQTSzrewHYU3WRdgbv1VtPGHXXMaZlZgN6Sz0lc";
@@ -1007,6 +1036,11 @@ function render_posts(number_post) {
         }
         current_posts_number = number_post;
     }
+
+    $(".video-shortcut img").click(function(){
+        console.log("ads");
+    });
+
     setTimeout(function(){
         $(".grid").masonry();
         $(".photo-wrap").click(function(event){
@@ -1054,14 +1088,18 @@ function render_video(post) {
     var article = $("<div></div>");
     article.attr("id", post.id);
     article.addClass("type_video grid-item");
-    article.attr("rel", post['url-with-slug']);
+    article.attr("rel", post['post_url']);
     var article_content = $('<div class="article-content"></div>');
     var video_stage = $("<div class='video-stage'></div>");
     var video_container = $("<div class='video-container ready video' id='" + post.id + "'></div>");
-    var iframe = render_iframe(post);
+    // var iframe = render_iframe(post);
+    var shortcut = $('<div class="video-shortcut"></div>')
+    var shortcut_img = $('<img >');
+    shortcut_img.attr("src", post.thumbnail_url);
+    shortcut.append(shortcut_img);
     // var shortcut = video_shortcut(post);
     // video_container.append(shortcut);
-    video_container.append(iframe);
+    video_container.append(shortcut);
     video_stage.append(video_container);
     var caption = $('<div class="caption">' + post['caption'] + '</div>');
     article_content.append(video_stage).append(caption);
@@ -1075,17 +1113,17 @@ function render_text(post) {
     var article = $("<div></div>");
     article.attr("id", post.id);
     article.addClass("type_text grid-item");
-    article.attr("rel", post['url-with-slug']);
+    article.attr("rel", post['post_url']);
     var article_content = $("<div></div>");
     article_content.addClass("article_content");
     var title = $("<h2></h2>");
-    var title_link = $("<a href='" + post['url-with-slug'] + "' title='" + post['regular-title'] + "'>" + post.slug + "</a>");
+    var title_link = $("<a href='" + post['post_url'] + "' title='" + post['regular-title'] + "'>" + post.slug + "</a>");
     title.append(title_link);
     var body = post['body'];
     if (body.indexOf("<!-- more -->") > -1) {
         var start_index = body.indexOf("<!-- more -->");
         body = body.substring(0, start_index);
-        body += '<a href="' + post['url-with-slug'] + '" class="readmore">KEEP READING</a>';
+        body += '<a href="' + post['post_url'] + '" class="readmore">KEEP READING</a>';
     }
     article_content.append(title).append(body);
     var icon = render_icon(post);
