@@ -430,7 +430,22 @@ div.play-button {
     width: 100%;
     height: 100%;
 }
+#preview_youtube{
+    height: 360px;
+    width: 480px;
+}
+#preview_youtube figure, #preview_youtube figure iframe{
+    height: inherit;
+    width: inherit;
+}
 
+.preview_hide{
+    display: none;
+}
+.preview_show{
+    display: initial;
+    position: absolute;
+}
 /* ---- grid ---- */
 
 .grid {
