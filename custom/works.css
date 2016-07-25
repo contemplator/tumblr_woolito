@@ -6,6 +6,7 @@ body {
 }
 h2{
     font-size: 20px;
+    text-transform: inherit;
 }
 /* navigation */
 header .logo h1{
@@ -194,7 +195,7 @@ div.justify:after {
     cursor: pointer;
 }
 #selector td .choice .choice-ch{
-    letter-spacing: 3px;
+    letter-spacing: 1px;
     white-space: nowrap;
 }
 #selector td .choice hr{

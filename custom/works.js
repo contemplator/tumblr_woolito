@@ -468,7 +468,7 @@ function render_text(post) {
     var title_link = $("<a href='" + post['post_url'] + "' target=\"_blank\" title='" + post['regular-title'] + "'>" + post.slug + "</a>");
     title.append(title_link);
     var body = post['body'];
-    body = analysis_caption_iframe(post.body);
+    body = analysis_caption_iframe(post.body, post.id);
     if (body.indexOf("<!-- more -->") > -1) {
         var start_index = body.indexOf("<!-- more -->");
         body = body.substring(0, start_index);
@@ -481,19 +481,23 @@ function render_text(post) {
     return article;
 }
 
-function analysis_caption_iframe(caption){
+function analysis_caption_iframe(caption, post_id){
     if(!(caption.indexOf("youtube_iframe") > -1)){
         return caption;
     }
     var patt = /https:\/\/www.youtube.com\/embed\/(\w+)\?/i;
     var patt2 = /<figure(.*)>(.*)<\/figure>/i;
     var youtube_id = caption.match(patt)[1];
+    var link_element = $('<a target="_blank"></a>');
+    link_element.attr("href", "http://woolito.tumblr.com/post/"+post_id+"/");
     var shortcut_element = $("<img >");
     shortcut_element.addClass("shortcut");
     shortcut_element.attr("src", "https://i.ytimg.com/vi/"+youtube_id+"/hqdefault.jpg");
     shortcut_element.attr("youtube_id", youtube_id);
-    shortcut_element = shortcut_element.prop('outerHTML');
-    caption = caption.replace(patt2, shortcut_element);
+    link_element.html(shortcut_element);
+    link_element = link_element.prop('outerHTML');
+
+    caption = caption.replace(patt2, link_element);
     return caption;
 }
 
