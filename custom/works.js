@@ -395,6 +395,8 @@ function render_posts(number_post) {
         $("#preview_youtube").attr("class", "preview_hide");
         $("#preview_youtube figure iframe").attr("src", "");
     });
+
+    $('[data-toggle="tooltip"]').tooltip();
 }
 
 function showPreview(element){
@@ -417,7 +419,7 @@ function showPreview(element){
 
     var figure_element = $('<figure class="tmblr-embed tmblr-full" data-provider="youtube"></figure>');
     var iframe_element = $('<iframe class="youtube_iframe" frameborder="0" allowfullscreen=""></iframe>');
-    iframe_element.attr("src", "https://www.youtube.com/embed/"+element.attr("youtube_id")+"?feature=oembed&amp;enablejsapi=1&amp&autoplay=1&loop=0;origin=https://safe.txmblr.com&amp;wmode=opaque");
+    iframe_element.attr("src", "https://www.youtube.com/embed/"+element.attr("youtube_id")+"?feature=oembed&amp;enablejsapi=1&amp&autoplay=1&loop=0;controls=0;origin=https://safe.txmblr.com&amp;wmode=opaque");
     figure_element.html(iframe_element);
     preview.html(figure_element);
 }
@@ -479,7 +481,7 @@ function render_text(post) {
     var article_content = $("<div></div>");
     article_content.addClass("article_content");
     var title = $("<h2></h2>");
-    var title_link = $("<a href='" + post['post_url'] + "' target=\"_blank\" title='" + post['regular-title'] + "'>" + post.slug + "</a>");
+    var title_link = $("<a href='" + post['post_url'] + "' target=\"_blank\" title='點擊觀看作品介紹' data-toggle='tooltip' data-placement='bottom' >" + post.slug + "</a>");
     title.append(title_link);
     var body = post['body'];
     body = analysis_caption_iframe(post.body, post.id);
@@ -508,6 +510,9 @@ function analysis_caption_iframe(caption, post_id){
     shortcut_element.addClass("shortcut");
     shortcut_element.attr("src", "https://i.ytimg.com/vi/"+youtube_id+"/hqdefault.jpg");
     shortcut_element.attr("youtube_id", youtube_id);
+    shortcut_element.attr("data-toggle", "tooltip");
+    shortcut_element.attr("data-placement", "bottom");
+    shortcut_element.attr("title", "點擊觀看作品介紹");
     link_element.html(shortcut_element);
     link_element = link_element.prop('outerHTML');
 

@@ -432,8 +432,8 @@ div.play-button {
     height: 100%;
 }
 #preview_youtube{
-    height: 360px;
-    width: 480px;
+    height: 450px;
+    width: 600px;
 }
 #preview_youtube figure, #preview_youtube figure iframe{
     height: inherit;
@@ -496,4 +496,9 @@ div.play-button {
     .grid-item {
         width: 25%;
     }
+}
+/* tooltip */
+.tooltip-inner{
+    font-size: 12px;
+    letter-spacing: 2px;
 }
