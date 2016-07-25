@@ -42,13 +42,13 @@ $(function() {
     // });
 
     $(".effect_field").click(function() {
-        runEffect(true);
+        runEffect();
         $(".tip-open").css("visibility", "hidden");
     });
 
-    $("#effect").mouseleave(function() {
-        runEffect(false);
-    });
+    // $("#effect").mouseleave(function() {
+    //     runEffect(false);
+    // });
 
     $(window).bind('scroll resize', function() {
         var $this = $(this);
@@ -244,7 +244,7 @@ function enable_radio(element) {
     selected_element.append(selected_label).append(selected_img);
     $("#chosen").html(selected_element);
 
-    runEffect(false);
+    // runEffect(false);
     query_posts(selected_tag);
 }
 
@@ -258,20 +258,34 @@ function disable_radio(tag) {
 }
 
 function runEffect(todo) {
-    if (todo) { // true to open
-        if ($('#selector').is(':hidden')) {
-            $('#selector').show('blind', function() {}, 300);
-        }
+    // depend on current status, decide to open or close
+    if ($('#selector').is(':hidden')) {
+        $('#selector').show('blind', function() {}, 300);
         $("#select_section hr").css("display", "none");
         $(".arrow_down").css("transform", "rotate(180deg)");
-    } else { // false to close
-        if ($('#selector').is(':hidden') == false) {
-            $('#selector').hide('blind', function() {}, 300);
-        }
+    }else{
+        $('#selector').hide('blind', function() {}, 300);
         $("#select_section hr").css("display", "inherit");
         $(".arrow_down").css("transform", "rotate(0deg)");
     }
 }
+
+// function runEffect(todo) {
+//     // depend on parameter 'todo', decide to open or close
+//     if (todo) { // true to open
+//         if ($('#selector').is(':hidden')) {
+//             $('#selector').show('blind', function() {}, 300);
+//         }
+//         $("#select_section hr").css("display", "none");
+//         $(".arrow_down").css("transform", "rotate(180deg)");
+//     } else { // false to close
+//         if ($('#selector').is(':hidden') == false) {
+//             $('#selector').hide('blind', function() {}, 300);
+//         }
+//         $("#select_section hr").css("display", "inherit");
+//         $(".arrow_down").css("transform", "rotate(0deg)");
+//     }
+// }
 
 function query_posts(tag) {
     var key = "zcBf3tONWu9lQTSzrewHYU3WRdgbv1VtPGHXXMaZlZgN6Sz0lc";
