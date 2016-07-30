@@ -339,7 +339,7 @@ label {
 }
 /* article */
 section{
-    margin-bottom: 100px;
+    margin-bottom: 150px;
 }
 .grid{
     margin-top: 20px;
@@ -505,6 +505,10 @@ div.play-button {
     }
 }
 /* tooltip */
+.tooltip{
+    position: relative;
+    width: 140px;
+}
 .tooltip-inner{
     font-size: 12px;
     letter-spacing: 2px;

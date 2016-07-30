@@ -3,8 +3,6 @@ var current_posts_number = 0;
 var modalHidden;
 var selected_tag;
 
-var browserPrefixes = ['moz', 'ms', 'o', 'webkit'];
-
 $(function() {
     console.log("width: " + $(window).width());
     console.log("user agent: " + navigator.userAgent);
@@ -63,58 +61,12 @@ $(function() {
             $(".grid").css("margin-top", "0px");
         }
     });
-
-    var visProp = getHiddenProp();
-    if (visProp) {
-        var evtname = visProp.replace(/[H|h]idden/, '') + 'visibilitychange';
-        document.addEventListener(evtname, visChange);
-        document.addEventListener(evtname, iframeChange);
-    }
 });
 
-function iframeChange(){
+function iframeChange() {
     console.log("iframeChange");
     $("#preview_youtube").attr("class", "preview_hide");
     $("#preview_youtube figure iframe").attr("src", "");
-}
-
-function visChange() {
-    // var txtFld = document.getElementById('visChangeText');
-
-    if (isHidden()) {
-        // txtFld.value += "Tab Hidden!\n";
-        console.log("Tab Hidden!");
-    } else {
-        console.log("Tab Visible!");
-    }
-}
-
-
-function getHiddenProp() {
-    var prefixes = ['webkit', 'moz', 'ms', 'o'];
-
-    // if 'hidden' is natively supported just return it
-    if ('hidden' in document) {
-        return 'hidden'
-    };
-
-    // otherwise loop over all the known prefixes until we find one
-    for (var i = 0; i < prefixes.length; i++) {
-        if ((prefixes[i] + 'Hidden') in document) {
-            console.log(prefixes[i] + 'Hidden')
-            return prefixes[i] + 'Hidden';
-        }
-    }
-
-    // otherwise it's not supported
-    return null;
-}
-
-function isHidden() {
-    var prop = getHiddenProp();
-    if (!prop) return false;
-
-    return document[prop];
 }
 
 function ismobile() {
@@ -478,7 +430,6 @@ function render_posts(number_post, posts) {
 }
 
 function showPreview(element) {
-    console.log('showPreview');
     element = $(element);
     preview = $("#preview_youtube");
     var e_top = element.offset().top;
@@ -490,10 +441,14 @@ function showPreview(element) {
     var w_width = $(window).width();
     $("#preview_youtube").attr("class", "preview_show");
     $("#preview_youtube").css("top", (e_top - (p_height - e_height)) + "px");
-    $("#preview_youtube").css("left", (e_left + e_width) + "px");
+    $("#preview_youtube").css("left", (e_left + e_width * 2 / 3) + "px");
 
     if ((e_left + e_width + p_width) > w_width) {
-        $("#preview_youtube").css("left", (e_left - p_width) + "px");
+        $("#preview_youtube").css("left", (e_left - p_width + e_width * 1 / 3) + "px");
+    }
+
+    if ($("#preview_youtube").offset().top < $(window).scrollTop()) {
+        $("#preview_youtube").css("top", $(window).scrollTop() + "px");
     }
 
     var figure_element = $('<figure class="tmblr-embed tmblr-full" data-provider="youtube"></figure>');
@@ -560,7 +515,7 @@ function render_text(post) {
     var article_content = $("<div></div>");
     article_content.addClass("article_content");
     var title = $("<h2></h2>");
-    var title_link = $("<a href='" + post['post_url'] + "' target=\"_blank\" title='點擊觀看作品介紹' data-toggle='tooltip' data-placement='bottom' >" + post.slug + "</a>");
+    var title_link = $("<a href='" + post['post_url'] + "' target=\"_blank\" title='點擊觀看作品介紹' data-toggle='tooltip' data-placement='right' >" + post.slug + "</a>");
     title.append(title_link);
     var body = post['body'];
     body = analysis_caption_iframe(post.body, post.id);

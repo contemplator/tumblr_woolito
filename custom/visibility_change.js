@@ -1,23 +1,7 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>梅問題範例展示「CSS3-text-justify」</title>
-    <meta charset="UTF-8">
-</head>
-
-<body>
-    <textarea id="visChangeText" style="width:300px;height:100px">asdf</textarea>
-</body>
-<script>
-var browserPrefixes = ['moz', 'ms', 'o', 'webkit'];
-
 var visProp = getHiddenProp();
 if (visProp) {
     var evtname = visProp.replace(/[H|h]idden/, '') + 'visibilitychange';
-    console.log(evtname);
     document.addEventListener(evtname, visChange);
-    // document.addEventListener(evtname, iframeChange);
 }
 
 function getHiddenProp() {
@@ -41,13 +25,11 @@ function getHiddenProp() {
 }
 
 function visChange() {
-    var txtFld = document.getElementById('visChangeText');
-
     if (isHidden()) {
-        txtFld.value += "Tab Hidden!\n";
+        $("#preview_youtube").attr("class", "preview_hide");
+        $("#preview_youtube figure iframe").attr("src", "");
         console.log("Tab Hidden!");
     } else {
-        txtFld.value += "Tab Visible!\n";
         console.log("Tab Visible!");
     }
 }
@@ -58,6 +40,3 @@ function isHidden() {
 
     return document[prop];
 }
-</script>
-
-</html>
