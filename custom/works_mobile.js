@@ -216,6 +216,7 @@ function query_posts(tag) {
 
 function render_posts(posts) {
     var grid_holder = $(".grid");
+    grid_holder.html('<div class="grid-sizer"></div>');
     console.log(posts);
 
     if (posts.length > 0) {

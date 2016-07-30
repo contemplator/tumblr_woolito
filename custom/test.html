@@ -4,123 +4,35 @@
 <head>
     <title>梅問題範例展示「CSS3-text-justify」</title>
     <meta charset="UTF-8">
-    <style>
-    div.justify {
-        text-align: justify;
-        text-justify: inter-ideograph;
-        -ms-text-justify: inter-ideograph;
-        -moz-text-align-last: justify;
-        -webkit-text-align-last: justify;
-    }
-    
-    div.justify:after {
-        content: '';
-        display: inline-block;
-        width: 100%;
-    }
-    
-    #navigation ul li a {
-        position: relative;
-        background-color: #e6e6e6;
-        padding: 0px;
-        width: 80%;
-    }
-    
-    .navigation-icon {
-        display: inline-block;
-        border-radius: 0px 10px 0px 0px;
-        background-color: #b3b3b3;
-        padding-right: 5px;
-        width: 65%;
-    }
-    
-    .navigation-icon img {
-        display: inline;
-        height: 30px;
-        width: auto;
-        vertical-align: middle;
-    }
-    
-    .navigation-icon span {
-        float: right;
-        line-height: 2.5em;
-        color: #000;
-    }
-    
-    .test {
-        width: 70px;
-    }
-    
-    .navigation-label {
-        float: right;
-        display: block;
-        line-height: 2.5em;
-        color: #222;
-        width: 70px;
-        text-align: justify;
-        text-justify: inter-ideograph;
-        -ms-text-justify: inter-ideograph;
-        -moz-text-align-last: justify;
-        -webkit-text-align-last: justify;
-    }
-    
-    .navigation-label:after {
-        content: '';
-        display: inline-block;
-    }
-    
-    .navigation-bottom {
-        width: 100%;
-        height: 3px;
-        background: #b3b3b3;
-        position: absolute;
-        bottom: 0px;
-    }
-    #top{
-        margin-left: -2px;
-        margin-bottom: -2px;
-    }
-    #top tbody tr td{
-        padding: 15px;
-        background: #FFF;
-        border: 4px #e6e6e6 solid;
-    }
-    </style>
 </head>
 
 <body>
-    <table id="top">
-        <tbody>
-            <tr>
-                <td rowspan="4">
-                    <div id="works" class="top-post">
-                        <img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png">
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div id="aboutus" class="top-post">
-                        <img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png">
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div id="service" class="top-post">
-                        <img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png">
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div id="contact" class="top-post">
-                        <img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png">
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <textarea id="visChangeText" style="width:300px;height:100px">asdf</textarea>
 </body>
+<script>
+var hidden, visibilityChange; 
+if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and later support 
+  hidden = "hidden";
+  visibilityChange = "visibilitychange";
+} else if (typeof document.mozHidden !== "undefined") {
+  hidden = "mozHidden";
+  visibilityChange = "mozvisibilitychange";
+} else if (typeof document.msHidden !== "undefined") {
+  hidden = "msHidden";
+  visibilityChange = "msvisibilitychange";
+} else if (typeof document.webkitHidden !== "undefined") {
+  hidden = "webkitHidden";
+  visibilityChange = "webkitvisibilitychange";
+}
+console.log(hidden);
+console.log(visibilityChange);
+
+document.addEventListener("visibilitychange", handleVisibilityChange, true);
+
+function handleVisibilityChange(){
+    console.log("webkitvisibilitychange");
+}
+
+</script>
 
 </html>

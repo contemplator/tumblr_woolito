@@ -338,6 +338,12 @@ label {
     background-color: #7FBBB0;
 }
 /* article */
+section{
+    margin-bottom: 100px;
+}
+.grid{
+    margin-top: 20px;
+}
 article,
 .grid-item {
     width: 33.33%;
@@ -434,6 +440,7 @@ div.play-button {
 #preview_youtube{
     height: 450px;
     width: 600px;
+    z-index: 110;
 }
 #preview_youtube figure, #preview_youtube figure iframe{
     height: inherit;

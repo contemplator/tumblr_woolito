@@ -1,7 +1,9 @@
-var posts;
+var posts = [];
 var current_posts_number = 0;
 var modalHidden;
 var selected_tag;
+
+var browserPrefixes = ['moz', 'ms', 'o', 'webkit'];
 
 $(function() {
     console.log("width: " + $(window).width());
@@ -20,12 +22,12 @@ $(function() {
         }
     });
 
-
     $('#selector').toggle('blind', function() {
         $(".arrow_down").css("transform", "rotate(0deg)");
     });
     initSelector();
-    query_posts("");
+    query_all_posts();
+    // query_posts("");
 
     $("#cboxPrevious").click(function() {
         prePost($(this).attr('data-post-id'));
@@ -55,11 +57,65 @@ $(function() {
         var $this_Top = $this.scrollTop();
         if ($this_Top > 120) {
             $("#effect").addClass("fixed-menu");
+            $(".grid").css("margin-top", ($("#effect").height()) + "px");
         } else {
             $("#effect").removeClass("fixed-menu");
+            $(".grid").css("margin-top", "0px");
         }
     });
+
+    var visProp = getHiddenProp();
+    if (visProp) {
+        var evtname = visProp.replace(/[H|h]idden/, '') + 'visibilitychange';
+        document.addEventListener(evtname, visChange);
+        document.addEventListener(evtname, iframeChange);
+    }
 });
+
+function iframeChange(){
+    console.log("iframeChange");
+    $("#preview_youtube").attr("class", "preview_hide");
+    $("#preview_youtube figure iframe").attr("src", "");
+}
+
+function visChange() {
+    // var txtFld = document.getElementById('visChangeText');
+
+    if (isHidden()) {
+        // txtFld.value += "Tab Hidden!\n";
+        console.log("Tab Hidden!");
+    } else {
+        console.log("Tab Visible!");
+    }
+}
+
+
+function getHiddenProp() {
+    var prefixes = ['webkit', 'moz', 'ms', 'o'];
+
+    // if 'hidden' is natively supported just return it
+    if ('hidden' in document) {
+        return 'hidden'
+    };
+
+    // otherwise loop over all the known prefixes until we find one
+    for (var i = 0; i < prefixes.length; i++) {
+        if ((prefixes[i] + 'Hidden') in document) {
+            console.log(prefixes[i] + 'Hidden')
+            return prefixes[i] + 'Hidden';
+        }
+    }
+
+    // otherwise it's not supported
+    return null;
+}
+
+function isHidden() {
+    var prop = getHiddenProp();
+    if (!prop) return false;
+
+    return document[prop];
+}
 
 function ismobile() {
     if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
@@ -172,13 +228,13 @@ function setVideo(post) {
 
 }
 
-function readmore() {
+function readmore(posts) {
     showLoading();
     var new_posts_number = current_posts_number + 6;
     if (posts.length - new_posts_number <= 0) {
         new_posts_number = posts.length;
     }
-    render_posts(new_posts_number);
+    render_posts(new_posts_number, posts);
 }
 
 function initSelector() {
@@ -263,7 +319,7 @@ function runEffect(todo) {
         $('#selector').show('blind', function() {}, 300);
         $("#select_section hr").css("display", "none");
         $(".arrow_down").css("transform", "rotate(180deg)");
-    }else{
+    } else {
         $('#selector').hide('blind', function() {}, 300);
         $("#select_section hr").css("display", "inherit");
         $(".arrow_down").css("transform", "rotate(0deg)");
@@ -287,10 +343,8 @@ function runEffect(todo) {
 //     }
 // }
 
-function query_posts(tag) {
+function query_all_posts() {
     var key = "zcBf3tONWu9lQTSzrewHYU3WRdgbv1VtPGHXXMaZlZgN6Sz0lc";
-    showLoading();
-    posts = [];
     $(".grid").html('<div class="grid-sizer"></div>');
 
     $.ajax({
@@ -302,21 +356,13 @@ function query_posts(tag) {
         }
     }).done(function(data) {
         var data_json = data.response.posts;
-        console.log(data_json);
-
-        var tags = [];
-
         for (var i = 0; i < data_json.length; i++) {
-            if (tag == "") {
-                posts = data_json;
-                continue;
-            }
             try {
                 tags = data_json[i].tags;
                 if (tags == undefined) {
                     tags = [];
                 };
-                if (tags.indexOf(tag) > -1) {
+                if (tags.indexOf("work") > -1) {
                     posts.push(data_json[i]);
                 }
             } catch (err) {
@@ -330,12 +376,45 @@ function query_posts(tag) {
         } else {
             $("#total_post").text(posts.length);
         }
-        current_posts_number = 0;
-        readmore();
+
+        query_posts("");
     });
 }
 
-function render_posts(number_post) {
+function query_posts(tag) {
+    var selected_posts = [];
+    var tags = [];
+
+    for (var i = 0; i < posts.length; i++) {
+        if (tag == "") {
+            selected_posts = posts;
+            continue;
+        }
+        try {
+            tags = posts[i].tags;
+            if (tags == undefined) {
+                tags = [];
+            };
+            if (tags.indexOf(tag) > -1) {
+                selected_posts.push(posts[i]);
+            }
+        } catch (err) {
+            console.log(err);
+            continue;
+        }
+    }
+
+    if (!posts) {
+        $("#total_post").text("0");
+    } else {
+        $("#total_post").text(selected_posts.length);
+    }
+    current_posts_number = 0;
+    readmore(selected_posts);
+}
+
+function render_posts(number_post, posts) {
+    $(".grid").html('<div class="grid-sizer"></div>');
 
     if (posts.length > 0) {
         for (var i = current_posts_number; i < number_post; i++) {
@@ -387,7 +466,6 @@ function render_posts(number_post) {
     }
 
     $(".shortcut").mouseenter(function() {
-        console.log(this);
         showPreview(this);
     });
 
@@ -399,7 +477,8 @@ function render_posts(number_post) {
     $('[data-toggle="tooltip"]').tooltip();
 }
 
-function showPreview(element){
+function showPreview(element) {
+    console.log('showPreview');
     element = $(element);
     preview = $("#preview_youtube");
     var e_top = element.offset().top;
@@ -411,15 +490,15 @@ function showPreview(element){
     var w_width = $(window).width();
     $("#preview_youtube").attr("class", "preview_show");
     $("#preview_youtube").css("top", (e_top - (p_height - e_height)) + "px");
-    $("#preview_youtube").css("left", (e_left+e_width) + "px");
+    $("#preview_youtube").css("left", (e_left + e_width) + "px");
 
-    if((e_left+e_width+p_width) > w_width){
-        $("#preview_youtube").css("left", (e_left-p_width) + "px");
+    if ((e_left + e_width + p_width) > w_width) {
+        $("#preview_youtube").css("left", (e_left - p_width) + "px");
     }
 
     var figure_element = $('<figure class="tmblr-embed tmblr-full" data-provider="youtube"></figure>');
     var iframe_element = $('<iframe class="youtube_iframe" frameborder="0" allowfullscreen=""></iframe>');
-    iframe_element.attr("src", "https://www.youtube.com/embed/"+element.attr("youtube_id")+"?feature=oembed&amp;enablejsapi=1&amp&autoplay=1&loop=0;controls=0;origin=https://safe.txmblr.com&amp;wmode=opaque");
+    iframe_element.attr("src", "https://www.youtube.com/embed/" + element.attr("youtube_id") + "?feature=oembed&amp;enablejsapi=1&amp&autoplay=1&loop=0;controls=0;origin=https://safe.txmblr.com&amp;wmode=opaque");
     figure_element.html(iframe_element);
     preview.html(figure_element);
 }
@@ -497,18 +576,18 @@ function render_text(post) {
     return article;
 }
 
-function analysis_caption_iframe(caption, post_id){
-    if(!(caption.indexOf("youtube_iframe") > -1)){
+function analysis_caption_iframe(caption, post_id) {
+    if (!(caption.indexOf("youtube_iframe") > -1)) {
         return caption;
     }
     var patt = /https:\/\/www.youtube.com\/embed\/(\w+)\?/i;
     var patt2 = /<figure(.*)>(.*)<\/figure>/i;
     var youtube_id = caption.match(patt)[1];
     var link_element = $('<a target="_blank"></a>');
-    link_element.attr("href", "http://woolito.tumblr.com/post/"+post_id+"/");
+    link_element.attr("href", "http://woolito.tumblr.com/post/" + post_id + "/");
     var shortcut_element = $("<img >");
     shortcut_element.addClass("shortcut");
-    shortcut_element.attr("src", "https://i.ytimg.com/vi/"+youtube_id+"/hqdefault.jpg");
+    shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
     shortcut_element.attr("youtube_id", youtube_id);
     shortcut_element.attr("data-toggle", "tooltip");
     shortcut_element.attr("data-placement", "bottom");
