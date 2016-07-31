@@ -506,7 +506,7 @@ div.play-button {
 }
 /* tooltip */
 .tooltip{
-    position: relative;
+    position: absolute;
     width: 140px;
 }
 .tooltip-inner{

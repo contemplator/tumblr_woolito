@@ -246,7 +246,7 @@ function enable_radio(element) {
         selected_tag = currentTarget.attr("data-tag");
     }
 
-    var selected_element = $('<div class="selected" onclick="disable_radio(\'' + selected_tag + '\')">');
+    var selected_element = $('<div class="selected" onclick="disable_radio(event, \'' + selected_tag + '\')">');
     var selected_label = $('<label for="selected_tag">' + currentTarget.attr("data-label") + '</label>');
     var selected_img = $('<img src="http://static.tumblr.com/sirdwhf/nsioaip0w/checked.png">');
     selected_element.append(selected_label).append(selected_img);
@@ -256,12 +256,15 @@ function enable_radio(element) {
     query_posts(selected_tag);
 }
 
-function disable_radio(tag) {
+function disable_radio(event, tag) {
+    event.stopPropagation();
+    console.log("stopPropagation");
     $("#chosen").html("所有作品");
     var choice = $(".choice[data-tag='" + tag + "']");
     choice.attr("class", "choice unselected_choice");
     choice.attr("onclick", "enable_radio(this)");
     choice.find("hr").removeClass("selected_hr");
+
     query_posts("");
 }
 
@@ -421,7 +424,7 @@ function render_posts(number_post, posts) {
         showPreview(this);
     });
 
-    $(".shortcut").mouseleave(function() {
+    $(".shortcut").mouseout(function() {
         $("#preview_youtube").attr("class", "preview_hide");
         $("#preview_youtube figure iframe").attr("src", "");
     });
