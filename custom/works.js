@@ -2,6 +2,7 @@ var posts = [];
 var current_posts_number = 0;
 var modalHidden;
 var selected_tag;
+var preview_timer;
 
 $(function() {
     console.log("width: " + $(window).width());
@@ -421,15 +422,30 @@ function render_posts(number_post, posts) {
     }
 
     $(".shortcut").mouseenter(function() {
-        showPreview(this);
+        clearTimeout(preview_timer);
+        if($("#preview_youtube figure iframe").attr("src") == ""){
+            showPreview(this);    
+        }
     });
 
-    $(".shortcut").mouseout(function() {
-        $("#preview_youtube").attr("class", "preview_hide");
-        $("#preview_youtube figure iframe").attr("src", "");
+    $("#preview_youtube").mouseenter(function(e){
+        clearTimeout(preview_timer);
+    });
+
+    $("#preview_youtube").mouseleave(function(e){
+        preview_timer = setTimeout(hidePreview, 60);
+    });
+
+    $(".shortcut").on('mouseleave', function(e) {
+        preview_timer = setTimeout(hidePreview, 60);
     });
 
     $('[data-toggle="tooltip"]').tooltip();
+}
+
+function hidePreview(){
+    $("#preview_youtube").attr("class", "preview_hide");
+    $("#preview_youtube figure iframe").attr("src", "");
 }
 
 function showPreview(element) {
