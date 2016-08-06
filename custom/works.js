@@ -428,15 +428,15 @@ function render_posts(number_post, posts) {
         }
     });
 
-    $("#preview_youtube").mouseenter(function(e){
-        clearTimeout(preview_timer);
-    });
+    // $("#preview_youtube").mouseenter(function(e){
+    //     clearTimeout(preview_timer);
+    // });
 
-    $("#preview_youtube").mouseleave(function(e){
-        preview_timer = setTimeout(hidePreview, 60);
-    });
+    // $("#preview_youtube").mouseleave(function(e){
+    //     preview_timer = setTimeout(hidePreview, 60);
+    // });
 
-    $(".shortcut").on('mouseleave', function(e) {
+    $(".shortcut").mouseleave(function(e) {
         preview_timer = setTimeout(hidePreview, 60);
     });
 
@@ -459,22 +459,23 @@ function showPreview(element) {
     var p_width = preview.width();
     var w_width = $(window).width();
     $("#preview_youtube").attr("class", "preview_show");
-    $("#preview_youtube").css("top", (e_top - (p_height - e_height)) + "px");
-    $("#preview_youtube").css("left", (e_left + e_width * 2 / 3) + "px");
+    $("#preview_youtube").css("top", (e_top - (p_height - e_height) - 10 ) + "px");
+    $("#preview_youtube").css("left", (e_left + e_width) + "px");
 
     if ((e_left + e_width + p_width) > w_width) {
-        $("#preview_youtube").css("left", (e_left - p_width + e_width * 1 / 3) + "px");
+        $("#preview_youtube").css("left", (e_left - p_width) + "px");
     }
 
     if ($("#preview_youtube").offset().top < $(window).scrollTop()) {
         $("#preview_youtube").css("top", $(window).scrollTop() + "px");
     }
 
-    var figure_element = $('<figure class="tmblr-embed tmblr-full" data-provider="youtube"></figure>');
-    var iframe_element = $('<iframe class="youtube_iframe" frameborder="0" allowfullscreen=""></iframe>');
-    iframe_element.attr("src", "https://www.youtube.com/embed/" + element.attr("youtube_id") + "?feature=oembed&amp;enablejsapi=1&amp&autoplay=1&loop=0;controls=0;origin=https://safe.txmblr.com&amp;wmode=opaque");
-    figure_element.html(iframe_element);
-    preview.html(figure_element);
+    // var figure_element = $('<figure></figure>');
+    // var iframe_element = $('<iframe class="youtube_iframe" frameborder="0" allowfullscreen=""></iframe>');
+    var iframe_element = $("#preview_youtube figure iframe");
+    iframe_element.attr("src", "https://www.youtube.com/embed/" + element.attr("youtube_id") + "?feature=oembed&amp;enablejsapi=1&amp&autoplay=1&loop=0;controls=0;origin=https://safe.txmblr.com&amp;wmode=opaque&showinfo=0");
+    // figure_element.html(iframe_element);
+    // preview.html(figure_element);
 }
 
 function render_photo(post) {
