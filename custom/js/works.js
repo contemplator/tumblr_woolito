@@ -318,9 +318,9 @@ function query_all_posts() {
                 if (tags == undefined) {
                     tags = [];
                 };
-                if (tags.indexOf("work") > -1) {
+                // if (tags.indexOf("work") > -1) {
                     posts.push(data_json[i]);
-                }
+                // }
             } catch (err) {
                 console.log(err);
                 continue;
@@ -463,7 +463,7 @@ function showPreview(element) {
     $("#preview_youtube").css("left", (e_left + e_width) + "px");
 
     if ((e_left + e_width + p_width) > w_width) {
-        $("#preview_youtube").css("left", (e_left - p_width) + "px");
+        $("#preview_youtube").css("left", (e_left - p_width - 10) + "px");
     }
 
     if ($("#preview_youtube").offset().top < $(window).scrollTop()) {
