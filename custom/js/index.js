@@ -8,23 +8,19 @@ $(function() {
     console.log("width: " + $(window).width());
     console.log("user agent: " + navigator.userAgent);
     if (ismobile()) {
-        location.href = "works-mobile";
+        location.href = "index-mobile";
     } else {
         if (ismobile_size()) {
-            location.href = "works-mobile";
+            location.href = "index-mobile";
         }
     }
 
     $(window).resize(function() {
         if (ismobile_size()) {
-            location.href = "works-mobile";
+            location.href = "index-mobile";
         }
     });
 
-    $('#selector').toggle('blind', function() {
-        $(".arrow_down").css("transform", "rotate(0deg)");
-    });
-    initSelector();
     query_all_posts();
     // query_posts("");
 
@@ -35,21 +31,6 @@ $(function() {
     $("#cboxNext").click(function() {
         nextPost($(this).attr('data-post-id'));
     });
-
-    // $("#effect").mouseenter(function(){
-    //     $("#effect").css("background", "#29c2af");
-    //     $("#effect_table span").css("color", "#000");
-    //     $(".tip-open").css("color", "#FFF");
-    // });
-
-    $(".effect_field").click(function() {
-        runEffect();
-        $(".tip-open").css("visibility", "hidden");
-    });
-
-    // $("#effect").mouseleave(function() {
-    //     runEffect(false);
-    // });
 
     $(window).bind('scroll resize', function() {
         var $this = $(this);
@@ -189,115 +170,6 @@ function readmore(posts) {
     }
     render_posts(new_posts_number, posts);
 }
-
-function initSelector() {
-    $.ajax({
-        dataType: "json",
-        url: 'https://spreadsheets.google.com/feeds/list/1HjUlFgljXvK76g2wEGAAlBpGTZKkHUZBIdBTM4BVmZs/od6/public/values?alt=json'
-    }).done(function(data) {
-        for (var i = 0; i < data.feed.entry.length; i++) {
-            var post = data.feed.entry[i];
-            var type = post.gsx$type.$t;
-            var chinese = post.gsx$chinese.$t;
-            var english = post.gsx$english.$t;
-            var tag = post.gsx$tag.$t;
-
-            type = "#" + type;
-            var element = $(type);
-
-            var html = "";
-            var choice_element = $('<div class="choice unselected_choice"></div>');
-            choice_element.attr("onclick", "enable_radio(this)");
-            choice_element.attr("data-tag", tag);
-            choice_element.attr("data-label", chinese + " " + english);
-            var ch_element = $('<div class="choice-ch"></div>');
-            ch_element.text(chinese);
-            var hr_element = $("<hr>");
-            var en_element = $('<div class="choice-en"></div>');
-            en_element.text(english);
-            choice_element.append(ch_element).append(hr_element).append(en_element);
-
-            element.append(choice_element);
-        }
-    });
-}
-
-function clear_selected() {
-    var choices = $(".choice");
-    for (var i = 0; i < choices.length; i++) {
-        var choice = $(choices[i]);
-        choice.attr("class", "choice unselected_choice");
-        choice.find("hr").removeClass("selected_hr");
-        choice.attr("onclick", "enable_radio(this)");
-    }
-}
-
-function enable_radio(element) {
-    var currentTarget = $(element);
-
-    var current_css = currentTarget.attr("class");
-    if (current_css.indexOf("choice selected_choice") > -1) {
-        currentTarget.attr("class", "choice unselected_choice");
-        currentTarget.find("hr").removeClass("selected_hr");
-    } else {
-        clear_selected();
-        currentTarget.attr("class", "choice selected_choice");
-        currentTarget.find("hr").addClass("selected_hr");
-        currentTarget.attr("onclick", "disable_radio(\"" + currentTarget.attr("data-tag") + "\")");
-        selected_tag = currentTarget.attr("data-tag");
-    }
-
-    var selected_element = $('<div class="selected" onclick="disable_radio(event, \'' + selected_tag + '\')">');
-    var selected_label = $('<label for="selected_tag">' + currentTarget.attr("data-label") + '</label>');
-    var selected_img = $('<img src="http://static.tumblr.com/sirdwhf/nsioaip0w/checked.png">');
-    selected_element.append(selected_label).append(selected_img);
-    $("#chosen").html(selected_element);
-
-    // runEffect(false);
-    query_posts(selected_tag);
-}
-
-function disable_radio(event, tag) {
-    event.stopPropagation();
-    console.log("stopPropagation");
-    $("#chosen").html("所有作品");
-    var choice = $(".choice[data-tag='" + tag + "']");
-    choice.attr("class", "choice unselected_choice");
-    choice.attr("onclick", "enable_radio(this)");
-    choice.find("hr").removeClass("selected_hr");
-
-    query_posts("");
-}
-
-function runEffect(todo) {
-    // depend on current status, decide to open or close
-    if ($('#selector').is(':hidden')) {
-        $('#selector').show('blind', function() {}, 300);
-        $("#select_section hr").css("display", "none");
-        $(".arrow_down").css("transform", "rotate(180deg)");
-    } else {
-        $('#selector').hide('blind', function() {}, 300);
-        $("#select_section hr").css("display", "inherit");
-        $(".arrow_down").css("transform", "rotate(0deg)");
-    }
-}
-
-// function runEffect(todo) {
-//     // depend on parameter 'todo', decide to open or close
-//     if (todo) { // true to open
-//         if ($('#selector').is(':hidden')) {
-//             $('#selector').show('blind', function() {}, 300);
-//         }
-//         $("#select_section hr").css("display", "none");
-//         $(".arrow_down").css("transform", "rotate(180deg)");
-//     } else { // false to close
-//         if ($('#selector').is(':hidden') == false) {
-//             $('#selector').hide('blind', function() {}, 300);
-//         }
-//         $("#select_section hr").css("display", "inherit");
-//         $(".arrow_down").css("transform", "rotate(0deg)");
-//     }
-// }
 
 function query_all_posts() {
     var key = "zcBf3tONWu9lQTSzrewHYU3WRdgbv1VtPGHXXMaZlZgN6Sz0lc";
