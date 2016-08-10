@@ -1,5 +1,4 @@
-var posts;
-var current_posts_number = 6;
+var posts = [];
 $(function() {
     console.log("width: " + $(window).width());
     console.log("user agent: " + navigator.userAgent);
@@ -7,12 +6,8 @@ $(function() {
     if(!ismobile_browser()){
         location.href = "http://woolito.tumblr.com/";
     }
-    // judge_window_size();
-    // $( window ).resize(function() {
-    //     judge_window_size();
-    // });
 
-    query_posts("");
+    query_all_posts();
 });
 
 function ismobile_browser(){
@@ -30,52 +25,72 @@ function ismobile_browser(){
     }
 }
 
-function judge_window_size(){
-    var width = $(window).width();
-    var href = location.href;
-    // var index = href.lastIndexOf("/")+1;
-    // href = href.substring(index);
-    console.log(width + ", " + href);
-    if(width <= 400 && href == "http://woolito.tumblr.com/"){
-        location.href = "index-mobile";
-    }else if(width > 400 && href == "http://woolito.tumblr.com/index-mobile"){
-        location.href = "http://woolito.tumblr.com/";
-    }
-}
+function query_all_posts() {
+    var key = "zcBf3tONWu9lQTSzrewHYU3WRdgbv1VtPGHXXMaZlZgN6Sz0lc";
+    $(".grid").html('<div class="grid-sizer"></div>');
 
-function readmore() {
+    $.ajax({
+        url: "http://api.tumblr.com/v2/blog/woolito.tumblr.com/posts",
+        type: "GET",
+        dataType: 'jsonp',
+        data: {
+            api_key: key
+        }
+    }).done(function(data) {
+        var data_json = data.response.posts;
+        for (var i = 0; i < data_json.length; i++) {
+            try {
+                tags = data_json[i].tags;
+                if (tags == undefined) {
+                    tags = [];
+                };
+                if (tags.indexOf("home") > -1 || tags.indexOf("onlyhome") > -1 ) {
+                    posts.push(data_json[i]);
+                }
+            } catch (err) {
+                console.log(err);
+                continue;
+            }
+        }
 
+        if (!posts) {
+            $("#total_post").text("0");
+        } else {
+            $("#total_post").text(posts.length);
+        }
+
+        query_posts("");
+    });
 }
 
 function query_posts(tag) {
-    var posts = [];
     var tags = [];
+    var select_posts = [];
     $(".grid").html('<div class="grid-sizer"></div>');
-    var tumblr_data = tumblr_api_read.posts;
-    for (var i = 0; i < tumblr_data.length; i++) {
+    for (var i = 0; i < posts.length; i++) {
         if (tag == "") {
-            posts = tumblr_data;
+            select_posts = posts;
             continue;
         }
         try {
-            tags = tumblr_data[i].tags;
+            tags = posts[i].tags;
             if (tags == undefined) {
                 tags = [];
             };
             if (tags.indexOf(tag) > -1) {
-                posts.push(tumblr_data[i]);
+                select_posts.push(posts[i]);
             }
         } catch (err) {
             console.log(err);
             continue;
         }
     }
-    if(!posts){
+    if(!select_posts){
         $("#total_post").text("0");
     }else{
-        $("#total_post").text(posts.length);
+        $("#total_post").text(select_posts.length);
     }
-    render_posts(posts);
+    render_posts(select_posts);
 }
 
 function render_posts(posts) {
