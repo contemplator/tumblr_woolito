@@ -17,8 +17,12 @@ body {
     background-color: #fff;
     display: table;
     padding: 0px 2px;
-    height: 45px;
+    height: 40px;
     width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 501;
+    border-bottom: 1px solid #E6E6E6;
 }
 
 .drawer_icon {
@@ -26,8 +30,8 @@ body {
     text-align: center;
     border-right: 1px solid #E6E6E6;
     background-color: #fff;
-    min-width: 55px;
-    height: 43px;
+    min-width: 48px;
+    height: 38px;
     padding: 8px;
     position: relative;
     top: -8px;
@@ -36,7 +40,6 @@ body {
 
 .drawer_icon img {
     width: 100%;
-    height: calc(45px-10px);
 }
 
 #header .drawer_icon {
@@ -67,7 +70,10 @@ body {
     display: table-cell;
     vertical-align: middle;
     height: inherit;
-    width: 100%;
+    height: 40px;
+    width: auto;
+    /*width: 100%;
+    height: auto;*/
 }
 
 #header .find-us img {
@@ -82,15 +88,15 @@ body {
     padding: 0px;
 }
 
-.glyphicon {
-    font-size: 4em;
-}
-
 .center {
     padding-top: 0px;
     padding-left: 0px;
     background-color: #fff;
     text-align: center;
+}
+
+.drawer-controls{
+    height: 45px;
 }
 
 
@@ -104,7 +110,7 @@ body {
 
 .avatar {
     width: 40%;
-    margin: 10% auto;
+    margin: 5% auto;
 }
 
 .avatar img {
@@ -139,12 +145,12 @@ p.description {
 /* Navigation */
 
 #navigation ul li {
-    border-top: 10px #ddd solid;
+    border-top: 2px #ddd solid;
     width: 90%;
     margin: 0px auto;
     padding-top: 3%;
     padding-bottom: 3%;
-    font-size: 3em;
+    font-size: 100%;
     line-height: 1.5em;
     font-weight: 400;
     text-align: left;
@@ -166,16 +172,27 @@ p.description {
     width: auto;
 }
 
+#navigation .label-chinese{
+    display: inline-block;
+    letter-spacing: 1px;
+    width: 30%;
+}
 
-
+#navigation .label-english{
+    display: inline;
+    letter-spacing: 1px;
+    font-size: 80%;
+    width: 40%;
+}
 
 /* top post */
 
 section {
+    margin-top: 40px;
     margin-bottom: 40px;
     float: none;
     width: 100%;
-    padding: 30px;
+    padding: 10px;
 }
 
 #top {
@@ -186,9 +203,9 @@ section {
 .top-post {
     width: 100%;
     display: block;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 5px;
     background-color: #fff;
 }
 
@@ -203,7 +220,6 @@ section {
     height: auto;
 }
 
-
 /* posts-holder */
 
 
@@ -211,7 +227,6 @@ section {
 
 .grid-item {
     padding: 20px;
-    margin: 5px;
     background-color: #fff;
 }
 

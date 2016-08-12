@@ -3,11 +3,81 @@ body {
     background-color: #e6e6e6;
     font-family: 'Noto Sans TC', sans-serif;
 }
+/* container header */
 
-h2 {
-    font-size: 50px;
+.container {
+    padding-left: 0px;
+    padding-right: 0px;
+    background-color: #e3e3e3;
+    width: 100%;
 }
 
+#header {
+    background-color: #fff;
+    display: table;
+    padding: 0px 2px;
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 501;
+    border-bottom: 1px solid #E6E6E6;
+}
+
+.drawer_icon {
+    display: table-cell;
+    text-align: center;
+    border-right: 1px solid #E6E6E6;
+    background-color: #fff;
+    min-width: 48px;
+    height: 38px;
+    padding: 8px;
+    position: relative;
+    top: -8px;
+    left: -10px;
+}
+
+.drawer_icon img {
+    width: 100%;
+}
+
+#header .drawer_icon {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding: 15px 10px;
+    border-right: 1px solid #E6E6E6;
+    width: 15%;
+    visibility: hidden;
+}
+
+#header .drawer_icon img {
+    height: 100%;
+}
+
+#header .title {
+    display: table-cell;
+    text-align: center;
+    color: #8D8D8D;
+    text-transform: uppercase;
+    vertical-align: middle;
+    width: 70%;
+    font-size: 150%;
+}
+
+#header .find-us {
+    display: table-cell;
+    vertical-align: middle;
+    height: inherit;
+    height: 40px;
+    width: auto;
+}
+
+#header .find-us img {
+    width: inherit;
+    height: inherit;
+    margin: 0px auto;
+}
 
 /* drawer */
 
@@ -101,61 +171,6 @@ p.description {
     height: 8vh;
     width: auto;
 }
-
-
-/* container header */
-
-.container {
-    padding-left: 0px;
-    padding-right: 0px;
-    background-color: #e3e3e3;
-    width: 100%;
-}
-
-#header {
-    background-color: #fff;
-    display: table;
-    padding: 10px 0px;
-    height: 100px;
-}
-
-.drawer_icon{
-    display: table-cell;
-    height: 100px;
-    min-width: 100px;
-    vertical-align: middle;
-}
-
-#header .drawer_icon {
-    display: table-cell;
-    vertical-align: middle;
-    height: 100%;
-    min-width: 100px;
-    text-align: center;
-}
-
-#header .title {
-    display: table-cell;
-    width: 100%;
-    text-align: center;
-    font-size: 3.5em;
-    text-transform: uppercase;
-    vertical-align: middle;
-}
-
-#header .find-us {
-    display: table-cell;
-    vertical-align: middle;
-    min-width: 100px;
-    max-width: 100px;
-    height: inherit;
-}
-
-#header .find-us img{
-    width: inherit;
-    height: inherit;
-}
-
 
 /* top post */
 
