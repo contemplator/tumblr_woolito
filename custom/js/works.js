@@ -308,10 +308,13 @@ function query_all_posts() {
         type: "GET",
         dataType: 'jsonp',
         data: {
-            api_key: key
+            api_key: key,
+            limit: 50
         }
     }).done(function(data) {
+        console.log(data);
         var data_json = data.response.posts;
+        console.log(data_json.length);
         for (var i = 0; i < data_json.length; i++) {
             try {
                 tags = data_json[i].tags;
@@ -437,7 +440,8 @@ function render_posts(number_post, posts) {
     // });
 
     $(".shortcut").mouseleave(function(e) {
-        preview_timer = setTimeout(hidePreview, 60);
+        hidePreview();
+        // preview_timer = setTimeout(hidePreview, 60);
     });
 
     $('[data-toggle="tooltip"]').tooltip();
@@ -470,12 +474,12 @@ function showPreview(element) {
         $("#preview_youtube").css("top", $(window).scrollTop() + "px");
     }
 
-    // var figure_element = $('<figure></figure>');
-    // var iframe_element = $('<iframe class="youtube_iframe" frameborder="0" allowfullscreen=""></iframe>');
+    if (($("#preview_youtube").offset().top + p_height) > ($(window).scrollTop() + $(window).height())) {
+        $("#preview_youtube").css("top", ($(window).scrollTop() + $(window).height() - p_height) + "px");
+    }
+
     var iframe_element = $("#preview_youtube figure iframe");
     iframe_element.attr("src", "https://www.youtube.com/embed/" + element.attr("youtube_id") + "?feature=oembed&amp;enablejsapi=1&amp&autoplay=1&loop=0;controls=0;origin=https://safe.txmblr.com&amp;wmode=opaque&showinfo=0");
-    // figure_element.html(iframe_element);
-    // preview.html(figure_element);
 }
 
 function render_photo(post) {

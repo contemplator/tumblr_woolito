@@ -1,5 +1,6 @@
 var posts = [];
 var current_posts_number = 6;
+var standard_height = 0;
 $(function() {
     console.log("width: " + $(window).width());
     console.log("user agent: " + navigator.userAgent);
@@ -9,6 +10,7 @@ $(function() {
     }
 
     initSelector();
+    $("#selector").click(runEffect);
     query_all_posts();
 });
 
@@ -43,52 +45,30 @@ function initSelector() {
         dataType: "json",
         url: 'https://spreadsheets.google.com/feeds/list/1HjUlFgljXvK76g2wEGAAlBpGTZKkHUZBIdBTM4BVmZs/od6/public/values?alt=json'
     }).done(function(data) {
-        var current_type = "";
-        var accordion_element = $("<div id='accordion'></div>");
-        var div_element = null;
         for (var i = 0; i < data.feed.entry.length; i++) {
             var post = data.feed.entry[i];
             var type = post.gsx$type.$t;
             var chinese = post.gsx$chinese.$t;
             var english = post.gsx$english.$t;
             var tag = post.gsx$tag.$t;
-            if (current_type == type) {
-                var choice_element = $("<div class='choice'></div>");
-                var label_element = $("<label></label>");
-                label_element.attr("for", tag);
-                label_element.text(chinese + " " + english);
-                var img_element = $('<img src="http://static.tumblr.com/sirdwhf/6fHo90gzy/unchecked.png">');
-                label_element.append(img_element);
-                var input_element = $('<input type="radio">');
-                input_element.attr("onclick", "enable_radio(this)");
-                input_element.attr("name", "selection");
-                input_element.val(tag);
-                input_element.attr("id", tag);
-                choice_element.append(label_element);
-                choice_element.append(input_element);
-                div_element.append(choice_element);
-            } else {
-                if (div_element) {
-                    accordion_element.append(div_element);
-                    div_element = null;
-                }
-                var h3_element = $("<h3>" + type + "</h3>");
-                current_type = type;
-                accordion_element.append(h3_element);
-                if (!div_element) {
-                    div_element = $("<div></div>");
-                }
-            }
 
-            if (i == (data.feed.entry.length - 1)) {
-                accordion_element.append(div_element);
-                div_element = null;
-            }
+            var category_element = $("td[select-category='"+type+"']");
+            var option_element = $('<div class="select-option" data-type="'+tag+'"></div>');
+            var chinese_element = $('<div class="option-chinese">'+chinese+'</div>');
+            var english_element = $('<div class="option-english">'+english+'</div>');
+            option_element.append(chinese_element).append(english_element);
+            category_element.append(option_element);
         }
-        $(accordion_element).insertAfter($("#selector"));
-        $("#accordion").accordion({
-            collapsible: true,
-            heightStyle: "content"
+
+        $(".select-option").click(function(event){
+            var test = $(this);
+        });
+
+        var init_height = $(window).height() - ($("#selector").height() + $("#divider").height());
+        $("#select-section").animate({
+            top: init_height + "px",
+        }, 800, function(){
+            standard_height = $("#select-section").position().top;
         });
     });
 }
@@ -118,7 +98,6 @@ function enable_radio(element) {
         var selected_img = $('<img src="http://static.tumblr.com/sirdwhf/Ifwo90gyt/checked.png">');
         selected_element.append(selected_label).append(selected_check).append(selected_img);
         $("#chosen").html(selected_element);
-        // runEffect();
         $("#accordion").css("display", "none");
         query_posts(selected_tag);
     }
@@ -134,14 +113,19 @@ function disable_radio(tag) {
 }
 
 function runEffect() {
-    if ($("#accordion").css("display") == "block") {
-        $("#accordion").css("display", "none");
+    var current_height = $("#select-section").position().top;
+    if(standard_height != current_height){ // to close
         $(".arrow img").css("transform", "rotate(0deg)");
-    } else {
-        $("#accordion").css("display", "block");
+        $("#select-section").animate({
+            top: standard_height + "px",
+        }, 1500);
+    }else{ // to open
         $(".arrow img").css("transform", "rotate(180deg)");
+        var height = $(window).height() - $("#select-section").height();
+        $("#select-section").animate({
+            top: height + "px",
+        }, 1500);
     }
-
 }
 
 function query_all_posts() {
@@ -217,13 +201,11 @@ function query_posts(tag) {
 function render_posts(posts) {
     var grid_holder = $(".grid");
     grid_holder.html('<div class="grid-sizer"></div>');
-    console.log(posts);
 
     if (posts.length > 0) {
         for (var i = 0; i < posts.length; i++) {
             var post_type = posts[i].type;
             var post_html = null;
-            console.log(post_type);
             switch (post_type) {
                 // case "video":
                 //     post_html = render_video(posts[i]);
@@ -246,10 +228,10 @@ function render_posts(posts) {
         .bind("beforeShow", function() {
             alert("beforeShow");
         })
-        .bind("afterShow", function(){
+        .bind("afterShow", function() {
             alert("afterShow");
         })
-        .bind("show", function(){
+        .bind("show", function() {
             alert('in show callback');
         });
 }

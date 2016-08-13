@@ -127,7 +127,6 @@ function render_photo(post) {
     var article_content = $('<div class="article-content"></div>');
     var photo_wrap = $('<div class="photo-wrap post"></div>');
     var photo_post = $('<div class="photo--post"></div>')
-    console.log(post);
     for (var i = 0; i < post.photos.length; i++) {
         var photo_link = $('<a href="' + post.post_url + ' target=\"_blank\""></a>');
         var photo_img = $('<img src="' + post.photos[i].original_size.url + '" alt="' + post.slug + '">');

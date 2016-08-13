@@ -28,6 +28,7 @@
     <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
     <script src="http://static.tumblr.com/sirdwhf/VFqo9dynz/youtube.js"></script>
     <script src="js/works_mobile.js"></script>
+    <link href='css/mobile.css' rel='stylesheet' type='text/css'>
     <link href='css/works_mobile.css' rel='stylesheet' type='text/css'>
 </head>
 <style type="text/css">
@@ -36,7 +37,9 @@
 <body class="has-drawer">
     <div id="drawerExample" class="drawer dw-xs-10 dw-sm-10 dw-md-10 fold" aria-labelledby="drawerExample">
         <div class="drawer-controls">
-            <a href="#drawerExample" data-toggle="drawer" aria-foldedopen="false" aria-controls="drawerExample" class="btn btn-primary btn-sm drawer_icon"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="false"></span></a>
+            <a href="#drawerExample" data-toggle="drawer" aria-foldedopen="false" aria-controls="drawerExample" class="drawer_icon">
+                <img src="resources/drawer.png">
+            </a>
         </div>
         <div class="drawer-contents">
             <div class="drawer-body">
@@ -114,7 +117,9 @@
     </div>
     <div class="container">
         <div id="header">
-            <div class="drawer_icon btn btn-primary btn-sm" style="visibility: hidden;"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></div>
+            <div class="drawer_icon">
+                <img src="resources/drawer.png">
+            </div>
             <div class="title">Woolito Studio</div>
             <div class="find-us">
                 <img src="resources/find_us.png">
@@ -127,16 +132,50 @@
         </section>
     </div>
     <div id="select-section">
-        <div id="selector" onclick="runEffect()">
+        <div id="selector">
+        <!-- <div id="selector" onclick="runEffect()"> -->
             <div class="arrow">
-                <img src="http://static.tumblr.com/sirdwhf/rc7o90gy0/arrow.png">
+                <!-- <img src="http://static.tumblr.com/sirdwhf/rc7o90gy0/arrow.png"> -->
+                <img src="resources/arrow.png">
             </div>
-            <span>作品篩選 Filter</span>
-            <span id="chosen">全部</span>
-            <span>&nbsp/&nbsp</span>
-            <span id="total_post">168</span>
-            <span>&nbsp部作品</span>
+            <div class="select-content">
+                <div class="select-works">
+                    <span>作品篩選 Filter</span>
+                    <span>&nbsp/&nbsp點此展開選單</span>        
+                </div>
+                <!-- <div class="select-number">
+                    <span id="total_post">168</span>
+                    <span>&nbsp部作品</span>
+                </div> -->
+            </div>
         </div>
+        <div id="divider">
+            <div class="divider"></div>
+            <div class="divider"></div>
+            <div class="divider"></div>
+        </div>
+        <table id="selector-table" RULES="cols">
+            <tr class="category">
+                <td select-category="Purpose">
+                    <div class="title">
+                        <div class="chinese">動畫用途</div>
+                        <div class="english">Purpose</div>
+                    </div>
+                </td>
+                <td select-category="Style">
+                    <div class="title">
+                        <div class="chinese">動畫類型</div>
+                        <div class="english">Style</div>
+                    </div>
+                </td>
+                <td select-category="Original">
+                    <div class="title">
+                        <div class="chinese">原創內容</div>
+                        <div class="english">Original</div>
+                    </div>
+                </td>
+            </tr>
+        </table>
     </div>
 </body>
 <script type="text/javascript">
