@@ -213,12 +213,23 @@ section {
 
 /* posts-holder */
 
+.article-content h2 {
+    font-size: 150%;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.article-content ul.icons {
+    margin: 0px 0px -12px -5px;
+}
+
 
 /* grid-item */
 
 .grid-item {
-    padding: 20px;
+    padding: 10px;
     background-color: #fff;
+    margin: 5px 0px;
 }
 
 .grid-item iframe,

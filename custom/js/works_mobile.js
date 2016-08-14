@@ -61,7 +61,7 @@ function initSelector() {
         }
 
         $(".select-option").click(function(event){
-            var test = $(this);
+            enable_radio(this);
         });
 
         var init_height = $(window).height() - ($("#selector").height() + $("#divider").height());
@@ -74,42 +74,47 @@ function initSelector() {
 }
 
 function enable_radio(element) {
+    clear_choices();
     var currentTarget = $(element);
-    if (currentTarget.is(":checked")) {
-        var label_text = currentTarget.parent().find("label").text();
-        currentTarget.parent().find("img").attr("src", "http://static.tumblr.com/sirdwhf/yRso8llbo/radio_checkd.png");
-        currentTarget.parent().css("background-color", "#84C2AF");
-        var choices = currentTarget.parent().parent().parent().parent().parent().find(".choice");
-        for (var i = 0; i < choices.length; i++) {
-            console.log()
-            if (!$(choices[i]).find("input").is(":checked")) {
-                $(choices[i]).css("background-color", "#fff");
-                $(choices[i]).find("img").attr("src", "http://static.tumblr.com/sirdwhf/0Iso8llbp/radio_uncheckd.png");
-            }
-        }
+    var currentBg = currentTarget.css("background-color");
+    var select_works = $(".select-works");
+    if(currentBg == "rgb(230, 230, 230)"){ // selected
+        currentTarget.css("background-color", "#3B3B3B");
+        currentTarget.css("color", "#FFFFFF");
+        var chinese = currentTarget.find(".option-chinese").text();
+        var english = currentTarget.find(".option-english").text();
+        console.log(chinese + "," + english);
 
-        var end_index = label_text.indexOf(" ");
-        label_text = label_text.substring(0, end_index);
-        var selected_tag = currentTarget.val();
+        var div_element = $('<div class="selected" onclick="disable_radio(this)"></div>');
+        var chinese_element = $('<div class="selected-chinese">'+chinese+'</div>');
+        var english_element = $('<div class="selected-english">'+english+'</div>');
+        var img_element = $("<img>");
+        img_element.attr("src", "http://static.tumblr.com/sirdwhf/yRso8llbo/radio_checkd.png");
+        
+        div_element.append(img_element).append(chinese_element).append(english_element);
+        select_works.html("<span>作品篩選 Filter</span>");
+        select_works.append(div_element);
+        select_works.append("<span>&nbsp/&nbsp</span>");
+        query_posts(currentTarget.attr("data-type"));
+    }else{ // unselected
+        currentTarget.css("background-color", "#E6E6E6");
+        currentTarget.css("color", "#000000");
+        query_posts("");
+    }
+}
 
-        var selected_element = $('<div class="selected" onclick="disable_radio(\'' + selected_tag + '\')">');
-        var selected_label = $('<label for="selected_tag">' + label_text + '</label>');
-        var selected_check = $('<input type="checkbox" name="selected" val="' + selected_tag + '" id="selected_tag">');
-        var selected_img = $('<img src="http://static.tumblr.com/sirdwhf/Ifwo90gyt/checked.png">');
-        selected_element.append(selected_label).append(selected_check).append(selected_img);
-        $("#chosen").html(selected_element);
-        $("#accordion").css("display", "none");
-        query_posts(selected_tag);
+function clear_choices(){
+    var choices = $(".select-option");
+    for(var i=0; i<choices.length; i++){
+        $(choices[i]).css("background-color", "#E6E6E6");
+        $(choices[i]).css("color", "#000000");
     }
 }
 
 function disable_radio(tag) {
-    $("#chosen").html("全部");
     query_posts("");
-    var input_element = $('input[value="' + tag + '"]');
-    var choice = input_element.parent();
-    choice.css("background-color", "#FFF");
-    choice.find("img").attr("src", "http://static.tumblr.com/sirdwhf/6fHo90gzy/unchecked.png");
+    $(".select-works").html("<span>作品篩選 Filter</span><span>&nbsp/&nbsp&nbsp點此展開選單</span>");
+    clear_choices();
 }
 
 function runEffect() {
@@ -118,13 +123,13 @@ function runEffect() {
         $(".arrow img").css("transform", "rotate(0deg)");
         $("#select-section").animate({
             top: standard_height + "px",
-        }, 1500);
+        }, 1000);
     }else{ // to open
         $(".arrow img").css("transform", "rotate(180deg)");
         var height = $(window).height() - $("#select-section").height();
         $("#select-section").animate({
             top: height + "px",
-        }, 1500);
+        }, 1000);
     }
 }
 
@@ -137,7 +142,8 @@ function query_all_posts() {
         type: "GET",
         dataType: 'jsonp',
         data: {
-            api_key: key
+            api_key: key,
+            limit: 50
         }
     }).done(function(data) {
         var data_json = data.response.posts;
@@ -147,9 +153,9 @@ function query_all_posts() {
                 if (tags == undefined) {
                     tags = [];
                 };
-                if (tags.indexOf("work") > -1) {
+                // if (tags.indexOf("work") > -1) {
                     posts.push(data_json[i]);
-                }
+                // }
             } catch (err) {
                 console.log(err);
                 continue;
@@ -285,7 +291,7 @@ function render_text(post) {
     article.addClass("type_text grid-item");
     article.attr("rel", post.post_url);
     var article_content = $("<div></div>");
-    article_content.addClass("article_content");
+    article_content.addClass("article-content");
     var title = $("<h2></h2>");
     var title_link = $("<a href='" + post.post_url + "' title='" + post.title + "'>" + post.slug + "</a>");
     title.append(title_link);
@@ -329,7 +335,7 @@ function render_icon(post) {
     var li_like = $('<li class="like"><div class="like_button" data-post-id="' + post.id + '" data-blog-name="woolito" id="like_button_' + post.id + '"></div></li>');
     var iframe = $('<iframe id="like_iframe_' + post.id + '" src="http://assets.tumblr.com/assets/html/like_iframe.html?_v=c301660e229be2b44e2e912486577f3c#name=woolito&post_id=' + post.id + '&color=black&rk=' + post['reblog-key'] + '&root_id=' + post.id + '" scrolling="no" class="like_toggle" allowtransparency="true" width="16" height="16" frameborder="0" name="like_iframe_' + post.id + '"></iframe>');
     li_like.find(".like_button").append(iframe);
-    var li_reblog = $('<li class="reblog"><i class="reblog-icon"><a targer="_blank" href="https://www.tumblr.com/reblog/' + post.id + '/' + post['reblog-key'] + '" class="reblog_button" style="display:block;"><svg width="100%" height="100%" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000"><path d="M5.01092527,5.99908429 L16.0088498,5.99908429 L16.136,9.508 L20.836,4.752 L16.136,0.083 L16.1360004,3.01110845 L2.09985349,3.01110845 C1.50585349,3.01110845 0.979248041,3.44726568 0.979248041,4.45007306 L0.979248041,10.9999998 L3.98376463,8.30993634 L3.98376463,6.89801007 C3.98376463,6.20867902 4.71892527,5.99908429 5.01092527,5.99908429 Z"></path><path d="M17.1420002,13.2800293 C17.1420002,13.5720293 17.022957,14.0490723 16.730957,14.0490723 L4.92919922,14.0490723 L4.92919922,11 L0.5,15.806 L4.92919922,20.5103758 L5.00469971,16.9990234 L18.9700928,16.9990234 C19.5640928,16.9990234 19.9453125,16.4010001 19.9453125,15.8060001 L19.9453125,9.5324707 L17.142,12.203"></path></svg></a></i></li>');
+    var li_reblog = $('<li class="reblog"><i class="reblog-icon"><a targer="_blank" href="https://www.tumblr.com/reblog/' + post.id + '/' + post.reblog_key + '" class="reblog_button" style="display:block; width:16px; height:16px;"><svg width="100%" height="100%" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000"><path d="M5.01092527,5.99908429 L16.0088498,5.99908429 L16.136,9.508 L20.836,4.752 L16.136,0.083 L16.1360004,3.01110845 L2.09985349,3.01110845 C1.50585349,3.01110845 0.979248041,3.44726568 0.979248041,4.45007306 L0.979248041,10.9999998 L3.98376463,8.30993634 L3.98376463,6.89801007 C3.98376463,6.20867902 4.71892527,5.99908429 5.01092527,5.99908429 Z"></path><path d="M17.1420002,13.2800293 C17.1420002,13.5720293 17.022957,14.0490723 16.730957,14.0490723 L4.92919922,14.0490723 L4.92919922,11 L0.5,15.806 L4.92919922,20.5103758 L5.00469971,16.9990234 L18.9700928,16.9990234 C19.5640928,16.9990234 19.9453125,16.4010001 19.9453125,15.8060001 L19.9453125,9.5324707 L17.142,12.203"></path></svg></a></i></li>');
     var li_share = $('<li class="sharer"><a class="social-export"></a><div class="sharer-wrap"><ul><li class="facebook"><a href="http://www.facebook.com/sharer.php?u=' + post.post_url + '" title="Share on Facebook" class="social-facebook" target="_blank" ></a></li><li class="gplus"><a href="https://plus.google.com/share?url=' + post.post_url + '" title="Share on Google +" class ="social-gplus" target="_blank"></a></li><li class="pinterest" ><a href="https://pinterest.com/pin/create/button/?url=' + post.post_url + '&amp;media=http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" title="Share on Pinterest" class="social-pinterest" target="_blank"></a></li></ul></div></li>');
     ul.append(li_link).append(li_like).append(li_reblog).append(li_share);
     return ul;
