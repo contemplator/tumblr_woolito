@@ -1,0 +1,244 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+body {
+    background-color: #e6e6e6;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+h2{
+    font-size: 20px;
+    text-transform: inherit;
+}
+/* navigation */
+header .logo h1{
+    font-weight: bold;
+    text-transform: none;
+}
+div.center{
+    padding-top: 0px;
+    padding-left: 0px;
+}
+header .center .centered{
+    display: block;
+    height: 100vh;
+    overflow: auto;
+}
+div#shortcut{
+    border-radius: 0px 0px 50px 0px;
+}
+.logo a {
+    color: #000;
+    text-decoration: none;
+}
+header p.description {
+    margin: 0px;
+}
+#navigation {
+    margin-left: 0px;
+    text-align: left;
+    width: 100%;
+    background-color: #e6e6e6;
+}
+
+#navigation ul li {
+    width: 100%;
+    margin-left: 0px;
+    max-height: 30px;
+}
+
+#navigation ul li:nth-child(4) {
+    margin-bottom: 30px;
+}
+
+#navigation ul li a {
+    position: relative;
+    background-color: #e6e6e6;
+    padding: 0px;
+    width: 250px;
+}
+
+.navigation-icon {
+    display: inline-block;
+    border-radius: 0px 10px 0px 0px;
+    background-color: #b3b3b3;
+    padding-right: 5px;
+    width: 175px;
+}
+
+.navigation-icon img {
+    display: inline;
+    margin-left: 10px;
+    height: 30px;
+    width: auto;
+    vertical-align: middle;
+}
+.navigation-icon span{
+    float: right;
+    line-height: 2.5em;
+    color: #000;
+}
+
+.navigation-label {
+    float: right;
+    display: block;
+    line-height: 2.5em;
+    color: #222;
+    width: 65px;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    -ms-text-justify: inter-ideograph;
+    -moz-text-align-last: justify;
+    -webkit-text-align-last: justify;
+}
+.navigation-label:after{
+    content: '';
+    display: inline-block;
+}
+
+.navigation-bottom {
+    width: 100%;
+    height: 3px;
+    background: #b3b3b3;
+    position: absolute;
+    bottom: 0px;
+}
+div.justify {
+    text-align: justify;
+    text-justify: inter-ideograph;
+    -ms-text-justify: inter-ideograph;
+    -moz-text-align-last: justify;
+    -webkit-text-align-last: justify;
+}
+
+div.justify:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
+
+#shortcut {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px 10px 50px 10px;
+}
+.social_network{
+    margin-top: 10px;
+}
+.social_network img {
+    display: inline;
+    height: 35px;
+    width: auto;
+}
+.bottom-white{
+    width: calc(100% - 32px);
+    height: 30px;
+    background-color: #FFF;
+    border-radius: 0px 50px 0px 0px;
+    position: absolute;
+    bottom: 100px;
+}
+/* modal */
+.modal-body{
+    text-align: center;
+}
+.modal-body img {
+    margin: 0px auto;
+}
+
+.modal-footer button {
+    margin-left: 20px;
+}
+
+.modal-footer p {
+    line-height: 30px;
+    text-align: left;
+}
+
+#work-header img {
+    width: 100%;
+}
+
+/* article */
+section{
+    margin-bottom: 150px;
+}
+.grid{
+    margin-top: 20px;
+}
+article,
+.grid-item {
+    width: 33.33%;
+}
+
+.grid-item {
+    background-color: #fff;
+    padding: 40px;
+    border: 2px #e6e6e6 solid;
+}
+
+.article_content iframe {
+    width: 100%;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: auto;
+}
+#youtube_iframe{
+    height: auto;
+}
+.readmore{
+    display: block;
+}
+u{
+    text-decoration: underline;
+}
+/* ---- grid ---- */
+
+.grid {
+    background: #E6E6E6;
+}
+
+
+/* clearfix */
+
+.grid:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+
+/* ---- grid-item ---- */
+
+.grid-sizer,
+.grid-item {
+    width: 33.33%;
+}
+
+.grid-item {
+    float: left;
+}
+@media only screen and (min-width: 768px) {
+    .grid-sizer,
+    .grid-item {
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .grid-sizer,
+    .grid-item {
+        width: 50%;
+    }
+}
+@media only screen and (min-width: 1420px) {
+    .grid-sizer,
+    .grid-item {
+        width: 33.33%;
+    }
+}
+@media only screen and (min-width: 1800px) {
+    .grid-sizer,
+    .grid-item {
+        width: 25%;
+    }
+}

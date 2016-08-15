@@ -1,4 +1,5 @@
 var posts = [];
+var selected_posts = [];
 var current_posts_number = 0;
 var modalHidden;
 var selected_tag;
@@ -181,13 +182,13 @@ function setVideo(post) {
 
 }
 
-function readmore(posts) {
+function readmore() {
     showLoading();
     var new_posts_number = current_posts_number + 6;
-    if (posts.length - new_posts_number <= 0) {
-        new_posts_number = posts.length;
+    if (selected_posts.length - new_posts_number <= 0) {
+        new_posts_number = selected_posts.length;
     }
-    render_posts(new_posts_number, posts);
+    render_posts(new_posts_number, selected_posts);
 }
 
 function initSelector() {
@@ -312,18 +313,14 @@ function query_all_posts() {
             limit: 50
         }
     }).done(function(data) {
-        console.log(data);
         var data_json = data.response.posts;
-        console.log(data_json.length);
         for (var i = 0; i < data_json.length; i++) {
             try {
                 tags = data_json[i].tags;
                 if (tags == undefined) {
                     tags = [];
                 };
-                // if (tags.indexOf("work") > -1) {
-                    posts.push(data_json[i]);
-                // }
+                posts.push(data_json[i]);
             } catch (err) {
                 console.log(err);
                 continue;
@@ -341,13 +338,14 @@ function query_all_posts() {
 }
 
 function query_posts(tag) {
-    var selected_posts = [];
     var tags = [];
-
+    selected_posts = [];
+    $(".grid").html('<div class="grid-sizer"></div>');
+    
     for (var i = 0; i < posts.length; i++) {
         if (tag == "") {
             selected_posts = posts;
-            continue;
+            break;
         }
         try {
             tags = posts[i].tags;
@@ -369,12 +367,10 @@ function query_posts(tag) {
         $("#total_post").text(selected_posts.length);
     }
     current_posts_number = 0;
-    readmore(selected_posts);
+    readmore();
 }
 
 function render_posts(number_post, posts) {
-    $(".grid").html('<div class="grid-sizer"></div>');
-
     if (posts.length > 0) {
         for (var i = current_posts_number; i < number_post; i++) {
             var post_type = posts[i].type;

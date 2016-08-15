@@ -21,15 +21,10 @@
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
-    <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
-    <script src="http://static.tumblr.com/sirdwhf/VFqo9dynz/youtube.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/contact.js"></script>
     <link rel="stylesheet" type="text/css" href="css/web.css">
-    <link href="css/index.css" rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' type='text/css' href="css/contact.css">
 </head>
-<style type="text/css">
-</style>
 
 <body>
     <header>
@@ -148,78 +143,73 @@
             </div>
         </div>
     </header>
-    <section class="top-posts index" ng-controller="ctrl-post">
-        <table id="top">
-            <tbody>
-                <tr>
-                    <td rowspan="4">
-                        <div id="works" class="top-post">
-                            <a href="works"><img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png"></a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div id="aboutus" class="top-post">
-                            <a href="aboutus"><img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png"></a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div id="service" class="top-post">
-                            <a href="service"><img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png"></a>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div id="contact" class="top-post">
-                            <a href="contact"><img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png"></a>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="grid">
-            <div class="grid-sizer"></div>
+    <section>
+        <div class="header">
+            <h1>Contact Us</h1>
         </div>
-        <div id="readmore" class="load-more">
-            <button class="load-more-loading">Loading</button>
-            <button class="load-more-end" ">No More Posts</button>
-            <button class="load-more-text " onclick="readmore() ">LOAD MORE POSTS</button>
-        </div>
-    </section>
-    <div id="myModal " class="modal fade " tabindex="-1 " role="dialog ">
-        <div class="modal-dialog ">
-            <div class="modal-content ">
-                <div class="modal-header ">
-                    <button type="button " class="close " data-dismiss="modal " aria-label="Close "><span aria-hidden="true ">&times;</span></button>
-                    <h4 class="modal-title ">Modal title</h4>
-                </div>
-                <div class="modal-body ">
-                    <p>One fine body&hellip;</p>
-                </div>
-                <div id="arrow ">
-                    <button type="button " id="cboxPrevious " style="display: block; ">previous</button>
-                    <button type="button " id="cboxNext " style="display: block; ">next</button>
-                </div>
-                <div class="modal-footer ">
-                    <button type="button " class="btn btn-default " data-dismiss="modal ">Close</button>
-                    <button type="button " class="btn btn-primary ">Send message</button>
+        <div class="content">
+            <div class="idea">
+                <label class="chinese">告訴我們您的動畫 IDEA</label>
+                <label class="english">Talk About your Animation</label>
+                <img class="tip" src="resources/error_flower.png">
+                <div class="input_field">
+                    <textarea id="input_idea" rows="10">任何我們能幫助您的需求都歡迎寫下來</textarea>
                 </div>
             </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-    <div id="preview_youtube " class="preview_hide ">
-        <figure class="tmblr-embed tmblr-full " data-provider="youtube "><iframe class="youtube_iframe " frameborder="0 " allowfullscreen=" " src=" "></iframe></figure>
-        <div id="current_status ">正在播放影片</div>
-    </div>
-</body>
-<script src="visibility_change.js "></script>
-<script type="text/javascript ">
+            <div class="type">
+                <label class="chinese">計畫類型</label>
+                <label class="english">Project Objectives</label>
+                <div class="input_field">
+                    <input type="radio" name="input_type" value="動畫設計" id="animation_design">
+                    <label for="animation_design">動畫設計</label>
+                    <input type="radio" name="input_type" value="異業合作" id="cross_promotion">
+                    <label for="cross_promotion">異業合作</label>
+                    <input type="radio" name="input_type" value="創意協助" id="creative_cooperation">
+                    <label for="creative_cooperation">創意協助</label>
+                    <input type="radio" name="input_type" value="專業諮詢" id="professional_advisory">
+                    <label for="professional_advisory">專業諮詢</label>
+                </div>
+            </div>
 
+            <div class="budge">
+            	<label class="chinese">預算</label>
+                <label class="english">Budge</label>
+                <label class="advice">讓我們提供您「最符合您預算」的建議</label>
+                <div class="input_field">
+                	<input type="range" min="0" max="500000" value="0" id="input_budge"/>
+                </div>
+            </div>
+
+			<div class="name">
+            	<label class="chinese">稱呼</label>
+                <label class="english">Name</label>
+                <img class="tip" src="resources/error_flower.png">
+                <div class="input_field">
+                	<input type="text" id="input_name" />
+                </div>
+            </div>
+
+            <div class="phone">
+            	<label class="chinese">聯絡電話</label>
+                <label class="english">Telephone Number</label>
+                <div class="input_field">
+                	<input type="text" id="input_phone" />
+                </div>
+            </div>
+
+            <div class="email">
+            	<label class="chinese">聯絡信箱</label>
+                <label class="english">Email Address</label>
+                <img class="tip" src="resources/error_flower.png">
+                <div class="input_field">
+                	<input type="email" id="input_mail" />
+                </div>
+            </div>
+        </div>
+        <div class="footer"></div>
+    </section>
+</body>
+<script type="text/javascript">
 </script>
+
 </html>

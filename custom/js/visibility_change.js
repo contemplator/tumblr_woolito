@@ -15,7 +15,7 @@ function getHiddenProp() {
     // otherwise loop over all the known prefixes until we find one
     for (var i = 0; i < prefixes.length; i++) {
         if ((prefixes[i] + 'Hidden') in document) {
-            console.log(prefixes[i] + 'Hidden')
+            // console.log(prefixes[i] + 'Hidden')
             return prefixes[i] + 'Hidden';
         }
     }
@@ -28,9 +28,6 @@ function visChange() {
     if (isHidden()) {
         $("#preview_youtube").attr("class", "preview_hide");
         $("#preview_youtube figure iframe").attr("src", "");
-        console.log("Tab Hidden!");
-    } else {
-        console.log("Tab Visible!");
     }
 }
 
