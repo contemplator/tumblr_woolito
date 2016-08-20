@@ -47,6 +47,7 @@ section {
     background-position: center bottom;
 }
 
+
 /* header */
 
 .header {
@@ -88,6 +89,10 @@ section {
     margin-left: 0px;
     font-size: 70%;
     font-weight: 200;
+}
+.content label.error{
+	color: #df5c5c;
+	display: none;
 }
 
 img.tip {

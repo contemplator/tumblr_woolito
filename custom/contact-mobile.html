@@ -17,6 +17,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/js/drawer.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/mobile.css">
     <link rel="stylesheet" type="text/css" href="css/contact-mobile.css">
+    <script src="js/contact-mobile.js"></script>
 </head>
 <style type="text/css">
 </style>
@@ -116,7 +117,7 @@
             <div class="idea">
                 <label class="chinese">告訴我們您的動畫IDEA</label>
                 <label class="english">Talk About Your Animation</label>
-                <img class="tip" src="http://static.tumblr.com/sirdwhf/c8uoc40kz/error_flower.png">
+                <!-- <img class="tip" src="http://static.tumblr.com/sirdwhf/c8uoc40kz/error_flower.png"> -->
                 <div class="input-field">
                     <textarea id="input-idea" rows="10">任何我們能幫助您的需求都歡迎寫下來</textarea>
                 </div>
@@ -125,6 +126,7 @@
                 <label class="chinese">計畫類型</label>
                 <label class="english">Project Objectives</label>
                 <img class="tip" src="http://static.tumblr.com/sirdwhf/c8uoc40kz/error_flower.png">
+                <label class="error">這是必選欄位喔！</label>
                 <div class="input-field">
                     <input type="radio" name="input-type" value="動畫設計" id="animation_design">
                     <label for="animation_design">動畫設計</label>
@@ -144,10 +146,10 @@
                 <label class="advice">讓我們提供您「最符合您預算」的建議</label>
                 <div class="input-field">
                     <select>
-                        <option>10,000-50,000</option>
-                        <option>50,000-100,000</option>
-                        <option>100,000-200,000</option>
-                        <option>200,000-500,000</option>
+                        <option name="input-budge">10,000-50,000</option>
+                        <option name="input-budge">50,000-100,000</option>
+                        <option name="input-budge">100,000-200,000</option>
+                        <option name="input-budge">200,000-500,000</option>
                     </select>
                 </div>
             </div>
@@ -155,6 +157,7 @@
                 <label class="chinese">稱呼</label>
                 <label class="english">Name</label>
                 <img class="tip" src="http://static.tumblr.com/sirdwhf/c8uoc40kz/error_flower.png">
+                <label class="error">這是必填欄位喔！</label>
                 <div class="input-field">
                     <input type="text" id="input-name" />
                 </div>
@@ -170,6 +173,7 @@
                 <label class="chinese">聯絡信箱</label>
                 <label class="english">Email Address</label>
                 <img class="tip" src="http://static.tumblr.com/sirdwhf/c8uoc40kz/error_flower.png">
+                <label class="error">填寫格式錯誤！</label>
                 <div class="input-field">
                     <input type="email" id="input-email" />
                 </div>
@@ -184,6 +188,28 @@
         </section>
     </div>
 </body>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-82881342-1', 'auto');
+  ga('send', 'pageview');
+
 </script>
+
+<!-- <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyD_aUK5etSpwD2Dp3jq0uFjypQxXKY5TUY",
+    authDomain: "woolito-tumblr.firebaseapp.com",
+    databaseURL: "https://woolito-tumblr.firebaseio.com",
+    storageBucket: "woolito-tumblr.appspot.com",
+  };
+  firebase.initializeApp(config);
+</script> -->
 
 </html>
