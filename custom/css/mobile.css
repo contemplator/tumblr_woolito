@@ -17,7 +17,7 @@ body {
 #header {
     background-color: #fff;
     display: table;
-    padding: 0px 2px;
+    padding: 0px 0px;
     height: 40px;
     width: 100%;
     position: fixed;
@@ -32,10 +32,10 @@ body {
     border-right: 1px solid #E6E6E6;
     background-color: #fff;
     min-width: 48px;
-    height: 38px;
+    height: 40px;
     padding: 8px;
     position: relative;
-    top: -8px;
+    top: -10px;
     left: -10px;
 }
 
@@ -73,6 +73,7 @@ body {
     height: inherit;
     height: 40px;
     width: auto;
+    text-align: right;
     /*width: 100%;
     height: auto;*/
 }
@@ -81,6 +82,7 @@ body {
     width: inherit;
     height: inherit;
     margin: 0px auto;
+    margin-right: 0px;
 }
 
 
