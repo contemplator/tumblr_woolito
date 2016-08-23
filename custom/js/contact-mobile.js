@@ -6,13 +6,13 @@ $(function() {
     }
 
     $.getScript("https://cdn.firebase.com/js/client/2.4.2/firebase.js", function() {
-        // var config = {
-        //     apiKey: "AIzaSyD_aUK5etSpwD2Dp3jq0uFjypQxXKY5TUY",
-        //     authDomain: "woolito-tumblr.firebaseapp.com ",
-        //     databaseURL: "https://woolito-tumblr.firebaseio.com",
-        //     storageBucket: "woolito-tumblr.appspot.com",
-        // };
-        // firebase.initializeApp(config);
+        var config = {
+            apiKey: "AIzaSyD_aUK5etSpwD2Dp3jq0uFjypQxXKY5TUY",
+            authDomain: "woolito-tumblr.firebaseapp.com",
+            databaseURL: "https://woolito-tumblr.firebaseio.com",
+            storageBucket: "woolito-tumblr.appspot.com",
+        };
+        firebase.initializeApp(config);
         console.log("init firebase done!");
     });
 
@@ -111,7 +111,7 @@ function verifyInput() {
         phone: $("#input-phone").val()
     }
 
-    // sendData(data);
+    sendData(data);
 }
 
 function validateEmail(email) {
@@ -120,13 +120,14 @@ function validateEmail(email) {
 }
 
 function sendData(data) {
-    var myFirebaseRef = new Firebase("https://woolito-tumblr.firebaseio.com/");
-    myFirebaseRef.push({
+    console.log(firebase.database());
+    var newApplyKey = firebase.database().ref('apply').push({
         idea: data.idea,
         type: data.type,
         name: data.name,
         email: data.email,
         budge: data.budge,
         phone: data.phone
-    });
+    }).key;
+    console.log(newApplyKey);
 }

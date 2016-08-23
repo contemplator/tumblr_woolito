@@ -313,6 +313,7 @@ function query_all_posts() {
             limit: 50
         }
     }).done(function(data) {
+        console.log(data.response.posts);
         var data_json = data.response.posts;
         for (var i = 0; i < data_json.length; i++) {
             try {
@@ -538,12 +539,12 @@ function render_text(post) {
     var title_link = $("<a href='" + post['post_url'] + "' target=\"_blank\" title='點擊觀看作品介紹' data-toggle='tooltip' data-placement='right' >" + post.slug + "</a>");
     title.append(title_link);
     var body = post['body'];
-    body = analysis_caption_iframe(post.body, post.id);
     if (body.indexOf("<!-- more -->") > -1) {
         var start_index = body.indexOf("<!-- more -->");
         body = body.substring(0, start_index);
         body += '<a href="' + post['post_url'] + '" target=\"_blank\" class="readmore">KEEP READING</a>';
     }
+    body = analysis_caption_iframe(body, post.id);
     article_content.append(title).append(body);
     var icon = render_icon(post);
     article_content.append(icon);
@@ -559,6 +560,7 @@ function analysis_caption_iframe(caption, post_id) {
     var patt2 = /<figure(.*)>(.*)<\/figure>/i;
     var youtube_id = caption.match(patt)[1];
     var link_element = $('<a target="_blank"></a>');
+
     link_element.attr("href", "http://woolito.tumblr.com/post/" + post_id + "/");
     var shortcut_element = $("<img >");
     shortcut_element.addClass("shortcut");
@@ -569,8 +571,10 @@ function analysis_caption_iframe(caption, post_id) {
     shortcut_element.attr("title", "點擊觀看作品介紹");
     link_element.html(shortcut_element);
     link_element = link_element.prop('outerHTML');
-
+    
+    console.log(caption);
     caption = caption.replace(patt2, link_element);
+    console.log(caption);
     return caption;
 }
 

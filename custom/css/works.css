@@ -259,10 +259,16 @@ div.play-button {
     color: #FFF;
     background-color: #363636;
     width: 100%;
-    height: 12%;
+    height: 10%;
     text-align: center;
-    font-size: 2.5em;
+    font-size: 150%;
     line-height: 1.5em;
+    display: table;
+}
+#preview_youtube #current_status div{
+    display: table-cell;
+    height: inherit;
+    vertical-align: middle;
 }
 .preview_hide{
     display: none;

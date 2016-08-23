@@ -37,7 +37,7 @@ option #test{
 
 section {
     background-color: #3C3C3C;
-    margin-top: 40px;
+    margin-top: 0px;
     margin-bottom: 0px;
     padding-top: 2px;
     padding-bottom: 20px;
@@ -70,7 +70,7 @@ section {
 .content {
     width: 100%;
     margin: 0px auto;
-    margin-top: 39px;
+    margin-top: 0px;
     color: #fff;
 }
 
