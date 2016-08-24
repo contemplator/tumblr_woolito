@@ -22,6 +22,7 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="js/contact.js"></script>
+    <script src="js/jquery.rwdImageMaps.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/web.css">
     <link rel='stylesheet' type='text/css' href="css/contact.css">
 </head>
@@ -159,6 +160,7 @@
             <div class="type">
                 <label class="chinese">計畫類型</label>
                 <label class="english">Project Objectives</label>
+                <!-- <img class="tip" src="http://static.tumblr.com/sirdwhf/c8uoc40kz/error_flower.png"> -->
                 <div class="input-field">
                     <input type="radio" name="input-type" value="動畫設計" id="animation_design">
                     <label for="animation_design">動畫設計</label>
@@ -176,7 +178,44 @@
                 <label class="english">Budge</label>
                 <label class="advice">讓我們提供您「最符合您預算」的建議</label>
                 <div class="input-field">
-                    <input type="range" min="0" max="500000" value="0" step="50000" id="input-budge" />
+                    <!-- <input type="range" min="0" max="500000" value="0" step="50000" id="input-budge" /> -->
+                    <img src="resources/contact_lefthand.png" class="selector">
+                    <img src="resources/contact_lefthand.png" class="selector" id="left-selector">
+                    <img src="resources/contact_righthand.png" class="selector" id="right-selector">
+                    <img src="resources/contact_range.png" class="range" usemap="#RangeMap">
+                    <map name="RangeMap">
+                        <area shape="circle" coords="5,6,10" id="0t">
+                        <area shape="circle" coords="65,6,10" id="50t">
+                        <area shape="circle" coords="123,6,10" id="100t">
+                        <area shape="circle" coords="180,6,10" id="200t">
+                        <area shape="circle" coords="240,6,10" id="300t">
+                        <area shape="circle" coords="295,6,10" id="400t">
+                        <area shape="circle" coords="355,6,10" id="500t">
+                    </map>
+                    <!-- <div class="range">
+                        <div class="circle"></div>
+                        <div class="des">50,000</div>
+                    </div>
+                    <div class="range">
+                        <div class="circle"></div>
+                        <div class="des">100,000</div>
+                    </div>
+                    <div class="range">
+                        <div class="circle"></div>
+                        <div class="des">200,000</div>
+                    </div>
+                    <div class="range">
+                        <div class="circle"></div>
+                        <div class="des">300,000</div>
+                    </div>
+                    <div class="range">
+                        <div class="circle"></div>
+                        <div class="des">400,000</div>
+                    </div>
+                    <div class="range">
+                        <div class="circle"></div>
+                        <div class="des">500,000</div>
+                    </div> -->
                 </div>
             </div>
             <div class="name">

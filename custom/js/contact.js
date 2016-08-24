@@ -11,10 +11,17 @@ $(function(){
 
     $(window).resize(function() {
         if (ismobile_size()) {
-            location.href = "works-mobile";
+            location.href = "contact-mobile";
         }
     });
 
+    initImageMap();
+    
+    $(".idea #input-idea").focus(function() {
+        if($("#input-idea").val() == "任何我們能幫助您的需求都歡迎寫下來"){
+            $("#input-idea").val("");
+        }
+    });
 
 	$(".name .input-field").click(function(){
 		$("#input-name").focus();
@@ -50,4 +57,19 @@ function ismobile_size() {
         return false;
         // location.href = "works.html";
     }
+}
+
+function initImageMap(){
+    // $("area").click(function(){
+    //     console.log($(this).attr("id"));
+    // });
+
+    $('img[usemap]').rwdImageMaps();
+    $("#left-selector").css("position", "relative");
+    $("#left-selector").css("visibility", "initial");
+    $("#left-selector").css("left", 0);
+    $("#right-selector").css("position", "relative");
+    $("#right-selector").css("visibility", "initial");
+    $("#right-selector").css("left", 0);
+    // $("#0t")
 }

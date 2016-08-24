@@ -107,7 +107,22 @@ img.tip {
 	width: auto;
 	height: auto;
 }
-/* budge */
+.pointer{
+	cursor: pointer;
+	background-color: #fff;
+}
+.budge .input-field .selector{
+	display: inline;
+	height: 40px;
+	width: auto;
+	left: 100px;
+	visibility: hidden;
+}
+.budge .input-field .range{
+	margin: 0px auto;
+	width: 80%;
+	height: auto;
+}
 .budge #input-budge{
 	margin: 0px auto;
 	width: 400px;
