@@ -111,12 +111,20 @@ img.tip {
 	cursor: pointer;
 	background-color: #fff;
 }
+.budge .input-field .dragfield{
+	width: calc(80% + 54px);
+	margin: 0px auto;
+	height: 40px;
+	position: relative;
+	/*border: 1px solid #fff;*/
+}
 .budge .input-field .selector{
 	display: inline;
 	height: 40px;
 	width: auto;
-	left: 100px;
-	visibility: hidden;
+}
+#left-selector, #right-selector{
+	position: absolute;
 }
 .budge .input-field .range{
 	margin: 0px auto;
@@ -145,6 +153,12 @@ img.tip {
 	background-image: url('http://static.tumblr.com/sirdwhf/jMgoc40g3/contact_range.png');
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
+}
+#result{
+	text-align: center;
+	color: #c8373b;
+	font-size: 200%;
+	margin-top: 15px;
 }
 
 /* btn_sender */

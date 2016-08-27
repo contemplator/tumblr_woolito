@@ -21,8 +21,6 @@
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
     <script src="http://static.tumblr.com/sirdwhf/n4Docf3yn/jquery.rwdimagemaps.min.js"></script>
     <script src="js/contact.js"></script>
     <link rel="stylesheet" type="text/css" href="css/web.css">
@@ -180,15 +178,44 @@
                 <label class="english">Budge</label>
                 <label class="advice">讓我們提供您「最符合您預算」的建議</label>
                 <div class="input-field">
-                    <div class="dragfield">
-                        <img src="http://static.tumblr.com/sirdwhf/Wexocf424/contact_lefthand.png" class="selector" id="left-selector">
-                        <img src="http://static.tumblr.com/sirdwhf/DXpocf42w/contact_righthand.png" class="selector" id="right-selector">
+                    <!-- <input type="range" min="0" max="500000" value="0" step="50000" id="input-budge" /> -->
+                    <img src="http://static.tumblr.com/sirdwhf/Wexocf424/contact_lefthand.png" class="selector">
+                    <img src="http://static.tumblr.com/sirdwhf/Wexocf424/contact_lefthand.png" class="selector" id="left-selector">
+                    <img src="http://static.tumblr.com/sirdwhf/DXpocf42w/contact_righthand.png" class="selector" id="right-selector">
+                    <img src="http://static.tumblr.com/sirdwhf/CBRocf43b/contact_range.png" class="range" usemap="#RangeMap">
+                    <map name="RangeMap">
+                        <area shape="circle" coords="5,6,10" id="0t">
+                        <area shape="circle" coords="65,6,10" id="50t">
+                        <area shape="circle" coords="123,6,10" id="100t">
+                        <area shape="circle" coords="180,6,10" id="200t">
+                        <area shape="circle" coords="240,6,10" id="300t">
+                        <area shape="circle" coords="295,6,10" id="400t">
+                        <area shape="circle" coords="355,6,10" id="500t">
+                    </map>
+                    <!-- <div class="range">
+                        <div class="circle"></div>
+                        <div class="des">50,000</div>
                     </div>
-                    <img src="resources/contact_range.png" class="range" usemap="#RangeMap">
-                    <img src="resources/contact_numbers.png" class="range">
-                    <div id="result">
-                        $0 ~ $50,000
+                    <div class="range">
+                        <div class="circle"></div>
+                        <div class="des">100,000</div>
                     </div>
+                    <div class="range">
+                        <div class="circle"></div>
+                        <div class="des">200,000</div>
+                    </div>
+                    <div class="range">
+                        <div class="circle"></div>
+                        <div class="des">300,000</div>
+                    </div>
+                    <div class="range">
+                        <div class="circle"></div>
+                        <div class="des">400,000</div>
+                    </div>
+                    <div class="range">
+                        <div class="circle"></div>
+                        <div class="des">500,000</div>
+                    </div> -->
                 </div>
             </div>
             <div class="name">
@@ -214,18 +241,19 @@
                     <input type="email" id="input-email" />
                 </div>
             </div>
+
             <div class="btn-sender">
-                <div id="btn-sender">
-                    <label class="chinese">傳送</label>
-                    <label class="english">Data transfer</label>
-                </div>
+            	<div id="btn-sender">
+	            	<label class="chinese">傳送</label>
+	                <label class="english">Data transfer</label>
+	            </div>	
             </div>
         </div>
         <div class="footer">
-            <p>Woolito Studio 無厘頭動畫股份有限公司</p>
-            <p>+886 02 8913 6815</p>
-            <p>Contact@woolito.com</p>
-        </div>
+	    	<p>Woolito Studio 無厘頭動畫股份有限公司</p>
+	    	<p>+886 02 8913 6815</p>
+	    	<p>Contact@woolito.com</p>
+	    </div>
     </section>
 </body>
 <script type="text/javascript">
