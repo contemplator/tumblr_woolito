@@ -87,6 +87,7 @@ img.tip {
 }
 .input-field textarea{
 	width: 100%;
+	color: #aaa;
 }
 /* type */
 .type{
@@ -135,24 +136,13 @@ img.tip {
 	margin: 0px auto;
 	width: 400px;
 }
-.budge #input-budge::-webkit-slider-thumb{
-	-webkit-appearance: none;
-	border: none;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    background: goldenrod;
-    margin-top: -4px;
-}
-.budge #input-budge::-webkit-slider-runnable-track{
-	margin: 0px auto;
-	width: 400px;
-	height: 10px;
-	-webkit-appearance: none;
-	background-color: rgba(0, 0, 0 , 0);
-	background-image: url('http://static.tumblr.com/sirdwhf/jMgoc40g3/contact_range.png');
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
+.budge label.advice{
+	font-size: 100%;
+	background-color: #49ab99;
+	border-radius: 5px;
+	padding: 1px 3px;
+	color: #000;
+	margin-left: 5px;
 }
 #result{
 	text-align: center;
@@ -160,7 +150,18 @@ img.tip {
 	font-size: 200%;
 	margin-top: 15px;
 }
-
+/* error */
+.error{
+	margin-left: 5px;
+	visibility: hidden;
+}
+.error img{
+	display: inline;
+	vertical-align: sub;
+}
+.error span{
+	color: #ea4e4d;
+}
 /* btn_sender */
 .btn-sender{
 	text-align: center;

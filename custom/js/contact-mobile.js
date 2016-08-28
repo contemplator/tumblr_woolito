@@ -46,6 +46,7 @@ $(function() {
     $("#btn-sender").click(function() {
         verifyInput();
     });
+
 });
 
 function ismobile() {
@@ -101,13 +102,17 @@ function verifyInput() {
     }
 
     var budge = $("option[name='input-budge']:selected").text();
+    var budges = budge.split("-");
+    var min_budge = budges[0].replace(",", "");
+    var max_budge = budges[1].replace(",", "");
 
     var data = {
         idea: idea,
         type: type,
         name: name,
         email: email,
-        budge: budge,
+        min_budge: min_budge,
+        max_budge: max_budge,
         phone: $("#input-phone").val()
     }
 
@@ -120,13 +125,13 @@ function validateEmail(email) {
 }
 
 function sendData(data) {
-    console.log(firebase.database());
     var newApplyKey = firebase.database().ref('apply').push({
         idea: data.idea,
         type: data.type,
         name: data.name,
         email: data.email,
-        budge: data.budge,
+        min_budge: data.min_budge,
+        max_budge: data.max_budge,
         phone: data.phone
     }).key;
     console.log(newApplyKey);

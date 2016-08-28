@@ -17,6 +17,17 @@ $(function(){
             location.href = "contact-mobile";
         }
     });
+
+    $.getScript("https://cdn.firebase.com/js/client/2.4.2/firebase.js", function() {
+        var config = {
+            apiKey: "AIzaSyD_aUK5etSpwD2Dp3jq0uFjypQxXKY5TUY",
+            authDomain: "woolito-tumblr.firebaseapp.com",
+            databaseURL: "https://woolito-tumblr.firebaseio.com",
+            storageBucket: "woolito-tumblr.appspot.com",
+        };
+        firebase.initializeApp(config);
+        console.log("init firebase done!");
+    });
     
     $(".idea #input-idea").focus(function() {
         if($("#input-idea").val() == "任何我們能幫助您的需求都歡迎寫下來"){
@@ -44,6 +55,16 @@ $(function(){
         fixRightSelector();
     });
 
+    $(".idea .input-field textarea").focusout(function(){
+        var idea = $("#input-idea").val();
+        if(idea == "任何我們能幫助您的需求都歡迎寫下來" || idea == ""){
+            $("#input-idea").val("任何我們能幫助您的需求都歡迎寫下來");
+            $("#input-idea").css("color", "#aaa");
+        }else{
+            $("#input-idea").css("color", "#fff");
+        }
+    });
+
 	$(".name .input-field").click(function(){
 		$("#input-name").focus();
 	});
@@ -55,6 +76,10 @@ $(function(){
 	$(".email .input-field").click(function(){
 		$("#input-email").focus();
 	});
+
+    $("#btn-sender").click(function() {
+        verifyInput();
+    });
 
     initRange();
 });
@@ -119,12 +144,14 @@ function fixLeftSelector(){
         var abs = Math.abs(left-keys[i]);
         abses.push(abs);
     }
-    // console.log(abses); // 所有比較值得陣列
+
     var min_diff = Math.min.apply(null, abses); // 取出比較值最小的
     var closest_index = abses.indexOf(min_diff); // 取出最小值的index
     var closest_value = keys[closest_index]; // 取出最小值是位在哪一個位置
+    var budge = range_field_left_map[closest_value];
 
     $("#left-selector").css("left", closest_value + "px");
+    $("#left-selector").attr("data-budge", budge);
     showBudgeRange();
 }
 
@@ -140,14 +167,108 @@ function fixRightSelector(){
         var abs = Math.abs(right-keys[i]);
         abses.push(abs);
     }
-    $("#right-selector").css("left", keys[abses.indexOf(Math.min.apply(null, abses))] + "px");
+
+    var min_diff = Math.min.apply(null, abses); // 取出比較值最小的
+    var closest_index = abses.indexOf(min_diff); // 取出最小值的index
+    var closest_value = keys[closest_index]; // 取出最小值是位在哪一個位置
+    var budge = range_field_right_map[closest_value];
+    
+    $("#right-selector").css("left", closest_value + "px");
+    $("#right-selector").attr("data-budge", budge);
     showBudgeRange();
 }
 
 function showBudgeRange(){
     var left = parseInt($("#left-selector").position().left);
     var right = parseInt($("#right-selector").position().left);
-    $("#result").text("$"+(range_field_left_map[left].formatMoney(0)) + "~" + "$" + range_field_right_map[right].formatMoney(0));
+    $("#result").text("$"+numeral(range_field_left_map[left]).format('0,0') + "~" + "$" + numeral(range_field_right_map[right]).format('0,0'));
+    // $("#result").text("$"+(range_field_left_map[left].formatMoney(0)) + "~" + "$" + range_field_right_map[right].formatMoney(0));
+}
+
+function verifyInput() {
+    $(".input-field").css("border", "3px solid #fff");
+    $(".content .error").css("visibility", "hidden");
+    var error = [];
+    var idea = $("#input-idea").val();
+    if (idea == "" || idea == "任何我們能幫助您的需求都歡迎寫下來") {
+        error.push("idea");
+    }
+
+    var type = $("input[name='input-type']:checked").val();
+    // if (!type) {
+    //     error.push("type");
+    // }
+
+    var name = $("#input-name").val();
+    if (!name) {
+        error.push("name");
+    }
+
+    var email = $("#input-email").val();
+    if (!validateEmail(email)) {
+        error.push("email");
+    }
+    console.log(error);
+    for (var i = 0; i < error.length; i++) {
+        switch (error[i]) {
+            case "idea":
+                $(".idea .input-field").css("border", "3px solid #ea4e4d");
+                $(".idea .error").css("visibility", "initial");
+                break;
+            // case "type":
+            //     $(".type .input-field").css("border", "3px solid #ea4e4d");
+            //     $(".type .error").css("visibility", "initial");
+            //     break;
+            case "name":
+                $(".name .input-field").css("border", "3px solid #ea4e4d");
+                $(".name .error").css("visibility", "initial");
+                break;
+            case "email":
+                $(".email .input-field").css("border", "3px solid #ea4e4d");
+                $(".email .error").css("visibility", "initial");
+                break;
+            default:
+                break;
+        }
+    }
+
+    if (error.length > 0) {
+        return;
+    }
+
+    var min_budge = $("#left-selector").attr("data-budge");
+    var max_budge = $("#right-selector").attr("data-budge");
+
+    var data = {
+        idea: idea,
+        type: type,
+        name: name,
+        email: email,
+        min_budge: min_budge,
+        max_budge: max_budge,
+        phone: $("#input-phone").val()
+    }
+    // console.log(data);
+
+    sendData(data);
+}
+
+function validateEmail(email) {
+    var patt = /(\w*)@(\w+)\.(\w+)/g;
+    return patt.test(email);
+}
+
+function sendData(data) {
+    var newApplyKey = firebase.database().ref('apply').push({
+        idea: data.idea,
+        type: data.type,
+        name: data.name,
+        email: data.email,
+        min_budge: data.min_budge,
+        max_budge: data.max_budge,
+        phone: data.phone
+    }).key;
+    console.log(newApplyKey);
 }
 
 jQuery.fn.onPositionChanged = function (trigger, millis) {
