@@ -1,6 +1,6 @@
 var posts = [];
 var selected_posts = [];
-var current_posts_number = 0;
+// var current_posts_number = 0;
 var modalHidden;
 var selected_tag;
 var preview_timer;
@@ -178,18 +178,14 @@ function setPhoto(post) {
     // $(modal .modal-header .modal title).text("Post Photo");
 }
 
-function setVideo(post) {
-
-}
-
-function readmore() {
-    showLoading();
-    var new_posts_number = current_posts_number + 6;
-    if (selected_posts.length - new_posts_number <= 0) {
-        new_posts_number = selected_posts.length;
-    }
-    render_posts(new_posts_number, selected_posts);
-}
+// function readmore() {
+//     showLoading();
+//     var new_posts_number = current_posts_number + 6;
+//     if (selected_posts.length - new_posts_number <= 0) {
+//         new_posts_number = selected_posts.length;
+//     }
+//     render_posts(new_posts_number, selected_posts);
+// }
 
 function initSelector() {
     $.ajax({
@@ -367,13 +363,14 @@ function query_posts(tag) {
     } else {
         $("#total_post").text(selected_posts.length);
     }
-    current_posts_number = 0;
-    readmore();
+    // current_posts_number = 0;
+    // readmore();
+    render_posts(selected_posts.length, selected_posts);
 }
 
 function render_posts(number_post, posts) {
     if (posts.length > 0) {
-        for (var i = current_posts_number; i < number_post; i++) {
+        for (var i=0; i < number_post; i++) {
             var post_type = posts[i].type;
             var post_html = null;
             switch (post_type) {
@@ -399,7 +396,7 @@ function render_posts(number_post, posts) {
                 });
             });
         }
-        current_posts_number = number_post;
+        // current_posts_number = number_post;
     }
 
     setTimeout(function() {
@@ -415,11 +412,11 @@ function render_posts(number_post, posts) {
         $(".grid").masonry('reloadItems');
     });
 
-    if (current_posts_number == posts.length) {
-        showLoadEnd();
-    } else {
-        showLoadMore();
-    }
+    // if (current_posts_number == posts.length) {
+    //     showLoadEnd();
+    // } else {
+    //     showLoadMore();
+    // }
 
     $(".shortcut").mouseenter(function() {
         clearTimeout(preview_timer);
@@ -611,20 +608,20 @@ function render_iframe(post) {
     return html;
 }
 
-function showLoading() {
-    $(".load-more-loading").css("display", "inline");
-    $(".load-more-end").css("display", "none");
-    $(".load-more-text").css("display", "none");
-}
+// function showLoading() {
+//     $(".load-more-loading").css("display", "inline");
+//     $(".load-more-end").css("display", "none");
+//     $(".load-more-text").css("display", "none");
+// }
 
-function showLoadEnd(argument) {
-    $(".load-more-loading").css("display", "none");
-    $(".load-more-end").css("display", "inline");
-    $(".load-more-text").css("display", "none");
-}
+// function showLoadEnd(argument) {
+//     $(".load-more-loading").css("display", "none");
+//     $(".load-more-end").css("display", "inline");
+//     $(".load-more-text").css("display", "none");
+// }
 
-function showLoadMore() {
-    $(".load-more-loading").css("display", "none");
-    $(".load-more-end").css("display", "none");
-    $(".load-more-text").css("display", "inline");
-}
+// function showLoadMore() {
+//     $(".load-more-loading").css("display", "none");
+//     $(".load-more-end").css("display", "none");
+//     $(".load-more-text").css("display", "inline");
+// }

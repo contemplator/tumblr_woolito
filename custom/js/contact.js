@@ -37,13 +37,13 @@ $(function(){
 
     $("#left-selector").draggable({ 
         axis: "x" ,
-        containment: "parent",
+        containment: "parent parent",
         scroll: false
     });
 
     $("#right-selector").draggable({ 
         axis: "x" ,
-        containment: "parent",
+        containment: "parent parent",
         scroll: false
     });
 
@@ -52,6 +52,7 @@ $(function(){
     });
 
     $("#right-selector").onPositionChanged(function(){
+        $(".dragfield .tip").css("display", "none");
         fixRightSelector();
     });
 
@@ -81,7 +82,10 @@ $(function(){
         verifyInput();
     });
 
-    initRange();
+    $('[data-toggle="tooltip"]').tooltip();
+
+    // initRange();
+    // initJqueryRange();
 });
 
 function ismobile() {
@@ -105,28 +109,46 @@ function ismobile_size() {
     }
 }
 
+// function initJqueryRange(){
+//     $("#jquery-range").rangepicker({
+//         startValue: "$0",
+//         endValue: "$500,000",
+//         translateSelectLabel: function(currentPosition, totalPosition) {
+//             console.log(parseInt(100 * (currentPosition / totalPosition)));
+//             return parseInt(100 * (currentPosition / totalPosition));
+//             // return "<img src=\"../resources/contact_lefthand.png\"";
+//         }
+//     });
+// }
+
 function initRange(){
+    range_field_left_map = {};
+    range_field_right_map = {};
     var selector_width = $(".selector").width();
-    var dragfield_width = $(".dragfield").width() - selector_width*2;
+    var dragfield_width = $(".dragfield").width();
     var range_field_step = dragfield_width / 6;
-    // var value_index = range_field_left;
-    // left : 0, 538
-    // right : 39, 577
     console.log("dragfield width: " + dragfield_width);
     console.log("selector width: " + selector_width);
     console.log("range field step: " + range_field_step);
-    var range_field_left_left = 0;
-    var range_field_right_left = 0 + selector_width;
-    var range_field_left_rigth = 0 + dragfield_width - selector_width;
-    var range_field_right_rigth = dragfield_width;
+
+    var max_values = $(".max-value");
+    max_values.height($(".range-img").height());
+    max_values_width = $(max_values[0]).width();
+    $(max_values[0]).css("left", (0-max_values_width/2) + "px");
+    $(max_values[1]).css("left", (6*range_field_step-max_values_width/2) + "px");
+    $(max_values[1]).css("top", (0) + "px");
+
+    $("#left-selector").css("left", (0-selector_width) + "px");
+    $("#right-selector").css("left", (0) + "px");
+
+    var range_field_left_left = 0-selector_width;
+    var range_field_right_left = 0;
     var values = [0, 50000, 100000, 200000, 300000, 400000, 500000];
-    $("#left-selector").css("left", range_field_left_left);
-    $("#right-selector").css("left", (range_field_right_left+range_field_step));
     range_field_left_map[range_field_left_left] = values[0];
     range_field_right_map[range_field_right_left] = values[0];
     for(var i=1; i<7; i++){
-        range_field_left_left += range_field_step;
-        range_field_right_left += range_field_step;
+        range_field_left_left = 0 - selector_width + i * range_field_step;
+        range_field_right_left = 0 + i * range_field_step;
         range_field_left_map[parseInt(range_field_left_left)] = values[i];
         range_field_right_map[parseInt(range_field_right_left)] = values[i];
     }
@@ -136,7 +158,10 @@ function fixLeftSelector(){
     var left = $("#left-selector").position().left;
     var right = $("#right-selector").position().left;
     if(left>right){
-        left = right;
+        var keys_right = Object.keys(range_field_right_map);
+        var keys_left = Object.keys(range_field_left_map);
+        var index = keys_right.indexOf(right+"");
+        left = parseInt(keys_left[index-1]);
     }
     var keys = Object.keys(range_field_left_map);
     var abses = [];
@@ -159,7 +184,10 @@ function fixRightSelector(){
     var left = $("#left-selector").position().left;
     var right = $("#right-selector").position().left;
     if(right<left){
-        right = left;
+        var keys_left = Object.keys(range_field_left_map);
+        var keys_right = Object.keys(range_field_right_map);
+        var index = keys_left.indexOf(left+"");
+        right = parseInt(keys_right[index+1]);
     }
     var keys = Object.keys(range_field_right_map);
     var abses = [];

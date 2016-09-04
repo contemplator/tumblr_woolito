@@ -20,7 +20,7 @@ div.center{
 header .center .centered{
     display: block;
     height: 100vh;
-    overflow: auto;
+    overflow: hidden;
 }
 div#shortcut{
     border-radius: 0px 0px 50px 0px;

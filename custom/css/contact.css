@@ -9,13 +9,16 @@ textarea {
     resize: none;
 }
 
-input[type=text], input[type=email]{
-	border: none;
-	background-color: rgba(0,0,0,0);
-	width: 100%;
+input[type=text],
+input[type=email] {
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
 }
-input[type=text]:focus, input[type=email]:focus{
-	outline: none;
+
+input[type=text]:focus,
+input[type=email]:focus {
+    outline: none;
 }
 
 section {
@@ -28,6 +31,7 @@ section {
     background-size: 100% auto;
     background-position: 0% 93%;
 }
+
 
 /* header */
 
@@ -59,9 +63,10 @@ section {
     font-size: 100%;
 }
 
-.content label.chinese{
-	font-size: 120%;
+.content label.chinese {
+    font-size: 120%;
 }
+
 .content label.english {
     margin-left: 5px;
     font-size: 100%;
@@ -70,125 +75,218 @@ section {
 img.tip {
     display: inline-block;
 }
-.content > div{
-	margin: 30px 0px;
+
+.content > div {
+    margin: 30px 0px;
 }
+
 .input-field {
     border: 3px solid #fff;
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 50px;
 }
+
+
 /* contact */
-.idea .input-field{
-	background-image: url('http://static.tumblr.com/sirdwhf/SB8oc40du/contact_gg.png');
-	background-repeat: no-repeat;
-	background-position: right bottom; 
+
+.idea .input-field {
+    background-image: url('http://static.tumblr.com/sirdwhf/SB8oc40du/contact_gg.png');
+    background-repeat: no-repeat;
+    background-position: right bottom;
 }
-.input-field textarea{
-	width: 100%;
-	color: #aaa;
+
+.input-field textarea {
+    width: 100%;
+    color: #aaa;
 }
+
+
 /* type */
-.type{
-	position: relative;
-	z-index: 2;
+
+.type {
+    position: relative;
+    z-index: 2;
 }
-.type .input-field label{
-	margin-right: 30px;
-	margin-bottom: 0px;
-	vertical-align: top;
+
+.type .input-field label {
+    margin-right: 30px;
+    margin-bottom: 0px;
+    vertical-align: top;
 }
-.type img{
+
+.type img {
+    position: absolute;
+    margin-top: -175px;
+    margin-right: -40px;
+    right: 0;
+    z-index: 1;
+    width: auto;
+    height: auto;
+}
+
+.pointer {
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.budge .input-field .dragfield {
+    /*width: calc(80% + 54px);*/
+    width: 80%;
+    margin: 0px auto;
+    /*height: 40px;*/
+    position: relative;
+}
+
+.budge .input-field .selector {
+    display: inline;
+    visibility: hidden;
+    height: 40px;
+    width: auto;
+}
+
+#left-selector,
+#right-selector {
+    position: absolute;
+    visibility: initial;
+}
+
+.budge .input-field .tip {
+    display: inline-block;
+    position: relative;
+}
+
+.budge .input-field .tip-arrow {
+	display: block;
 	position: absolute;
-	margin-top: -175px;
-	margin-right: -40px;
-	right: 0;
-	z-index: 1;
-	width: auto;
-	height: auto;
+	width: 0px;
+	height: 0px;
+	border-color: transparent;
+	border-style: solid;
+	top: 50%;
+	left: 0;
+	margin-top: -5px;
+	border-width: 5px 5px 5px 0;
+	border-right-color: #eb8b8f;
 }
-.pointer{
-	cursor: pointer;
-	background-color: #fff;
-}
-.budge .input-field .dragfield{
-	width: calc(80% + 54px);
-	margin: 0px auto;
-	height: 40px;
-	position: relative;
-	/*border: 1px solid #fff;*/
-}
-.budge .input-field .selector{
-	display: inline;
-	height: 40px;
-	width: auto;
-}
-#left-selector, #right-selector{
-	position: absolute;
-}
-.budge .input-field .range{
-	margin: 0px auto;
-	width: 80%;
-	height: auto;
-}
-.budge #input-budge{
-	margin: 0px auto;
-	width: 400px;
-}
-.budge label.advice{
-	font-size: 100%;
-	background-color: #49ab99;
-	border-radius: 5px;
-	padding: 1px 3px;
-	color: #000;
-	margin-left: 5px;
-}
-#result{
-	text-align: center;
-	color: #c8373b;
-	font-size: 200%;
-	margin-top: 15px;
-}
-/* error */
-.error{
-	margin-left: 5px;
-	visibility: hidden;
-}
-.error img{
-	display: inline;
-	vertical-align: sub;
-}
-.error span{
-	color: #ea4e4d;
-}
-/* btn_sender */
-.btn-sender{
-	text-align: center;
-	cursor: pointer;
-}
-.btn-sender #btn-sender{
+
+.budge .input-field .tip-inner {
+	background-color: #eb8b8f;
 	display: inline-block;
-	padding: 30px;
-	background-image: url('http://static.tumblr.com/sirdwhf/nD0oc40go/contact_send.png');
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
-	color: #39bbad;
-}
-.btn-sender #btn-sender:hover{
-	background-image: url('http://static.tumblr.com/sirdwhf/pV8oc40h5/contact_sending.png');
-	color: #fff4a3;
-}
-/* footer */
-.footer{
-	background-color: #fff;
-	border-radius: 20px 20px 0px 0px;
+	padding: 3px 8px;
+	color: #fff;
 	text-align: center;
-	padding: 20px;
+	max-width: 200px;
+	border-radius: 5px;
+	margin-left: 5px;
 }
-.footer p{
-	font-size: 100%;
-	margin: 1px 0px;
-	color: #697668;
-	font-weight: 600;
+
+.budge .input-field .range {
+    margin: 0px auto;
+    width: 80%;
+    position: relative;
+}
+
+.budge .input-field .range .max-value {
+    position: absolute;
+}
+
+.budge .input-field .range .range-img {
+    width: 100%;
+}
+
+.budge .input-field .numbers-field {
+    width: 80%;
+    margin: 0px auto;
+}
+
+.budge .input-field .numbers-field .des {
+    width: 16.66%;
+    float: left;
+    text-align: center;
+    font-size: 50%;
+}
+
+.budge .input-field .numbers-field .des:nth-child(1) {
+    width: 8.33%;
+    float: left;
+    text-align: left;
+}
+
+.budge .input-field .numbers-field .des:nth-child(7) {
+    width: 8.33%;
+    text-align: right;
+    float: right;
+}
+
+.budge label.advice {
+    font-size: 100%;
+    background-color: #49ab99;
+    border-radius: 5px;
+    padding: 1px 3px;
+    color: #000;
+    margin-left: 5px;
+}
+
+#result {
+    text-align: center;
+    color: #c8373b;
+    font-size: 200%;
+    margin-top: 15px;
+}
+
+
+/* error */
+
+.error {
+    margin-left: 5px;
+    visibility: hidden;
+}
+
+.error img {
+    display: inline;
+    vertical-align: sub;
+}
+
+.error span {
+    color: #ea4e4d;
+}
+
+
+/* btn_sender */
+
+.btn-sender {
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-sender #btn-sender {
+    display: inline-block;
+    padding: 30px;
+    background-image: url('http://static.tumblr.com/sirdwhf/nD0oc40go/contact_send.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    color: #39bbad;
+}
+
+.btn-sender #btn-sender:hover {
+    background-image: url('http://static.tumblr.com/sirdwhf/pV8oc40h5/contact_sending.png');
+    color: #fff4a3;
+}
+
+
+/* footer */
+
+.footer {
+    background-color: #fff;
+    border-radius: 20px 20px 0px 0px;
+    text-align: center;
+    padding: 20px;
+}
+
+.footer p {
+    font-size: 100%;
+    margin: 1px 0px;
+    color: #697668;
+    font-weight: 600;
 }

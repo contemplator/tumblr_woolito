@@ -12,18 +12,16 @@
     <meta property="og:type" content="blog">
     <meta property="og:description" content="我們努力創作並分享笑容，希望能為彼此的生活點綴一些無厘頭的樂趣！">
     <meta property="og:image" content="http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/z3pnekdqv/precrafted-social.css">
     <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/g6Fnsuud3/fixie-styles.css">
     <!--bootstrap css-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <script src="http://static.tumblr.com/sirdwhf/n4Docf3yn/jquery.rwdimagemaps.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
     <script src="js/contact.js"></script>
     <link rel="stylesheet" type="text/css" href="css/web.css">
@@ -156,10 +154,6 @@
                 <label class="chinese">告訴我們您的動畫 IDEA</label>
                 <label class="english">Talk About Your Animation</label>
                 <img class="tip" src="http://static.tumblr.com/sirdwhf/c8uoc40kz/error_flower.png">
-                <label class="error">
-                    <img src="resources/contact_web_error.png">
-                    <span>這是必填欄位喔!!</span>
-                </label>
                 <div class="input-field">
                     <textarea id="input-idea" rows="10">任何我們能幫助您的需求都歡迎寫下來</textarea>
                 </div>
@@ -186,13 +180,39 @@
                 <label class="advice">讓我們提供您「最符合您預算」的建議</label>
                 <div class="input-field">
                     <div class="dragfield">
-                        <img src="http://static.tumblr.com/sirdwhf/Wexocf424/contact_lefthand.png" class="selector" id="left-selector" data-budge="0">
-                        <img src="http://static.tumblr.com/sirdwhf/DXpocf42w/contact_righthand.png" class="selector" id="right-selector" data-budge="50000">
+                        <img src="http://static.tumblr.com/sirdwhf/Wexocf424/contact_lefthand.png" class="selector">
+                        <img src="http://static.tumblr.com/sirdwhf/Wexocf424/contact_lefthand.png" class="selector" id="left-selector" onload="initRange()" data-budge="0">
+                        <img src="http://static.tumblr.com/sirdwhf/DXpocf42w/contact_righthand.png" class="selector" id="right-selector" onload="initRange()" data-budge="0">
+                        <div class="tip">
+                            <div class="tip-arrow"></div>
+                            <div class="tip-inner">拖曳選擇預算範圍</div>
+                        </div>
                     </div>
-                    <img src="http://static.tumblr.com/sirdwhf/FiKockpjb/contact_range.png" class="range" usemap="#RangeMap">
-                    <img src="http://static.tumblr.com/sirdwhf/UIuockpki/contact_numbers.png" class="range">
+                    <div class="range">
+                        <img src="resources/contact_max_value.png" class="  max-value">
+                        <img src="resources/contact_range.png" class="range-img" usemap="#RangeMap" onload="initRange()">
+                        <img src="resources/contact_max_value.png" class="max-value">
+                    </div>
+                    <map name="RangeMap">
+                        <area shape="circle" coords="0,12,12" id="0t">
+                        <area shape="circle" coords="100,12,12" id="50t">
+                        <area shape="circle" coords="190,12,12" id="100t">
+                        <area shape="circle" coords="280,12,12" id="200t">
+                        <area shape="circle" coords="370,12,12" id="300t">
+                        <area shape="circle" coords="460,12,12" id="400t">
+                        <area shape="circle" coords="550,11,11" id="500t">
+                    </map>
+                    <div class="numbers-field">
+                        <div class="des">$0</div>
+                        <div class="des">$50,000</div>
+                        <div class="des">$100,000</div>
+                        <div class="des">$200,000</div>
+                        <div class="des">$300,000</div>
+                        <div class="des">$400,000</div>
+                        <div class="des">$500,000</div>
+                    </div>
                     <div id="result">
-                        $0 ~ $50,000
+                        $0 ~ $0
                     </div>
                 </div>
             </div>
@@ -200,10 +220,6 @@
                 <label class="chinese">稱呼</label>
                 <label class="english">Name</label>
                 <img class="tip" src="http://static.tumblr.com/sirdwhf/c8uoc40kz/error_flower.png">
-                <label class="error">
-                    <img src="resources/contact_web_error.png">
-                    <span>這是必填欄位喔!!</span>
-                </label>
                 <div class="input-field">
                     <input type="text" id="input-name" />
                 </div>
@@ -219,10 +235,6 @@
                 <label class="chinese">聯絡信箱</label>
                 <label class="english">Email Address</label>
                 <img class="tip" src="http://static.tumblr.com/sirdwhf/c8uoc40kz/error_flower.png">
-                <label class="error">
-                    <img src="resources/contact_web_error.png">
-                    <span>填寫格式錯誤!!</span>
-                </label>
                 <div class="input-field">
                     <input type="email" id="input-email" />
                 </div>
