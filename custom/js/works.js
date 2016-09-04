@@ -553,9 +553,16 @@ function analysis_caption_iframe(caption, post_id) {
     if (!(caption.indexOf("youtube_iframe") > -1)) {
         return caption;
     }
-    var patt = /https:\/\/www.youtube.com\/embed\/(\w+)\?/i;
+    var patt = /https:\/\/www.youtube.com\/embed\/([A-Za-z0-9_\-]*)\?/i;
     var patt2 = /<figure(.*)>(.*)<\/figure>/i;
-    var youtube_id = caption.match(patt)[1];
+    var youtube_id;
+    try{
+        youtube_id = caption.match(patt)[1];
+    }catch(error){
+        console.log(caption);
+        console.log(post_id);
+        console.log(error);
+    }
     var link_element = $('<a target="_blank"></a>');
 
     link_element.attr("href", "http://woolito.tumblr.com/post/" + post_id + "/");
@@ -568,10 +575,7 @@ function analysis_caption_iframe(caption, post_id) {
     shortcut_element.attr("title", "點擊觀看作品介紹");
     link_element.html(shortcut_element);
     link_element = link_element.prop('outerHTML');
-    
-    console.log(caption);
     caption = caption.replace(patt2, link_element);
-    console.log(caption);
     return caption;
 }
 
