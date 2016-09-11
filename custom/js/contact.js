@@ -84,8 +84,13 @@ $(function(){
 
     $('[data-toggle="tooltip"]').tooltip();
 
-    // initRange();
-    // initJqueryRange();
+    $('.alert-success').on('closed.bs.alert', function () {
+        location.reload();
+    });
+
+    $('.alert-danger').on('closed.bs.alert', function () {
+        // do something let engineer know what happen.
+    });
 });
 
 function ismobile() {
@@ -298,18 +303,43 @@ function sendData(data) {
     }).key;
     console.log(newApplyKey);
 
-    $.get("https://script.google.com/macros/s/AKfycbzjCXG4CFKRGDao1ygu8yaVQMDglLiGwmtSUnMASiKbQK4MvuHN/exec?&callback=?", {
-        time : "2014/01/01",
-        idea: data.idea,
-        type: data.type,
-        name: data.name,
-        email: data.email,
-        min_budge: data.min_budge,
-        max_budge: data.max_budge,
-        phone: data.phone
-    }, function(response){
+    $.ajax({
+        url: "https://script.google.com/macros/s/AKfycbzjCXG4CFKRGDao1ygu8yaVQMDglLiGwmtSUnMASiKbQK4MvuHN/exec?&callback=?",
+        dataType: "text",
+        method: "GET",
+        data: data,
+        beforeSend: showMask(),
+        // error: showError(),
+        // success: showSuccess()
+    }).done(function(response){
         console.log(response);
+        hideMask();
+        showSuccess();
     });
+}
+
+function showMask(){
+    console.log("showMask");
+    $("#mask").css("display", "inherit");
+}
+
+function hideMask(){
+    console.log("hideMask");
+    $("#mask").css("display", "none");
+}
+
+function hideAlert(){
+    $(".alert").alert("close");
+}
+
+function showError(){
+    $("#alert-danger").css("display", "block");
+    $("#alert-danger").addClass("in");
+}
+
+function showSuccess(){
+    $("#alert-success").css("display", "block");
+    $("#alert-success").addClass("in");
 }
 
 jQuery.fn.onPositionChanged = function (trigger, millis) {
