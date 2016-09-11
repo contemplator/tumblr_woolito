@@ -297,6 +297,19 @@ function sendData(data) {
         phone: data.phone
     }).key;
     console.log(newApplyKey);
+
+    $.get("https://script.google.com/macros/s/AKfycbzjCXG4CFKRGDao1ygu8yaVQMDglLiGwmtSUnMASiKbQK4MvuHN/exec?&callback=?", {
+        time : "2014/01/01",
+        idea: data.idea,
+        type: data.type,
+        name: data.name,
+        email: data.email,
+        min_budge: data.min_budge,
+        max_budge: data.max_budge,
+        phone: data.phone
+    }, function(response){
+        console.log(response);
+    });
 }
 
 jQuery.fn.onPositionChanged = function (trigger, millis) {

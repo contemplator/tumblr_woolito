@@ -297,6 +297,7 @@ function runEffect(todo) {
 // }
 
 function query_all_posts() {
+    // query all posts from tumblr api, avoid still grab posts from tumblr everytimes when users change tag type
     var key = "zcBf3tONWu9lQTSzrewHYU3WRdgbv1VtPGHXXMaZlZgN6Sz0lc";
     $(".grid").html('<div class="grid-sizer"></div>');
 
@@ -309,20 +310,37 @@ function query_all_posts() {
             limit: 50
         }
     }).done(function(data) {
-        console.log(data.response.posts);
         var data_json = data.response.posts;
+        var top_posts = [];
+        var normal_posts = [];
         for (var i = 0; i < data_json.length; i++) {
             try {
                 tags = data_json[i].tags;
                 if (tags == undefined) {
                     tags = [];
                 };
-                posts.push(data_json[i]);
+                if (tags.indexOf("onlyhome") > -1 ) {
+                    console.log("onlyhome");
+                }else{
+                    if(tags.indexOf("top") > -1){
+                        top_posts.push(data_json[i]);
+                    }else{
+                        normal_posts.push(data_json[i]);
+                    }
+                }
             } catch (err) {
                 console.log(err);
                 continue;
             }
         }
+
+        for(var i=0; i<top_posts.length; i++){
+            posts.push(top_posts[i]);
+        }
+        for(var i=0; i<normal_posts.length; i++){
+            posts.push(normal_posts[i]);
+        }
+        console.log(posts);
 
         if (!posts) {
             $("#total_post").text("0");
@@ -335,6 +353,7 @@ function query_all_posts() {
 }
 
 function query_posts(tag) {
+
     var tags = [];
     selected_posts = [];
     $(".grid").html('<div class="grid-sizer"></div>');
@@ -480,6 +499,10 @@ function render_photo(post) {
     var article = $("<div></div>");
     article.attr("id", post.id);
     article.addClass("type_photo grid-item");
+    var tags = post.tags;
+    for(var i=0; i<tags.length; i++){
+        article.addClass(tags[i]);
+    }
     article.attr("rel", post['post_url']);
     var article_content = $('<div class="article-content"></div>');
     var photo_wrap = $('<div class="photo-wrap post"></div>');
@@ -504,6 +527,10 @@ function render_video(post) {
     var article = $("<div></div>");
     article.attr("id", post.id);
     article.addClass("type_video grid-item");
+    var tags = post.tags;
+    for(var i=0; i<tags.length; i++){
+        article.addClass(tags[i]);
+    }
     article.attr("rel", post['post_url']);
     var article_content = $('<div class="article-content"></div>');
     var video_stage = $("<div class='video-stage'></div>");
@@ -529,6 +556,10 @@ function render_text(post) {
     var article = $("<div></div>");
     article.attr("id", post.id);
     article.addClass("type_text grid-item");
+    var tags = post.tags;
+    for(var i=0; i<tags.length; i++){
+        article.addClass(tags[i]);
+    }
     article.attr("rel", post['post_url']);
     var article_content = $("<div></div>");
     article_content.addClass("article_content");

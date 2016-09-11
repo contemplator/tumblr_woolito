@@ -313,7 +313,7 @@ function analysis_caption_iframe(caption, post_id) {
     if (!(caption.indexOf("youtube_iframe") > -1)) {
         return caption;
     }
-    var patt = /https:\/\/www.youtube.com\/embed\/(\w+)\?/i;
+    var patt = /https:\/\/www.youtube.com\/embed\/([A-Za-z0-9_\-]*)\?/i;
     var patt2 = /<figure(.*)>(.*)<\/figure>/i;
     var youtube_id = caption.match(patt)[1];
     var link_element = $('<a target="_blank"></a>');

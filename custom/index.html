@@ -222,19 +222,6 @@
 		}
 		{/block:IfTileBackground}
 
-		header .logo h1 a {
-			font-family: {TitleFont};
-			font-weight: {TitleFontWeight};
-			color: {TitleColor};
-
-			{block:IfTitleFontSize}
-			font-size: {text:Title Font Size}px;
-			{/block:IfTitleFontSize}
-
-			{block:IfTitleLetterSpacing}
-			letter-spacing: {text:Title Letter Spacing}px;
-			{/block:IfTitleLetterSpacing}
-		}
 
 		header .description {
 			color: {color:Description}
@@ -757,158 +744,122 @@ div.play-button {
 <!-- Tumblr Theme #37056 -->
 
 
-<header{block:PermalinkPage} class="permalink"{/block:PermalinkPage}>
-
-	<div class="center">
-
-		<div class="centered" style="display:block; overflow: auto; height: 100vh;">
-
-			{block:IfLogoImage}
-			<a href="/" title="{Title}" class="logo-image">
-				<img src="{image:Logo}" alt="{Title}"/>
-			</a>
-			{/block:IfLogoImage}
-    
-            <div id="shortcut">
-			
-    			{block:IfNotLogoImage}
-    			
-    			{block:ShowAvatar}
-    			<div class="avatar">
-    				<a href="/" title="{Title}" class="avatar {AvatarShape}">
-    					{block:IfAvatarImage}
-    					<img src="{image:Avatar}" alt="{Title}"/>
-    					{/block:IfAvatarImage}
-    					{block:IfNotAvatarImage}
-    					<img src="{PortraitURL-128}" alt="{Title}" class="default"/>
-    					{/block:IfNotAvatarImage}
-    				</a>
-    			</div>
-    			{/block:ShowAvatar}
-    			{/block:IfNotLogoImage}
-    			
-    			{block:ShowTitle}
-    			<div class="logo">
-    				<h1><a href="/" title="{Title}">WOOLITO STUDIO</a></h1>
-    			</div>
-    			{block:ShowTitle}
-    
-    			{block:ShowDescription}
-    			<p class="description">我們努力創作有趣的動畫與圖文並分享笑容</p>
-                <p class="description">希望能為彼此的生活點綴</p>
-                <p class="description">一些無厘頭的樂趣！</p>
-    			{/block:ShowDescription}
-    			
-    			<div class="social_network">
-    			    <a href="https://www.facebook.com/Woolito/"><img src="http://static.tumblr.com/sirdwhf/fz1o96e68/facebook.png"></a>
-    			    <a href="https://www.youtube.com/user/WoolitoFilm
-"><img src="http://static.tumblr.com/sirdwhf/ZqHo96e6b/youtube.png"></a>
-    			    <a href="https://page.line.me/woolito
-"><img src="http://static.tumblr.com/sirdwhf/WG8o96e6e/line.png"></a>
-    			    <a href="https://www.instagram.com/woolito_studio/"><img src="http://static.tumblr.com/sirdwhf/Ls8o96e6n/instagram.png"></a>
-    			</div>
-			
-			</div>
-
-			<nav>
-			    <div id="navigation">
-			        <ul>
-                        <li>
-                            <a href="contact">
-                                <div class="navigation-bottom"></div>
-                                <div class="navigation-icon">
-                                    <img src="http://static.tumblr.com/3hbpjha/7rDo7ife4/icon-contact.png">
-                                    <span>Contact</span>
-                                </div>
-                                <div class="navigation-label">
-                                    <div class="justify">
-                                        聯繫我們
-                                    </div>  
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="aboutus">
-                                <div class="navigation-bottom"></div>
-                                <div class="navigation-icon">
-                                    <img src="http://static.tumblr.com/3hbpjha/MMqo7ifnd/icon-about.png">
-                                    <span>About Woolito</span>
-                                </div>
-                                <div class="navigation-label">
-                                    <div class="justify">
-                                        關於我們
-                                    </div>  
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="service">
-                                <div class="navigation-bottom"></div>
-                                <div class="navigation-icon">
-                                    <img src="http://static.tumblr.com/3hbpjha/4Aoo7if62/icon-service.png">
-                                    <span>Service</span>
-                                </div>
-                                <div class="navigation-label">
-                                    <div class="justify">
-                                        商業服務
-                                    </div>  
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="works">
-                                <div class="navigation-bottom"></div>
-                                <div class="navigation-icon">
-                                    <img src="http://static.tumblr.com/3hbpjha/WqPo7if64/icon-works.png">
-                                    <span>Works</span>
-                                </div>
-                                <div class="navigation-label">
-                                    <div class="justify">
-                                        作品集
-                                    </div>  
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="shop">
-                                <div class="navigation-bottom"></div>
-                                <div class="navigation-icon">
-                                    <img src="http://static.tumblr.com/3hbpjha/YpNo7if63/icon-shop.png">
-                                    <span>Shop</span>
-                                </div>
-                                <div class="navigation-label">
-                                    <div class="justify">
-                                        原創商品
-                                    </div>  
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="line">
-                                <div class="navigation-bottom"></div>
-                                <div class="navigation-icon">
-                                    <img src="http://static.tumblr.com/sirdwhf/z9qo90jc4/icon-line.png">
-                                    <span>LINE Sticker</span>
-                                </div>
-                                <div class="navigation-label">
-                                    <div class="justify">
-                                        LINE 貼圖
-                                    </div>  
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-			    </div>
-
-			</nav>
-			
-			<div class="bottom-white"></div>
-
-		</div> 	 	 	   
-
-	</div>
-
-</header>
+<header>
+        <div class="center">
+            <div class="centered">
+                <div id="shortcut">
+                    <div class="avatar">
+                        <a href="/" title="Woolito Studio" class="avatar circle">
+                            <img src="http://67.media.tumblr.com/avatar_8aeb4c547c3b_128.png" alt="Woolito Studio" class="default">
+                        </a>
+                    </div>
+                    <div class="logo">
+                        <h1><a href="/" title="Woolito Studio">Woolito Studio</a></h1>
+                    </div>
+                    <p class="description">我們努力創作有趣的動畫與圖文並分享笑容</p>
+                    <p class="description">希望能為彼此的生活點綴</p>
+                    <p class="description">一些無厘頭的樂趣！</p>
+                    <div class="social_network">
+                        <img src="http://static.tumblr.com/sirdwhf/fz1o96e68/facebook.png">
+                        <img src="http://static.tumblr.com/sirdwhf/ZqHo96e6b/youtube.png">
+                        <img src="http://static.tumblr.com/sirdwhf/WG8o96e6e/line.png">
+                        <img src="http://static.tumblr.com/sirdwhf/Ls8o96e6n/instagram.png">
+                    </div>
+                </div>
+                <nav>
+                    <div id="navigation">
+                        <ul>
+                            <li>
+                                <a href="contact">
+                                    <div class="navigation-bottom"></div>
+                                    <div class="navigation-icon">
+                                        <img src="http://static.tumblr.com/3hbpjha/7rDo7ife4/icon-contact.png">
+                                        <span>Contact</span>
+                                    </div>
+                                    <div class="navigation-label">
+                                        <div class="justify">
+                                            聯繫我們
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="aboutus">
+                                    <div class="navigation-bottom"></div>
+                                    <div class="navigation-icon">
+                                        <img src="http://static.tumblr.com/3hbpjha/MMqo7ifnd/icon-about.png">
+                                        <span>About Woolito</span>
+                                    </div>
+                                    <div class="navigation-label">
+                                        <div class="justify">
+                                            關於我們
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="service">
+                                    <div class="navigation-bottom"></div>
+                                    <div class="navigation-icon">
+                                        <img src="http://static.tumblr.com/3hbpjha/4Aoo7if62/icon-service.png">
+                                        <span>Service</span>
+                                    </div>
+                                    <div class="navigation-label">
+                                        <div class="justify">
+                                            商業服務
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="works">
+                                    <div class="navigation-bottom"></div>
+                                    <div class="navigation-icon">
+                                        <img src="http://static.tumblr.com/3hbpjha/WqPo7if64/icon-works.png">
+                                        <span>Works</span>
+                                    </div>
+                                    <div class="navigation-label">
+                                        <div class="justify">
+                                            作品集
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="shop">
+                                    <div class="navigation-bottom"></div>
+                                    <div class="navigation-icon">
+                                        <img src="http://static.tumblr.com/3hbpjha/YpNo7if63/icon-shop.png">
+                                        <span>Shop</span>
+                                    </div>
+                                    <div class="navigation-label">
+                                        <div class="justify">
+                                            原創商品
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="line">
+                                    <div class="navigation-bottom"></div>
+                                    <div class="navigation-icon">
+                                        <img src="http://static.tumblr.com/sirdwhf/z9qo90jc4/icon-line.png">
+                                        <span>LINE Sticker</span>
+                                    </div>
+                                    <div class="navigation-label">
+                                        <div class="justify">
+                                            LINE 貼圖
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="bottom-white"></div>
+            </div>
+        </div>
+    </header>
 
 {block:IndexPage}
 <section class="the-posts index">
