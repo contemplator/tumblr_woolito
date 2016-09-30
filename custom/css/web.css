@@ -161,6 +161,9 @@ div.justify:after {
 section{
     margin-bottom: 150px;
 }
+img.shortcut{
+    width: 100%;
+}
 .grid{
     margin-top: 20px;
 }

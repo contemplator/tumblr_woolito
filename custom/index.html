@@ -538,6 +538,9 @@ div.justify:after {
 section{
     margin-bottom: 150px;
 }
+img.shortcut{
+	width: 100%;
+}
 .grid{
     margin-top: 20px;
 }
@@ -600,11 +603,15 @@ u{
     .grid-item {
         width: 100%;
     }
+
 }
 @media only screen and (min-width: 1024px) {
     .grid-sizer,
     .grid-item {
         width: 50%;
+    }
+    .double_size{
+        width: 100%;
     }
 }
 @media only screen and (min-width: 1420px) {
@@ -612,11 +619,17 @@ u{
     .grid-item {
         width: 33.33%;
     }
+    .double_size{
+        width: 66.50%;
+    }
 }
 @media only screen and (min-width: 1800px) {
     .grid-sizer,
     .grid-item {
         width: 25%;
+    }
+    .double_size{
+        width: 49.5%;
     }
 }
 /* top */
@@ -1331,6 +1344,8 @@ function readmore(posts) {
 
 function query_all_posts() {
     var key = "zcBf3tONWu9lQTSzrewHYU3WRdgbv1VtPGHXXMaZlZgN6Sz0lc";
+    var normal_posts = [];
+    var top_posts = [];
     $(".grid").html('<div class="grid-sizer"></div>');
 
     $.ajax({
@@ -1349,18 +1364,22 @@ function query_all_posts() {
                     tags = [];
                 };
                 if (tags.indexOf("home") > -1 || tags.indexOf("onlyhome") > -1 ) {
-                    posts.push(data_json[i]);
+                	if(tags.indexOf("top") > -1){
+                		top_posts.push(data_json[i]);
+                	}else{
+                		normal_posts.push(data_json[i]);
+                	}
                 }
             } catch (err) {
                 console.log(err);
                 continue;
             }
         }
-
-        if (!posts) {
-            $("#total_post").text("0");
-        } else {
-            $("#total_post").text(posts.length);
+        for(var i=0; i<top_posts.length; i++){
+            posts.push(top_posts[i]);
+        }
+        for(var i=0; i<normal_posts.length; i++){
+            posts.push(normal_posts[i]);
         }
 
         query_posts("");
@@ -1513,6 +1532,10 @@ function render_photo(post) {
     article.attr("id", post.id);
     article.addClass("type_photo grid-item");
     article.attr("rel", post['post_url']);
+    var tags = post.tags;
+    for(var i=0; i<tags.length; i++){
+        article.addClass(tags[i]);
+    }
     var article_content = $('<div class="article-content"></div>');
     var photo_wrap = $('<div class="photo-wrap post"></div>');
     var photo_post = $('<div class="photo--post"></div>')
@@ -1537,6 +1560,10 @@ function render_video(post) {
     article.attr("id", post.id);
     article.addClass("type_video grid-item");
     article.attr("rel", post['post_url']);
+    var tags = post.tags;
+    for(var i=0; i<tags.length; i++){
+        article.addClass(tags[i]);
+    }
     var article_content = $('<div class="article-content"></div>');
     var video_stage = $("<div class='video-stage'></div>");
     var video_container = $("<div class='video-container ready video' id='" + post.id + "'></div>");
@@ -1562,6 +1589,10 @@ function render_text(post) {
     article.attr("id", post.id);
     article.addClass("type_text grid-item");
     article.attr("rel", post['post_url']);
+    var tags = post.tags;
+    for(var i=0; i<tags.length; i++){
+        article.addClass(tags[i]);
+    }
     var article_content = $("<div></div>");
     article_content.addClass("article_content");
     var title = $("<h2></h2>");

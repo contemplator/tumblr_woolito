@@ -47,6 +47,14 @@ $(function() {
         verifyInput();
     });
 
+    $('.alert-success').on('closed.bs.alert', function () {
+        location.reload();
+    });
+
+    $('.alert-danger').on('closed.bs.alert', function () {
+        // do something let engineer know what happen.
+    });
+
 });
 
 function ismobile() {
@@ -105,8 +113,10 @@ function verifyInput() {
     var budges = budge.split("-");
     var min_budge = budges[0].replace(",", "");
     var max_budge = budges[1].replace(",", "");
+    var datetime = new Date();
 
     var data = {
+        time: datetime,
         idea: idea,
         type: type,
         name: name,
@@ -135,4 +145,44 @@ function sendData(data) {
         phone: data.phone
     }).key;
     console.log(newApplyKey);
+
+    $.ajax({
+        url: "https://script.google.com/macros/s/AKfycbzjCXG4CFKRGDao1ygu8yaVQMDglLiGwmtSUnMASiKbQK4MvuHN/exec?&callback=?",
+        dataType: "text",
+        method: "GET",
+        data: data,
+        beforeSend: showLoading(),
+        // error: showError(),
+        // success: showSuccess()
+    }).done(function(response){
+        console.log(response);
+        hideLoading();
+        showSuccess();
+    });
+}
+
+function showLoading(){
+    $("#mask").css("display", "inherit");
+    $("#loading").css("display", "inherit");
+}
+
+function hideLoading(){
+    $("#mask").css("display", "none");
+    $("#loading").css("display", "none");
+}
+
+function hideAlert(){
+    $(".alert").alert("close");
+}
+
+function showError(){
+    $("#mask").css("display", "inherit");
+    $("#alert-danger").css("display", "block");
+    $("#alert-danger").addClass("in");
+}
+
+function showSuccess(){
+    $("#mask").css("display", "inherit");
+    $("#alert-success").css("display", "block");
+    $("#alert-success").addClass("in");
 }

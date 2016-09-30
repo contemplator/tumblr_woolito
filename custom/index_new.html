@@ -1,0 +1,1960 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <!-- Basic Page Settings -->
+    <meta name="tumblr-theme" content="37056" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{Title}{block:PostSummary} - {PostSummary}{/block:PostSummary}</title>
+    <meta name="author" content="{Title}"> {block:Description}
+    <meta name="description" content="{MetaDescription}" /> {/block:Description}
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="apple-touch-icon" href="{PortraitURL-128}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    <!-- Main Style Settings -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/earlyaccess/notosanstc.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/z3pnekdqv/precrafted-social.css">
+    <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/g6Fnsuud3/fixie-styles.css">
+    <!-- jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <!-- instagram -->
+    <script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+    <!-- masonry -->
+    <script src="https://npmcdn.com/masonry-layout@4.0/dist/masonry.pkgd.min.js"></script>
+    <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
+    <!-- fixie -->
+    <!-- <script src="http://static.tumblr.com/e6lc7yi/ewpneh29l/fixie-plugins.js"></script>
+    <script src="http://static.tumblr.com/e6lc7yi/y7Yo1ifc4/fixie-app.js"></script> -->
+    <!--bootstrap css-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/css/bootstrap-drawer.min.css">
+    <!-- bootstrap js -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/js/drawer.min.js"></script>
+    <!-- jquery ui -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <!-- slideout -->
+    <script type="text/javascript" src="http://static.tumblr.com/sirdwhf/gjcoe7maq/slideout.js"></script>
+
+    <!-- Custom Options -->
+    <!-- Custom Colors -->
+    <!-- Custom Images -->
+    <meta name="image:Background" content="" />
+    <meta name="image:Logo" content="" />
+    <meta name="image:Avatar" content="" />
+    <!-- Custom Text : Reference : -->
+    <!-- Custom Choices -->
+    <!-- Custom CSS -->
+    <style type="text/css">
+
+    </style>
+    <!-- Google Analytics -->
+    <!-- Sharing meta tags -->
+    <meta property="og:site_name" content="{Title}" />{block:IndexPage}
+    <meta property="og:title" content="{block:TagPage}&quot;{PlaintextTag}&quot;-{/block:TagPage}{block:SearchPage}{lang:Search results for SearchQuery}-{/block:SearchPage}{Title}" />
+    <meta property="og:url" content="{blogURL}{block:TagPage}tagged/{URLSafeTag}{/block:TagPage}" />
+    <meta property="og:type" content="blog" />
+    <meta property="og:description" content="{MetaDescription}{block:TagPage}{PlaintextDescription}{/block:TagPage}" />
+    <meta property="og:image" content="{PortraitURL-128}" />{/block:IndexPage}{block:PermalinkPage}
+    <meta property="og:url" content="{Permalink}" />
+    <meta property="og:type" content="article" />{block:Posts}{block:Text}{block:Title}
+    <meta property="og:title" content="{PlaintextTitle}" />{/block:Title}
+    <meta property="og:description" content="{PlaintextBody}" />
+    <meta property="og:image" content="{PortraitURL-128}" />{/block:Text}{block:Photo}
+    <meta property="og:image" content="{PhotoURL-HighRes}" />{block:Caption}
+    <meta property="og:description" content="{PlaintextCaption}" />{/block:Caption}{/block:Photo}{block:Photoset}{block:Photos}
+    <meta property="og:image" content="{PhotoURL-HighRes}" />{/block:Photos}{block:Caption}
+    <meta property="og:description" content="{PlaintextCaption}" />{/block:Caption}{/block:Photoset}{block:Quote}
+    <meta property="og:title" content="{PlaintextQuote}" />
+    <meta property="og:description" content="{PlaintextSource}" />
+    <meta property="og:image" content="{PortraitURL-128}" />{/block:Quote}{block:Link}
+    <meta property="og:title" content="{PlaintextName}" />
+    <meta property="og:description" content="{PlaintextDescription}" />{block:Thumbnail}
+    <meta property="og:image" content="{Thumbnail}" />{/block:Thumbnail}{/block:Link}{block:Chat}
+    <meta property="og:title" content="{PlaintextTitle}" />
+    <meta property="og:description" content="{block:Lines}{block:Label}{Label}:{/block:Label}{Line}&bull;{/block:Lines}" />
+    <meta property="og:image" content="{PortraitURL-128}" />{/block:Chat}{block:Audio}
+    <meta property="og:title" content="{block:Artist}{Artist}-{/block:Artist}{block:TrackName}{TrackName}{/block:TrackName}" />
+    <meta property="og:description" content="{PlaintextCaption}" />{block:AlbumArt}
+    <meta property="og:image" content="{AlbumArtURL}" />{/block:AlbumArt}{/block:Audio}{block:Video}{block:Caption}
+    <meta property="og:description" content="{PlaintextCaption}" />{/block:Caption}{block:VideoThumbnail}
+    <meta property="og:image" content="{VideoThumbnailURL}" />{/block:VideoThumbnail}{/block:Video}{block:Answer}
+    <meta property="og:title" content="{PlaintextQuestion}" />
+    <meta property="og:description" content="{PlaintextAnswer}" />
+    <meta property="og:image" content="{PortraitURL-128}" />{/block:Answer}{/block:Posts}{/block:PermalinkPage} {block:PermalinkPage}
+    <meta name="twitter:url" content="{Permalink}" />{block:Posts}{block:Text}
+    <meta name="twitter:card" content="summary">{block:Title}
+    <meta name="twitter:title" content="{PlaintextTitle}" />{/block:Title}
+    <meta name="twitter:description" content="{PlaintextBody}" />
+    <meta name="twitter:image" content="{PortraitURL-128}" />{/block:Text}{block:Photo}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{Title}" />
+    <meta name="twitter:image" content="{PhotoURL-500}" />{block:Caption}
+    <meta name="twitter:description" content="{PlaintextCaption}" />{/block:Caption}{/block:Photo}{block:Photoset}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{Title}" />{block:Photos}
+    <meta name="twitter:image" content="{PhotoURL-500}" />{/block:Photos}{block:Caption}
+    <meta name="twitter:description" content="{PlaintextCaption}" />{/block:Caption}{/block:Photoset}{block:Quote}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{PlaintextQuote}" />
+    <meta name="twitter:description" content="{PlaintextSource}" />
+    <meta name="twitter:image" content="{PortraitURL-128}" />{/block:Quote}{block:Link}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{PlaintextName}" />
+    <meta name="twitter:description" content="{PlaintextDescription}" />{block:Thumbnail}
+    <meta name="twitter:image" content="{Thumbnail}" />{/block:Thumbnail}{/block:Link}{block:Chat}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{PlaintextTitle}" />
+    <meta name="twitter:description" content="{block:Lines}{block:Label}{Label}:{/block:Label}{Line}&bull;{/block:Lines}" />
+    <meta name="twitter:image" content="{PortraitURL-128}" />{/block:Chat}{block:Audio}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{block:Artist}{Artist}-{/block:Artist}{block:TrackName}{TrackName}{/block:TrackName}" />
+    <meta name="twitter:description" content="{PlaintextCaption}" />{block:AlbumArt}
+    <meta name="twitter:image" content="{AlbumArtURL}" />{/block:AlbumArt}{/block:Audio}{block:Video}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{PlaintextTitle}" />{block:Caption}
+    <meta name="twitter:description" content="{PlaintextCaption}" />{/block:Caption}{block:VideoThumbnail}
+    <meta name="twitter:image" content="{VideoThumbnailURL}" />{/block:VideoThumbnail}{/block:Video}{block:Answer}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{PlaintextQuestion}" />
+    <meta name="twitter:description" content="{PlaintextAnswer}" />
+    <meta name="twitter:image" content="{PortraitURL-128}" />{/block:Answer}{/block:Posts}{/block:PermalinkPage}
+    <style type="text/css">
+    @import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+    body {
+        background-color: #e6e6e6;
+        font-family: 'Noto Sans TC', sans-serif;
+    }
+    
+    h2 {
+        font-size: 20px;
+        text-transform: inherit;
+    }
+    /* navigation */
+    
+    header .logo h1 {
+        font-weight: bold;
+        text-transform: none;
+    }
+    
+    div.center {
+        padding-top: 0px;
+        padding-left: 0px;
+    }
+    
+    header .center .centered {
+        display: block;
+        height: 100vh;
+        overflow: auto;
+    }
+    
+    div#shortcut {
+        border-radius: 0px 0px 50px 0px;
+    }
+    
+    .logo a {
+        color: #000;
+        text-decoration: none;
+    }
+    
+    header p.description {
+        margin: 0px;
+    }
+    
+    #navigation {
+        margin-left: 0px;
+        text-align: left;
+        width: 100%;
+        background-color: #e6e6e6;
+    }
+    
+    #navigation ul li {
+        width: 100%;
+        margin-left: 0px;
+        max-height: 30px;
+        list-style: none;
+    }
+    
+    #navigation ul li:nth-child(4) {
+        margin-bottom: 30px;
+    }
+    
+    #navigation ul li a {
+        position: relative;
+        background-color: #e6e6e6;
+        padding: 0px;
+        width: 250px;
+    }
+    
+    .navigation-icon {
+        display: inline-block;
+        border-radius: 0px 10px 0px 0px;
+        background-color: #b3b3b3;
+        padding-right: 5px;
+        width: 175px;
+    }
+    
+    .navigation-icon img {
+        display: inline;
+        margin-left: 10px;
+        height: 30px;
+        width: auto;
+        vertical-align: middle;
+    }
+    
+    .navigation-icon span {
+        float: right;
+        line-height: 2.5em;
+        color: #000;
+    }
+    
+    .navigation-label {
+        float: right;
+        display: block;
+        line-height: 2.5em;
+        color: #222;
+        width: 65px;
+        text-align: justify;
+        text-justify: inter-ideograph;
+        -ms-text-justify: inter-ideograph;
+        -moz-text-align-last: justify;
+        -webkit-text-align-last: justify;
+    }
+    
+    .navigation-label:after {
+        content: '';
+        display: inline-block;
+    }
+    
+    .navigation-bottom {
+        width: 100%;
+        height: 3px;
+        background: #b3b3b3;
+        position: absolute;
+        bottom: 0px;
+    }
+    
+    div.justify {
+        text-align: justify;
+        text-justify: inter-ideograph;
+        -ms-text-justify: inter-ideograph;
+        -moz-text-align-last: justify;
+        -webkit-text-align-last: justify;
+    }
+    
+    div.justify:after {
+        content: '';
+        display: inline-block;
+        width: 100%;
+    }
+    
+    #shortcut {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px 10px 50px 10px;
+    }
+    
+    .social_network {
+        margin-top: 10px;
+    }
+    
+    .social_network img {
+        display: inline;
+        height: 35px;
+        width: auto;
+    }
+    
+    .bottom-white {
+        width: calc(100% - 32px);
+        height: 30px;
+        background-color: #FFF;
+        border-radius: 0px 50px 0px 0px;
+        position: absolute;
+        bottom: 100px;
+    }
+    /* modal */
+    
+    .modal-body {
+        text-align: center;
+    }
+    
+    .modal-body img {
+        margin: 0px auto;
+    }
+    
+    .modal-footer button {
+        margin-left: 20px;
+    }
+    
+    .modal-footer p {
+        line-height: 30px;
+        text-align: left;
+    }
+    
+    #work-header img {
+        width: 100%;
+    }
+    /* article */
+    
+    section {
+        margin-bottom: 0px;
+    }
+    
+    img.shortcut {
+        width: 100%;
+    }
+    
+    .grid {
+        margin-top: 0px;
+    }
+    
+    .single-post article{
+        margin-top: 0px;
+    }
+
+    article,
+    .grid-item {
+        width: 33.33%;
+    }
+    
+    .grid-item {
+        background-color: #fff;
+        padding: 40px;
+        border: 2px #e6e6e6 solid;
+    }
+    
+    .article_content iframe {
+        width: 100%;
+    }
+    
+    .video-container iframe {
+        width: 100%;
+        height: auto;
+    }
+    
+    /*#youtube_iframe {
+        height: auto;
+    }*/
+    
+    .readmore {
+        display: block;
+    }
+    
+    u {
+        text-decoration: underline;
+    }
+    /* top */
+    
+    .top.mobile, .top.desktop {
+        width: 100%;
+    }
+    .top.mobile{
+        margin-top: 40px;
+    }
+    
+    .top.desktop td {
+        background-color: #fff;
+        border: 4px solid #e6e6e6;
+        border-left: 2px solid #e6e6e6;
+        padding: 5px;
+    }
+    
+    .top.desktop td img {}
+
+    .top.mobile .top-post{
+        background: #fff;
+        padding: 20px;
+        margin: 5px 2px;
+    }
+    /* top */
+    /* read more */
+    
+    #readmore {
+        width: 33.33%;
+        margin: 0px auto;
+        text-align: center;
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+    
+    #readmore button {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        width: 100%;
+        padding: 28px 24px;
+        line-height: 12px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-size: 12px;
+        background-color: #fff;
+        border: none;
+        color: #3498DB;
+        font-weight: 600;
+    }
+    
+    #readmore button:hover {
+        background-color: #4990b8;
+        color: #fff;
+    }
+    
+    .load-more-loading,
+    .load-more-end {
+        display: none;
+    }
+    
+    img {
+        display: inline;
+    }
+    /* modal */
+    
+    .modal-body {
+        text-align: center;
+    }
+    /* youtube */
+    
+    .post_iframe {
+        position: relative;
+        height: auto;
+    }
+    
+    div.play-button {
+        height: 72px;
+        width: 72px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -36px;
+        margin-left: -36px;
+        background: url("http://i.imgur.com/TxzC70f.png");
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+    
+    #product_video iframe {
+        width: 90%;
+        margin-bottom: 3%;
+    }
+    
+    .labnolIframe {
+        width: 100%;
+        height: 100%;
+    }
+    
+    #preview_youtube {
+        height: 450px;
+        width: 600px;
+        border: 5px #363636 solid;
+        background-color: #363636;
+        z-index: 110;
+    }
+    
+    #preview_youtube figure,
+    #preview_youtube figure iframe {
+        height: 100%;
+        width: 100%;
+        border: 0px;
+    }
+    
+    #preview_youtube #current_status {
+        position: absolute;
+        bottom: 0px;
+        color: #FFF;
+        background-color: #363636;
+        width: 100%;
+        height: 12%;
+        text-align: center;
+        font-size: 2.5em;
+        line-height: 1.5em;
+    }
+    
+    .preview_hide {
+        display: none;
+    }
+    
+    .preview_show {
+        display: initial;
+        position: absolute;
+    }
+    /* tooltip */
+    
+    .tooltip {
+        position: absolute;
+        width: 140px;
+    }
+    
+    .tooltip-inner {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+    /* ---- grid ---- */
+    
+    .grid {
+        background: #E6E6E6;
+    }
+    /* clearfix */
+    
+    .grid:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+    /* ---- grid-item ---- */
+    
+    .grid-sizer,
+    .grid-item {
+        width: 33.33%;
+    }
+    
+    .grid-item {
+        float: left;
+    }
+
+    .tmblr-iframe--controls-phone-container{
+        padding-top: 0px;
+    }
+
+    @media only screen and (min-width: 1800px) {
+        .grid-sizer,
+        .grid-item {
+            width: 25%;
+        }
+        .double_size {
+            width: 50%;
+        }
+    }
+
+    @media only screen and (max-width: 1800px) {
+        .grid-sizer,
+        .grid-item {
+            width: 33.33%;
+        }
+        .double_size {
+            width: 66.66%;
+        }
+    }
+
+    @media only screen and (max-width: 1420px) {
+        .grid-sizer,
+        .grid-item {
+            width: 50%;
+        }
+        .double_size {
+            width: 100%;
+        }
+    }
+
+    @media only screen and (max-width: 1024px){
+        .grid-sizer,
+        .grid-item {
+            width: 100%;
+        }
+    }
+
+    @media only screen and (max-width: 768px){
+        .grid-sizer,
+        .grid-item {
+            width: 100%;
+            padding: 20px;
+        }
+
+        /* container header */
+
+        .container {
+            padding-left: 0px;
+            padding-right: 0px;
+            background-color: #e3e3e3;
+            width: 100%;
+        }
+
+        #header {
+            background-color: #fff;
+            display: table;
+            padding: 0px 0px;
+            height: 40px;
+            width: 100%;
+            position: fixed;
+            top: 0px;
+            z-index: 501;
+            border-bottom: 1px solid #E6E6E6;
+        }
+
+        /*.drawer_icon {
+            display: table-cell;
+            text-align: center;
+            border-right: 1px solid #E6E6E6;
+            background-color: #fff;
+            min-width: 48px;
+            height: 40px;
+            padding: 8px;
+            position: relative;
+            top: -10px;
+            left: -10px;
+        }*/
+
+        /*.drawer_icon img {
+            width: 100%;
+        }*/
+
+        #header .drawer_icon {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            padding: 0px 0px;
+            border-right: 1px solid #E6E6E6;
+            width: 15%;
+        }
+
+        /*#header .drawer_icon img {
+            height: 100%;
+        }*/
+
+        #header .title {
+            display: table-cell;
+            text-align: center;
+            color: #8D8D8D;
+            text-transform: uppercase;
+            vertical-align: middle;
+            width: 70%;
+            font-size: 150%;
+        }
+
+        #header .find-us {
+            display: table-cell;
+            vertical-align: middle;
+            height: inherit;
+            height: 40px;
+            width: auto;
+            text-align: right;
+            /*width: 100%;
+            height: auto;*/
+        }
+
+        #header .find-us img {
+            width: inherit;
+            height: inherit;
+            margin: 0px auto;
+            margin-right: 0px;
+        }
+
+
+        /* drawer */
+
+        .drawer-body {
+            padding: 0px;
+        }
+
+        .center {
+            padding-top: 0px;
+            padding-left: 0px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .drawer-controls {
+            height: 45px;
+        }
+
+
+        /* shortcut */
+
+        #shortcut {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 10px 10px 50px 10px;
+        }
+
+        .avatar {
+            width: 40%;
+            margin: 5% auto;
+        }
+
+        .avatar img {
+            width: 100%;
+        }
+
+        .avatar.circle img {
+            border-radius: 100%;
+        }
+
+        .avatar img {
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .logo a {
+            color: #767676;
+            text-decoration: none;
+        }
+
+        .logo h1 a {
+            font-size: 65%;
+            font-weight: 300;
+        }
+
+        p.description {
+            margin: 0px;
+            font-size: 45%;
+        }
+
+
+        /* Navigation */
+
+        #navigation ul{
+            background: #fff;
+        }
+
+        #navigation ul li {
+            border-top: 2px #ddd solid;
+            width: 90%;
+            margin: 0px auto;
+            padding-top: 3%;
+            padding-bottom: 3%;
+            font-size: 100%;
+            line-height: 1.5em;
+            font-weight: 400;
+            text-align: left;
+            max-height: none;
+        }
+
+        #navigation ul li a {
+            margin-left: 20%;
+            color: #000;
+            background-color: #fff;
+        }
+
+        #navigation ul li:nth-child(4){
+            margin-bottom: 0px;
+        }
+
+        .social_network {
+            padding: 10px;
+        }
+
+        .social_network img {
+            display: inline;
+            height: 8vh;
+            width: auto;
+        }
+
+        #navigation .label-chinese {
+            display: inline-block;
+            letter-spacing: 1px;
+            width: 30%;
+        }
+
+        #navigation .label-english {
+            display: inline;
+            letter-spacing: 1px;
+            font-size: 80%;
+            width: 40%;
+        }
+
+
+        /* section */
+
+        section {
+            margin-top: -40px;
+            margin-bottom: 0px;
+            float: none;
+            width: 100%;
+            padding: 10px;
+        }
+
+        /* article */
+        .caption{
+            margin-top: 10px;
+        }
+
+        .icons{
+            margin: 0px 0px -12px -5px;
+        }
+
+        /* mobile */
+
+        .tmblr-iframe--controls.iframe-controls--phone-mobile,
+        .tmblr-iframe--mobile-logged-in-controls.iframe-controls--phone-mobile {
+            display: none;
+        }
+
+        .tmblr-iframe--controls-phone-container {
+            padding-top: 0px;
+        }
+
+        /* slideout css*/
+        body {
+          width: 100%;
+          height: 100%;
+        }
+
+        .slideout-menu {
+          position: fixed;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          z-index: 0;
+          width: 83.33%;
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+          display: none;
+          margin-top: 0px;
+          height: 100vh;
+          background-color: #fff;
+        }
+
+        .slideout-panel {
+          position: relative;
+          z-index: 1;
+        }
+
+        .slideout-open,
+        .slideout-open body,
+        .slideout-open .slideout-panel {
+          overflow: hidden;
+        }
+
+        .slideout-open .slideout-menu {
+          display: block;
+        }
+    }
+    
+    /*@media only screen and (min-width: 768px) {
+        .grid-sizer,
+        .grid-item {
+            width: 100%;
+        }
+    }*/
+    
+    /*@media only screen and (min-width: 1024px) {
+        .grid-sizer,
+        .grid-item {
+            width: 50%;
+        }
+        .double_size {
+            width: 100%;
+        }
+    }*/
+    
+    /*@media only screen and (min-width: 1420px) {
+        .grid-sizer,
+        .grid-item {
+            width: 33.33%;
+        }
+        .double_size {
+            width: 66.66%;
+        }
+    }*/
+    
+    /*@media only screen and (min-width: 1800px) {
+        .grid-sizer,
+        .grid-item {
+            width: 25%;
+        }
+        .double_size {
+            width: 50%;
+        }
+    }*/
+    </style>
+</head>
+
+<body>
+    <header class="desktop">
+        <div class="center">
+            <div class="centered">
+                <div id="shortcut">
+                    <div class="avatar">
+                        <a href="/" title="Woolito Studio" class="avatar circle">
+                            <img src="http://67.media.tumblr.com/avatar_8aeb4c547c3b_128.png" alt="Woolito Studio" class="default">
+                        </a>
+                    </div>
+                    <div class="logo">
+                        <h1><a href="/" title="Woolito Studio">Woolito Studio</a></h1>
+                    </div>
+                    <p class="description">我們努力創作有趣的動畫與圖文並分享笑容</p>
+                    <p class="description">希望能為彼此的生活點綴</p>
+                    <p class="description">一些無厘頭的樂趣！</p>
+                    <div class="social_network">
+                        <img src="http://static.tumblr.com/sirdwhf/fz1o96e68/facebook.png">
+                        <img src="http://static.tumblr.com/sirdwhf/ZqHo96e6b/youtube.png">
+                        <img src="http://static.tumblr.com/sirdwhf/WG8o96e6e/line.png">
+                        <img src="http://static.tumblr.com/sirdwhf/Ls8o96e6n/instagram.png">
+                    </div>
+                </div>
+                <nav>
+                    <div id="navigation">
+                        <ul>
+                            <li>
+                                <a href="contact">
+                                    <div class="navigation-bottom"></div>
+                                    <div class="navigation-icon">
+                                        <img src="http://static.tumblr.com/3hbpjha/7rDo7ife4/icon-contact.png">
+                                        <span>Contact</span>
+                                    </div>
+                                    <div class="navigation-label">
+                                        <div class="justify">
+                                            聯繫我們
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="aboutus">
+                                    <div class="navigation-bottom"></div>
+                                    <div class="navigation-icon">
+                                        <img src="http://static.tumblr.com/3hbpjha/MMqo7ifnd/icon-about.png">
+                                        <span>About Woolito</span>
+                                    </div>
+                                    <div class="navigation-label">
+                                        <div class="justify">
+                                            關於我們
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="service">
+                                    <div class="navigation-bottom"></div>
+                                    <div class="navigation-icon">
+                                        <img src="http://static.tumblr.com/3hbpjha/4Aoo7if62/icon-service.png">
+                                        <span>Service</span>
+                                    </div>
+                                    <div class="navigation-label">
+                                        <div class="justify">
+                                            商業服務
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="works">
+                                    <div class="navigation-bottom"></div>
+                                    <div class="navigation-icon">
+                                        <img src="http://static.tumblr.com/3hbpjha/WqPo7if64/icon-works.png">
+                                        <span>Works</span>
+                                    </div>
+                                    <div class="navigation-label">
+                                        <div class="justify">
+                                            作品集
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://woolito.shoplineapp.com/" target="_blank">
+                                    <div class="navigation-bottom"></div>
+                                    <div class="navigation-icon">
+                                        <img src="http://static.tumblr.com/3hbpjha/YpNo7if63/icon-shop.png">
+                                        <span>Shop</span>
+                                    </div>
+                                    <div class="navigation-label">
+                                        <div class="justify">
+                                            原創商品
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://store.line.me/stickershop/author/72619" target="_blank">
+                                    <div class="navigation-bottom"></div>
+                                    <div class="navigation-icon">
+                                        <img src="http://static.tumblr.com/sirdwhf/z9qo90jc4/icon-line.png">
+                                        <span>LINE Sticker</span>
+                                    </div>
+                                    <div class="navigation-label">
+                                        <div class="justify">
+                                            LINE 貼圖
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="bottom-white"></div>
+            </div>
+        </div>
+    </header>
+    <!-- <div id="drawerExample" class="drawer dw-xs-10 dw-sm-10 dw-md-10 fold mobile" aria-labelledby="drawerExample">
+        <div class="drawer-controls">
+            <a href="#drawerExample" data-toggle="drawer" aria-foldedopen="false" aria-controls="drawerExample" class="drawer_icon">
+                <img src="http://static.tumblr.com/sirdwhf/6PVobwmdh/drawer.png">
+            </a>
+        </div>
+        <div class="drawer-contents">
+            <div class="drawer-body">
+                <div class="center">
+                    <div class="centered">
+                        <div id="shortcut">
+                            <div class="avatar">
+                                <a href="/" title="Woolito Studio" class="avatar circle">
+                                    <img src="http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" alt="Woolito Studio" class="default">
+                                </a>
+                            </div>
+                            <div class="logo">
+                                <h1><a href="/" title="Woolito Studio">Woolito Studio</a></h1>
+                            </div>
+                            <p class="description">我們努力創作有趣的動畫與圖文並分享笑容</p>
+                            <p class="description">希望能為彼此的生活點綴</p>
+                            <p class="description">一些無厘頭的樂趣！</p>
+                        </div>
+                        <div id="navigation">
+                            <ul>
+                                <li>
+                                    <a href="contact-mobile">
+                                        <div class="label-chinese">
+                                            聯繫我們</div>
+                                        <div class="label-english">Contact</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="aboutus-mobile">
+                                        <span class="label-chinese">
+                                            關於我們</span>
+                                        <span class="label-english">About Woolito</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="service-mobile">
+                                        <span class="label-chinese">
+                                            商業服務</span>
+                                        <span class="label-english">Service</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="works-mobile">
+                                        <span class="label-chinese">
+                                            作品集</span>
+                                        <span class="label-english">Works</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="http://woolito.shoplineapp.com/" target="_blank">
+                                        <span class="label-chinese">
+                                            原創商品</span>
+                                        <span class="label-english">Shop</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://store.line.me/stickershop/author/72619" target="_blank">
+                                        <span class="label-chinese">
+                                            LINE 貼圖</span>
+                                        <span class="label-english">LINE Sticker</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="social_network">
+                            <img src="http://static.tumblr.com/sirdwhf/fz1o96e68/facebook.png">
+                            <img src="http://static.tumblr.com/sirdwhf/ZqHo96e6b/youtube.png">
+                            <img src="http://static.tumblr.com/sirdwhf/WG8o96e6e/line.png">
+                            <img src="http://static.tumblr.com/sirdwhf/Ls8o96e6n/instagram.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div id="menu" class="mobile">
+        <div class="center">
+            <div class="centered">
+                <div id="shortcut">
+                    <div class="avatar">
+                        <a href="/" title="Woolito Studio" class="avatar circle">
+                            <img src="http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" alt="Woolito Studio" class="default">
+                        </a>
+                    </div>
+                    <div class="logo">
+                        <h1><a href="/" title="Woolito Studio">Woolito Studio</a></h1>
+                    </div>
+                    <p class="description">我們努力創作有趣的動畫與圖文並分享笑容</p>
+                    <p class="description">希望能為彼此的生活點綴</p>
+                    <p class="description">一些無厘頭的樂趣！</p>
+                </div>
+                <div id="navigation">
+                    <ul>
+                        <li>
+                            <a href="contact-mobile">
+                                <div class="label-chinese">
+                                    聯繫我們</div>
+                                <div class="label-english">Contact</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="aboutus-mobile">
+                                <span class="label-chinese">
+                                    關於我們</span>
+                                <span class="label-english">About Woolito</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="service-mobile">
+                                <span class="label-chinese">
+                                    商業服務</span>
+                                <span class="label-english">Service</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="works-mobile">
+                                <span class="label-chinese">
+                                    作品集</span>
+                                <span class="label-english">Works</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://woolito.shoplineapp.com/" target="_blank">
+                                <span class="label-chinese">
+                                    原創商品</span>
+                                <span class="label-english">Shop</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://store.line.me/stickershop/author/72619" target="_blank">
+                                <span class="label-chinese">
+                                    LINE 貼圖</span>
+                                <span class="label-english">LINE Sticker</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="social_network">
+                    <img src="http://static.tumblr.com/sirdwhf/fz1o96e68/facebook.png">
+                    <img src="http://static.tumblr.com/sirdwhf/ZqHo96e6b/youtube.png">
+                    <img src="http://static.tumblr.com/sirdwhf/WG8o96e6e/line.png">
+                    <img src="http://static.tumblr.com/sirdwhf/Ls8o96e6n/instagram.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <main id="panel" class="mobile">
+      <header>
+        <h2>Panel</h2>
+      </header>
+    </main> -->
+
+    <div id="panel" class="container mobile">
+        <div id="header">
+            <div class="drawer_icon">
+                <img src="http://static.tumblr.com/sirdwhf/6PVobwmdh/drawer.png">
+            </div>
+            <div class="title">Woolito Studio</div>
+            <div class="find-us">
+                <img src="http://static.tumblr.com/sirdwhf/QPcobwmcg/find_us.png">
+            </div>
+        </div>
+        {block:IndexPage}
+        <section class="the-posts index">
+            <table class="top desktop">
+                <tr>
+                    <td rowspan="3">
+                        <a href="works"><img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png"></a>
+                    </td>
+                    <td>
+                        <a href="aboutus"><img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png"></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="service"><img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png"></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="contact"><img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png"></a>
+                    </td>
+                </tr>
+            </table>
+            <div class="top mobile">
+                <div class="top-post">
+                    <a href="works"><img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png"></a>
+                </div>
+                <div class="top-post">
+                    <a href="aboutus"><img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png"></a>
+                </div>
+                <div class="top-post">
+                    <a href="service"><img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png"></a>
+                </div>
+                <div class="top-post">
+                    <a href="contact"><img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png"></a>
+                </div>
+            </div>
+            <div class="grid">
+                <div class="grid-sizer"></div>
+            </div>
+        </section>
+        {/block:IndexPage}
+    </div>
+    {block:IndexPage}
+    <section class="the-posts index desktop">
+        <table class="top desktop">
+            <tr>
+                <td rowspan="3">
+                    <a href="works"><img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png"></a>
+                </td>
+                <td>
+                    <a href="aboutus"><img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="service"><img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="contact"><img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png"></a>
+                </td>
+            </tr>
+        </table>
+        <div class="top mobile">
+            <div class="top-post">
+                <a href="works"><img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png"></a>
+            </div>
+            <div class="top-post">
+                <a href="aboutus"><img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png"></a>
+            </div>
+            <div class="top-post">
+                <a href="service"><img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png"></a>
+            </div>
+            <div class="top-post">
+                <a href="contact"><img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png"></a>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="grid-sizer"></div>
+        </div>
+    </section>
+    {/block:IndexPage} {block:PermalinkPage}
+    <section class="the-posts single-post desktop">
+        <div class="posts-holder">
+            {block:Posts inlineMediaWidth="1280" inlineNestedMediaWidth="1280"}
+            <article id="{PostID}" class="type_{PostType} {TagsAsClasses}" rel="{ReblogURL}">
+                <div class="article-content">
+                    {block:Text}
+                    <!-- Text Post -->
+                    {block:Title}
+                    <h2>{block:IndexPage}<a href="{Permalink}" title="{Title}">{/block:IndexPage}{Title}{block:IndexPage}</a>{/block:IndexPage}</h2> {/block:Title} {Body} {/block:Text} {block:Date}
+                    <ul class="icons{block:IfWhiteIcons} white{/block:IfWhiteIcons}">
+                        {block:IndexPage}
+                        <li class="link">
+                            <a href="{Permalink}" title="View Post" class="social-eye"></a>
+                        </li>{/block:IndexPage}
+                        <li class="like">{block:IfWhiteIcons}{LikeButton color="white" size="16"}{/block:IfWhiteIcons}{block:IfNotWhiteIcons}{LikeButton color="black" size="16"}{/block:IfNotWhiteIcons}</li>
+                        <li class="reblog">
+                            <i class="reblog-icon">{block:IfWhiteIcons}{ReblogButton color="white" size="16"}{/block:IfWhiteIcons}{block:IfNotWhiteIcons}{ReblogButton color="black" size="16"}{/block:IfNotWhiteIcons}</i>
+                        </li>
+                        {block:IfSharer}
+                        <li class="sharer">
+                            <a class="social-export"></a>
+                            <div class="sharer-wrap">
+                                <ul>
+                                    {block:IfSharerTwitter}
+                                    <li class="twitter">
+                                        <a href="https://twitter.com/intent/tweet?url={ShortURL}" title="Share on Twitter" class="social-tweets" target="_blank"></a>
+                                    </li>
+                                    {/block:IfSharerTwitter} {block:IfSharerFacebook}
+                                    <li class="facebook">
+                                        <a href="http://www.facebook.com/sharer.php?u={Permalink}" title="Share on Facebook" class="social-facebook" target="_blank"></a>
+                                    </li>
+                                    {/block:IfSharerFacebook} {block:IfSharerGoogle}
+                                    <li class="gplus">
+                                        <a href="https://plus.google.com/share?url={Permalink}" title="Share on Google +" class="social-gplus" target="_blank"></a>
+                                    </li>
+                                    {/block:IfSharerGoogle} {block:IfSharerPinterest}
+                                    <li class="pinterest">
+                                        <a href="https://pinterest.com/pin/create/button/?url={Permalink}{block:Text}&media={PortraitURL-128}{/block:Text}{block:Photo}&media={PhotoURL-HighRes}{/block:Photo}{block:Panorama}&media={PhotoURL-Panorama}{/block:Panorama}{block:Photoset}{block:Photos}&media={PhotoURL-500}{/block:Photos}{/block:Photoset}{block:Quote}&media={PortraitURL-128}{/block:Quote}{block:Link}&media={PortraitURL-128}{/block:Link}{block:Chat}&media={PortraitURL-128}{/block:Chat}{block:Audio}&media={PortraitURL-128}{/block:Audio}{block:Video}&media={PortraitURL-128}{block:VideoThumbnail}&media={VideoThumbnailURL}{/block:VideoThumbnail}{/block:Video}{block:Answer}&media={PortraitURL-128}{/block:Answer}{block:PostTitle}&description={PostTitle}{/block:PostTitle}" title="Share on Pinterest" class="social-pinterest" target="_blank"></a>
+                                    </li>
+                                    {/block:IfSharerPinterest}
+                                </ul>
+                            </div>
+                        </li>
+                        {/block:IfSharer}
+                    </ul>
+                    {block:IfShowMetaOnHome} {block:IndexPage}
+                    <div class="post-meta">
+                        <a href="{Permalink}">{TimeAgo}</a> &nbsp;&nbsp; {block:RebloggedFrom}<a class="reblogged" href="{ReblogParentURL}" title="{ReblogParentTitle}">Reblogged from {ReblogParentTitle}</a>{/block:RebloggedFrom} &nbsp;&nbsp; {block:NoteCount}<a href="{Permalink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}
+                    </div>
+                    {block:HasTags}
+                    <div class="tagged">
+                        {lang:Tagged}: {block:Tags}<a href="{TagURL}">#{Tag}</a> {/block:Tags}
+                    </div>
+                    {/block:HasTags} {/block:IndexPage} {/block:IfShowMetaOnHome} {block:IfDisqusShortname} {block:IndexPage}
+                    <a class="dsq-comment-count" href="{Permalink}#disqus_thread">Comments</a>
+                    <script type="text/javascript">
+                    var disqus_shortname = '{text:Disqus Shortname}';
+                    (function() {
+                        var s = document.createElement('script');
+                        s.async = true;
+                        s.type = 'text/javascript';
+                        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+                        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+                    }());
+                    </script>
+                    {/block:IndexPage} {/block:IfDisqusShortname} {block:PermalinkPage} {block:GroupMembers} {block:IfShowGroupAuthor}
+                    <div class="group-author">
+                        <a href="{PostAuthorURL}" title="{PostAuthorTitle}"><img src="{PostAuthorPortraitURL-30}" alt="{PostAuthorTitle}" class="{AvatarShape}">Posted by {PostAuthorTitle}</a>
+                    </div>
+                    {/block:IfShowGroupAuthor} {/block:GroupMembers}
+                    <div class="post-meta">
+                        {TimeAgo}
+                        <br /> {block:ContentSource} Source: {SourceLink}
+                        <br /> {/block:ContentSource} {block:RebloggedFrom}
+                        <a class="reblogged" href="{ReblogParentURL}" title="{ReblogParentTitle}">Reblogged from {ReblogParentTitle}</a> {/block:RebloggedFrom}
+                    </div>
+                    {block:HasTags}
+                    <div class="tagged">
+                        {lang:Tagged}: {block:Tags}<a href="{TagURL}">#{Tag}</a> {/block:Tags}
+                    </div>
+                    {/block:HasTags} {block:IfDisqusShortname}
+                    <div id="disqus_thread" class="disqus"></div>
+                    <script type="text/javascript">
+                    var disqus_shortname = '{text:Disqus Shortname}';
+                    (function() {
+                        var dsq = document.createElement('script');
+                        dsq.type = 'text/javascript';
+                        dsq.async = true;
+                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                    <a href="http://disqus.com" class="dsq-brlink">Comments powered by <span class="logo-disqus">Disqus</span></a> {/block:IfDisqusShortname} {block:PostNotes}
+                    <div id="notes" class="post-notes {AvatarShape}">
+                        {PostNotes-16}
+                    </div>
+                    {/block:PostNotes} {/block:PermalinkPage} {/block:Date}
+                </div>
+            </article>
+            {/block:Posts}
+        </div>
+    </section>
+    {/block:PermalinkPage}
+    <footer{block:PermalinkPage} class="individual-footer" {/block:PermalinkPage}>
+        {block:IndexPage}
+        <div class="type_pagination {select:Pagination}">
+            {block:Pagination}
+            <!-- <div class="pagination">
+                {block:PreviousPage}<a href="{PreviousPage}" class="prev"><i class="social-left"></i>&nbsp;&nbsp; {lang:Previous page}</a>{/block:PreviousPage} {block:NextPage}
+                <a href="{NextPage}" class="next">{lang:Next page} &nbsp;&nbsp;<i class="social-right"></i></a>{/block:NextPage}
+            </div> -->
+            {/block:Pagination} {block:NextPage}
+            <!-- <div class="load-more">
+                {block:IfLoadMoreLoading}<span class="load-more-loading">{text:Load More Loading}</span>{block:IfLoadMoreLoading} {block:IfLoadMoreEnd}
+                <span class="load-more-end">{text:Load More End}</span>{block:IfLoadMoreEnd} {block:IfLoadMore}
+                <span class="load-more-text">{text:Load More}</span>{block:IfLoadMore}
+            </div> -->
+            {/block:NextPage}
+            <!--    <a href="#top" class="scroll-top"><i class="social-up"></i></a>-->
+            <!--</div>-->
+            {/block:IndexPage} {block:PermalinkPagination}
+            <!-- <div class="post-nav">
+                {block:NextPost}<a href="{NextPost}" class="next" title="{lang:Next post}"><i class="social-left"></i></a>{/block:NextPost} {block:PreviousPost}
+                <a href="{PreviousPost}" class="prev" title="{lang:Previous post}"><i class="social-right"></i></a>{/block:PreviousPost}
+            </div> -->
+            {/block:PermalinkPagination}
+            <div class="footer-border">
+                {block:IfFooterText}<span>{text:Footer Text}</span>{/block:IfFooterText}
+                <span>&copy; {Title} {CopyrightYears}</span>
+                <div class="credit">
+                    <a href="http://precrafted.com?ref=fixie" title="Precrafted" target="_blank">FIXIE Tumblr Theme by Precrafted</a>
+                </div>
+            </div>
+        </div>
+        </footer>
+</body>
+<!-- slideout js start-->
+<script>
+  var slideout = new Slideout({
+    'panel': document.getElementById('panel'),
+    'menu': document.getElementById('menu'),
+    'padding': 323,
+    'tolerance': 70
+  });
+
+
+</script>
+<!-- slideout js end -->
+<script type="text/javascript">
+    var visProp = getHiddenProp();
+    if (visProp) {
+        var evtname = visProp.replace(/[H|h]idden/, '') + 'visibilitychange';
+        document.addEventListener(evtname, visChange);
+    }
+
+    function getHiddenProp() {
+        var prefixes = ['webkit', 'moz', 'ms', 'o'];
+
+        // if 'hidden' is natively supported just return it
+        if ('hidden' in document) {
+            return 'hidden'
+        };
+
+        // otherwise loop over all the known prefixes until we find one
+        for (var i = 0; i < prefixes.length; i++) {
+            if ((prefixes[i] + 'Hidden') in document) {
+                // console.log(prefixes[i] + 'Hidden')
+                return prefixes[i] + 'Hidden';
+            }
+        }
+
+        // otherwise it's not supported
+        return null;
+    }
+
+    function visChange() {
+        if (isHidden()) {
+            $("#preview_youtube").attr("class", "preview_hide");
+            $("#preview_youtube figure iframe").attr("src", "");
+        }
+    }
+
+    function isHidden() {
+        var prop = getHiddenProp();
+        if (!prop) return false;
+
+        return document[prop];
+    }
+    var posts = [];
+    var current_posts_number = 0;
+    var modalHidden;
+    var selected_tag;
+    var preview_timer;
+
+    $(function() {
+        console.log("width: " + $(window).width());
+        console.log("user agent: " + navigator.userAgent);
+        if (ismobile()) {
+            $("body").addClass("has-drawer");
+            fixMobile();
+        } else {
+            if (ismobile_size()) {
+                $("body").addClass("has-drawer");
+                fixMobile();
+            } else{
+                $("body").removeClass("has-drawer");
+                $(".mobile").css("display", "none");
+            }
+        }
+
+        $(window).resize(function() {
+            if (ismobile_size()) {
+                // location.href = "index-mobile";
+                $("body").addClass("has-drawer");
+                fixMobile();
+            }else{
+                $("body").removeClass("has-drawer");
+                $(".mobile").css("display", "none");
+            }
+        });
+
+        query_all_posts();
+        // query_posts("");
+
+        $("#cboxPrevious").click(function() {
+            prePost($(this).attr('data-post-id'));
+        });
+
+        $("#cboxNext").click(function() {
+            nextPost($(this).attr('data-post-id'));
+        });
+
+        document.querySelector('.drawer_icon').addEventListener('click', function() {
+          slideout.toggle();
+        });
+
+        document.querySelector('#menu').addEventListener('click', function(eve) {
+          if (eve.target.nodeName === 'A') { slideout.close(); }
+        });
+
+        $(window).bind('scroll resize', function() {
+            var $this = $(this);
+            var $this_Top = $this.scrollTop();
+            if ($this_Top > 120) {
+                $("#effect").addClass("fixed-menu");
+                $(".grid").css("margin-top", ($("#effect").height()) + "px");
+            } else {
+                $("#effect").removeClass("fixed-menu");
+                $(".grid").css("margin-top", "0px");
+            }
+        });
+    });
+
+    function iframeChange() {
+        console.log("iframeChange");
+        $("#preview_youtube").attr("class", "preview_hide");
+        $("#preview_youtube figure iframe").attr("src", "");
+    }
+
+    function ismobile() {
+        if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function ismobile_size() {
+        var width = $(window).width();
+        var href = location.href;
+        var index = href.lastIndexOf("/") + 1;
+        href = href.substring(index);
+        // console.log(width + ", " + href);
+        if (width <= 768) {
+            return true;
+            // location.href = "works-mobile.html";
+        } else {
+            return false;
+            // location.href = "works.html";
+        }
+    }
+
+    function prePost(id) {
+        var post = query_post(id);
+        initModal();
+        setPhoto(post);
+    };
+
+    function nextPost(id) {
+        initModal();
+        var post = query_post(id);
+        setPhoto(post);
+    }
+
+    function showModal(id) {
+        var post = query_post(id);
+        var type = post.type;
+        switch (type) {
+            case "photo":
+                initModal();
+                setPhoto(post);
+                break;
+            default:
+                break;
+        }
+        $('#myModal').modal('show');
+        if (modalHidden != null) {
+            modalHidden = null;
+        }
+
+        modalHidden = $('#myModal').on('hidden.bs.modal', function() {
+            document.location.href = "#" + id;
+            // var thisPosition = $('#'+id).offset().top;
+            // $("body").animate({ scrollTop: thisPosition }, 1000);
+        });
+    }
+
+    function initModal() {
+        var title = $(".modal-title")[0];
+        var body = $(".modal-body")[0];
+        var footer = $(".modal-footer")[0];
+        $(title).html("");
+        $(body).html("");
+        $(footer).html("");
+    }
+
+    function query_post(id) {
+        for (var i = 0; i < posts.length; i++) {
+            post = posts[i];
+            if (post.id == id) {
+                return post;
+            }
+        }
+    }
+
+    function setPhoto(post) {
+        var title = $(".modal-title")[0];
+        var body = $(".modal-body")[0];
+        var footer = $(".modal-footer")[0];
+        $(title).text("");
+        var photos = post.photos;
+        for (var i = 0; i < photos.length; i++) {
+            var imgae_url = photos[i].original_size.url;
+            var img_element = $("<img>");
+            img_element.attr("src", imgae_url);
+            $(body).append(img_element);
+        }
+        // $(body).html("<img src=\"" + post["photo-url-500"] + " \">");
+        var footer_html = post["caption"] + '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>' + '<a href="/post/' + post.id + ' target=\"_blank\""><button type="button" class="btn btn-primary">觀看全文</button></a>';
+
+        $(footer).html(footer_html);
+
+        var current_post_index = 0;
+        for (var i = 0; i < posts.length; i++) {
+            if (posts[i].id == post.id) {
+                current_post_index = i;
+            }
+        }
+        var previous_post_index = current_post_index - 1;
+        var next_post_index = current_post_index + 1;
+        $("#cboxPrevious").attr("data-post-id", posts[previous_post_index].id);
+        $("#cboxNext").attr("data-post-id", posts[next_post_index].id);
+
+        // $(modal .modal-header .modal title).text("Post Photo");
+    }
+
+    function setVideo(post) {
+
+    }
+
+    function readmore(posts) {
+        showLoading();
+        var new_posts_number = current_posts_number + 6;
+        if (posts.length - new_posts_number <= 0) {
+            new_posts_number = posts.length;
+        }
+        render_posts(new_posts_number, posts);
+    }
+
+    function query_all_posts() {
+        var key = "zcBf3tONWu9lQTSzrewHYU3WRdgbv1VtPGHXXMaZlZgN6Sz0lc";
+        var normal_posts = [];
+        var top_posts = [];
+        $(".grid").html('<div class="grid-sizer"></div>');
+
+        $.ajax({
+            url: "http://api.tumblr.com/v2/blog/woolito.tumblr.com/posts",
+            type: "GET",
+            dataType: 'jsonp',
+            data: {
+                api_key: key
+            }
+        }).done(function(data) {
+            var data_json = data.response.posts;
+            for (var i = 0; i < data_json.length; i++) {
+                try {
+                    tags = data_json[i].tags;
+                    if (tags == undefined) {
+                        tags = [];
+                    };
+                    if (tags.indexOf("home") > -1 || tags.indexOf("onlyhome") > -1) {
+                        if (tags.indexOf("top") > -1) {
+                            top_posts.push(data_json[i]);
+                        } else {
+                            normal_posts.push(data_json[i]);
+                        }
+                    }
+                } catch (err) {
+                    console.log(err);
+                    continue;
+                }
+            }
+            for (var i = 0; i < top_posts.length; i++) {
+                posts.push(top_posts[i]);
+            }
+            for (var i = 0; i < normal_posts.length; i++) {
+                posts.push(normal_posts[i]);
+            }
+
+            query_posts("");
+        });
+    }
+
+    function query_posts(tag) {
+        var selected_posts = [];
+        var tags = [];
+
+        for (var i = 0; i < posts.length; i++) {
+            if (tag == "") {
+                selected_posts = posts;
+                continue;
+            }
+            try {
+                tags = posts[i].tags;
+                if (tags == undefined) {
+                    tags = [];
+                };
+                if (tags.indexOf(tag) > -1) {
+                    selected_posts.push(posts[i]);
+                }
+            } catch (err) {
+                console.log(err);
+                continue;
+            }
+        }
+
+        if (!posts) {
+            $("#total_post").text("0");
+        } else {
+            $("#total_post").text(selected_posts.length);
+        }
+        current_posts_number = 0;
+        readmore(selected_posts);
+    }
+
+    function render_posts(number_post, posts) {
+        $(".grid").html('<div class="grid-sizer"></div>');
+
+        if (posts.length > 0) {
+            for (var i = current_posts_number; i < number_post; i++) {
+                var post_type = posts[i].type;
+                var post_html = null;
+                switch (post_type) {
+                    case "video":
+                        post_html = render_video(posts[i]);
+                        break;
+                    case "text":
+                        post_html = render_text(posts[i]);
+                        break;
+                    case "photo":
+                        post_html = render_photo(posts[i]);
+                        break;
+                    default:
+                        break;
+                }
+
+                $(".grid").append(post_html);
+                $(".grid").imagesLoaded(function() {
+                    $(".grid").masonry({
+                        columnWidth: '.grid-sizer',
+                        itemSelector: '.grid-item',
+                        percentPosition: true
+                    });
+                });
+            }
+            current_posts_number = number_post;
+        }
+
+        setTimeout(function() {
+            $(".grid").masonry();
+            $(".photo-wrap").click(function(event) {
+                event.preventDefault();
+                var id = $(this).parent().parent().attr("id");
+                showModal(id);
+            });
+        }, 1500);
+
+        $(".grid").imagesLoaded().progress(function() {
+            $(".grid").masonry('reloadItems');
+        });
+
+        if (current_posts_number == posts.length) {
+            showLoadEnd();
+        } else {
+            showLoadMore();
+        }
+
+        $(".shortcut").mouseenter(function() {
+            clearTimeout(preview_timer);
+            if ($("#preview_youtube figure iframe").attr("src") == "") {
+                showPreview(this);
+            }
+        });
+
+        // $("#preview_youtube").mouseenter(function(e){
+        //     clearTimeout(preview_timer);
+        // });
+
+        // $("#preview_youtube").mouseleave(function(e){
+        //     preview_timer = setTimeout(hidePreview, 60);
+        // });
+
+        $(".shortcut").mouseleave(function(e) {
+            preview_timer = setTimeout(hidePreview, 60);
+        });
+
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+
+    function hidePreview() {
+        $("#preview_youtube").attr("class", "preview_hide");
+        $("#preview_youtube figure iframe").attr("src", "");
+    }
+
+    function showPreview(element) {
+        element = $(element);
+        preview = $("#preview_youtube");
+        var e_top = element.offset().top;
+        var e_left = element.offset().left;
+        var e_height = element.height();
+        var e_width = element.width();
+        var p_height = preview.height();
+        var p_width = preview.width();
+        var w_width = $(window).width();
+        $("#preview_youtube").attr("class", "preview_show");
+        $("#preview_youtube").css("top", (e_top - (p_height - e_height) - 10) + "px");
+        $("#preview_youtube").css("left", (e_left + e_width) + "px");
+
+        if ((e_left + e_width + p_width) > w_width) {
+            $("#preview_youtube").css("left", (e_left - p_width) + "px");
+        }
+
+        if ($("#preview_youtube").offset().top < $(window).scrollTop()) {
+            $("#preview_youtube").css("top", $(window).scrollTop() + "px");
+        }
+
+        // var figure_element = $('<figure></figure>');
+        // var iframe_element = $('<iframe class="youtube_iframe" frameborder="0" allowfullscreen=""></iframe>');
+        var iframe_element = $("#preview_youtube figure iframe");
+        iframe_element.attr("src", "https://www.youtube.com/embed/" + element.attr("youtube_id") + "?feature=oembed&amp;enablejsapi=1&amp&autoplay=1&loop=0;controls=0;origin=https://safe.txmblr.com&amp;wmode=opaque&showinfo=0");
+        // figure_element.html(iframe_element);
+        // preview.html(figure_element);
+    }
+
+    function render_photo(post) {
+        var article = $("<div></div>");
+        article.attr("id", post.id);
+        article.addClass("type_photo grid-item");
+        article.attr("rel", post['post_url']);
+        var tags = post.tags;
+        for (var i = 0; i < tags.length; i++) {
+            article.addClass(tags[i]);
+        }
+        var article_content = $('<div class="article-content"></div>');
+        var photo_wrap = $('<div class="photo-wrap post"></div>');
+        var photo_post = $('<div class="photo--post"></div>')
+        for (var i = 0; i < post.photos.length; i++) {
+            var photo_link = $('<a href="' + post['post_url'] + ' target=\"_blank\""></a>');
+            var photo_img = $('<img src="' + post.photos[i].original_size.url + '" alt="' + post.slug + '">');
+        }
+
+        photo_link.append(photo_img);
+        photo_post.append(photo_link);
+        photo_wrap.append(photo_post);
+        var caption = $('<div class="caption">' + post['summary'] + '</div>');
+        article_content.append(photo_wrap).append(caption);
+        var icon = render_icon(post);
+        article_content.append(icon);
+        article.append(article_content);
+        return article;
+    }
+
+    function render_video(post) {
+        var article = $("<div></div>");
+        article.attr("id", post.id);
+        article.addClass("type_video grid-item");
+        article.attr("rel", post['post_url']);
+        var tags = post.tags;
+        for (var i = 0; i < tags.length; i++) {
+            article.addClass(tags[i]);
+        }
+        var article_content = $('<div class="article-content"></div>');
+        var video_stage = $("<div class='video-stage'></div>");
+        var video_container = $("<div class='video-container ready video' id='" + post.id + "'></div>");
+        // var iframe = render_iframe(post);
+        var shortcut = $('<div class="video-shortcut"></div>')
+        var shortcut_img = $('<img >');
+        shortcut_img.attr("src", post.thumbnail_url);
+        shortcut.append(shortcut_img);
+        // var shortcut = video_shortcut(post);
+        // video_container.append(shortcut);
+        video_container.append(shortcut);
+        video_stage.append(video_container);
+        var caption = $('<div class="caption">' + post['caption'] + '</div>');
+        article_content.append(video_stage).append(caption);
+        var icon = render_icon(post);
+        article_content.append(icon);
+        article.append(article_content);
+        return article;
+    }
+
+    function render_text(post) {
+        var article = $("<div></div>");
+        article.attr("id", post.id);
+        article.addClass("type_text grid-item");
+        article.attr("rel", post['post_url']);
+        var tags = post.tags;
+        for (var i = 0; i < tags.length; i++) {
+            article.addClass(tags[i]);
+        }
+        var article_content = $("<div></div>");
+        article_content.addClass("article_content");
+        var title = $("<h2></h2>");
+        var title_link = $("<a href='" + post['post_url'] + "' target=\"_blank\" title='點擊觀看作品介紹' data-toggle='tooltip' data-placement='right' >" + post.slug + "</a>");
+        title.append(title_link);
+        var body = post['body'];
+        body = analysis_caption_iframe(post.body, post.id);
+        if (body.indexOf("<!-- more -->") > -1) {
+            var start_index = body.indexOf("<!-- more -->");
+            body = body.substring(0, start_index);
+            body += '<a href="' + post['post_url'] + '" target=\"_blank\" class="readmore">KEEP READING</a>';
+        }
+        body = $(body);
+        body.addClass("caption");
+        article_content.append(title).append(body);
+        var icon = render_icon(post);
+        article_content.append(icon);
+        article.append(article_content);
+        return article;
+    }
+
+    function analysis_caption_iframe(caption, post_id) {
+        if (!(caption.indexOf("youtube_iframe") > -1)) {
+            return caption;
+        }
+        var patt = /https:\/\/www.youtube.com\/embed\/(\w+)\?/i;
+        var patt2 = /<figure(.*)>(.*)<\/figure>/i;
+        var youtube_id = caption.match(patt)[1];
+        var link_element = $('<a target="_blank"></a>');
+        link_element.attr("href", "http://woolito.tumblr.com/post/" + post_id + "/");
+        var shortcut_element = $("<img >");
+        shortcut_element.addClass("shortcut");
+        shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
+        shortcut_element.attr("youtube_id", youtube_id);
+        shortcut_element.attr("data-toggle", "tooltip");
+        shortcut_element.attr("data-placement", "bottom");
+        shortcut_element.attr("title", "點擊觀看作品介紹");
+        link_element.html(shortcut_element);
+        link_element = link_element.prop('outerHTML');
+
+        caption = caption.replace(patt2, link_element);
+        return caption;
+    }
+
+    function render_icon(post) {
+        var ul = $("<ul class='icons'></ul>");
+        var li_link = $('<li class="link"><a href="' + post['post_url'] + '" target=\"_blank\" title="View Post" class="social-eye"></a></li>');
+        var li_like = $('<li class="like"><div class="like_button" data-post-id="' + post.id + '" data-blog-name="woolito" id="like_button_' + post.id + '"></div></li>');
+        var iframe = $('<iframe id="like_iframe_' + post.id + '" src="http://assets.tumblr.com/assets/html/like_iframe.html?_v=c301660e229be2b44e2e912486577f3c#name=woolito&post_id=' + post.id + '&color=black&rk=' + post['reblog_key'] + '&root_id=' + post.id + '" scrolling="no" class="like_toggle" allowtransparency="true" width="16" height="16" frameborder="0" name="like_iframe_' + post.id + '"></iframe>');
+        li_like.find(".like_button").append(iframe);
+        var li_reblog = $('<li class="reblog"><i class="reblog-icon"><a targer="_blank" href="https://www.tumblr.com/reblog/' + post.id + '/' + post['reblog_key'] + '" class="reblog_button" style="display:block; width:16px; height:16px;"><svg width="100%" height="100%" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000"><path d="M5.01092527,5.99908429 L16.0088498,5.99908429 L16.136,9.508 L20.836,4.752 L16.136,0.083 L16.1360004,3.01110845 L2.09985349,3.01110845 C1.50585349,3.01110845 0.979248041,3.44726568 0.979248041,4.45007306 L0.979248041,10.9999998 L3.98376463,8.30993634 L3.98376463,6.89801007 C3.98376463,6.20867902 4.71892527,5.99908429 5.01092527,5.99908429 Z"></path><path d="M17.1420002,13.2800293 C17.1420002,13.5720293 17.022957,14.0490723 16.730957,14.0490723 L4.92919922,14.0490723 L4.92919922,11 L0.5,15.806 L4.92919922,20.5103758 L5.00469971,16.9990234 L18.9700928,16.9990234 C19.5640928,16.9990234 19.9453125,16.4010001 19.9453125,15.8060001 L19.9453125,9.5324707 L17.142,12.203"></path></svg></a></i></li>');
+        var li_share = $('<li class="sharer"><a class="social-export"></a><div class="sharer-wrap"><ul><li class="facebook"><a href="http://www.facebook.com/sharer.php?u=' + post['post_url'] + '" title="Share on Facebook" class="social-facebook" target="_blank" ></a></li><li class="gplus"><a href="https://plus.google.com/share?url=' + post['post_url'] + '" title="Share on Google +" class ="social-gplus" target="_blank"></a></li><li class="pinterest" ><a href="https://pinterest.com/pin/create/button/?url=' + post['post_url'] + '&amp;media=http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" title="Share on Pinterest" class="social-pinterest" target="_blank"></a></li></ul></div></li>');
+        ul.append(li_link).append(li_like).append(li_reblog).append(li_share);
+        return ul;
+    }
+
+    function video_shortcut(post) {}
+
+    function render_iframe(post) {
+        var video_source = (post.player[0].embed_code);
+
+        // if (video_source.indexOf("youtube") > -1) {
+        //     video_source = post['video-source'];
+        //     var div_element = $('<div id="iframe_'+post.id+'" class="post_iframe">');
+        //     var start_index = video_source.lastIndexOf("/")+1;
+        //     var youtube_id = video_source.substring(start_index);
+        //     var img_element = $('<img class="labnolIframe" src="https://i.ytimg.com/vi/'+youtube_id+'/hqdefault.jpg">');
+        //     var click_element = $('<div class="play-button" onclick="labnolIframe_order(\'iframe_'+post.id+'\', \''+youtube_id+'\')"></div>');
+        //     div_element.append(img_element).append(click_element);
+        //     return div_element;
+        // }
+
+        var url = post.video_url;
+        var html = $('<iframe src="' + url + '" class="embed_iframe tumblr_video_iframe" scrolling="no" frameborder="0" data-can-gutter data-can-resize allowfullscreen mozallowfunscreen webkitallowfullscreen></iframe>')
+        return html;
+    }
+
+    function showLoading() {
+        $(".load-more-loading").css("display", "inline");
+        $(".load-more-end").css("display", "none");
+        $(".load-more-text").css("display", "none");
+    }
+
+    function showLoadEnd(argument) {
+        $(".load-more-loading").css("display", "none");
+        $(".load-more-end").css("display", "inline");
+        $(".load-more-text").css("display", "none");
+    }
+
+    function showLoadMore() {
+        $(".load-more-loading").css("display", "none");
+        $(".load-more-end").css("display", "none");
+        $(".load-more-text").css("display", "inline");
+    }
+
+    function fixMobile(){
+        $(".desktop").css("display", "none");
+    }
+</script>
+
+</html>

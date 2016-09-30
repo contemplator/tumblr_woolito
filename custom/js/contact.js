@@ -37,13 +37,13 @@ $(function(){
 
     $("#left-selector").draggable({ 
         axis: "x" ,
-        containment: "parent parent",
+        containment: "parent",
         scroll: false
     });
 
     $("#right-selector").draggable({ 
         axis: "x" ,
-        containment: "parent parent",
+        containment: "parent",
         scroll: false
     });
 
@@ -160,13 +160,20 @@ function initRange(){
 }
 
 function fixLeftSelector(){
+    // console.log("fixLeftSelector");
     var left = $("#left-selector").position().left;
+    // console.log("left:" + left);
     var right = $("#right-selector").position().left;
+    // console.log("right:" + right);
     if(left>right){
         var keys_right = Object.keys(range_field_right_map);
         var keys_left = Object.keys(range_field_left_map);
         var index = keys_right.indexOf(right+"");
         left = parseInt(keys_left[index-1]);
+        if(index == 0){
+            // to fix the mininum key of range_field_left_map always set to index 6
+            left = parseInt(keys_left[6]);
+        }
     }
     var keys = Object.keys(range_field_left_map);
     var abses = [];
@@ -272,7 +279,10 @@ function verifyInput() {
     var min_budge = $("#left-selector").attr("data-budge");
     var max_budge = $("#right-selector").attr("data-budge");
 
+    var datetime = new Date();
+
     var data = {
+        time: datetime,
         idea: idea,
         type: type,
         name: name,
@@ -308,24 +318,24 @@ function sendData(data) {
         dataType: "text",
         method: "GET",
         data: data,
-        beforeSend: showMask(),
+        beforeSend: showLoading(),
         // error: showError(),
         // success: showSuccess()
     }).done(function(response){
         console.log(response);
-        hideMask();
+        hideLoading();
         showSuccess();
     });
 }
 
-function showMask(){
-    console.log("showMask");
+function showLoading(){
     $("#mask").css("display", "inherit");
+    $("#loading").css("display", "inherit");
 }
 
-function hideMask(){
-    console.log("hideMask");
+function hideLoading(){
     $("#mask").css("display", "none");
+    $("#loading").css("display", "none");
 }
 
 function hideAlert(){
@@ -333,11 +343,13 @@ function hideAlert(){
 }
 
 function showError(){
+    $("#mask").css("display", "inherit");
     $("#alert-danger").css("display", "block");
     $("#alert-danger").addClass("in");
 }
 
 function showSuccess(){
+    $("#mask").css("display", "inherit");
     $("#alert-success").css("display", "block");
     $("#alert-success").addClass("in");
 }

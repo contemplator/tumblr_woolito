@@ -154,20 +154,24 @@ img.tip {
 /* btn_sender */
 div.btn-sender{
 	text-align: center;
-	cursor: pointer;
 	margin-bottom: 0px;
-
+}
+#btn-sender{
+	cursor: pointer;
 }
 .btn-sender #btn-sender{
 	display: inline-block;
-	padding: 20px;
-	background-image: url('http://static.tumblr.com/sirdwhf/nD0oc40go/contact_send.png');
+	padding: 10px 20px;
+	/*background-image: url('http://static.tumblr.com/sirdwhf/nD0oc40go/contact_send.png');
 	background-repeat: no-repeat;
-	background-size: 100% 100%;
+	background-size: 100% 100%;*/
+	border: 5px solid #39bbad;
+	border-radius: 15px;
 	color: #39bbad;
 }
 .btn-sender #btn-sender:hover{
-	background-image: url('http://static.tumblr.com/sirdwhf/pV8oc40h5/contact_sending.png');
+	/*background-image: url('http://static.tumblr.com/sirdwhf/pV8oc40h5/contact_sending.png');*/
+	border: 5px solid #fff4a3;
 	color: #fff4a3;
 }
 .btn-sender #btn-sender label.chinese{
@@ -188,4 +192,53 @@ div.btn-sender{
 	margin: 1px 0px;
 	color: #697668;
 	font-weight: 600;
+}
+/* loading */
+#mask{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 500;
+    display: none;
+    top: 0px;
+}
+
+#loading{
+    position: relative;
+    top: 50%;
+    font-size: 300%;
+    color: #fff;
+    text-align: center;
+    z-index: 501;
+}
+
+.glyphicon-refresh-animate {
+    -webkit-animation:spin 1s linear infinite;
+    -moz-animation:spin 1s linear infinite;
+    animation:spin 1s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+/* alert */
+#alert-success, #alert-danger{
+    position: fixed;
+    width: 100%;
+    top: 20%;
+    text-align: center;
+    display: none;
+    z-index: 502;
+}
+
+.alert{
+    display: inline;
+    padding-right: 15px;
+}
+
+.alert .glyphicon-remove{
+    cursor: pointer;
+    margin-left: 20px;
 }

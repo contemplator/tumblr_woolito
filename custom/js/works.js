@@ -333,14 +333,13 @@ function query_all_posts() {
                 continue;
             }
         }
-
+        console.log(top_posts);
         for(var i=0; i<top_posts.length; i++){
             posts.push(top_posts[i]);
         }
         for(var i=0; i<normal_posts.length; i++){
             posts.push(normal_posts[i]);
         }
-        console.log(posts);
 
         if (!posts) {
             $("#total_post").text("0");
