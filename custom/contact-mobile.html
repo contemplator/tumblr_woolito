@@ -14,17 +14,91 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/js/drawer.min.js"></script>
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+    <!-- slideout -->
+    <script type="text/javascript" src="http://static.tumblr.com/sirdwhf/gjcoe7maq/slideout.js"></script>
+    <!-- custom -->
     <link rel="stylesheet" type="text/css" href="css/mobile.css">
     <link rel="stylesheet" type="text/css" href="css/contact-mobile.css">
-    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
     <script src="js/contact-mobile.js"></script>
 </head>
 <style type="text/css">
 </style>
 
-<body class="has-drawer">
-    <div id="drawerExample" class="drawer dw-xs-10 dw-sm-10 dw-md-10 fold" aria-labelledby="drawerExample">
+<body>
+    <div id="menu" class="mobile">
+        <div class="center">
+            <div class="centered">
+                <div id="shortcut">
+                    <div class="avatar">
+                        <a href="/" title="Woolito Studio" class="avatar circle">
+                            <img src="http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" alt="Woolito Studio" class="default">
+                        </a>
+                    </div>
+                    <div class="logo">
+                        <h1><a href="/" title="Woolito Studio">Woolito Studio</a></h1>
+                    </div>
+                    <p class="description">我們努力創作有趣的動畫與圖文並分享笑容</p>
+                    <p class="description">希望能為彼此的生活點綴</p>
+                    <p class="description">一些無厘頭的樂趣！</p>
+                </div>
+                <div id="navigation">
+                    <ul>
+                        <li>
+                            <a href="contact-mobile">
+                                <div class="label-chinese">
+                                    聯繫我們</div>
+                                <div class="label-english">Contact</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="aboutus-mobile">
+                                <span class="label-chinese">
+                                    關於我們</span>
+                                <span class="label-english">About Woolito</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="service-mobile">
+                                <span class="label-chinese">
+                                    商業服務</span>
+                                <span class="label-english">Service</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="works-mobile">
+                                <span class="label-chinese">
+                                    作品集</span>
+                                <span class="label-english">Works</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://woolito.shoplineapp.com/" target="_blank">
+                                <span class="label-chinese">
+                                    原創商品</span>
+                                <span class="label-english">Shop</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://store.line.me/stickershop/author/72619" target="_blank">
+                                <span class="label-chinese">
+                                    LINE 貼圖</span>
+                                <span class="label-english">LINE Sticker</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="social_network">
+                    <img src="http://static.tumblr.com/sirdwhf/fz1o96e68/facebook.png">
+                    <img src="http://static.tumblr.com/sirdwhf/ZqHo96e6b/youtube.png">
+                    <img src="http://static.tumblr.com/sirdwhf/WG8o96e6e/line.png">
+                    <img src="http://static.tumblr.com/sirdwhf/Ls8o96e6n/instagram.png">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div id="drawerExample" class="drawer dw-xs-10 dw-sm-10 dw-md-10 fold" aria-labelledby="drawerExample">
         <div class="drawer-controls">
             <a href="#drawerExample" data-toggle="drawer" aria-foldedopen="false" aria-controls="drawerExample" class="drawer_icon">
                 <img src="http://static.tumblr.com/sirdwhf/6PVobwmdh/drawer.png">
@@ -103,8 +177,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container">
+    </div> -->
+    <div id="panel" class="container">
         <div id="header">
             <div class="drawer_icon">
                 <img src="http://static.tumblr.com/sirdwhf/6PVobwmdh/drawer.png">
@@ -213,16 +287,24 @@
   ga('send', 'pageview');
 
 </script>
+<script type="text/javascript">
+    // slideout js start
+    var slideout = new Slideout({
+        'panel': document.getElementById('panel'),
+        'menu': document.getElementById('menu'),
+        'padding': 323,
+        'tolerance': 70
+    });
+    $(function(){
+        document.querySelector('.drawer_icon').addEventListener('click', function() {
+          slideout.toggle();
+        });
 
-<script>
-  // Initialize Firebase
-  // var config = {
-  //   apiKey: "AIzaSyD_aUK5etSpwD2Dp3jq0uFjypQxXKY5TUY",
-  //   authDomain: "woolito-tumblr.firebaseapp.com",
-  //   databaseURL: "https://woolito-tumblr.firebaseio.com",
-  //   storageBucket: "woolito-tumblr.appspot.com",
-  // };
-  // firebase.initializeApp(config);
+        document.querySelector('#menu').addEventListener('click', function(eve) {
+          if (eve.target.nodeName === 'A') { slideout.close(); }
+        });
+    });
+    // slideout js end
 </script>
 
 </html>

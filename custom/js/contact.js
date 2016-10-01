@@ -47,15 +47,6 @@ $(function(){
         scroll: false
     });
 
-    $("#left-selector").onPositionChanged(function(){
-        fixLeftSelector();
-    });
-
-    $("#right-selector").onPositionChanged(function(){
-        $(".dragfield .tip").css("display", "none");
-        fixRightSelector();
-    });
-
     $(".idea .input-field textarea").focusout(function(){
         var idea = $("#input-idea").val();
         if(idea == "任何我們能幫助您的需求都歡迎寫下來" || idea == ""){
@@ -132,9 +123,9 @@ function initRange(){
     var selector_width = $(".selector").width();
     var dragfield_width = $(".dragfield").width();
     var range_field_step = dragfield_width / 6;
-    console.log("dragfield width: " + dragfield_width);
-    console.log("selector width: " + selector_width);
-    console.log("range field step: " + range_field_step);
+    // console.log("dragfield width: " + dragfield_width);
+    // console.log("selector width: " + selector_width);
+    // console.log("range field step: " + range_field_step);
 
     var max_values = $(".max-value");
     max_values.height($(".range-img").height());
@@ -157,6 +148,16 @@ function initRange(){
         range_field_left_map[parseInt(range_field_left_left)] = values[i];
         range_field_right_map[parseInt(range_field_right_left)] = values[i];
     }
+    $(".dragfield .tip").css("display", "initial");
+
+    $("#left-selector").onPositionChanged(function(){
+        fixLeftSelector();
+    });
+
+    $("#right-selector").onPositionChanged(function(){
+        $(".dragfield .tip").css("display", "none");
+        fixRightSelector();
+    });
 }
 
 function fixLeftSelector(){

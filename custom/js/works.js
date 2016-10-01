@@ -563,7 +563,7 @@ function render_text(post) {
     var article_content = $("<div></div>");
     article_content.addClass("article_content");
     var title = $("<h2></h2>");
-    var title_link = $("<a href='" + post['post_url'] + "' target=\"_blank\" title='點擊觀看作品介紹' data-toggle='tooltip' data-placement='right' >" + post.slug + "</a>");
+    var title_link = $("<a href='" + post['post_url'] + "' target=\"_blank\" title='點擊觀看作品介紹' data-toggle='tooltip' data-placement='right' >" + post.title + "</a>");
     title.append(title_link);
     var body = post['body'];
     if (body.indexOf("<!-- more -->") > -1) {

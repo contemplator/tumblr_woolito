@@ -11,6 +11,14 @@ $(function() {
 
     initSelector();
     $("#selector").click(runEffect);
+    $(window).scroll(function(){
+        if(($(window).height()-49) != standard_height){
+            standard_height = $(window).height()-49;
+            $("#select-section").animate({
+                top: standard_height + "px",
+            }, 300);
+        }
+    });
     query_all_posts();
 });
 
@@ -101,6 +109,7 @@ function enable_radio(element) {
         currentTarget.css("color", "#000000");
         query_posts("");
     }
+    runEffect();
 }
 
 function clear_choices(){
