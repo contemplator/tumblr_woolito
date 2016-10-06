@@ -29,9 +29,9 @@
     <!-- slideout -->
     <script type="text/javascript" src="http://static.tumblr.com/sirdwhf/gjcoe7maq/slideout.js"></script>
     <!-- custom -->
-    <script src="js/works_mobile.js"></script>
-    <link href='css/mobile.css' rel='stylesheet' type='text/css'>
-    <link href='css/works_mobile.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/mobile.css">
+    <link rel="stylesheet" type="text/css" href="css/works-mobile.css">
+    <script src="js/works-mobile.js"></script>
 </head>
 <style type="text/css">
 </style>
@@ -174,10 +174,11 @@
 </body>
 <!-- slideout -->
 <script type="text/javascript">
+var width = $(window).width() * 0.8333;
 var slideout = new Slideout({
     'panel': document.getElementById('panel'),
     'menu': document.getElementById('menu'),
-    'padding': 323,
+    'padding': width,
     'tolerance': 70
 });
 $(function(){
@@ -190,5 +191,4 @@ $(function(){
     });
 })
 </script>
-
 </html>

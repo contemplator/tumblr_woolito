@@ -184,6 +184,7 @@ function query_all_posts() {
 function query_posts(tag) {
     var selected_posts = [];
     var tags = [];
+    console.log(tag);
 
     for (var i = 0; i < posts.length; i++) {
         if (tag == "") {
@@ -208,6 +209,7 @@ function query_posts(tag) {
         $("#total_post").text("0");
     } else {
         $("#total_post").text(selected_posts.length);
+        console.log(selected_posts);
     }
 
     render_posts(selected_posts);
@@ -222,15 +224,15 @@ function render_posts(posts) {
             var post_type = posts[i].type;
             var post_html = null;
             switch (post_type) {
-                // case "video":
-                //     post_html = render_video(posts[i]);
-                //     break;
+                case "video":
+                    post_html = render_video(posts[i]);
+                    break;
                 case "text":
                     post_html = render_text(posts[i]);
                     break;
-                    // case "photo":
-                    //     post_html = render_photo(posts[i]);
-                    //     break;
+                case "photo":
+                    post_html = render_photo(posts[i]);
+                    break;
                 default:
                     break;
             }
@@ -260,11 +262,12 @@ function render_photo(post) {
     var photo_wrap = $('<div class="photo-wrap post"></div>');
     var photo_post = $('<div class="photo--post"></div>')
     var photo_link = $('<a href="' + post.post_url + '"></a>')
-    var photo_img = $('<img src="' + post['photo-url-400'] + '" data-highres="' + post['photo-url-1280'] + '" alt="' + post.slug + '">')
+    // console.log(post.photos[0]);
+    var photo_img = $('<img src="' + post.photos[0]['alt_sizes'][0].url + '" alt="' + post.slug + '">');
     photo_link.append(photo_img);
     photo_post.append(photo_link);
     photo_wrap.append(photo_post);
-    var caption = $('<div class="caption">' + post['photo-caption'] + '</div>');
+    var caption = $('<div class="caption">' + post['caption'] + '</div>');
     article_content.append(photo_wrap).append(caption);
     var icon = render_icon(post);
     article_content.append(icon);

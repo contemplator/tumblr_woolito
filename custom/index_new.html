@@ -318,6 +318,10 @@
     .grid-item {
         width: 33.33%;
     }
+
+    .single-post article{
+        width: 100%;
+    }
     
     .grid-item {
         background-color: #fff;
@@ -758,7 +762,7 @@
         /* section */
 
         section {
-            margin-top: -40px;
+            margin-top: 0px;
             margin-bottom: 0px;
             float: none;
             width: 100%;
@@ -772,6 +776,10 @@
 
         .icons{
             margin: 0px 0px -12px -5px;
+        }
+
+        #youtube_iframe{
+            max-height: 200px;
         }
 
         /* mobile */
@@ -1230,7 +1238,7 @@
         </div>
     </section>
     {/block:IndexPage} {block:PermalinkPage}
-    <section class="the-posts single-post desktop">
+    <section class="the-posts single-post">
         <div class="posts-holder">
             {block:Posts inlineMediaWidth="1280" inlineNestedMediaWidth="1280"}
             <article id="{PostID}" class="type_{PostType} {TagsAsClasses}" rel="{ReblogURL}">
@@ -1369,12 +1377,13 @@
 </body>
 <!-- slideout js start-->
 <script>
-  var slideout = new Slideout({
-    'panel': document.getElementById('panel'),
-    'menu': document.getElementById('menu'),
-    'padding': 323,
-    'tolerance': 70
-  });
+    var width = $(window).width() * 0.8333;
+    var slideout = new Slideout({
+        'panel': document.getElementById('panel'),
+        'menu': document.getElementById('menu'),
+        'padding': width,
+        'tolerance': 70
+    });
 
 
 </script>
@@ -1429,14 +1438,11 @@
         console.log("width: " + $(window).width());
         console.log("user agent: " + navigator.userAgent);
         if (ismobile()) {
-            $("body").addClass("has-drawer");
             fixMobile();
         } else {
             if (ismobile_size()) {
-                $("body").addClass("has-drawer");
                 fixMobile();
             } else{
-                $("body").removeClass("has-drawer");
                 $(".mobile").css("display", "none");
             }
         }
@@ -1444,10 +1450,8 @@
         $(window).resize(function() {
             if (ismobile_size()) {
                 // location.href = "index-mobile";
-                $("body").addClass("has-drawer");
                 fixMobile();
             }else{
-                $("body").removeClass("has-drawer");
                 $(".mobile").css("display", "none");
             }
         });
@@ -1958,6 +1962,7 @@
 
     function fixMobile(){
         $(".desktop").css("display", "none");
+        // $(".mobile").css("display", "block");
     }
 </script>
 

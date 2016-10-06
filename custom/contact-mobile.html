@@ -289,10 +289,11 @@
 </script>
 <script type="text/javascript">
     // slideout js start
+    var width = $(window).width() * 0.8333;
     var slideout = new Slideout({
         'panel': document.getElementById('panel'),
         'menu': document.getElementById('menu'),
-        'padding': 323,
+        'padding': width,
         'tolerance': 70
     });
     $(function(){
