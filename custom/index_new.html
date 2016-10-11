@@ -29,10 +29,8 @@
     <script src="http://static.tumblr.com/e6lc7yi/y7Yo1ifc4/fixie-app.js"></script> -->
     <!--bootstrap css-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/css/bootstrap-drawer.min.css">
     <!-- bootstrap js -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/js/drawer.min.js"></script>
     <!-- jquery ui -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <!-- slideout -->
@@ -148,10 +146,7 @@
         display: block;
         height: 100vh;
         overflow: auto;
-    }
-    
-    div#shortcut {
-        border-radius: 0px 0px 50px 0px;
+        background-color: #fff;
     }
     
     .logo a {
@@ -163,97 +158,40 @@
         margin: 0px;
     }
     
-    #navigation {
-        margin-left: 0px;
-        text-align: left;
-        width: 100%;
-        background-color: #e6e6e6;
-    }
-    
+    /* navigation */
     #navigation ul li {
-        width: 100%;
-        margin-left: 0px;
-        max-height: 30px;
+        border-top: 2px #ddd solid;
+        width: 90%;
+        margin: 0px auto;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        font-size: 100%;
+        line-height: 1.5em;
+        font-weight: 400;
+        text-align: left;
         list-style: none;
     }
-    
-    #navigation ul li:nth-child(4) {
-        margin-bottom: 30px;
-    }
-    
+
     #navigation ul li a {
-        position: relative;
-        background-color: #e6e6e6;
-        padding: 0px;
-        width: 250px;
-    }
-    
-    .navigation-icon {
-        display: inline-block;
-        border-radius: 0px 10px 0px 0px;
-        background-color: #b3b3b3;
-        padding-right: 5px;
-        width: 175px;
-    }
-    
-    .navigation-icon img {
-        display: inline;
-        margin-left: 10px;
-        height: 30px;
-        width: auto;
-        vertical-align: middle;
-    }
-    
-    .navigation-icon span {
-        float: right;
-        line-height: 2.5em;
+        margin-left: 20%;
         color: #000;
     }
-    
-    .navigation-label {
-        float: right;
-        display: block;
-        line-height: 2.5em;
-        color: #222;
-        width: 65px;
-        text-align: justify;
-        text-justify: inter-ideograph;
-        -ms-text-justify: inter-ideograph;
-        -moz-text-align-last: justify;
-        -webkit-text-align-last: justify;
-    }
-    
-    .navigation-label:after {
-        content: '';
+
+    #navigation .label-chinese {
         display: inline-block;
+        letter-spacing: 1px;
+        width: 30%;
     }
-    
-    .navigation-bottom {
-        width: 100%;
-        height: 3px;
-        background: #b3b3b3;
-        position: absolute;
-        bottom: 0px;
-    }
-    
-    div.justify {
-        text-align: justify;
-        text-justify: inter-ideograph;
-        -ms-text-justify: inter-ideograph;
-        -moz-text-align-last: justify;
-        -webkit-text-align-last: justify;
-    }
-    
-    div.justify:after {
-        content: '';
-        display: inline-block;
-        width: 100%;
+
+    #navigation .label-english {
+        display: inline;
+        letter-spacing: 1px;
+        font-size: 80%;
+        width: 40%;
     }
     
     #shortcut {
-        background-color: #fff;
         padding: 20px;
-        border-radius: 10px 10px 50px 10px;
     }
     
     .social_network {
@@ -358,67 +296,21 @@
     .top.mobile, .top.desktop {
         width: 100%;
     }
-    .top.mobile{
-        margin-top: 40px;
-    }
     
-    .top.desktop td {
+    .top td {
         background-color: #fff;
         border: 4px solid #e6e6e6;
         border-left: 2px solid #e6e6e6;
         padding: 5px;
     }
     
-    .top.desktop td img {}
-
-    .top.mobile .top-post{
+    .top .top-post{
         background: #fff;
         padding: 20px;
         margin: 5px 2px;
     }
     /* top */
-    /* read more */
     
-    #readmore {
-        width: 33.33%;
-        margin: 0px auto;
-        text-align: center;
-        margin-top: 32px;
-        margin-bottom: 32px;
-    }
-    
-    #readmore button {
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        width: 100%;
-        padding: 28px 24px;
-        line-height: 12px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        font-size: 12px;
-        background-color: #fff;
-        border: none;
-        color: #3498DB;
-        font-weight: 600;
-    }
-    
-    #readmore button:hover {
-        background-color: #4990b8;
-        color: #fff;
-    }
-    
-    .load-more-loading,
-    .load-more-end {
-        display: none;
-    }
-    
-    img {
-        display: inline;
-    }
-    /* modal */
-    
-    .modal-body {
-        text-align: center;
-    }
     /* youtube */
     
     .post_iframe {
@@ -583,26 +475,9 @@
             width: 100%;
             position: fixed;
             top: 0px;
-            z-index: 501;
+            z-index: 2;
             border-bottom: 1px solid #E6E6E6;
         }
-
-        /*.drawer_icon {
-            display: table-cell;
-            text-align: center;
-            border-right: 1px solid #E6E6E6;
-            background-color: #fff;
-            min-width: 48px;
-            height: 40px;
-            padding: 8px;
-            position: relative;
-            top: -10px;
-            left: -10px;
-        }*/
-
-        /*.drawer_icon img {
-            width: 100%;
-        }*/
 
         #header .drawer_icon {
             display: table-cell;
@@ -613,9 +488,9 @@
             width: 15%;
         }
 
-        /*#header .drawer_icon img {
-            height: 100%;
-        }*/
+        #header .drawer_icon img{
+            margin: 0px auto;
+        }
 
         #header .title {
             display: table-cell;
@@ -634,15 +509,12 @@
             height: 40px;
             width: auto;
             text-align: right;
-            /*width: 100%;
-            height: auto;*/
         }
 
-        #header .find-us img {
-            width: inherit;
-            height: inherit;
+        #header .find-us a, #header .find-us img{
+            height: 100%;
+            width: auto;
             margin: 0px auto;
-            margin-right: 0px;
         }
 
 
@@ -662,7 +534,6 @@
         .drawer-controls {
             height: 45px;
         }
-
 
         /* shortcut */
 
@@ -830,43 +701,6 @@
           display: block;
         }
     }
-    
-    /*@media only screen and (min-width: 768px) {
-        .grid-sizer,
-        .grid-item {
-            width: 100%;
-        }
-    }*/
-    
-    /*@media only screen and (min-width: 1024px) {
-        .grid-sizer,
-        .grid-item {
-            width: 50%;
-        }
-        .double_size {
-            width: 100%;
-        }
-    }*/
-    
-    /*@media only screen and (min-width: 1420px) {
-        .grid-sizer,
-        .grid-item {
-            width: 33.33%;
-        }
-        .double_size {
-            width: 66.66%;
-        }
-    }*/
-    
-    /*@media only screen and (min-width: 1800px) {
-        .grid-sizer,
-        .grid-item {
-            width: 25%;
-        }
-        .double_size {
-            width: 50%;
-        }
-    }*/
     </style>
 </head>
 
@@ -887,186 +721,89 @@
                     <p class="description">希望能為彼此的生活點綴</p>
                     <p class="description">一些無厘頭的樂趣！</p>
                     <div class="social_network">
-                        <img src="http://static.tumblr.com/sirdwhf/fz1o96e68/facebook.png">
-                        <img src="http://static.tumblr.com/sirdwhf/ZqHo96e6b/youtube.png">
-                        <img src="http://static.tumblr.com/sirdwhf/WG8o96e6e/line.png">
-                        <img src="http://static.tumblr.com/sirdwhf/Ls8o96e6n/instagram.png">
+                        <a href="https://www.facebook.com/Woolito/"><img src="http://static.tumblr.com/sirdwhf/fz1o96e68/facebook.png"></a>
+                        <a href="https://www.youtube.com/user/WoolitoFilm"><img src="http://static.tumblr.com/sirdwhf/ZqHo96e6b/youtube.png"></a>
+                        <a href="https://page.line.me/woolito"><img src="http://static.tumblr.com/sirdwhf/WG8o96e6e/line.png"></a>
+                        <a href="https://www.instagram.com/woolito_studio/"><img src="http://static.tumblr.com/sirdwhf/Ls8o96e6n/instagram.png"></a>
                     </div>
                 </div>
-                <nav>
-                    <div id="navigation">
-                        <ul>
-                            <li>
-                                <a href="contact">
-                                    <div class="navigation-bottom"></div>
-                                    <div class="navigation-icon">
-                                        <img src="http://static.tumblr.com/3hbpjha/7rDo7ife4/icon-contact.png">
-                                        <span>Contact</span>
-                                    </div>
-                                    <div class="navigation-label">
-                                        <div class="justify">
-                                            聯繫我們
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="aboutus">
-                                    <div class="navigation-bottom"></div>
-                                    <div class="navigation-icon">
-                                        <img src="http://static.tumblr.com/3hbpjha/MMqo7ifnd/icon-about.png">
-                                        <span>About Woolito</span>
-                                    </div>
-                                    <div class="navigation-label">
-                                        <div class="justify">
-                                            關於我們
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="service">
-                                    <div class="navigation-bottom"></div>
-                                    <div class="navigation-icon">
-                                        <img src="http://static.tumblr.com/3hbpjha/4Aoo7if62/icon-service.png">
-                                        <span>Service</span>
-                                    </div>
-                                    <div class="navigation-label">
-                                        <div class="justify">
-                                            商業服務
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="works">
-                                    <div class="navigation-bottom"></div>
-                                    <div class="navigation-icon">
-                                        <img src="http://static.tumblr.com/3hbpjha/WqPo7if64/icon-works.png">
-                                        <span>Works</span>
-                                    </div>
-                                    <div class="navigation-label">
-                                        <div class="justify">
-                                            作品集
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="http://woolito.shoplineapp.com/" target="_blank">
-                                    <div class="navigation-bottom"></div>
-                                    <div class="navigation-icon">
-                                        <img src="http://static.tumblr.com/3hbpjha/YpNo7if63/icon-shop.png">
-                                        <span>Shop</span>
-                                    </div>
-                                    <div class="navigation-label">
-                                        <div class="justify">
-                                            原創商品
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://store.line.me/stickershop/author/72619" target="_blank">
-                                    <div class="navigation-bottom"></div>
-                                    <div class="navigation-icon">
-                                        <img src="http://static.tumblr.com/sirdwhf/z9qo90jc4/icon-line.png">
-                                        <span>LINE Sticker</span>
-                                    </div>
-                                    <div class="navigation-label">
-                                        <div class="justify">
-                                            LINE 貼圖
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-                <div class="bottom-white"></div>
+                <div id="navigation">
+                    <ul>
+                        <li>
+                            <a href="/contact">
+                                <div class="label-chinese">
+                                    聯繫我們</div>
+                                <div class="label-english">Contact</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/aboutus">
+                                <span class="label-chinese">
+                                    關於我們</span>
+                                <span class="label-english">About Woolito</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/service">
+                                <span class="label-chinese">
+                                    商業服務</span>
+                                <span class="label-english">Service</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/works">
+                                <span class="label-chinese">
+                                    作品集</span>
+                                <span class="label-english">Works</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://woolito.shoplineapp.com/" target="_blank">
+                                <span class="label-chinese">
+                                    原創商品</span>
+                                <span class="label-english">Shop</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://store.line.me/stickershop/author/72619" target="_blank">
+                                <span class="label-chinese">
+                                    LINE 貼圖</span>
+                                <span class="label-english">LINE Sticker</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </header>
-    <!-- <div id="drawerExample" class="drawer dw-xs-10 dw-sm-10 dw-md-10 fold mobile" aria-labelledby="drawerExample">
-        <div class="drawer-controls">
-            <a href="#drawerExample" data-toggle="drawer" aria-foldedopen="false" aria-controls="drawerExample" class="drawer_icon">
-                <img src="http://static.tumblr.com/sirdwhf/6PVobwmdh/drawer.png">
-            </a>
+    {block:IndexPage}
+    <section class="the-posts index desktop">
+        <table class="top">
+            <tr>
+                <td rowspan="3">
+                    <a href="works"><img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png"></a>
+                </td>
+                <td>
+                    <a href="aboutus"><img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="service"><img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="contact"><img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png"></a>
+                </td>
+            </tr>
+        </table>
+        <div class="grid">
+            <div class="grid-sizer"></div>
         </div>
-        <div class="drawer-contents">
-            <div class="drawer-body">
-                <div class="center">
-                    <div class="centered">
-                        <div id="shortcut">
-                            <div class="avatar">
-                                <a href="/" title="Woolito Studio" class="avatar circle">
-                                    <img src="http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" alt="Woolito Studio" class="default">
-                                </a>
-                            </div>
-                            <div class="logo">
-                                <h1><a href="/" title="Woolito Studio">Woolito Studio</a></h1>
-                            </div>
-                            <p class="description">我們努力創作有趣的動畫與圖文並分享笑容</p>
-                            <p class="description">希望能為彼此的生活點綴</p>
-                            <p class="description">一些無厘頭的樂趣！</p>
-                        </div>
-                        <div id="navigation">
-                            <ul>
-                                <li>
-                                    <a href="contact-mobile">
-                                        <div class="label-chinese">
-                                            聯繫我們</div>
-                                        <div class="label-english">Contact</div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="aboutus-mobile">
-                                        <span class="label-chinese">
-                                            關於我們</span>
-                                        <span class="label-english">About Woolito</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="service-mobile">
-                                        <span class="label-chinese">
-                                            商業服務</span>
-                                        <span class="label-english">Service</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="works-mobile">
-                                        <span class="label-chinese">
-                                            作品集</span>
-                                        <span class="label-english">Works</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="http://woolito.shoplineapp.com/" target="_blank">
-                                        <span class="label-chinese">
-                                            原創商品</span>
-                                        <span class="label-english">Shop</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://store.line.me/stickershop/author/72619" target="_blank">
-                                        <span class="label-chinese">
-                                            LINE 貼圖</span>
-                                        <span class="label-english">LINE Sticker</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="social_network">
-                            <img src="http://static.tumblr.com/sirdwhf/fz1o96e68/facebook.png">
-                            <img src="http://static.tumblr.com/sirdwhf/ZqHo96e6b/youtube.png">
-                            <img src="http://static.tumblr.com/sirdwhf/WG8o96e6e/line.png">
-                            <img src="http://static.tumblr.com/sirdwhf/Ls8o96e6n/instagram.png">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
+    </section>
+    {/block:IndexPage} 
+
     <div id="menu" class="mobile">
         <div class="center">
             <div class="centered">
@@ -1088,7 +825,8 @@
                         <li>
                             <a href="contact-mobile">
                                 <div class="label-chinese">
-                                    聯繫我們</div>
+                                    聯繫我們
+                                </div>
                                 <div class="label-english">Contact</div>
                             </a>
                         </li>
@@ -1139,12 +877,6 @@
         </div>
     </div>
 
-    <!-- <main id="panel" class="mobile">
-      <header>
-        <h2>Panel</h2>
-      </header>
-    </main> -->
-
     <div id="panel" class="container mobile">
         <div id="header">
             <div class="drawer_icon">
@@ -1152,32 +884,12 @@
             </div>
             <div class="title">Woolito Studio</div>
             <div class="find-us">
-                <img src="http://static.tumblr.com/sirdwhf/QPcobwmcg/find_us.png">
+                <a href="/contact-mobile"><img src="http://static.tumblr.com/sirdwhf/QPcobwmcg/find_us.png"></a>
             </div>
         </div>
         {block:IndexPage}
         <section class="the-posts index">
-            <table class="top desktop">
-                <tr>
-                    <td rowspan="3">
-                        <a href="works"><img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png"></a>
-                    </td>
-                    <td>
-                        <a href="aboutus"><img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png"></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="service"><img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png"></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="contact"><img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png"></a>
-                    </td>
-                </tr>
-            </table>
-            <div class="top mobile">
+            <div class="top">
                 <div class="top-post">
                     <a href="works"><img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png"></a>
                 </div>
@@ -1197,47 +909,8 @@
         </section>
         {/block:IndexPage}
     </div>
-    {block:IndexPage}
-    <section class="the-posts index desktop">
-        <table class="top desktop">
-            <tr>
-                <td rowspan="3">
-                    <a href="works"><img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png"></a>
-                </td>
-                <td>
-                    <a href="aboutus"><img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png"></a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="service"><img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png"></a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="contact"><img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png"></a>
-                </td>
-            </tr>
-        </table>
-        <div class="top mobile">
-            <div class="top-post">
-                <a href="works"><img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png"></a>
-            </div>
-            <div class="top-post">
-                <a href="aboutus"><img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png"></a>
-            </div>
-            <div class="top-post">
-                <a href="service"><img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png"></a>
-            </div>
-            <div class="top-post">
-                <a href="contact"><img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png"></a>
-            </div>
-        </div>
-        <div class="grid">
-            <div class="grid-sizer"></div>
-        </div>
-    </section>
-    {/block:IndexPage} {block:PermalinkPage}
+
+    {block:PermalinkPage}
     <section class="the-posts single-post">
         <div class="posts-holder">
             {block:Posts inlineMediaWidth="1280" inlineNestedMediaWidth="1280"}
@@ -1342,6 +1015,7 @@
         </div>
     </section>
     {/block:PermalinkPage}
+
     <footer{block:PermalinkPage} class="individual-footer" {/block:PermalinkPage}>
         {block:IndexPage}
         <div class="type_pagination {select:Pagination}">
@@ -1389,45 +1063,6 @@
 </script>
 <!-- slideout js end -->
 <script type="text/javascript">
-    var visProp = getHiddenProp();
-    if (visProp) {
-        var evtname = visProp.replace(/[H|h]idden/, '') + 'visibilitychange';
-        document.addEventListener(evtname, visChange);
-    }
-
-    function getHiddenProp() {
-        var prefixes = ['webkit', 'moz', 'ms', 'o'];
-
-        // if 'hidden' is natively supported just return it
-        if ('hidden' in document) {
-            return 'hidden'
-        };
-
-        // otherwise loop over all the known prefixes until we find one
-        for (var i = 0; i < prefixes.length; i++) {
-            if ((prefixes[i] + 'Hidden') in document) {
-                // console.log(prefixes[i] + 'Hidden')
-                return prefixes[i] + 'Hidden';
-            }
-        }
-
-        // otherwise it's not supported
-        return null;
-    }
-
-    function visChange() {
-        if (isHidden()) {
-            $("#preview_youtube").attr("class", "preview_hide");
-            $("#preview_youtube figure iframe").attr("src", "");
-        }
-    }
-
-    function isHidden() {
-        var prop = getHiddenProp();
-        if (!prop) return false;
-
-        return document[prop];
-    }
     var posts = [];
     var current_posts_number = 0;
     var modalHidden;
@@ -1449,7 +1084,6 @@
 
         $(window).resize(function() {
             if (ismobile_size()) {
-                // location.href = "index-mobile";
                 fixMobile();
             }else{
                 $(".mobile").css("display", "none");
@@ -1457,15 +1091,6 @@
         });
 
         query_all_posts();
-        // query_posts("");
-
-        $("#cboxPrevious").click(function() {
-            prePost($(this).attr('data-post-id'));
-        });
-
-        $("#cboxNext").click(function() {
-            nextPost($(this).attr('data-post-id'));
-        });
 
         document.querySelector('.drawer_icon').addEventListener('click', function() {
           slideout.toggle();
@@ -1474,25 +1099,7 @@
         document.querySelector('#menu').addEventListener('click', function(eve) {
           if (eve.target.nodeName === 'A') { slideout.close(); }
         });
-
-        $(window).bind('scroll resize', function() {
-            var $this = $(this);
-            var $this_Top = $this.scrollTop();
-            if ($this_Top > 120) {
-                $("#effect").addClass("fixed-menu");
-                $(".grid").css("margin-top", ($("#effect").height()) + "px");
-            } else {
-                $("#effect").removeClass("fixed-menu");
-                $(".grid").css("margin-top", "0px");
-            }
-        });
     });
-
-    function iframeChange() {
-        console.log("iframeChange");
-        $("#preview_youtube").attr("class", "preview_hide");
-        $("#preview_youtube figure iframe").attr("src", "");
-    }
 
     function ismobile() {
         if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
@@ -1515,103 +1122,6 @@
             return false;
             // location.href = "works.html";
         }
-    }
-
-    function prePost(id) {
-        var post = query_post(id);
-        initModal();
-        setPhoto(post);
-    };
-
-    function nextPost(id) {
-        initModal();
-        var post = query_post(id);
-        setPhoto(post);
-    }
-
-    function showModal(id) {
-        var post = query_post(id);
-        var type = post.type;
-        switch (type) {
-            case "photo":
-                initModal();
-                setPhoto(post);
-                break;
-            default:
-                break;
-        }
-        $('#myModal').modal('show');
-        if (modalHidden != null) {
-            modalHidden = null;
-        }
-
-        modalHidden = $('#myModal').on('hidden.bs.modal', function() {
-            document.location.href = "#" + id;
-            // var thisPosition = $('#'+id).offset().top;
-            // $("body").animate({ scrollTop: thisPosition }, 1000);
-        });
-    }
-
-    function initModal() {
-        var title = $(".modal-title")[0];
-        var body = $(".modal-body")[0];
-        var footer = $(".modal-footer")[0];
-        $(title).html("");
-        $(body).html("");
-        $(footer).html("");
-    }
-
-    function query_post(id) {
-        for (var i = 0; i < posts.length; i++) {
-            post = posts[i];
-            if (post.id == id) {
-                return post;
-            }
-        }
-    }
-
-    function setPhoto(post) {
-        var title = $(".modal-title")[0];
-        var body = $(".modal-body")[0];
-        var footer = $(".modal-footer")[0];
-        $(title).text("");
-        var photos = post.photos;
-        for (var i = 0; i < photos.length; i++) {
-            var imgae_url = photos[i].original_size.url;
-            var img_element = $("<img>");
-            img_element.attr("src", imgae_url);
-            $(body).append(img_element);
-        }
-        // $(body).html("<img src=\"" + post["photo-url-500"] + " \">");
-        var footer_html = post["caption"] + '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>' + '<a href="/post/' + post.id + ' target=\"_blank\""><button type="button" class="btn btn-primary">觀看全文</button></a>';
-
-        $(footer).html(footer_html);
-
-        var current_post_index = 0;
-        for (var i = 0; i < posts.length; i++) {
-            if (posts[i].id == post.id) {
-                current_post_index = i;
-            }
-        }
-        var previous_post_index = current_post_index - 1;
-        var next_post_index = current_post_index + 1;
-        $("#cboxPrevious").attr("data-post-id", posts[previous_post_index].id);
-        $("#cboxNext").attr("data-post-id", posts[next_post_index].id);
-
-        // $(modal .modal-header .modal title).text("Post Photo");
-    }
-
-    function setVideo(post) {
-
-    }
-
-    function readmore(posts) {
-        showLoading();
-        var new_posts_number = current_posts_number + 6;
-        if (posts.length - new_posts_number <= 0) {
-            new_posts_number = posts.length;
-        }
-        render_posts(new_posts_number, posts);
     }
 
     function query_all_posts() {
@@ -1690,6 +1200,14 @@
         readmore(selected_posts);
     }
 
+    function readmore(posts) {
+        var new_posts_number = current_posts_number + 6;
+        if (posts.length - new_posts_number <= 0) {
+            new_posts_number = posts.length;
+        }
+        render_posts(new_posts_number, posts);
+    }
+
     function render_posts(number_post, posts) {
         $(".grid").html('<div class="grid-sizer"></div>');
 
@@ -1736,67 +1254,12 @@
             $(".grid").masonry('reloadItems');
         });
 
-        if (current_posts_number == posts.length) {
-            showLoadEnd();
-        } else {
-            showLoadMore();
-        }
-
-        $(".shortcut").mouseenter(function() {
-            clearTimeout(preview_timer);
-            if ($("#preview_youtube figure iframe").attr("src") == "") {
-                showPreview(this);
-            }
-        });
-
-        // $("#preview_youtube").mouseenter(function(e){
-        //     clearTimeout(preview_timer);
-        // });
-
-        // $("#preview_youtube").mouseleave(function(e){
-        //     preview_timer = setTimeout(hidePreview, 60);
-        // });
-
-        $(".shortcut").mouseleave(function(e) {
-            preview_timer = setTimeout(hidePreview, 60);
-        });
-
         $('[data-toggle="tooltip"]').tooltip();
     }
 
     function hidePreview() {
         $("#preview_youtube").attr("class", "preview_hide");
         $("#preview_youtube figure iframe").attr("src", "");
-    }
-
-    function showPreview(element) {
-        element = $(element);
-        preview = $("#preview_youtube");
-        var e_top = element.offset().top;
-        var e_left = element.offset().left;
-        var e_height = element.height();
-        var e_width = element.width();
-        var p_height = preview.height();
-        var p_width = preview.width();
-        var w_width = $(window).width();
-        $("#preview_youtube").attr("class", "preview_show");
-        $("#preview_youtube").css("top", (e_top - (p_height - e_height) - 10) + "px");
-        $("#preview_youtube").css("left", (e_left + e_width) + "px");
-
-        if ((e_left + e_width + p_width) > w_width) {
-            $("#preview_youtube").css("left", (e_left - p_width) + "px");
-        }
-
-        if ($("#preview_youtube").offset().top < $(window).scrollTop()) {
-            $("#preview_youtube").css("top", $(window).scrollTop() + "px");
-        }
-
-        // var figure_element = $('<figure></figure>');
-        // var iframe_element = $('<iframe class="youtube_iframe" frameborder="0" allowfullscreen=""></iframe>');
-        var iframe_element = $("#preview_youtube figure iframe");
-        iframe_element.attr("src", "https://www.youtube.com/embed/" + element.attr("youtube_id") + "?feature=oembed&amp;enablejsapi=1&amp&autoplay=1&loop=0;controls=0;origin=https://safe.txmblr.com&amp;wmode=opaque&showinfo=0");
-        // figure_element.html(iframe_element);
-        // preview.html(figure_element);
     }
 
     function render_photo(post) {
@@ -1839,13 +1302,10 @@
         var article_content = $('<div class="article-content"></div>');
         var video_stage = $("<div class='video-stage'></div>");
         var video_container = $("<div class='video-container ready video' id='" + post.id + "'></div>");
-        // var iframe = render_iframe(post);
         var shortcut = $('<div class="video-shortcut"></div>')
         var shortcut_img = $('<img >');
         shortcut_img.attr("src", post.thumbnail_url);
         shortcut.append(shortcut_img);
-        // var shortcut = video_shortcut(post);
-        // video_container.append(shortcut);
         video_container.append(shortcut);
         video_stage.append(video_container);
         var caption = $('<div class="caption">' + post['caption'] + '</div>');
@@ -1919,45 +1379,6 @@
         var li_share = $('<li class="sharer"><a class="social-export"></a><div class="sharer-wrap"><ul><li class="facebook"><a href="http://www.facebook.com/sharer.php?u=' + post['post_url'] + '" title="Share on Facebook" class="social-facebook" target="_blank" ></a></li><li class="gplus"><a href="https://plus.google.com/share?url=' + post['post_url'] + '" title="Share on Google +" class ="social-gplus" target="_blank"></a></li><li class="pinterest" ><a href="https://pinterest.com/pin/create/button/?url=' + post['post_url'] + '&amp;media=http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" title="Share on Pinterest" class="social-pinterest" target="_blank"></a></li></ul></div></li>');
         ul.append(li_link).append(li_like).append(li_reblog).append(li_share);
         return ul;
-    }
-
-    function video_shortcut(post) {}
-
-    function render_iframe(post) {
-        var video_source = (post.player[0].embed_code);
-
-        // if (video_source.indexOf("youtube") > -1) {
-        //     video_source = post['video-source'];
-        //     var div_element = $('<div id="iframe_'+post.id+'" class="post_iframe">');
-        //     var start_index = video_source.lastIndexOf("/")+1;
-        //     var youtube_id = video_source.substring(start_index);
-        //     var img_element = $('<img class="labnolIframe" src="https://i.ytimg.com/vi/'+youtube_id+'/hqdefault.jpg">');
-        //     var click_element = $('<div class="play-button" onclick="labnolIframe_order(\'iframe_'+post.id+'\', \''+youtube_id+'\')"></div>');
-        //     div_element.append(img_element).append(click_element);
-        //     return div_element;
-        // }
-
-        var url = post.video_url;
-        var html = $('<iframe src="' + url + '" class="embed_iframe tumblr_video_iframe" scrolling="no" frameborder="0" data-can-gutter data-can-resize allowfullscreen mozallowfunscreen webkitallowfullscreen></iframe>')
-        return html;
-    }
-
-    function showLoading() {
-        $(".load-more-loading").css("display", "inline");
-        $(".load-more-end").css("display", "none");
-        $(".load-more-text").css("display", "none");
-    }
-
-    function showLoadEnd(argument) {
-        $(".load-more-loading").css("display", "none");
-        $(".load-more-end").css("display", "inline");
-        $(".load-more-text").css("display", "none");
-    }
-
-    function showLoadMore() {
-        $(".load-more-loading").css("display", "none");
-        $(".load-more-end").css("display", "none");
-        $(".load-more-text").css("display", "inline");
     }
 
     function fixMobile(){

@@ -95,7 +95,7 @@ inherits(Slideout, Emitter);
  */
 Slideout.prototype.open = function() {
   $(".tmblr-iframe--controls-phone-container").css("padding-top", "0px");
-  console.log("open");
+  console.log("Slideout open");
   var self = this;
   this.emit('beforeopen');
   if (html.className.search('slideout-open') === -1) { html.className += ' slideout-open'; }

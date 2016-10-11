@@ -436,12 +436,12 @@ function render_posts(number_post, posts) {
     //     showLoadMore();
     // }
 
-    $(".shortcut").mouseenter(function() {
-        clearTimeout(preview_timer);
-        if($("#preview_youtube figure iframe").attr("src") == ""){
-            showPreview(this);    
-        }
-    });
+    // $(".shortcut").mouseenter(function() {
+    //     clearTimeout(preview_timer);
+    //     if($("#preview_youtube figure iframe").attr("src") == ""){
+    //         showPreview(this);    
+    //     }
+    // });
 
     // $("#preview_youtube").mouseenter(function(e){
     //     clearTimeout(preview_timer);
