@@ -27,14 +27,16 @@
     <!-- fixie -->
     <!-- <script src="http://static.tumblr.com/e6lc7yi/ewpneh29l/fixie-plugins.js"></script>
     <script src="http://static.tumblr.com/e6lc7yi/y7Yo1ifc4/fixie-app.js"></script> -->
-    <!--bootstrap css-->
+    <!--bootstrap and drawer css-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <!-- bootstrap js -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/css/bootstrap-drawer.min.css">
+    <!-- bootstrap and drawer js -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/js/drawer.min.js"></script>
     <!-- jquery ui -->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <!-- slideout -->
-    <script type="text/javascript" src="http://static.tumblr.com/sirdwhf/gjcoe7maq/slideout.js"></script>
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> -->
+    <!-- jquery mobile -->
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
     <!-- Custom Options -->
     <!-- Custom Colors -->
@@ -414,6 +416,11 @@
         padding-top: 0px;
     }
 
+    /* fixed jquery mobile */
+    .ui-loader-default{
+        display: none;
+    }
+
     @media only screen and (min-width: 1800px) {
         .grid-sizer,
         .grid-item {
@@ -597,7 +604,7 @@
         }
 
         #navigation ul li a {
-            margin-left: 20%;
+            margin-left: 15%;
             color: #000;
             background-color: #fff;
         }
@@ -619,7 +626,7 @@
         #navigation .label-chinese {
             display: inline-block;
             letter-spacing: 1px;
-            width: 30%;
+            width: 40%;
         }
 
         #navigation .label-english {
@@ -664,41 +671,20 @@
             padding-top: 0px;
         }
 
-        /* slideout css*/
-        body {
-          width: 100%;
-          height: 100%;
+        /* fixed bootstrap drawer */
+        .drawer-controls{
+            height: auto;
         }
 
-        .slideout-menu {
-          position: fixed;
-          left: 0;
-          top: 0;
-          bottom: 0;
-          right: 0;
-          z-index: 0;
-          width: 83.33%;
-          overflow-y: auto;
-          -webkit-overflow-scrolling: touch;
-          display: none;
-          margin-top: 0px;
-          height: 100vh;
-          background-color: #fff;
-        }
-
-        .slideout-panel {
-          position: relative;
-          z-index: 1;
-        }
-
-        .slideout-open,
-        .slideout-open body,
-        .slideout-open .slideout-panel {
-          overflow: hidden;
-        }
-
-        .slideout-open .slideout-menu {
-          display: block;
+        .mask{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 10;
+            display: none;
         }
     }
     </style>
@@ -710,12 +696,12 @@
             <div class="centered">
                 <div id="shortcut">
                     <div class="avatar">
-                        <a href="/" title="Woolito Studio" class="avatar circle">
+                        <a href="/" title="Woolito Studio" class="avatar circle" rel="external">
                             <img src="http://67.media.tumblr.com/avatar_8aeb4c547c3b_128.png" alt="Woolito Studio" class="default">
                         </a>
                     </div>
                     <div class="logo">
-                        <h1><a href="/" title="Woolito Studio">Woolito Studio</a></h1>
+                        <h1><a href="/" rel="external" title="Woolito Studio">Woolito Studio</a></h1>
                     </div>
                     <p class="description">我們努力創作有趣的動畫與圖文並分享笑容</p>
                     <p class="description">希望能為彼此的生活點綴</p>
@@ -730,28 +716,28 @@
                 <div id="navigation">
                     <ul>
                         <li>
-                            <a href="/contact">
+                            <a href="/contact" rel="external">
                                 <div class="label-chinese">
                                     聯繫我們</div>
                                 <div class="label-english">Contact</div>
                             </a>
                         </li>
                         <li>
-                            <a href="/aboutus">
+                            <a href="/aboutus" rel="external">
                                 <span class="label-chinese">
                                     關於我們</span>
                                 <span class="label-english">About Woolito</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/service">
+                            <a href="/service" rel="external">
                                 <span class="label-chinese">
                                     商業服務</span>
                                 <span class="label-english">Service</span>
                             </a>
                         </li>
                         <li>
-                            <a href="/works">
+                            <a href="/works" rel="external">
                                 <span class="label-chinese">
                                     作品集</span>
                                 <span class="label-english">Works</span>
@@ -781,20 +767,20 @@
         <table class="top">
             <tr>
                 <td rowspan="3">
-                    <a href="works"><img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png"></a>
+                    <a href="works" rel="external"><img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png"></a>
                 </td>
                 <td>
-                    <a href="aboutus"><img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png"></a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="service"><img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png"></a>
+                    <a href="aboutus" rel="external"><img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png"></a>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <a href="contact"><img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png"></a>
+                    <a href="service" rel="external"><img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="contact" rel="external"><img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png"></a>
                 </td>
             </tr>
         </table>
@@ -804,17 +790,134 @@
     </section>
     {/block:IndexPage} 
 
-    <div id="menu" class="mobile">
+
+    <div class="mobile has-drawer">
+        <div id="drawerExample" class="drawer dw-xs-10 fold" aria-labelledby="drawerExample">
+            <div class="drawer-controls">
+            </div>
+            <div class="drawer-contents">
+                <div class="drawer-body">
+                    <div class="center">
+                        <div class="centered">
+                            <div id="shortcut">
+                                <div class="avatar">
+                                    <a href="/" title="Woolito Studio" class="avatar circle" rel="external">
+                                        <img src="http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" alt="Woolito Studio" class="default">
+                                    </a>
+                                </div>
+                                <div class="logo">
+                                    <h1><a href="/" rel="external" title="Woolito Studio">Woolito Studio</a></h1>
+                                </div>
+                                <p class="description">我們努力創作有趣的動畫與圖文並分享笑容</p>
+                                <p class="description">希望能為彼此的生活點綴</p>
+                                <p class="description">一些無厘頭的樂趣！</p>
+                            </div>
+                            <div id="navigation">
+                                <ul>
+                                    <li>
+                                        <a href="/contact-mobile" rel="external">
+                                            <div class="label-chinese">
+                                                聯繫我們
+                                            </div>
+                                            <div class="label-english">Contact</div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/aboutus-mobile" rel="external">
+                                            <span class="label-chinese">
+                                                關於我們</span>
+                                            <span class="label-english">About Woolito</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/service-mobile" rel="external">
+                                            <span class="label-chinese">
+                                                商業服務</span>
+                                            <span class="label-english">Service</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/works-mobile" rel="external">
+                                            <span class="label-chinese">
+                                                作品集</span>
+                                            <span class="label-english">Works</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://woolito.shoplineapp.com/" target="_blank">
+                                            <span class="label-chinese">
+                                                原創商品</span>
+                                            <span class="label-english">Shop</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://store.line.me/stickershop/author/72619" target="_blank">
+                                            <span class="label-chinese">
+                                                LINE 貼圖</span>
+                                            <span class="label-english">LINE Sticker</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="social_network">
+                                <a href="https://www.facebook.com/Woolito/" rel="external"><img src="http://static.tumblr.com/sirdwhf/fz1o96e68/facebook.png"></a>
+                                <a href="https://www.youtube.com/user/WoolitoFilm" rel="external"><img src="http://static.tumblr.com/sirdwhf/ZqHo96e6b/youtube.png"></a>
+                                <a href="https://page.line.me/woolito" rel="external"><img src="http://static.tumblr.com/sirdwhf/WG8o96e6e/line.png"></a>
+                                <a href="https://www.instagram.com/woolito_studio/" rel="external"><img src="http://static.tumblr.com/sirdwhf/Ls8o96e6n/instagram.png"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div id="header">
+                <div class="drawer_icon">
+                    <img src="http://static.tumblr.com/sirdwhf/6PVobwmdh/drawer.png">
+                </div>
+                <div class="title">Woolito Studio</div>
+                <div class="find-us">
+                    <a href="/contact-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/QPcobwmcg/find_us.png"></a>
+                </div>
+            </div>
+            {block:IndexPage}
+            <section class="the-posts index">
+                <div class="top">
+                    <div class="top-post">
+                        <a href="works-mobile" rel="external"><img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png"></a>
+                    </div>
+                    <div class="top-post">
+                        <a href="aboutus-mobile" rel="external"><img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png"></a>
+                    </div>
+                    <div class="top-post">
+                        <a href="service-mobile" rel="external"><img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png"></a>
+                    </div>
+                    <div class="top-post">
+                        <a href="contact-mobile" rel="external"><img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png"></a>
+                    </div>
+                </div>
+                <div class="grid">
+                    <div class="grid-sizer"></div>
+                </div>
+            </section>
+            {/block:IndexPage}
+        </div>
+
+        <div class="mask"></div>
+    </div>
+
+    <!-- <div id="menu" class="mobile">
         <div class="center">
             <div class="centered">
                 <div id="shortcut">
                     <div class="avatar">
-                        <a href="/" title="Woolito Studio" class="avatar circle">
+                        <a href="/" title="Woolito Studio" class="avatar circle" rel="external">
                             <img src="http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" alt="Woolito Studio" class="default">
                         </a>
                     </div>
                     <div class="logo">
-                        <h1><a href="/" title="Woolito Studio">Woolito Studio</a></h1>
+                        <h1><a href="/" rel="external" title="Woolito Studio">Woolito Studio</a></h1>
                     </div>
                     <p class="description">我們努力創作有趣的動畫與圖文並分享笑容</p>
                     <p class="description">希望能為彼此的生活點綴</p>
@@ -823,7 +926,7 @@
                 <div id="navigation">
                     <ul>
                         <li>
-                            <a href="contact-mobile">
+                            <a href="/contact-mobile" rel="external">
                                 <div class="label-chinese">
                                     聯繫我們
                                 </div>
@@ -831,21 +934,21 @@
                             </a>
                         </li>
                         <li>
-                            <a href="aboutus-mobile">
+                            <a href="/aboutus-mobile" rel="external">
                                 <span class="label-chinese">
                                     關於我們</span>
                                 <span class="label-english">About Woolito</span>
                             </a>
                         </li>
                         <li>
-                            <a href="service-mobile">
+                            <a href="/service-mobile" rel="external">
                                 <span class="label-chinese">
                                     商業服務</span>
                                 <span class="label-english">Service</span>
                             </a>
                         </li>
                         <li>
-                            <a href="works-mobile">
+                            <a href="/works-mobile" rel="external">
                                 <span class="label-chinese">
                                     作品集</span>
                                 <span class="label-english">Works</span>
@@ -868,39 +971,39 @@
                     </ul>
                 </div>
                 <div class="social_network">
-                    <img src="http://static.tumblr.com/sirdwhf/fz1o96e68/facebook.png">
-                    <img src="http://static.tumblr.com/sirdwhf/ZqHo96e6b/youtube.png">
-                    <img src="http://static.tumblr.com/sirdwhf/WG8o96e6e/line.png">
-                    <img src="http://static.tumblr.com/sirdwhf/Ls8o96e6n/instagram.png">
+                    <a href="https://www.facebook.com/Woolito/" rel="external"><img src="http://static.tumblr.com/sirdwhf/fz1o96e68/facebook.png"></a>
+                    <a href="https://www.youtube.com/user/WoolitoFilm" rel="external"><img src="http://static.tumblr.com/sirdwhf/ZqHo96e6b/youtube.png"></a>
+                    <a href="https://page.line.me/woolito" rel="external"><img src="http://static.tumblr.com/sirdwhf/WG8o96e6e/line.png"></a>
+                    <a href="https://www.instagram.com/woolito_studio/" rel="external"><img src="http://static.tumblr.com/sirdwhf/Ls8o96e6n/instagram.png"></a>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
-    <div id="panel" class="container mobile">
+    <!-- <div id="panel" class="container mobile">
         <div id="header">
             <div class="drawer_icon">
                 <img src="http://static.tumblr.com/sirdwhf/6PVobwmdh/drawer.png">
             </div>
             <div class="title">Woolito Studio</div>
             <div class="find-us">
-                <a href="/contact-mobile"><img src="http://static.tumblr.com/sirdwhf/QPcobwmcg/find_us.png"></a>
+                <a href="/contact-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/QPcobwmcg/find_us.png"></a>
             </div>
         </div>
         {block:IndexPage}
         <section class="the-posts index">
             <div class="top">
                 <div class="top-post">
-                    <a href="works"><img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png"></a>
+                    <a href="works-mobile" rel="external"><img src="http://static.tumblr.com/3hbpjha/b3Co7if6f/top-works.png"></a>
                 </div>
                 <div class="top-post">
-                    <a href="aboutus"><img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png"></a>
+                    <a href="aboutus-mobile" rel="external"><img src="http://static.tumblr.com/3hbpjha/D5Eo7if68/top-about.png"></a>
                 </div>
                 <div class="top-post">
-                    <a href="service"><img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png"></a>
+                    <a href="service-mobile" rel="external"><img src="http://static.tumblr.com/3hbpjha/Pxjo7if6c/top-service.png"></a>
                 </div>
                 <div class="top-post">
-                    <a href="contact"><img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png"></a>
+                    <a href="contact-mobile" rel="external"><img src="http://static.tumblr.com/3hbpjha/wlmo7if6a/top-contact.png"></a>
                 </div>
             </div>
             <div class="grid">
@@ -908,7 +1011,7 @@
             </div>
         </section>
         {/block:IndexPage}
-    </div>
+    </div> -->
 
     {block:PermalinkPage}
     <section class="the-posts single-post">
@@ -1049,19 +1152,6 @@
         </div>
         </footer>
 </body>
-<!-- slideout js start-->
-<script>
-    var width = $(window).width() * 0.8333;
-    var slideout = new Slideout({
-        'panel': document.getElementById('panel'),
-        'menu': document.getElementById('menu'),
-        'padding': width,
-        'tolerance': 70
-    });
-
-
-</script>
-<!-- slideout js end -->
 <script type="text/javascript">
     var posts = [];
     var current_posts_number = 0;
@@ -1090,15 +1180,34 @@
             }
         });
 
+        $(".drawer").on("show.bs.drawer", function(e){
+            $(".mask").css("display", "initial");
+            // console.log("show");
+        });
+
+        $(".drawer").on("hide.bs.drawer", function(e){
+            $(".mask").css("display", "none");
+            // console.log("hide");
+        });
+
+        $(".drawer_icon").on("click", function(){
+            $(".drawer").drawer("show");
+        });
+
+        $("body").on("swiperight", function(e){
+            $(".drawer").drawer("show");
+        });
+
+        $("body").on("swipeleft", function(e){
+            $(".drawer").drawer("hide");
+        });
+
+        $(".mask").on("click", function(e){
+            console.log("click");
+            $(".drawer").drawer("hide");
+        });
+
         query_all_posts();
-
-        document.querySelector('.drawer_icon').addEventListener('click', function() {
-          slideout.toggle();
-        });
-
-        document.querySelector('#menu').addEventListener('click', function(eve) {
-          if (eve.target.nodeName === 'A') { slideout.close(); }
-        });
     });
 
     function ismobile() {
