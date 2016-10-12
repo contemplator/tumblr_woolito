@@ -22,9 +22,10 @@ body {
     width: 100%;
     position: fixed;
     top: 0px;
-    z-index: 501;
+    z-index: 1;
     border-bottom: 1px solid #E6E6E6;
 }
+
 
 /*.drawer_icon {
     display: table-cell;
@@ -193,7 +194,7 @@ p.description {
 /* section */
 
 section {
-    margin-top: 0px;
+    margin-top: 40px;
     margin-bottom: 40px;
     float: none;
     width: 100%;
@@ -239,39 +240,30 @@ section {
     width: 100%;
 }
 
-/* slideout css*/
-body {
-  width: 100%;
-  height: 100%;
+
+/* fixed bootstrap drawer */
+
+.drawer-controls {
+    height: auto;
 }
 
-.slideout-menu {
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 0;
-  width: 83.33%;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  display: none;
-  margin-top: 0px;
-  height: 100vh;
-  background-color: #fff;
+.drawer-contents{
+    background-color: #fff;
 }
 
-.slideout-panel {
-  position: relative;
-  z-index: 1;
+/* fixed jquery mobile */
+
+.ui-loader-default {
+    display: none;
 }
 
-.slideout-open,
-.slideout-open body,
-.slideout-open .slideout-panel {
-  overflow: hidden;
-}
-
-.slideout-open .slideout-menu {
-  display: block;
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+    display: none;
 }

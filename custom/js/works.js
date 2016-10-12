@@ -6,22 +6,6 @@ var selected_tag;
 var preview_timer;
 
 $(function() {
-    console.log("width: " + $(window).width());
-    console.log("user agent: " + navigator.userAgent);
-    if (ismobile()) {
-        location.href = "works-mobile";
-    } else {
-        if (ismobile_size()) {
-            location.href = "works-mobile";
-        }
-    }
-
-    $(window).resize(function() {
-        if (ismobile_size()) {
-            location.href = "works-mobile";
-        }
-    });
-
     $('#selector').toggle('blind', function() {
         $(".arrow_down").css("transform", "rotate(0deg)");
     });
@@ -37,20 +21,10 @@ $(function() {
         nextPost($(this).attr('data-post-id'));
     });
 
-    // $("#effect").mouseenter(function(){
-    //     $("#effect").css("background", "#29c2af");
-    //     $("#effect_table span").css("color", "#000");
-    //     $(".tip-open").css("color", "#FFF");
-    // });
-
     $(".effect_field").click(function() {
         runEffect();
         $(".tip-open").css("visibility", "hidden");
     });
-
-    // $("#effect").mouseleave(function() {
-    //     runEffect(false);
-    // });
 
     $(window).bind('scroll resize', function() {
         var $this = $(this);
@@ -64,35 +38,6 @@ $(function() {
         }
     });
 });
-
-function iframeChange() {
-    console.log("iframeChange");
-    $("#preview_youtube").attr("class", "preview_hide");
-    $("#preview_youtube figure iframe").attr("src", "");
-}
-
-function ismobile() {
-    if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-function ismobile_size() {
-    var width = $(window).width();
-    var href = location.href;
-    var index = href.lastIndexOf("/") + 1;
-    href = href.substring(index);
-    // console.log(width + ", " + href);
-    if (width <= 768) {
-        return true;
-        // location.href = "works-mobile.html";
-    } else {
-        return false;
-        // location.href = "works.html";
-    }
-}
 
 function prePost(id) {
     var post = query_post(id);

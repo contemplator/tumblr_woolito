@@ -13,21 +13,28 @@
     <meta property="og:type" content="blog">
     <meta property="og:description" content="我們努力創作並分享笑容，希望能為彼此的生活點綴一些無厘頭的樂趣！">
     <meta property="og:image" content="http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png">
+    <!-- detect mobile agent or size -->
+    <script src="http://static.tumblr.com/sirdwhf/5Byoexvk9/detect-mobile.js"></script>
     <!-- jquery ui -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/z3pnekdqv/precrafted-social.css">
     <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/g6Fnsuud3/fixie-styles.css">
     <!--bootstrap css-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/css/bootstrap-drawer.min.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-    <!-- jquery -->
+    <!-- jquery js-->
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <!-- bootstrap and drawer js -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/js/drawer.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
     <script src="http://static.tumblr.com/sirdwhf/VFqo9dynz/youtube.js"></script>
-    <!-- slideout -->
-    <script type="text/javascript" src="http://static.tumblr.com/sirdwhf/gjcoe7maq/slideout.js"></script>
+    <!-- jquery mobile -->
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- drawer listener -->
+    <script src="http://static.tumblr.com/sirdwhf/GM8oexwk5/woolito-slider.js"></script>
     <!-- custom -->
     <link rel="stylesheet" type="text/css" href="css/mobile.css">
     <link rel="stylesheet" type="text/css" href="css/works-mobile.css">
@@ -37,158 +44,151 @@
 </style>
 
 <body>
-    <div id="menu" class="mobile">
-        <div class="center">
-            <div class="centered">
-                <div id="shortcut">
-                    <div class="avatar">
-                        <a href="/" title="Woolito Studio" class="avatar circle">
-                            <img src="http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" alt="Woolito Studio" class="default">
-                        </a>
+
+    <div class="mobile has-drawer">
+        <div id="drawerExample" class="drawer dw-xs-10 fold" aria-labelledby="drawerExample">
+            <div class="drawer-contents">
+                <div class="drawer-body">
+                    <div class="center">
+                        <div class="centered">
+                            <div id="shortcut">
+                                <div class="avatar">
+                                    <a href="/" title="Woolito Studio" class="avatar circle" rel="external">
+                                        <img src="http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" alt="Woolito Studio" class="default">
+                                    </a>
+                                </div>
+                                <div class="logo">
+                                    <h1><a href="/" rel="external" title="Woolito Studio">Woolito Studio</a></h1>
+                                </div>
+                                <p class="description">我們努力創作有趣的動畫與圖文並分享笑容</p>
+                                <p class="description">希望能為彼此的生活點綴</p>
+                                <p class="description">一些無厘頭的樂趣！</p>
+                            </div>
+                            <div id="navigation">
+                                <ul>
+                                    <li>
+                                        <a href="/contact-mobile" rel="external">
+                                            <div class="label-chinese">
+                                                聯繫我們
+                                            </div>
+                                            <div class="label-english">Contact</div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/aboutus-mobile" rel="external">
+                                            <span class="label-chinese">
+                                                關於我們</span>
+                                            <span class="label-english">About Woolito</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/service-mobile" rel="external">
+                                            <span class="label-chinese">
+                                                商業服務</span>
+                                            <span class="label-english">Service</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/works-mobile" rel="external">
+                                            <span class="label-chinese">
+                                                作品集</span>
+                                            <span class="label-english">Works</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://woolito.shoplineapp.com/" target="_blank">
+                                            <span class="label-chinese">
+                                                原創商品</span>
+                                            <span class="label-english">Shop</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://store.line.me/stickershop/author/72619" target="_blank">
+                                            <span class="label-chinese">
+                                                LINE 貼圖</span>
+                                            <span class="label-english">LINE Sticker</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="social_network">
+                                <a href="https://www.facebook.com/Woolito/" target="_blank" rel="external"><img src="http://static.tumblr.com/sirdwhf/fz1o96e68/facebook.png"></a>
+                                <a href="https://www.youtube.com/user/WoolitoFilm" target="_blank" rel="external"><img src="http://static.tumblr.com/sirdwhf/ZqHo96e6b/youtube.png"></a>
+                                <a href="https://page.line.me/woolito" target="_blank" rel="external"><img src="http://static.tumblr.com/sirdwhf/WG8o96e6e/line.png"></a>
+                                <a href="https://www.instagram.com/woolito_studio/" target="_blank" rel="external"><img src="http://static.tumblr.com/sirdwhf/Ls8o96e6n/instagram.png"></a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="logo">
-                        <h1><a href="/" title="Woolito Studio">Woolito Studio</a></h1>
-                    </div>
-                    <p class="description">我們努力創作有趣的動畫與圖文並分享笑容</p>
-                    <p class="description">希望能為彼此的生活點綴</p>
-                    <p class="description">一些無厘頭的樂趣！</p>
-                </div>
-                <div id="navigation">
-                    <ul>
-                        <li>
-                            <a href="contact-mobile">
-                                <div class="label-chinese">
-                                    聯繫我們</div>
-                                <div class="label-english">Contact</div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="aboutus-mobile">
-                                <span class="label-chinese">
-                                    關於我們</span>
-                                <span class="label-english">About Woolito</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="service-mobile">
-                                <span class="label-chinese">
-                                    商業服務</span>
-                                <span class="label-english">Service</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="works-mobile">
-                                <span class="label-chinese">
-                                    作品集</span>
-                                <span class="label-english">Works</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="http://woolito.shoplineapp.com/" target="_blank">
-                                <span class="label-chinese">
-                                    原創商品</span>
-                                <span class="label-english">Shop</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://store.line.me/stickershop/author/72619" target="_blank">
-                                <span class="label-chinese">
-                                    LINE 貼圖</span>
-                                <span class="label-english">LINE Sticker</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="social_network">
-                    <img src="http://static.tumblr.com/sirdwhf/fz1o96e68/facebook.png">
-                    <img src="http://static.tumblr.com/sirdwhf/ZqHo96e6b/youtube.png">
-                    <img src="http://static.tumblr.com/sirdwhf/WG8o96e6e/line.png">
-                    <img src="http://static.tumblr.com/sirdwhf/Ls8o96e6n/instagram.png">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="panel" class="container">
-        <div id="header">
-            <div class="drawer_icon">
-                <img src="http://static.tumblr.com/sirdwhf/6PVobwmdh/drawer.png">
-            </div>
-            <div class="title">Woolito Studio</div>
-            <div class="find-us">
-                <img src="http://static.tumblr.com/sirdwhf/QPcobwmcg/find_us.png">
-            </div>
-        </div>
-        <section class="top-posts index">
-            <div class="grid">
-                <div class="grid-sizer"></div>
-            </div>
-        </section>
-    </div>
-    <div id="select-section">
-        <div id="selector">
-            <div class="arrow">
-                <img src="http://static.tumblr.com/sirdwhf/QrDobwm8g/arrow.png">
-            </div>
-            <div class="select-content">
-                <div class="select-works">
-                    <span>作品篩選 Filter</span>
-                    <!-- <div class="selected" onclick="disable_radio(this)"><div class="selected-chinese">動態漫畫</div><div class="selected-english">Moving Comicsadfsadfs</div><img src="http://static.tumblr.com/sirdwhf/yRso8llbo/radio_checkd.png"></div> -->
-                    <span>&nbsp/&nbsp&nbsp點此展開選單</span>
-                    <!-- <span>&nbsp/&nbsp</span> -->
-                </div>
-                <div class="select-number">
-                    <span>共計</span>
-                    <span id="total_post">168</span>
-                    <span>&nbsp部作品</span>
                 </div>
             </div>
         </div>
-        <div id="divider">
-            <div class="divider"></div>
-            <div class="divider"></div>
-            <div class="divider"></div>
+
+        <div class="container">
+            <div id="header">
+                <div class="drawer_icon">
+                    <img src="http://static.tumblr.com/sirdwhf/6PVobwmdh/drawer.png">
+                </div>
+                <div class="title">Woolito Studio</div>
+                <div class="find-us">
+                    <img src="http://static.tumblr.com/sirdwhf/QPcobwmcg/find_us.png">
+                </div>
+            </div>
+            <section class="top-posts index">
+                <div class="grid">
+                    <div class="grid-sizer"></div>
+                </div>
+            </section>
+
+            <div id="select-section">
+                <div id="selector">
+                    <div class="arrow">
+                        <img src="http://static.tumblr.com/sirdwhf/QrDobwm8g/arrow.png">
+                    </div>
+                    <div class="select-content">
+                        <div class="select-works">
+                            <span>作品篩選 Filter</span>
+                            <!-- <div class="selected" onclick="disable_radio(this)"><div class="selected-chinese">動態漫畫</div><div class="selected-english">Moving Comicsadfsadfs</div><img src="http://static.tumblr.com/sirdwhf/yRso8llbo/radio_checkd.png"></div> -->
+                            <span>&nbsp/&nbsp&nbsp點此展開選單</span>
+                            <!-- <span>&nbsp/&nbsp</span> -->
+                        </div>
+                        <div class="select-number">
+                            <span>共計</span>
+                            <span id="total_post">168</span>
+                            <span>&nbsp部作品</span>
+                        </div>
+                    </div>
+                </div>
+                <div id="divider">
+                    <div class="divider"></div>
+                    <div class="divider"></div>
+                    <div class="divider"></div>
+                </div>
+                <table id="selector-table" RULES="cols">
+                    <tr class="category">
+                        <td select-category="Purpose">
+                            <div class="title">
+                                <div class="chinese">動畫用途</div>
+                                <div class="english">Purpose</div>
+                            </div>
+                        </td>
+                        <td select-category="Style">
+                            <div class="title">
+                                <div class="chinese">動畫類型</div>
+                                <div class="english">Style</div>
+                            </div>
+                        </td>
+                        <td select-category="Original">
+                            <div class="title">
+                                <div class="chinese">原創內容</div>
+                                <div class="english">Original</div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <table id="selector-table" RULES="cols">
-            <tr class="category">
-                <td select-category="Purpose">
-                    <div class="title">
-                        <div class="chinese">動畫用途</div>
-                        <div class="english">Purpose</div>
-                    </div>
-                </td>
-                <td select-category="Style">
-                    <div class="title">
-                        <div class="chinese">動畫類型</div>
-                        <div class="english">Style</div>
-                    </div>
-                </td>
-                <td select-category="Original">
-                    <div class="title">
-                        <div class="chinese">原創內容</div>
-                        <div class="english">Original</div>
-                    </div>
-                </td>
-            </tr>
-        </table>
+
+        <div class="mask"></div>
     </div>
 </body>
-<!-- slideout -->
-<script type="text/javascript">
-var width = $(window).width() * 0.8333;
-var slideout = new Slideout({
-    'panel': document.getElementById('panel'),
-    'menu': document.getElementById('menu'),
-    'padding': width,
-    'tolerance': 70
-});
-$(function(){
-    document.querySelector('.drawer_icon').addEventListener('click', function() {
-        slideout.toggle();
-    });
-
-    document.querySelector('#menu').addEventListener('click', function(eve) {
-        if (eve.target.nodeName === 'A') { slideout.close(); }
-    });
-})
-</script>
 </html>

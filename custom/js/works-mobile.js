@@ -2,12 +2,6 @@ var posts = [];
 var current_posts_number = 6;
 var standard_height = 0;
 $(function() {
-    console.log("width: " + $(window).width());
-    console.log("user agent: " + navigator.userAgent);
-
-    if (!ismobile_browser()) {
-        location.href = "works";
-    }
 
     initSelector();
     $("#selector").click(runEffect);
@@ -21,32 +15,6 @@ $(function() {
     });
     query_all_posts();
 });
-
-function ismobile_browser() {
-    var href = location.href;
-    if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-function ismobile_size() {
-    var width = $(window).width();
-    var href = location.href;
-    var index = href.lastIndexOf("/") + 1;
-    href = href.substring(index);
-    // console.log(width + ", " + href);
-    if (width <= 768) {
-        return true;
-        // location.href = "works-mobile.html";
-    } else {
-        return false;
-        // location.href = "works.html";
-    }
-}
-
-function readmore() {}
 
 function initSelector() {
     $.ajax({
@@ -184,7 +152,6 @@ function query_all_posts() {
 function query_posts(tag) {
     var selected_posts = [];
     var tags = [];
-    console.log(tag);
 
     for (var i = 0; i < posts.length; i++) {
         if (tag == "") {
@@ -209,7 +176,7 @@ function query_posts(tag) {
         $("#total_post").text("0");
     } else {
         $("#total_post").text(selected_posts.length);
-        console.log(selected_posts);
+        // console.log(selected_posts);
     }
 
     render_posts(selected_posts);
@@ -351,32 +318,4 @@ function render_icon(post) {
     var li_share = $('<li class="sharer"><a class="social-export"></a><div class="sharer-wrap"><ul><li class="facebook"><a href="http://www.facebook.com/sharer.php?u=' + post.post_url + '" title="Share on Facebook" class="social-facebook" target="_blank" ></a></li><li class="gplus"><a href="https://plus.google.com/share?url=' + post.post_url + '" title="Share on Google +" class ="social-gplus" target="_blank"></a></li><li class="pinterest" ><a href="https://pinterest.com/pin/create/button/?url=' + post.post_url + '&amp;media=http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" title="Share on Pinterest" class="social-pinterest" target="_blank"></a></li></ul></div></li>');
     ul.append(li_link).append(li_like).append(li_reblog).append(li_share);
     return ul;
-}
-
-function video_shortcut(post) {
-    // <img class="labnolIframe" src="https://i.ytimg.com/vi/S2kSogoVzu4/hqdefault.jpg">
-
-    // <div id="hospital_m" class="hospital">
-
-    //     <div id="youtube_S2kSogoVzu4" class="play-button" onclick="labnolIframe_order('hospital_m', 'S2kSogoVzu4')"></div>
-    // </div>
-}
-
-function render_iframe(post) {
-    var video_source = (post['video-player-250']);
-
-    if (video_source.indexOf("youtube") > -1) {
-        video_source = post['video-source'];
-        var div_element = $('<div id="iframe_' + post.id + '" class="post_iframe">');
-        var start_index = video_source.lastIndexOf("/") + 1;
-        var youtube_id = video_source.substring(start_index);
-        var img_element = $('<img class="labnolIframe" src="https://i.ytimg.com/vi/' + youtube_id + '/hqdefault.jpg">');
-        var click_element = $('<div class="play-button" onclick="labnolIframe_order(\'iframe_' + post.id + '\', \'' + youtube_id + '\')"></div>');
-        div_element.append(img_element).append(click_element);
-        return div_element;
-    }
-
-    var url = 'https://www.tumblr.com/video/woolito/' + post.id + '/700/'
-    var html = $('<iframe src="' + url + '" class="embed_iframe tumblr_video_iframe" scrolling="no" frameborder="0" data-can-gutter data-can-resize allowfullscreen mozallowfunscreen webkitallowfullscreen></iframe>');
-    return html;
 }
