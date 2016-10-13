@@ -1,10 +1,4 @@
 $(function() {
-    console.log("width: " + $(window).width());
-    console.log("user agent: " + navigator.userAgent);
-    if (!ismobile()) {
-        location.href = "contact";
-    }
-
     $.getScript("https://cdn.firebase.com/js/client/2.4.2/firebase.js", function() {
         var config = {
             apiKey: "AIzaSyD_aUK5etSpwD2Dp3jq0uFjypQxXKY5TUY",
@@ -56,14 +50,6 @@ $(function() {
     });
 
 });
-
-function ismobile() {
-    if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
-        return true;
-    } else {
-        return false;
-    }
-}
 
 function verifyInput() {
     $(".content label.error").css("display", "none");
@@ -162,12 +148,12 @@ function sendData(data) {
 }
 
 function showLoading(){
-    $("#mask").css("display", "inherit");
+    $(".mask").css("display", "inherit");
     $("#loading").css("display", "inherit");
 }
 
 function hideLoading(){
-    $("#mask").css("display", "none");
+    $(".mask").css("display", "none");
     $("#loading").css("display", "none");
 }
 
@@ -176,13 +162,13 @@ function hideAlert(){
 }
 
 function showError(){
-    $("#mask").css("display", "inherit");
+    $(".mask").css("display", "inherit");
     $("#alert-danger").css("display", "block");
     $("#alert-danger").addClass("in");
 }
 
 function showSuccess(){
-    $("#mask").css("display", "inherit");
+    $(".mask").css("display", "inherit");
     $("#alert-success").css("display", "block");
     $("#alert-success").addClass("in");
 }

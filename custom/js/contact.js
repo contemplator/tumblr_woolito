@@ -323,19 +323,19 @@ function sendData(data) {
         // error: showError(),
         // success: showSuccess()
     }).done(function(response){
-        console.log(response);
+        // console.log(response);
         hideLoading();
         showSuccess();
     });
 }
 
 function showLoading(){
-    $("#mask").css("display", "inherit");
+    $(".mask").css("display", "inherit");
     $("#loading").css("display", "inherit");
 }
 
 function hideLoading(){
-    $("#mask").css("display", "none");
+    $(".mask").css("display", "none");
     $("#loading").css("display", "none");
 }
 
@@ -344,13 +344,13 @@ function hideAlert(){
 }
 
 function showError(){
-    $("#mask").css("display", "inherit");
+    $(".mask").css("display", "inherit");
     $("#alert-danger").css("display", "block");
     $("#alert-danger").addClass("in");
 }
 
 function showSuccess(){
-    $("#mask").css("display", "inherit");
+    $(".mask").css("display", "inherit");
     $("#alert-success").css("display", "block");
     $("#alert-success").addClass("in");
 }

@@ -69,8 +69,7 @@ section {
 
 .content {
     width: 100%;
-    margin: 0px auto;
-    margin-top: 0px;
+    margin: 40px auto 0px auto;
     color: #fff;
 }
 
@@ -107,6 +106,11 @@ img.tip {
     padding: 5px;
     margin-bottom: 30px;
 }
+/* idea */
+.idea .input-field textarea{
+    height: auto !important;
+}
+
 /* contact */
 .idea .input-field{
 	background-image: url('http://static.tumblr.com/sirdwhf/SB8oc40du/contact_gg.png');
@@ -179,6 +183,7 @@ div.btn-sender{
 }
 .btn-sender #btn-sender label.english{
 	font-size: 120%;
+    font-weight: 500;
 }
 /* footer */
 .footer{
@@ -194,23 +199,16 @@ div.btn-sender{
 	font-weight: 600;
 }
 /* loading */
-#mask{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 500;
-    display: none;
-    top: 0px;
-}
 
 #loading{
-    position: relative;
-    top: 50%;
+    position: fixed;
+    top: 20%;
     font-size: 300%;
     color: #fff;
+    width: 100%;
     text-align: center;
-    z-index: 501;
+    z-index: 3;
+    display: none;
 }
 
 .glyphicon-refresh-animate {
@@ -223,14 +221,13 @@ div.btn-sender{
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
-/* alert */
 #alert-success, #alert-danger{
     position: fixed;
     width: 100%;
     top: 20%;
     text-align: center;
+    z-index: 3;
     display: none;
-    z-index: 502;
 }
 
 .alert{
@@ -242,3 +239,9 @@ div.btn-sender{
     cursor: pointer;
     margin-left: 20px;
 }
+
+/* temporarilly for jquery mobile */
+#select-11-button span{
+    display: none;
+}
+
