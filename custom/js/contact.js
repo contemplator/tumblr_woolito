@@ -2,23 +2,7 @@ var range_field_left_map = {};
 var range_field_right_map = {};
 
 $(function(){
-	console.log("width: " + $(window).width());
-    console.log("user agent: " + navigator.userAgent);
-	if (ismobile()) {
-        location.href = "contact-mobile";
-    } else {
-        if (ismobile_size()) {
-            location.href = "contact-mobile";
-        }
-    }
-
-    $(window).resize(function() {
-        if (ismobile_size()) {
-            location.href = "contact-mobile";
-        }
-    });
-
-    $.getScript("https://cdn.firebase.com/js/client/2.4.2/firebase.js", function() {
+	$.getScript("https://cdn.firebase.com/js/client/2.4.2/firebase.js", function() {
         var config = {
             apiKey: "AIzaSyD_aUK5etSpwD2Dp3jq0uFjypQxXKY5TUY",
             authDomain: "woolito-tumblr.firebaseapp.com",
@@ -38,13 +22,15 @@ $(function(){
     $("#left-selector").draggable({ 
         axis: "x" ,
         containment: "parent",
-        scroll: false
+        scroll: false,
+        stop: fixLeftSelector
     });
 
     $("#right-selector").draggable({ 
         axis: "x" ,
         containment: "parent",
-        scroll: false
+        scroll: false,
+        stop: fixRightSelector
     });
 
     $(".idea .input-field textarea").focusout(function(){
@@ -150,13 +136,16 @@ function initRange(){
     }
     $(".dragfield .tip").css("display", "initial");
 
-    $("#left-selector").onPositionChanged(function(){
-        fixLeftSelector();
-    });
+    // $("#right-selector").onPositionChanged(function(){
+    //     $(".dragfield .tip").css("display", "none");
+    //     console.log(this);
+    //     $(this).remove();
+    //     // fixRightSelector();
+    // });
 
-    $("#right-selector").onPositionChanged(function(){
+    $("#right-selector").one("mouseup", function(e){
+        console.log(e);
         $(".dragfield .tip").css("display", "none");
-        fixRightSelector();
     });
 }
 
