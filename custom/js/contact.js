@@ -21,16 +21,20 @@ $(function(){
 
     $("#left-selector").draggable({ 
         axis: "x" ,
-        containment: "parent",
+        containment: $(".type .input-field"),
         scroll: false,
         stop: fixLeftSelector
     });
 
     $("#right-selector").draggable({ 
         axis: "x" ,
-        containment: "parent",
+        containment: $(".type .input-field"),
         scroll: false,
         stop: fixRightSelector
+    });
+
+    $("#right-selector").one("drag", function(event, ui){
+        $(".dragfield .tip").css("display", "none");
     });
 
     $(".idea .input-field textarea").focusout(function(){
@@ -134,7 +138,7 @@ function initRange(){
         range_field_left_map[parseInt(range_field_left_left)] = values[i];
         range_field_right_map[parseInt(range_field_right_left)] = values[i];
     }
-    $(".dragfield .tip").css("display", "initial");
+    // $(".dragfield .tip").css("display", "initial");
 
     // $("#right-selector").onPositionChanged(function(){
     //     $(".dragfield .tip").css("display", "none");
@@ -142,11 +146,6 @@ function initRange(){
     //     $(this).remove();
     //     // fixRightSelector();
     // });
-
-    $("#right-selector").one("mouseup", function(e){
-        console.log(e);
-        $(".dragfield .tip").css("display", "none");
-    });
 }
 
 function fixLeftSelector(){
@@ -190,7 +189,11 @@ function fixRightSelector(){
         var keys_right = Object.keys(range_field_right_map);
         var index = keys_left.indexOf(left+"");
         right = parseInt(keys_right[index+1]);
+        if(!right){
+            right = parseInt(keys_right[0]);
+        }
     }
+
     var keys = Object.keys(range_field_right_map);
     var abses = [];
     for(i=0;i<keys.length;i++){
