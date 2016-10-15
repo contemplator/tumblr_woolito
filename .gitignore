@@ -1,0 +1,19 @@
+.DS_Store
+
+\#37056.html
+
+*.xmind
+
+custom/resources/
+custom/resources/*
+
+fixie/
+fixie/*
+
+init_theme.html
+
+receive resource/
+receive resource/*
+
+resources/
+resources/*
