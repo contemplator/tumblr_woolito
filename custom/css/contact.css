@@ -58,7 +58,7 @@ section {
     color: #fff;
 }
 
-.content label {
+.content label:not(.error){
     display: inline-block;
     letter-spacing: 2px;
     font-size: 100%;
@@ -108,6 +108,11 @@ img.tip {
 .type {
     position: relative;
     z-index: 2;
+}
+
+.type .input-field input[type='radio']{
+    visibility: hidden;
+    position: absolute;
 }
 
 .type .input-field label {
@@ -241,7 +246,17 @@ img.tip {
 
 .error {
     margin-left: 5px;
-    visibility: hidden;
+    display: none;
+}
+
+img.error{
+    /*display: inline;*/
+    display: none;
+    vertical-align: sub;
+}
+label.error{
+    vertical-align: baseline;
+    color: #ea4e4d;
 }
 
 .error img {

@@ -220,7 +220,7 @@ function showBudgeRange(){
 
 function verifyInput() {
     $(".input-field").css("border", "3px solid #fff");
-    $(".content .error").css("visibility", "hidden");
+    $(".content .error").css("display", "none");
     var error = [];
     var idea = $("#input-idea").val();
     if (idea == "" || idea == "任何我們能幫助您的需求都歡迎寫下來") {
@@ -228,6 +228,9 @@ function verifyInput() {
     }
 
     var type = $("input[name='input-type']:checked").val();
+    if(type == undefined){
+        type = null;
+    }
     // if (!type) {
     //     error.push("type");
     // }
@@ -246,7 +249,8 @@ function verifyInput() {
         switch (error[i]) {
             case "idea":
                 $(".idea .input-field").css("border", "3px solid #ea4e4d");
-                $(".idea .error").css("visibility", "initial");
+                $(".idea img.error").css("display", "inline");
+                $(".idea label.error").css("display", "inline-block");
                 break;
             // case "type":
             //     $(".type .input-field").css("border", "3px solid #ea4e4d");
@@ -254,11 +258,13 @@ function verifyInput() {
             //     break;
             case "name":
                 $(".name .input-field").css("border", "3px solid #ea4e4d");
-                $(".name .error").css("visibility", "initial");
+                $(".name img.error").css("display", "inline");
+                $(".name label.error").css("display", "inline-block");
                 break;
             case "email":
                 $(".email .input-field").css("border", "3px solid #ea4e4d");
-                $(".email .error").css("visibility", "initial");
+                $(".email img.error").css("display", "inline");
+                $(".email label.error").css("display", "inline-block");
                 break;
             default:
                 break;
