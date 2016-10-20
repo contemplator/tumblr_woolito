@@ -365,11 +365,6 @@ function render_posts(number_post, posts) {
 
     setTimeout(function() {
         $(".grid").masonry();
-        // $(".photo-wrap").click(function(event) {
-        //     event.preventDefault();
-        //     var id = $(this).parent().parent().attr("id");
-        //     showModal(id);
-        // });
         hideLoading();
         if(posts.length == 0){
             showAlert();
@@ -378,6 +373,25 @@ function render_posts(number_post, posts) {
 
     $(".grid").imagesLoaded().progress(function() {
         $(".grid").masonry('reloadItems');
+    });
+
+    $(".photo-wrap").click(function(event) {
+        event.preventDefault();
+        var id = $(this).parent().parent().attr("id");
+        showImagePreview(id);
+    });
+
+    $(".middle-table").on("click", function(){
+        hideImagePreview();
+    });
+
+    // avoid image preview disappear
+    $(".table-field img, .arrow-left, .arrow-right").on("click", function(event){
+        event.stopPropagation();
+    });
+
+    $(".preview-close").on("click", function(){
+        hideImagePreview();
     });
 
     // if (current_posts_number == posts.length) {
@@ -401,12 +415,42 @@ function render_posts(number_post, posts) {
     //     preview_timer = setTimeout(hidePreview, 60);
     // });
 
-    $(".shortcut").mouseleave(function(e) {
-        hidePreview();
-        // preview_timer = setTimeout(hidePreview, 60);
-    });
+    // $(".shortcut").mouseleave(function(e) {
+    //     hidePreview();
+    //     // preview_timer = setTimeout(hidePreview, 60);
+    // });
 
     $('[data-toggle="tooltip"]').tooltip();
+}
+
+function showImagePreview(id){
+    var $preview = $("#image-preview");
+    var key = "zcBf3tONWu9lQTSzrewHYU3WRdgbv1VtPGHXXMaZlZgN6Sz0lc";
+    $.ajax({
+        url: "http://api.tumblr.com/v2/blog/woolito.tumblr.com/posts",
+        type: "GET",
+        dataType: 'jsonp',
+        data: {
+            api_key: key,
+            id: id
+        }
+    }).done(function(response){
+        var post = response.response.posts[0];
+        var photos = post.photos;
+        $preview.find("img").attr("src", photos[0].original_size.url);
+    });
+
+    $preview.css("display", "block");
+    $preview.animate({opacity:  1}, 200);
+}
+
+function hideImagePreview(){
+    var $preview = $("#image-preview");
+    $preview.animate({opacity: 0}, 200);
+    setTimeout(function(){
+        $preview.css("display", "none");
+    }, 500);
+    $preview.find("img").attr("src", "");
 }
 
 function hidePreview(){

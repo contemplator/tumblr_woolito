@@ -37,6 +37,12 @@
     border: 2px solid #333;
     cursor: pointer;
 }
+
+#selector td .choice:hover{
+    background-color: #333;
+    color: #eee;
+}
+
 #selector td .choice .choice-ch{
     letter-spacing: 1px;
     white-space: nowrap;
@@ -297,4 +303,50 @@ div.play-button {
 
 #alert-noposts .alert-dismissible{
     padding-right: 0px;
+}
+
+/* image preview */
+#image-preview{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    right: 0;
+    margin: 0px auto;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    z-index: 3;
+    display: none;
+}
+
+.arrow-left , .arrow-right, .preview-close{
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin: 0px 20px;
+}
+
+.arrow-left , .arrow-right, .preview-close:hover{
+}
+
+.middle-table{
+    display: table;
+    vertical-align: middle;
+    width: 100%;
+    height: 100vh;
+}
+
+.table-field{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.preview-close{
+    display: table-row;
+}
+
+#image-preview img, .arrow-left , .arrow-right{
+    max-height: 80vh;
+    max-width: 60%;
 }
