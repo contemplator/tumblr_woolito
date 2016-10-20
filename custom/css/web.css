@@ -175,6 +175,28 @@ u{
     z-index: 2;
     display: none;
 }
+
+#loading{
+    position: fixed;
+    top: 30%;
+    font-size: 300%;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    z-index: 3;
+    display: none;
+}
+
+.glyphicon-refresh-animate {
+    -webkit-animation:spin 1s linear infinite;
+    -moz-animation:spin 1s linear infinite;
+    animation:spin 1s linear infinite;
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
 @media only screen and (min-width: 768px) {
     .grid-sizer,
     .grid-item {

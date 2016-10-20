@@ -6,6 +6,7 @@ var selected_tag;
 var preview_timer;
 
 $(function() {
+    showLoading();
     $('#selector').toggle('blind', function() {
         $(".arrow_down").css("transform", "rotate(0deg)");
     });
@@ -201,7 +202,6 @@ function enable_radio(element) {
 
 function disable_radio(event, tag) {
     event.stopPropagation();
-    console.log("stopPropagation");
     $("#chosen").html("所有作品");
     var choice = $(".choice[data-tag='" + tag + "']");
     choice.attr("class", "choice unselected_choice");
@@ -296,6 +296,8 @@ function query_all_posts() {
 }
 
 function query_posts(tag) {
+    // show loading
+    showLoading();
 
     var tags = [];
     selected_posts = [];
@@ -320,7 +322,7 @@ function query_posts(tag) {
         }
     }
 
-    if (!posts) {
+    if (selected_posts.length == 0) {
         $("#total_post").text("0");
     } else {
         $("#total_post").text(selected_posts.length);
@@ -363,11 +365,15 @@ function render_posts(number_post, posts) {
 
     setTimeout(function() {
         $(".grid").masonry();
-        $(".photo-wrap").click(function(event) {
-            event.preventDefault();
-            var id = $(this).parent().parent().attr("id");
-            showModal(id);
-        });
+        // $(".photo-wrap").click(function(event) {
+        //     event.preventDefault();
+        //     var id = $(this).parent().parent().attr("id");
+        //     showModal(id);
+        // });
+        hideLoading();
+        if(posts.length == 0){
+            showAlert();
+        }
     }, 1500);
 
     $(".grid").imagesLoaded().progress(function() {
@@ -587,11 +593,32 @@ function render_iframe(post) {
     return html;
 }
 
-// function showLoading() {
-//     $(".load-more-loading").css("display", "inline");
-//     $(".load-more-end").css("display", "none");
-//     $(".load-more-text").css("display", "none");
-// }
+function showLoading() {
+    $(".mask").css("display", "inherit");
+    $("#loading").css("display", "inherit");
+
+    // $(".load-more-loading").css("display", "inline");
+    // $(".load-more-end").css("display", "none");
+    // $(".load-more-text").css("display", "none");
+}
+
+function hideLoading() {
+    $(".mask").css("display", "none");
+    $("#loading").css("display", "none");
+}
+
+function showAlert(){
+    var $alert = $("#alert-noposts")
+    $alert.css({
+        display: "block",
+        opacity: 0
+    }).animate({ opacity: 1 }, 500);
+
+    $alert.delay(1000).animate({opacity: 0}, 500);
+    setTimeout(function(){
+        $alert.css("display", "none");
+    }, 2000);
+}
 
 // function showLoadEnd(argument) {
 //     $(".load-more-loading").css("display", "none");
