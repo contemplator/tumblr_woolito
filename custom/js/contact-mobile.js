@@ -25,6 +25,12 @@ $(function() {
         }
     });
 
+    $(".type label").on("click", enable_type_radio);
+
+    $(".budge .input-field").on("click", show_budge_select);
+
+    $(".budge .budge-choice").on("click", choose_budge);
+
     $(".name .input-field").click(function() {
         $("#input-name").focus();
     });
@@ -41,24 +47,36 @@ $(function() {
         verifyInput();
     });
 
-    $('.alert-success').on('closed.bs.alert', function () {
+    $('.alert-success').on('closed.bs.alert', function() {
         location.reload();
     });
 
-    $('.alert-danger').on('closed.bs.alert', function () {
+    $('.alert-danger').on('closed.bs.alert', function() {
         // do something let engineer know what happen.
     });
 
 });
 
+function enable_type_radio(element) {
+    $(".type label img").attr("src", "http://static.tumblr.com/sirdwhf/7egof82eq/contact_uncheck_radio.png");
+    $(element.currentTarget.childNodes[1]).attr("src", "http://static.tumblr.com/sirdwhf/S1Uof82e4/contact_check_radio.png");
+}
+
+function show_budge_select() {
+    $('#budge-modal').modal('show');
+}
+
+function choose_budge(event){
+    $("#input-budge").text(event.currentTarget.innerText);
+    $(".budge-choice").css("background-color", "#fff");
+    $(event.currentTarget).css("background-color", "#ccc");
+    $('#budge-modal').modal('hide');
+}
+
 function verifyInput() {
     $(".content label.error").css("display", "none");
     var error = [];
     var idea = $("#input-idea").val();
-    // if (idea == "" || idea == "任何我們能幫助您的需求都歡迎寫下來") {
-    //     error = "idea";
-    //     return;
-    // }
 
     var type = $("input[name='input-type']:checked").val();
     if (!type) {
@@ -95,7 +113,7 @@ function verifyInput() {
         return;
     }
 
-    var budge = $("option[name='input-budge']:selected").text();
+    var budge = $("#input-budge").text();
     var budges = budge.split("-");
     var min_budge = budges[0].replace(",", "");
     var max_budge = budges[1].replace(",", "");
@@ -140,34 +158,33 @@ function sendData(data) {
         beforeSend: showLoading(),
         // error: showError(),
         // success: showSuccess()
-    }).done(function(response){
-        console.log(response);
+    }).done(function(response) {
         hideLoading();
         showSuccess();
     });
 }
 
-function showLoading(){
+function showLoading() {
     $(".mask").css("display", "inherit");
     $("#loading").css("display", "inherit");
 }
 
-function hideLoading(){
+function hideLoading() {
     $(".mask").css("display", "none");
     $("#loading").css("display", "none");
 }
 
-function hideAlert(){
+function hideAlert() {
     $(".alert").alert("close");
 }
 
-function showError(){
+function showError() {
     $(".mask").css("display", "inherit");
     $("#alert-danger").css("display", "block");
     $("#alert-danger").addClass("in");
 }
 
-function showSuccess(){
+function showSuccess() {
     $(".mask").css("display", "inherit");
     $("#alert-success").css("display", "block");
     $("#alert-success").addClass("in");

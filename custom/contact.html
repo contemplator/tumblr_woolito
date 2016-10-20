@@ -5,6 +5,7 @@
     <title>Woolito Animation Studio</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <link rel="shortcut icon" href="http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png">
     <meta property="og:site_name" content="Woolito Animation Studio">
     <meta property="og:title" content="Woolito Animation Studio">
@@ -18,8 +19,6 @@
     <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/g6Fnsuud3/fixie-styles.css">
     <!--bootstrap css-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <!-- google font -->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
     <!-- jquery 1.10.2 and jquery ui js -->
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -35,6 +34,14 @@
     <link rel="stylesheet" type="text/css" href="css/web.css">
     <link rel='stylesheet' type='text/css' href="css/contact.css">
 </head>
+<script type="text/javascript">
+// stop zoom in/out event
+document.addEventListener('mousewheel', function(e) {
+    if (e.deltaY % 1 !== 0) {
+        e.preventDefault();
+    }
+});
+</script>
 
 <body>
     <header>
@@ -117,27 +124,34 @@
                 <label class="chinese">告訴我們您的動畫 IDEA</label>
                 <label class="english">Talk About Your Animation</label>
                 <img class="tip" src="http://static.tumblr.com/sirdwhf/c8uoc40kz/error_flower.png">
-                <img class="error" src="resources/contact_web_error.png">
+                <img class="error" src="http://static.tumblr.com/sirdwhf/ETmof82ox/contact_web_error.png">
                 <label class="error">這是必填欄位喔！</label>
                 <div class="input-field">
                     <textarea id="input-idea" rows="10">任何我們能幫助您的需求都歡迎寫下來</textarea>
                 </div>
-
             </div>
             <div class="type">
                 <label class="chinese">計畫類型</label>
                 <label class="english">Project Objectives</label>
                 <div class="input-field">
                     <input type="radio" name="input-type" value="動畫設計" id="animation_design">
-                    <label for="animation_design">動畫設計</label>
+                    <label for="animation_design">
+                        <img class="radio" src="http://static.tumblr.com/sirdwhf/7egof82eq/contact_uncheck_radio.png"> 動畫設計
+                    </label>
                     <input type="radio" name="input-type" value="異業合作" id="cross_promotion">
-                    <label for="cross_promotion">異業合作</label>
+                    <label for="cross_promotion">
+                        <img class="radio" src="http://static.tumblr.com/sirdwhf/7egof82eq/contact_uncheck_radio.png"> 異業合作
+                    </label>
                     <input type="radio" name="input-type" value="創意協助" id="creative_cooperation">
-                    <label for="creative_cooperation">創意協助</label>
+                    <label for="creative_cooperation">
+                        <img class="radio" src="http://static.tumblr.com/sirdwhf/7egof82eq/contact_uncheck_radio.png"> 創意協助
+                    </label>
                     <input type="radio" name="input-type" value="專業諮詢" id="professional_advisory">
-                    <label for="professional_advisory">專業諮詢</label>
+                    <label for="professional_advisory">
+                        <img class="radio" src="http://static.tumblr.com/sirdwhf/7egof82eq/contact_uncheck_radio.png"> 專業諮詢
+                    </label>
                 </div>
-                <img src="http://static.tumblr.com/sirdwhf/IF1oc40fk/contact_papa.png">
+                <img class="papa" src="http://static.tumblr.com/sirdwhf/IF1oc40fk/contact_papa.png">
             </div>
             <div class="budge">
                 <label class="chinese">預算</label>
@@ -176,7 +190,7 @@
                 <label class="chinese">稱呼</label>
                 <label class="english">Name</label>
                 <img class="tip" src="http://static.tumblr.com/sirdwhf/c8uoc40kz/error_flower.png">
-                <img class="error" src="resources/contact_web_error.png">
+                <img class="error" src="http://static.tumblr.com/sirdwhf/ETmof82ox/contact_web_error.png">
                 <label class="error">這是必填欄位喔！</label>
                 <div class="input-field">
                     <input type="text" id="input-name" />
@@ -193,7 +207,7 @@
                 <label class="chinese">聯絡信箱</label>
                 <label class="english">Email Address</label>
                 <img class="tip" src="http://static.tumblr.com/sirdwhf/c8uoc40kz/error_flower.png">
-                <img class="error" src="resources/contact_web_error.png">
+                <img class="error" src="http://static.tumblr.com/sirdwhf/ETmof82ox/contact_web_error.png">
                 <label class="error">填寫格式錯誤！</label>
                 <div class="input-field">
                     <input type="email" id="input-email" />
@@ -223,7 +237,6 @@
             <span class="glyphicon glyphicon-remove" onclick="hideAlert()"></span>
         </div>
     </div>
-
     <!-- <div id="alert-danger" class="fade">
         <div class="alert alert-danger alert-dismissible fade in" role="alert">
             <strong>Oops!</strong> 發生預期外的錯誤，我們會盡快排除錯誤。

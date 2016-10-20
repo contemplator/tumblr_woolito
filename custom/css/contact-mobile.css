@@ -1,7 +1,8 @@
-#header{
-	/*background-color: #29c2af;*/
-	border: 0px;
+#header {
+    /*background-color: #29c2af;*/
+    border: 0px;
 }
+
 textarea {
     border: none;
     overflow: auto;
@@ -10,29 +11,35 @@ textarea {
     -moz-box-shadow: none;
     box-shadow: none;
     background-color: rgba(0, 0, 0, 0);
-    resize: none;	
+    resize: none;
     color: #a4a4a4;
 }
 
-input[type=text], input[type=email]{
-	border: none;
-	background-color: rgba(0,0,0,0);
-	width: 100%;
+input[type=text],
+input[type=email] {
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    width: 100%;
 }
-input[type=text]:focus, input[type=email]:focus{
-	outline: none;
+
+input[type=text]:focus,
+input[type=email]:focus {
+    outline: none;
 }
-select{
-	width: 100%
+
+select {
+    width: 100%
 }
-option{
-	display: block;
-	width: inherit;
-	margin: 0px auto;
-	text-align: center;
+
+option {
+    display: block;
+    width: inherit;
+    margin: 0px auto;
+    text-align: center;
 }
-option #test{
-	margin: 0px auto;
+
+option #test {
+    margin: 0px auto;
 }
 
 section {
@@ -68,8 +75,6 @@ section {
 /* content */
 
 .content {
-    width: 100%;
-    margin: 40px auto 0px auto;
     color: #fff;
 }
 
@@ -77,130 +82,185 @@ section {
     display: inline-block;
     letter-spacing: 0px;
     font-size: 100%;
-    
 }
 
-.content label.chinese{
-	font-size: 100%;
-	font-weight: 400;
+.content label.chinese {
+    font-size: 100%;
+    font-weight: 400;
 }
+
 .content label.english {
     margin-left: 0px;
     font-size: 70%;
     font-weight: 200;
 }
-.content label.error{
-	color: #df5c5c;
-	display: none;
+
+.content label.error {
+    color: #df5c5c;
+    display: none;
 }
 
 img.tip {
     display: inline-block;
 }
-.content > div{
-	margin: 20px 0px;
+
+.content > div {
+    margin: 20px 0px;
 }
+
 .input-field {
     border: 3px solid #fff;
     border-radius: 5px;
     padding: 5px;
     margin-bottom: 30px;
 }
+
+
 /* idea */
-.idea .input-field textarea{
+
+.idea .input-field textarea {
     height: auto !important;
 }
 
+
 /* contact */
-.idea .input-field{
-	background-image: url('http://static.tumblr.com/sirdwhf/SB8oc40du/contact_gg.png');
-	background-repeat: no-repeat;
-	background-size: 70% auto;
-	background-position: center bottom; 
+
+.idea .input-field {
+    background-image: url('http://static.tumblr.com/sirdwhf/SB8oc40du/contact_gg.png');
+    background-repeat: no-repeat;
+    background-size: 70% auto;
+    background-position: center bottom;
 }
-.input-field textarea{
-	width: 100%;
+
+.input-field textarea {
+    width: 100%;
 }
+
+
 /* type */
-.type .input-field{
-	text-align: center;
+
+.type .input-field {
+    text-align: center;
 }
-.type .input-field label{
-	margin-right: 30px;
-	margin-bottom: 0px;
-	vertical-align: top;
+
+.type .input-field input[type='radio'] {
+    visibility: hidden;
+    position: absolute;
 }
+
+.type .input-field img.radio {
+    display: inline;
+}
+
+.type .input-field label {
+    margin-right: 30px;
+    margin-bottom: 0px;
+    vertical-align: top;
+}
+
+
 /* budge */
-.budge #input-budge{
-	margin: 0px auto;
-	width: 400px;
+
+.budge #input-budge {
+    color: #0a9589;
 }
-.budge #input-budge::-webkit-slider-thumb{
-	-webkit-appearance: none;
-	border: none;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    background: goldenrod;
-    margin-top: -4px;
+
+body.modal-open {
+    overflow: visible;
 }
-.budge #input-budge::-webkit-slider-runnable-track{
-	margin: 0px auto;
-	width: 400px;
-	height: 10px;
-	-webkit-appearance: none;
-	background-color: rgba(0, 0, 0 , 0);
-	background-image: url('http://static.tumblr.com/sirdwhf/jMgoc40g3/contact_range.png');
-	background-repeat: no-repeat;
-	background-size: 100% 100%;
+
+.budge #budge-modal .modal-dialog {
+    position: fixed;
+    top: 30%;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: 80%;
+    text-align: center;
 }
+
+.budge #budge-modal .modal-body {
+    padding: 0px;
+}
+
+.budge #budge-modal .budge-choice {
+    color: #000;
+    font-size: 1.2em;©
+    padding: 10px 5px;
+    border-bottom: #ccc solid 1px;
+}
+
+.budge #budge-modal .budge-choice:hover {
+    background-color: rgba(0, 184, 255, 0.38)
+}
+
+/* phone */
+.phone #input-phone{
+    width: 100%;
+    background-color: rgba(0,0,0,0);
+    border: none;
+}
+
 
 /* btn_sender */
-div.btn-sender{
-	text-align: center;
-	margin-bottom: 0px;
+
+div.btn-sender {
+    text-align: center;
+    margin-bottom: 0px;
 }
-#btn-sender{
-	cursor: pointer;
+
+#btn-sender {
+    cursor: pointer;
 }
-.btn-sender #btn-sender{
-	display: inline-block;
-	padding: 10px 20px;
-	/*background-image: url('http://static.tumblr.com/sirdwhf/nD0oc40go/contact_send.png');
-	background-repeat: no-repeat;
-	background-size: 100% 100%;*/
-	border: 5px solid #39bbad;
-	border-radius: 15px;
-	color: #39bbad;
+
+.btn-sender #btn-sender {
+    display: inline-block;
+    padding: 10px 20px;
+    /*background-image: url('http://static.tumblr.com/sirdwhf/nD0oc40go/contact_send.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;*/
+    border: 5px solid #39bbad;
+    border-radius: 15px;
+    color: #39bbad;
 }
-.btn-sender #btn-sender:hover{
-	/*background-image: url('http://static.tumblr.com/sirdwhf/pV8oc40h5/contact_sending.png');*/
-	border: 5px solid #fff4a3;
-	color: #fff4a3;
+
+.btn-sender #btn-sender:hover {
+    /*background-image: url('http://static.tumblr.com/sirdwhf/pV8oc40h5/contact_sending.png');*/
+    border: 5px solid #fff4a3;
+    color: #fff4a3;
 }
-.btn-sender #btn-sender label.chinese{
-	font-size: 150%;
+
+.btn-sender #btn-sender label.chinese {
+    font-size: 150%;
 }
-.btn-sender #btn-sender label.english{
-	font-size: 120%;
+
+.btn-sender #btn-sender label.english {
+    font-size: 120%;
     font-weight: 500;
 }
+
+
 /* footer */
-.footer{
-	background-color: #fff;
-	border-radius: 20px 20px 0px 0px;
-	text-align: center;
-	padding: 20px;
+
+.footer {
+    background-color: #fff;
+    border-radius: 20px 20px 0px 0px;
+    text-align: center;
+    padding: 20px;
 }
-.footer p{
-	font-size: 100%;
-	margin: 1px 0px;
-	color: #697668;
-	font-weight: 600;
+
+.footer p {
+    font-size: 100%;
+    margin: 1px 0px;
+    color: #697668;
+    font-weight: 600;
 }
+
+
 /* loading */
 
-#loading{
+#loading {
     position: fixed;
     top: 20%;
     font-size: 300%;
@@ -212,16 +272,32 @@ div.btn-sender{
 }
 
 .glyphicon-refresh-animate {
-    -webkit-animation:spin 1s linear infinite;
-    -moz-animation:spin 1s linear infinite;
-    animation:spin 1s linear infinite;
+    -webkit-animation: spin 1s linear infinite;
+    -moz-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
 }
 
-@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
 
-#alert-success, #alert-danger{
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+#alert-success,
+#alert-danger {
     position: fixed;
     width: 100%;
     top: 20%;
@@ -230,18 +306,19 @@ div.btn-sender{
     display: none;
 }
 
-.alert{
+.alert {
     display: inline;
     padding-right: 15px;
 }
 
-.alert .glyphicon-remove{
+.alert .glyphicon-remove {
     cursor: pointer;
     margin-left: 20px;
 }
 
+
 /* temporarilly for jquery mobile */
-#select-11-button span{
+
+#select-11-button span {
     display: none;
 }
-

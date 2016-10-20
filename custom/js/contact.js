@@ -1,8 +1,8 @@
 var range_field_left_map = {};
 var range_field_right_map = {};
 
-$(function(){
-	$.getScript("https://cdn.firebase.com/js/client/2.4.2/firebase.js", function() {
+$(function() {
+    $.getScript("https://cdn.firebase.com/js/client/2.4.2/firebase.js", function() {
         var config = {
             apiKey: "AIzaSyD_aUK5etSpwD2Dp3jq0uFjypQxXKY5TUY",
             authDomain: "woolito-tumblr.firebaseapp.com",
@@ -12,52 +12,54 @@ $(function(){
         firebase.initializeApp(config);
         console.log("init firebase done!");
     });
-    
+
     $(".idea #input-idea").focus(function() {
-        if($("#input-idea").val() == "任何我們能幫助您的需求都歡迎寫下來"){
+        if ($("#input-idea").val() == "任何我們能幫助您的需求都歡迎寫下來") {
             $("#input-idea").val("");
         }
     });
 
-    $("#left-selector").draggable({ 
-        axis: "x" ,
+    $("#left-selector").draggable({
+        axis: "x",
         containment: $(".type .input-field"),
         scroll: false,
         stop: fixLeftSelector
     });
 
-    $("#right-selector").draggable({ 
-        axis: "x" ,
+    $("#right-selector").draggable({
+        axis: "x",
         containment: $(".type .input-field"),
         scroll: false,
         stop: fixRightSelector
     });
 
-    $("#right-selector").one("drag", function(event, ui){
+    $("#right-selector").one("drag", function(event, ui) {
         $(".dragfield .tip").css("display", "none");
     });
 
-    $(".idea .input-field textarea").focusout(function(){
+    $(".idea .input-field textarea").focusout(function() {
         var idea = $("#input-idea").val();
-        if(idea == "任何我們能幫助您的需求都歡迎寫下來" || idea == ""){
+        if (idea == "任何我們能幫助您的需求都歡迎寫下來" || idea == "") {
             $("#input-idea").val("任何我們能幫助您的需求都歡迎寫下來");
             $("#input-idea").css("color", "#aaa");
-        }else{
+        } else {
             $("#input-idea").css("color", "#fff");
         }
     });
 
-	$(".name .input-field").click(function(){
-		$("#input-name").focus();
-	});
+    $(".name .input-field").click(function() {
+        $("#input-name").focus();
+    });
 
-	$(".phone .input-field").click(function(){
-		$("#input-phone").focus();
-	});
+    $(".phone .input-field").click(function() {
+        $("#input-phone").focus();
+    });
 
-	$(".email .input-field").click(function(){
-		$("#input-email").focus();
-	});
+    $(".email .input-field").click(function() {
+        $("#input-email").focus();
+    });
+
+    $(".type label").on("click", enable_type_radio);
 
     $("#btn-sender").click(function() {
         verifyInput();
@@ -65,49 +67,21 @@ $(function(){
 
     $('[data-toggle="tooltip"]').tooltip();
 
-    $('.alert-success').on('closed.bs.alert', function () {
+    $('.alert-success').on('closed.bs.alert', function() {
         location.reload();
     });
 
-    $('.alert-danger').on('closed.bs.alert', function () {
+    $('.alert-danger').on('closed.bs.alert', function() {
         // do something let engineer know what happen.
     });
 });
 
-function ismobile() {
-    if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
-        return true;
-    } else {
-        return false;
-    }
+function enable_type_radio(element) {
+    $(".type label img").attr("src", "http://static.tumblr.com/sirdwhf/7egof82eq/contact_uncheck_radio.png");
+    $(element.currentTarget.childNodes[1]).attr("src", "http://static.tumblr.com/sirdwhf/S1Uof82e4/contact_check_radio.png");
 }
 
-function ismobile_size() {
-    var width = $(window).width();
-    var href = location.href;
-    var index = href.lastIndexOf("/") + 1;
-    href = href.substring(index);
-    // console.log(width + ", " + href);
-    if (width <= 768) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-// function initJqueryRange(){
-//     $("#jquery-range").rangepicker({
-//         startValue: "$0",
-//         endValue: "$500,000",
-//         translateSelectLabel: function(currentPosition, totalPosition) {
-//             console.log(parseInt(100 * (currentPosition / totalPosition)));
-//             return parseInt(100 * (currentPosition / totalPosition));
-//             // return "<img src=\"../resources/contact_lefthand.png\"";
-//         }
-//     });
-// }
-
-function initRange(){
+function initRange() {
     range_field_left_map = {};
     range_field_right_map = {};
     var selector_width = $(".selector").width();
@@ -120,19 +94,19 @@ function initRange(){
     var max_values = $(".max-value");
     max_values.height($(".range-img").height());
     max_values_width = $(max_values[0]).width();
-    $(max_values[0]).css("left", (0-max_values_width/2) + "px");
-    $(max_values[1]).css("left", (6*range_field_step-max_values_width/2) + "px");
+    $(max_values[0]).css("left", (0 - max_values_width / 2) + "px");
+    $(max_values[1]).css("left", (6 * range_field_step - max_values_width / 2) + "px");
     $(max_values[1]).css("top", (0) + "px");
 
-    $("#left-selector").css("left", (0-selector_width) + "px");
+    $("#left-selector").css("left", (0 - selector_width) + "px");
     $("#right-selector").css("left", (0) + "px");
 
-    var range_field_left_left = 0-selector_width;
+    var range_field_left_left = 0 - selector_width;
     var range_field_right_left = 0;
     var values = [0, 50000, 100000, 200000, 300000, 400000, 500000];
     range_field_left_map[range_field_left_left] = values[0];
     range_field_right_map[range_field_right_left] = values[0];
-    for(var i=1; i<7; i++){
+    for (var i = 1; i < 7; i++) {
         range_field_left_left = 0 - selector_width + i * range_field_step;
         range_field_right_left = 0 + i * range_field_step;
         range_field_left_map[parseInt(range_field_left_left)] = values[i];
@@ -148,26 +122,26 @@ function initRange(){
     // });
 }
 
-function fixLeftSelector(){
+function fixLeftSelector() {
     // console.log("fixLeftSelector");
     var left = $("#left-selector").position().left;
     // console.log("left:" + left);
     var right = $("#right-selector").position().left;
     // console.log("right:" + right);
-    if(left>right){
+    if (left > right) {
         var keys_right = Object.keys(range_field_right_map);
         var keys_left = Object.keys(range_field_left_map);
-        var index = keys_right.indexOf(right+"");
-        left = parseInt(keys_left[index-1]);
-        if(index == 0){
+        var index = keys_right.indexOf(right + "");
+        left = parseInt(keys_left[index - 1]);
+        if (index == 0) {
             // to fix the mininum key of range_field_left_map always set to index 6
             left = parseInt(keys_left[6]);
         }
     }
     var keys = Object.keys(range_field_left_map);
     var abses = [];
-    for(i=0;i<keys.length;i++){
-        var abs = Math.abs(left-keys[i]);
+    for (i = 0; i < keys.length; i++) {
+        var abs = Math.abs(left - keys[i]);
         abses.push(abs);
     }
 
@@ -181,23 +155,23 @@ function fixLeftSelector(){
     showBudgeRange();
 }
 
-function fixRightSelector(){
+function fixRightSelector() {
     var left = $("#left-selector").position().left;
     var right = $("#right-selector").position().left;
-    if(right<left){
+    if (right < left) {
         var keys_left = Object.keys(range_field_left_map);
         var keys_right = Object.keys(range_field_right_map);
-        var index = keys_left.indexOf(left+"");
-        right = parseInt(keys_right[index+1]);
-        if(!right){
+        var index = keys_left.indexOf(left + "");
+        right = parseInt(keys_right[index + 1]);
+        if (!right) {
             right = parseInt(keys_right[0]);
         }
     }
 
     var keys = Object.keys(range_field_right_map);
     var abses = [];
-    for(i=0;i<keys.length;i++){
-        var abs = Math.abs(right-keys[i]);
+    for (i = 0; i < keys.length; i++) {
+        var abs = Math.abs(right - keys[i]);
         abses.push(abs);
     }
 
@@ -205,16 +179,16 @@ function fixRightSelector(){
     var closest_index = abses.indexOf(min_diff); // 取出最小值的index
     var closest_value = keys[closest_index]; // 取出最小值是位在哪一個位置
     var budge = range_field_right_map[closest_value];
-    
+
     $("#right-selector").css("left", closest_value + "px");
     $("#right-selector").attr("data-budge", budge);
     showBudgeRange();
 }
 
-function showBudgeRange(){
+function showBudgeRange() {
     var left = parseInt($("#left-selector").position().left);
     var right = parseInt($("#right-selector").position().left);
-    $("#result").text("$"+numeral(range_field_left_map[left]).format('0,0') + "~" + "$" + numeral(range_field_right_map[right]).format('0,0'));
+    $("#result").text("$" + numeral(range_field_left_map[left]).format('0,0') + "~" + "$" + numeral(range_field_right_map[right]).format('0,0'));
     // $("#result").text("$"+(range_field_left_map[left].formatMoney(0)) + "~" + "$" + range_field_right_map[right].formatMoney(0));
 }
 
@@ -228,7 +202,7 @@ function verifyInput() {
     }
 
     var type = $("input[name='input-type']:checked").val();
-    if(type == undefined){
+    if (type == undefined) {
         type = null;
     }
     // if (!type) {
@@ -252,10 +226,10 @@ function verifyInput() {
                 $(".idea img.error").css("display", "inline");
                 $(".idea label.error").css("display", "inline-block");
                 break;
-            // case "type":
-            //     $(".type .input-field").css("border", "3px solid #ea4e4d");
-            //     $(".type .error").css("visibility", "initial");
-            //     break;
+                // case "type":
+                //     $(".type .input-field").css("border", "3px solid #ea4e4d");
+                //     $(".type .error").css("visibility", "initial");
+                //     break;
             case "name":
                 $(".name .input-field").css("border", "3px solid #ea4e4d");
                 $(".name img.error").css("display", "inline");
@@ -281,16 +255,16 @@ function verifyInput() {
     var datetime = new Date();
 
     var data = {
-        time: datetime,
-        idea: idea,
-        type: type,
-        name: name,
-        email: email,
-        min_budge: min_budge,
-        max_budge: max_budge,
-        phone: $("#input-phone").val()
-    }
-    // console.log(data);
+            time: datetime,
+            idea: idea,
+            type: type,
+            name: name,
+            email: email,
+            min_budge: min_budge,
+            max_budge: max_budge,
+            phone: $("#input-phone").val()
+        }
+        // console.log(data);
 
     sendData(data);
 }
@@ -320,47 +294,47 @@ function sendData(data) {
         beforeSend: showLoading(),
         // error: showError(),
         // success: showSuccess()
-    }).done(function(response){
+    }).done(function(response) {
         // console.log(response);
         hideLoading();
         showSuccess();
     });
 }
 
-function showLoading(){
+function showLoading() {
     $(".mask").css("display", "inherit");
     $("#loading").css("display", "inherit");
 }
 
-function hideLoading(){
+function hideLoading() {
     $(".mask").css("display", "none");
     $("#loading").css("display", "none");
 }
 
-function hideAlert(){
+function hideAlert() {
     $(".alert").alert("close");
 }
 
-function showError(){
+function showError() {
     $(".mask").css("display", "inherit");
     $("#alert-danger").css("display", "block");
     $("#alert-danger").addClass("in");
 }
 
-function showSuccess(){
+function showSuccess() {
     $(".mask").css("display", "inherit");
     $("#alert-success").css("display", "block");
     $("#alert-success").addClass("in");
 }
 
-jQuery.fn.onPositionChanged = function (trigger, millis) {
+jQuery.fn.onPositionChanged = function(trigger, millis) {
     if (millis == null) millis = 100;
     var o = $(this[0]); // our jquery object
     if (o.length < 1) return o;
 
     var lastPos = null;
     var lastOff = null;
-    setInterval(function () {
+    setInterval(function() {
         if (o == null || o.length < 1) return o; // abort if element is non existend eny more
         if (lastPos == null) lastPos = o.position();
         if (lastOff == null) lastOff = o.offset();
@@ -368,13 +342,13 @@ jQuery.fn.onPositionChanged = function (trigger, millis) {
         var newOff = o.offset();
         if (lastPos.top != newPos.top || lastPos.left != newPos.left) {
             $(this).trigger('onPositionChanged', { lastPos: lastPos, newPos: newPos });
-            if (typeof (trigger) == "function") trigger(lastPos, newPos);
+            if (typeof(trigger) == "function") trigger(lastPos, newPos);
             lastPos = o.position();
         }
         if (lastOff.top != newOff.top || lastOff.left != newOff.left) {
-            $(this).trigger('onOffsetChanged', { lastOff: lastOff, newOff: newOff});
-            if (typeof (trigger) == "function") trigger(lastOff, newOff);
-            lastOff= o.offset();
+            $(this).trigger('onOffsetChanged', { lastOff: lastOff, newOff: newOff });
+            if (typeof(trigger) == "function") trigger(lastOff, newOff);
+            lastOff = o.offset();
         }
     }, millis);
 

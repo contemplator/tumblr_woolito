@@ -1,28 +1,41 @@
-$(function(){
-    $(".drawer").on("show.bs.drawer", function(e){
-        $(".mask").css("display", "initial");
-        // console.log("show");
+$(function() {
+    var swipeElement = document.documentElement;
+    var $drawer = $('.drawer');
+    var hammer = new Hammer(swipeElement);
+    hammer.add(new Hammer.Pan({
+        threshold: 30
+    }));
+
+    hammer.set({
+        touchAction: 'auto'
     });
 
-    $(".drawer").on("hide.bs.drawer", function(e){
+    $(".drawer").on("show.bs.drawer", function(e) {
+        $(".mask").css("display", "initial");
+    });
+
+    $(".drawer").on("hide.bs.drawer", function(e) {
         $(".mask").css("display", "none");
-        // console.log("hide");
     });
 
     $(".drawer_icon").on("click", function() {
-        $('.drawer').drawer('show');
+        $drawer.drawer('show');
     });
 
-    $("body").on("swiperight", function(e){
-        $(".drawer").drawer("show");
+    $(".mask").on("click", function(e) {
+        $drawer.drawer("hide");
     });
 
-    $("body").on("swipeleft", function(e){
-        $(".drawer").drawer("hide");
-    });
-
-    $(".mask").on("click", function(e){
-        // console.log("click");
-        $(".drawer").drawer("hide");
-    });
+    hammer.on("panleft panright", function(event) {
+        switch (event.type) {
+            case "panleft":
+                $drawer.drawer("hide");
+                break;
+            case "panright":
+                $drawer.drawer("show");
+                break;
+            default:
+                break;
+        }
+    })
 });

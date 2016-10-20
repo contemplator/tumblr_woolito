@@ -78,11 +78,10 @@ body {
     height: auto;*/
 }
 
-#header .find-us img {
-    width: inherit;
-    height: inherit;
+#header .find-us a, #header .find-us img{
+    height: 100%;
+    width: auto;
     margin: 0px auto;
-    margin-right: 0px;
 }
 
 

@@ -115,13 +115,17 @@ img.tip {
     position: absolute;
 }
 
+.type .input-field img.radio{
+    display: inline;
+}
+
 .type .input-field label {
     margin-right: 30px;
     margin-bottom: 0px;
     vertical-align: top;
 }
 
-.type img {
+.type img.papa{
     position: absolute;
     margin-top: -175px;
     margin-right: -40px;
