@@ -63,12 +63,6 @@
     border-top: 2px solid #eee;
 }
 /* effect*/
-#effect{
-    
-}
-#effect:hover{
-    
-}
 #effect.fixed-menu{
     position: fixed;
     top: -5px;
@@ -82,19 +76,19 @@
     background: -webkit-linear-gradient(top,  #393a3a 0%,#444445 35%,#403f3f 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom,  #393a3a 0%,#444445 35%,#403f3f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#393a3a', endColorstr='#403f3f',GradientType=0 ); /* IE6-9 */
-
+    color: #ddd;
     margin-bottom: 5px;
     cursor: pointer;
 }
 .effect_field:hover{
-    background: #29c2af;
+    background: #00ffcc;
+    color: #000;
 }
 .arrow_down,
 #effect_table span {
     display: table-cell;
     vertical-align: middle;
     font-size: 18px;
-    color: #ddd;
     letter-spacing: 2px;
 }
 
