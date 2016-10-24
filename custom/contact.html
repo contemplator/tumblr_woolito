@@ -22,20 +22,45 @@
     <!-- jquery 1.10.2 and jquery ui js -->
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <!-- firebase -->
-    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-    <!-- bootstrap js -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script src="http://static.tumblr.com/sirdwhf/n4Docf3yn/jquery.rwdimagemaps.min.js"></script>
-    <!-- numeral : to format number -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
     <!-- custom -->
     <script src="js/contact.js"></script>
     <link rel="stylesheet" type="text/css" href="css/web.css">
     <link rel='stylesheet' type='text/css' href="css/contact.css">
 </head>
 <script type="text/javascript">
-// stop zoom in/out event
+var range_field_left_map = {};
+var range_field_right_map = {};
+
+function initRange() {
+    range_field_left_map = {};
+    range_field_right_map = {};
+    var selector_width = $(".selector").width();
+    var dragfield_width = $(".dragfield").width();
+    var range_field_step = dragfield_width / 6;
+
+    var max_values = $(".max-value");
+    max_values.height($(".range-img").height());
+    max_values_width = $(max_values[0]).width();
+    $(max_values[0]).css("left", (0 - max_values_width / 2) + "px");
+    $(max_values[1]).css("left", (6 * range_field_step - max_values_width / 2) + "px");
+    $(max_values[1]).css("top", (0) + "px");
+
+    $("#left-selector").css("left", (0 - selector_width) + "px");
+    $("#right-selector").css("left", (0) + "px");
+
+    var range_field_left_left = 0 - selector_width;
+    var range_field_right_left = 0;
+    var values = [0, 50000, 100000, 200000, 300000, 400000, 500000];
+    range_field_left_map[range_field_left_left] = values[0];
+    range_field_right_map[range_field_right_left] = values[0];
+    for (var i = 1; i < 7; i++) {
+        range_field_left_left = 0 - selector_width + i * range_field_step;
+        range_field_right_left = 0 + i * range_field_step;
+        range_field_left_map[parseInt(range_field_left_left)] = values[i];
+        range_field_right_map[parseInt(range_field_right_left)] = values[i];
+    }
+}
+
 document.addEventListener('mousewheel', function(e) {
     if (e.deltaY % 1 !== 0) {
         e.preventDefault();
@@ -153,15 +178,15 @@ document.addEventListener('mousewheel', function(e) {
                 </div>
                 <img class="papa" src="http://static.tumblr.com/sirdwhf/IF1oc40fk/contact_papa.png">
             </div>
-            <div class="budge">
+            <div class="budget">
                 <label class="chinese">預算</label>
-                <label class="english">Budge</label>
+                <label class="english">Budget</label>
                 <label class="advice">讓我們提供您「最符合您預算」的建議</label>
                 <div class="input-field">
                     <div class="dragfield">
                         <img src="http://static.tumblr.com/sirdwhf/Wexocf424/contact_lefthand.png" class="selector">
-                        <img src="http://static.tumblr.com/sirdwhf/Wexocf424/contact_lefthand.png" class="selector" id="left-selector" onload="initRange()" data-budge="0">
-                        <img src="http://static.tumblr.com/sirdwhf/DXpocf42w/contact_righthand.png" class="selector" id="right-selector" onload="initRange()" data-budge="0">
+                        <img src="http://static.tumblr.com/sirdwhf/Wexocf424/contact_lefthand.png" class="selector" id="left-selector" onload="initRange()" data-budget="0">
+                        <img src="http://static.tumblr.com/sirdwhf/DXpocf42w/contact_righthand.png" class="selector" id="right-selector" onload="initRange()" data-budget="0">
                         <div class="tip">
                             <div class="tip-arrow"></div>
                             <div class="tip-inner">拖曳選擇預算範圍</div>
@@ -244,6 +269,13 @@ document.addEventListener('mousewheel', function(e) {
         </div>
     </div> -->
 </body>
+<!-- firebase -->
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+<!-- bootstrap js -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="http://static.tumblr.com/sirdwhf/n4Docf3yn/jquery.rwdimagemaps.min.js"></script>
+<!-- numeral : to format number -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
 <script type="text/javascript">
 </script>
 

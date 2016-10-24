@@ -1,6 +1,3 @@
-var range_field_left_map = {};
-var range_field_right_map = {};
-
 $(function() {
     $.getScript("https://cdn.firebase.com/js/client/2.4.2/firebase.js", function() {
         var config = {
@@ -81,49 +78,8 @@ function enable_type_radio(element) {
     $(element.currentTarget.childNodes[1]).attr("src", "http://static.tumblr.com/sirdwhf/S1Uof82e4/contact_check_radio.png");
 }
 
-function initRange() {
-    range_field_left_map = {};
-    range_field_right_map = {};
-    var selector_width = $(".selector").width();
-    var dragfield_width = $(".dragfield").width();
-    var range_field_step = dragfield_width / 6;
-    // console.log("dragfield width: " + dragfield_width);
-    // console.log("selector width: " + selector_width);
-    // console.log("range field step: " + range_field_step);
-
-    var max_values = $(".max-value");
-    max_values.height($(".range-img").height());
-    max_values_width = $(max_values[0]).width();
-    $(max_values[0]).css("left", (0 - max_values_width / 2) + "px");
-    $(max_values[1]).css("left", (6 * range_field_step - max_values_width / 2) + "px");
-    $(max_values[1]).css("top", (0) + "px");
-
-    $("#left-selector").css("left", (0 - selector_width) + "px");
-    $("#right-selector").css("left", (0) + "px");
-
-    var range_field_left_left = 0 - selector_width;
-    var range_field_right_left = 0;
-    var values = [0, 50000, 100000, 200000, 300000, 400000, 500000];
-    range_field_left_map[range_field_left_left] = values[0];
-    range_field_right_map[range_field_right_left] = values[0];
-    for (var i = 1; i < 7; i++) {
-        range_field_left_left = 0 - selector_width + i * range_field_step;
-        range_field_right_left = 0 + i * range_field_step;
-        range_field_left_map[parseInt(range_field_left_left)] = values[i];
-        range_field_right_map[parseInt(range_field_right_left)] = values[i];
-    }
-    // $(".dragfield .tip").css("display", "initial");
-
-    // $("#right-selector").onPositionChanged(function(){
-    //     $(".dragfield .tip").css("display", "none");
-    //     console.log(this);
-    //     $(this).remove();
-    //     // fixRightSelector();
-    // });
-}
-
 function fixLeftSelector() {
-    // console.log("fixLeftSelector");
+    console.log("fixLeftSelector");
     var left = $("#left-selector").position().left;
     // console.log("left:" + left);
     var right = $("#right-selector").position().left;

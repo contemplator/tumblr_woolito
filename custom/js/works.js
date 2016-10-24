@@ -428,7 +428,7 @@ function showImagePreview(id){
     var key = "zcBf3tONWu9lQTSzrewHYU3WRdgbv1VtPGHXXMaZlZgN6Sz0lc";
     $.ajax({
         url: "http://api.tumblr.com/v2/blog/woolito.tumblr.com/posts",
-        type: "GET",
+        type: "POST",
         dataType: 'jsonp',
         data: {
             api_key: key,
@@ -549,9 +549,14 @@ function render_text(post) {
     var article = $("<div></div>");
     article.attr("id", post.id);
     article.addClass("type_text grid-item");
+    
     var tags = post.tags;
     for(var i=0; i<tags.length; i++){
         article.addClass(tags[i]);
+    }
+    var isDoubleSize = false;
+    if(tags.indexOf("double_size") > -1){
+        isDoubleSize = true;
     }
     article.attr("rel", post['post_url']);
     var article_content = $("<div></div>");
@@ -565,7 +570,8 @@ function render_text(post) {
         body = body.substring(0, start_index);
         body += '<a href="' + post['post_url'] + '" target=\"_blank\" class="readmore">KEEP READING</a>';
     }
-    body = analysis_caption_iframe(body, post.id);
+
+    body = analysis_caption_iframe(body, post.id, isDoubleSize);
     article_content.append(title).append(body);
     var icon = render_icon(post);
     article_content.append(icon);
@@ -573,7 +579,7 @@ function render_text(post) {
     return article;
 }
 
-function analysis_caption_iframe(caption, post_id) {
+function analysis_caption_iframe(caption, post_id, isDoubleSize) {
     if (!(caption.indexOf("youtube_iframe") > -1)) {
         return caption;
     }
@@ -592,7 +598,11 @@ function analysis_caption_iframe(caption, post_id) {
     link_element.attr("href", "http://woolito.tumblr.com/post/" + post_id + "/");
     var shortcut_element = $("<img >");
     shortcut_element.addClass("shortcut");
-    shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
+    if(isDoubleSize){
+        shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/maxresdefault.jpg");
+    }else{
+        shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");    
+    }
     shortcut_element.attr("youtube_id", youtube_id);
     shortcut_element.attr("data-toggle", "tooltip");
     shortcut_element.attr("data-placement", "bottom");
