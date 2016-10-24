@@ -1,18 +1,39 @@
 var posts = [];
 var current_posts_number = 6;
 var standard_height = 0;
+// var selector_animation_switch;
 $(function() {
 
     initSelector();
     $("#selector").click(runEffect);
-    $(window).scroll(function(){
-        if(($(window).height()-49) != standard_height){
-            standard_height = $(window).height()-49;
-            $("#select-section").animate({
-                top: standard_height + "px",
-            }, 300);
-        }
+    
+    var swipeElement = document.documentElement;
+    var hammer = new Hammer(swipeElement);
+    hammer.add(new Hammer.Pan({
+        threshold: 30
+    }));
+
+    hammer.set({
+        touchAction: 'auto'
     });
+
+    hammer.on("panup pandown", function(event) {
+        switch (event.type) {
+            case "pandown":
+                selector_animation = $("#select-section").animate({
+                    top: standard_height
+                }, 500);
+                break;
+            case "panup":
+                selector_animation = $("#select-section").animate({
+                    top: $(window).height()+60
+                }, 500);
+                break;
+            default:
+                break;
+        }
+    })
+
     query_all_posts();
 });
 
@@ -28,22 +49,22 @@ function initSelector() {
             var english = post.gsx$english.$t;
             var tag = post.gsx$tag.$t;
 
-            var category_element = $("td[select-category='"+type+"']");
-            var option_element = $('<div class="select-option" data-type="'+tag+'"></div>');
-            var chinese_element = $('<div class="option-chinese">'+chinese+'</div>');
-            var english_element = $('<div class="option-english">'+english+'</div>');
+            var category_element = $("td[select-category='" + type + "']");
+            var option_element = $('<div class="select-option" data-type="' + tag + '"></div>');
+            var chinese_element = $('<div class="option-chinese">' + chinese + '</div>');
+            var english_element = $('<div class="option-english">' + english + '</div>');
             option_element.append(chinese_element).append(english_element);
             category_element.append(option_element);
         }
 
-        $(".select-option").click(function(event){
+        $(".select-option").click(function(event) {
             enable_radio(this);
         });
 
         var init_height = $(window).height() - ($("#selector").height() + $("#divider").height());
         $("#select-section").animate({
             top: init_height + "px",
-        }, 800, function(){
+        }, 800, function() {
             standard_height = $("#select-section").position().top;
         });
     });
@@ -54,7 +75,7 @@ function enable_radio(element) {
     var currentTarget = $(element);
     var currentBg = currentTarget.css("background-color");
     var select_works = $(".select-works");
-    if(currentBg == "rgb(230, 230, 230)"){ // selected
+    if (currentBg == "rgb(230, 230, 230)") { // selected
         currentTarget.css("background-color", "#3B3B3B");
         currentTarget.css("color", "#FFFFFF");
         var chinese = currentTarget.find(".option-chinese").text();
@@ -62,17 +83,17 @@ function enable_radio(element) {
         console.log(chinese + "," + english);
 
         var div_element = $('<div class="selected" onclick="disable_radio(this)"></div>');
-        var chinese_element = $('<div class="selected-chinese">'+chinese+'</div>');
-        var english_element = $('<div class="selected-english">'+english+'</div>');
+        var chinese_element = $('<div class="selected-chinese">' + chinese + '</div>');
+        var english_element = $('<div class="selected-english">' + english + '</div>');
         var img_element = $("<img>");
         img_element.attr("src", "http://static.tumblr.com/sirdwhf/yRso8llbo/radio_checkd.png");
-        
+
         div_element.append(img_element).append(chinese_element).append(english_element);
         select_works.html("<span>作品篩選 Filter</span>");
         select_works.append(div_element);
         select_works.append("<span>&nbsp/&nbsp</span>");
         query_posts(currentTarget.attr("data-type"));
-    }else{ // unselected
+    } else { // unselected
         currentTarget.css("background-color", "#E6E6E6");
         currentTarget.css("color", "#000000");
         query_posts("");
@@ -80,9 +101,9 @@ function enable_radio(element) {
     runEffect();
 }
 
-function clear_choices(){
+function clear_choices() {
     var choices = $(".select-option");
-    for(var i=0; i<choices.length; i++){
+    for (var i = 0; i < choices.length; i++) {
         $(choices[i]).css("background-color", "#E6E6E6");
         $(choices[i]).css("color", "#000000");
     }
@@ -96,12 +117,12 @@ function disable_radio(tag) {
 
 function runEffect() {
     var current_height = $("#select-section").position().top;
-    if(standard_height != current_height){ // to close
+    if (standard_height != current_height) { // to close
         $(".arrow img").css("transform", "rotate(0deg)");
         $("#select-section").animate({
             top: standard_height + "px",
         }, 1000);
-    }else{ // to open
+    } else { // to open
         $(".arrow img").css("transform", "rotate(180deg)");
         var height = $(window).height() - $("#select-section").height();
         $("#select-section").animate({
@@ -131,7 +152,7 @@ function query_all_posts() {
                     tags = [];
                 };
                 // if (tags.indexOf("work") > -1) {
-                    posts.push(data_json[i]);
+                posts.push(data_json[i]);
                 // }
             } catch (err) {
                 console.log(err);
@@ -191,20 +212,29 @@ function render_posts(posts) {
             var post_type = posts[i].type;
             var post_html = null;
             switch (post_type) {
-                case "video":
-                    post_html = render_video(posts[i]);
-                    break;
+                // case "video":
+                //     post_html = render_video(posts[i]);
+                //     break;
                 case "text":
                     post_html = render_text(posts[i]);
                     break;
-                case "photo":
-                    post_html = render_photo(posts[i]);
-                    break;
+                // case "photo":
+                //     post_html = render_photo(posts[i]);
+                //     break;
                 default:
                     break;
             }
 
             $(".grid").append(post_html);
+            $("img.lazy").lazyload({
+                threshold : 200,
+                effect : "fadeIn",
+                load: lazyloadHandler
+            });
+
+            // $("img.lazy").on("load", function(){
+            //     console.log("load");
+            // });
         }
     }
 
@@ -220,6 +250,10 @@ function render_posts(posts) {
         });
 }
 
+function lazyloadHandler(){
+    // console.log("Load");
+}
+
 function render_photo(post) {
     var article = $("<div></div>");
     article.attr("id", post.id);
@@ -229,7 +263,7 @@ function render_photo(post) {
     var photo_wrap = $('<div class="photo-wrap post"></div>');
     var photo_post = $('<div class="photo--post"></div>')
     var photo_link = $('<a href="' + post.post_url + '"></a>')
-    // console.log(post.photos[0]);
+        // console.log(post.photos[0]);
     var photo_img = $('<img src="' + post.photos[0]['alt_sizes'][0].url + '" alt="' + post.slug + '">');
     photo_link.append(photo_img);
     photo_post.append(photo_link);
@@ -275,12 +309,12 @@ function render_text(post) {
     var title_link = $("<a href='" + post.post_url + "' title='" + post.title + "'>" + post.slug + "</a>");
     title.append(title_link);
     var body = post.body;
-    body = analysis_caption_iframe(body, post.id);
     if (body.indexOf("<!-- more -->") > -1) {
         var start_index = body.indexOf("<!-- more -->");
         body = body.substring(0, start_index);
         body += '<a href="' + post.post_url + '" class="readmore">KEEP READING</a>';
     }
+    body = analysis_caption_iframe(body, post.id);
     article_content.append(title).append(body);
     var icon = render_icon(post);
     article_content.append(icon);
@@ -299,7 +333,9 @@ function analysis_caption_iframe(caption, post_id) {
     link_element.attr("href", "http://woolito.tumblr.com/post/" + post_id + "/");
     var shortcut_element = $("<img >");
     shortcut_element.addClass("shortcut");
-    shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
+    shortcut_element.addClass("lazy");
+    // shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
+    shortcut_element.attr("data-original", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
     shortcut_element.attr("youtube_id", youtube_id);
     link_element.html(shortcut_element);
     link_element = link_element.prop('outerHTML');
