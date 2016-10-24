@@ -263,8 +263,8 @@ function render_photo(post) {
     var photo_wrap = $('<div class="photo-wrap post"></div>');
     var photo_post = $('<div class="photo--post"></div>')
     var photo_link = $('<a href="' + post.post_url + '"></a>')
-        // console.log(post.photos[0]);
-    var photo_img = $('<img src="' + post.photos[0]['alt_sizes'][0].url + '" alt="' + post.slug + '">');
+    // var photo_img = $('<img src="' + post.photos[0]['alt_sizes'][0].url + '" alt="' + post.slug + '">');
+    var photo_img = $('<img data-original="' + post.photos[0]['alt_sizes'][0].url + '" alt="' + post.slug + '" class="lazy">');
     photo_link.append(photo_img);
     photo_post.append(photo_link);
     photo_wrap.append(photo_post);
@@ -286,7 +286,9 @@ function render_video(post) {
     var video_container = $("<div class='video-container ready video' id='" + post.id + "'></div>");
     var shortcut = $('<div class="video-shortcut"></div>')
     var shortcut_img = $('<img >');
-    shortcut_img.attr("src", post.thumbnail_url);
+    // shortcut_img.attr("src", post.thumbnail_url);
+    shortcut_img.addClass("lazy");
+    shortcut_img.attr("data-original", post.thumbnail_url);
     shortcut.append(shortcut_img);
     video_container.append(shortcut);
     video_stage.append(video_container);
