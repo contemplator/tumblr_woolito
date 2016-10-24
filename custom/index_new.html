@@ -114,6 +114,14 @@
         font-size: 20px;
         text-transform: inherit;
     }
+
+    .desktop{
+        display: initial;
+    }
+
+    .mobile{
+        display: none;
+    }
     /* navigation */
     
     header .logo h1 {
@@ -186,28 +194,6 @@
         display: inline;
         height: 35px;
         width: auto;
-    }
-    /* modal */
-    
-    .modal-body {
-        text-align: center;
-    }
-    
-    .modal-body img {
-        margin: 0px auto;
-    }
-    
-    .modal-footer button {
-        margin-left: 20px;
-    }
-    
-    .modal-footer p {
-        line-height: 30px;
-        text-align: left;
-    }
-    
-    #work-header img {
-        width: 100%;
     }
     /* article */
     
@@ -395,15 +381,6 @@
         float: left;
     }
 
-    .tmblr-iframe--controls-phone-container{
-        padding-top: 0px;
-    }
-
-    /* fixed jquery mobile */
-    .ui-loader-default{
-        display: none;
-    }
-
     @media only screen and (min-width: 1800px) {
         .grid-sizer,
         .grid-item {
@@ -439,9 +416,25 @@
         .grid-item {
             width: 100%;
         }
+
+        header, div.center{
+            width: 40%;
+        }
+
+        section{
+            width: 60%;
+        }
     }
 
     @media only screen and (max-width: 768px){
+        .desktop{
+            display: none;
+        }
+
+        .mobile{
+            display: initial;
+        }
+
         .grid-sizer,
         .grid-item {
             width: 100%;
@@ -623,11 +616,16 @@
         /* section */
 
         section {
-            margin-top: 40px;
+            margin-top: 0px;
             margin-bottom: 0px;
             float: none;
             width: 100%;
             padding: 10px;
+        }
+
+        /* top */
+        .top .top-post img{
+            width: 100%;
         }
 
         /* article */
@@ -652,11 +650,6 @@
 
         .tmblr-iframe--controls-phone-container {
             padding-top: 0px;
-        }
-
-        /* fixed bootstrap drawer */
-        .drawer-controls{
-            height: auto;
         }
 
         .mask{
@@ -776,8 +769,6 @@
 
     <div class="mobile has-drawer">
         <div id="drawerExample" class="drawer dw-xs-10 fold" aria-labelledby="drawerExample">
-            <div class="drawer-controls">
-            </div>
             <div class="drawer-contents">
                 <div class="drawer-body">
                     <div class="center">
@@ -1042,65 +1033,20 @@
 <!-- bootstrap and drawer js -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/js/drawer.min.js"></script>
-<!-- jquery ui -->
-<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> -->
-<!-- jquery mobile -->
-<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<!-- hammer js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+<script src="http://static.tumblr.com/sirdwhf/fuSof87ay/woolito-slider.js"></script>
+<!-- <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
 <script type="text/javascript">
     var posts = [];
     var current_posts_number = 0;
     var modalHidden;
-    var selected_tag;
     var preview_timer;
 
     $(function() {
         console.log("width: " + $(window).width());
         console.log("user agent: " + navigator.userAgent);
-        if (ismobile()) {
-            fixMobile();
-        } else {
-            if (ismobile_size()) {
-                fixMobile();
-            } else{
-                $(".mobile").css("display", "none");
-            }
-        }
-
-        $(window).resize(function() {
-            if (ismobile_size()) {
-                fixMobile();
-            }else{
-                $(".mobile").css("display", "none");
-            }
-        });
-
-        $(".drawer").on("show.bs.drawer", function(e){
-            $(".mask").css("display", "initial");
-            // console.log("show");
-        });
-
-        $(".drawer").on("hide.bs.drawer", function(e){
-            $(".mask").css("display", "none");
-            // console.log("hide");
-        });
-
-        $(".drawer_icon").on("click", function(){
-            $(".drawer").drawer("show");
-        });
-
-        $("body").on("swiperight", function(e){
-            $(".drawer").drawer("show");
-        });
-
-        $("body").on("swipeleft", function(e){
-            $(".drawer").drawer("hide");
-        });
-
-        $(".mask").on("click", function(e){
-            console.log("click");
-            $(".drawer").drawer("hide");
-        });
-
+        
         query_all_posts();
     });
 
@@ -1233,29 +1179,23 @@
                 }
 
                 $(".grid").append(post_html);
-                $(".grid").imagesLoaded(function() {
-                    $(".grid").masonry({
-                        columnWidth: '.grid-sizer',
-                        itemSelector: '.grid-item',
-                        percentPosition: true
-                    });
-                });
+
+                if(!ismobile && !ismobile_size){
+                    $(".grid").imagesLoaded(function() {
+                        $(".grid").masonry({
+                            columnWidth: '.grid-sizer',
+                            itemSelector: '.grid-item',
+                            percentPosition: true
+                        });
+                    });    
+                }else{
+                    var gridSizer = document.getElementsByClassName("grid-sizer");
+                    gridSizer[1].style.display = "none";
+                }
+                
             }
             current_posts_number = number_post;
         }
-
-        setTimeout(function() {
-            $(".grid").masonry();
-            $(".photo-wrap").click(function(event) {
-                event.preventDefault();
-                var id = $(this).parent().parent().attr("id");
-                showModal(id);
-            });
-        }, 1500);
-
-        $(".grid").imagesLoaded().progress(function() {
-            $(".grid").masonry('reloadItems');
-        });
 
         $('[data-toggle="tooltip"]').tooltip();
     }
