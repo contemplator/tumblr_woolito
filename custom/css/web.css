@@ -104,7 +104,7 @@ section{
 img.shortcut{
     width: 100%;
 }
-.grid{
+.grid, #grid{
     margin-top: 0px;
 }
 article,
@@ -137,14 +137,14 @@ u{
 }
 /* ---- grid ---- */
 
-.grid {
+.grid, #grid {
     background: #E6E6E6;
 }
 
 
 /* clearfix */
 
-.grid:after {
+.grid:after, #grid:after {
     content: '';
     display: block;
     clear: both;

@@ -1,6 +1,5 @@
 var posts = [];
 var selected_posts = [];
-// var current_posts_number = 0;
 var modalHidden;
 var selected_tag;
 var preview_timer;
@@ -12,15 +11,6 @@ $(function() {
     });
     initSelector();
     query_all_posts();
-    // query_posts("");
-
-    $("#cboxPrevious").click(function() {
-        prePost($(this).attr('data-post-id'));
-    });
-
-    $("#cboxNext").click(function() {
-        nextPost($(this).attr('data-post-id'));
-    });
 
     $(".effect_field").click(function() {
         runEffect();
@@ -32,57 +22,13 @@ $(function() {
         var $this_Top = $this.scrollTop();
         if ($this_Top > 120) {
             $("#effect").addClass("fixed-menu");
-            $(".grid").css("margin-top", ($("#effect").height()) + "px");
+            $("#grid").css("margin-top", ($("#effect").height()) + "px");
         } else {
             $("#effect").removeClass("fixed-menu");
-            $(".grid").css("margin-top", "0px");
+            $("#grid").css("margin-top", "0px");
         }
     });
 });
-
-function prePost(id) {
-    var post = query_post(id);
-    initModal();
-    setPhoto(post);
-};
-
-function nextPost(id) {
-    initModal();
-    var post = query_post(id);
-    setPhoto(post);
-}
-
-function showModal(id) {
-    var post = query_post(id);
-    var type = post.type;
-    switch (type) {
-        case "photo":
-            initModal();
-            setPhoto(post);
-            break;
-        default:
-            break;
-    }
-    $('#myModal').modal('show');
-    if (modalHidden != null) {
-        modalHidden = null;
-    }
-
-    modalHidden = $('#myModal').on('hidden.bs.modal', function() {
-        document.location.href = "#" + id;
-        // var thisPosition = $('#'+id).offset().top;
-        // $("body").animate({ scrollTop: thisPosition }, 1000);
-    });
-}
-
-function initModal() {
-    var title = $(".modal-title")[0];
-    var body = $(".modal-body")[0];
-    var footer = $(".modal-footer")[0];
-    $(title).html("");
-    $(body).html("");
-    $(footer).html("");
-}
 
 function query_post(id) {
     for (var i = 0; i < posts.length; i++) {
@@ -92,46 +38,6 @@ function query_post(id) {
         }
     }
 }
-
-function setPhoto(post) {
-    var title = $(".modal-title")[0];
-    var body = $(".modal-body")[0];
-    var footer = $(".modal-footer")[0];
-    $(title).text("");
-    var photos = post.photos;
-    for (var i = 0; i < photos.length; i++) {
-        var imgae_url = photos[i].original_size.url;
-        var img_element = $("<img>");
-        img_element.attr("src", imgae_url);
-        $(body).append(img_element);
-    }
-    // $(body).html("<img src=\"" + post["photo-url-500"] + " \">");
-    var footer_html = post["caption"] + '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>' + '<a href="/post/' + post.id + ' target=\"_blank\""><button type="button" class="btn btn-primary">觀看全文</button></a>';
-
-    $(footer).html(footer_html);
-
-    var current_post_index = 0;
-    for (var i = 0; i < posts.length; i++) {
-        if (posts[i].id == post.id) {
-            current_post_index = i;
-        }
-    }
-    var previous_post_index = current_post_index - 1;
-    var next_post_index = current_post_index + 1;
-    $("#cboxPrevious").attr("data-post-id", posts[previous_post_index].id);
-    $("#cboxNext").attr("data-post-id", posts[next_post_index].id);
-
-    // $(modal .modal-header .modal title).text("Post Photo");
-}
-
-// function readmore() {
-//     showLoading();
-//     var new_posts_number = current_posts_number + 6;
-//     if (selected_posts.length - new_posts_number <= 0) {
-//         new_posts_number = selected_posts.length;
-//     }
-//     render_posts(new_posts_number, selected_posts);
-// }
 
 function initSelector() {
     $.ajax({
@@ -186,7 +92,7 @@ function enable_radio(element) {
         clear_selected();
         currentTarget.attr("class", "choice selected_choice");
         currentTarget.find("hr").addClass("selected_hr");
-        currentTarget.attr("onclick", "disable_radio(\"" + currentTarget.attr("data-tag") + "\")");
+        currentTarget.attr("onclick", "disable_radio(event, \"" + currentTarget.attr("data-tag") + "\")");
         selected_tag = currentTarget.attr("data-tag");
     }
 
@@ -196,7 +102,6 @@ function enable_radio(element) {
     selected_element.append(selected_label).append(selected_img);
     $("#chosen").html(selected_element);
 
-    // runEffect(false);
     query_posts(selected_tag);
 }
 
@@ -224,27 +129,10 @@ function runEffect(todo) {
     }
 }
 
-// function runEffect(todo) {
-//     // depend on parameter 'todo', decide to open or close
-//     if (todo) { // true to open
-//         if ($('#selector').is(':hidden')) {
-//             $('#selector').show('blind', function() {}, 300);
-//         }
-//         $("#select_section hr").css("display", "none");
-//         $(".arrow_down").css("transform", "rotate(180deg)");
-//     } else { // false to close
-//         if ($('#selector').is(':hidden') == false) {
-//             $('#selector').hide('blind', function() {}, 300);
-//         }
-//         $("#select_section hr").css("display", "inherit");
-//         $(".arrow_down").css("transform", "rotate(0deg)");
-//     }
-// }
-
 function query_all_posts() {
     // query all posts from tumblr api, avoid still grab posts from tumblr everytimes when users change tag type
     var key = "zcBf3tONWu9lQTSzrewHYU3WRdgbv1VtPGHXXMaZlZgN6Sz0lc";
-    $(".grid").html('<div class="grid-sizer"></div>');
+    $("#grid").html('<div class="grid-sizer"></div>');
 
     $.ajax({
         url: "http://api.tumblr.com/v2/blog/woolito.tumblr.com/posts",
@@ -296,12 +184,11 @@ function query_all_posts() {
 }
 
 function query_posts(tag) {
-    // show loading
     showLoading();
 
     var tags = [];
     selected_posts = [];
-    $(".grid").html('<div class="grid-sizer"></div>');
+    $("#grid").html('<div class="grid-sizer"></div>');
     
     for (var i = 0; i < posts.length; i++) {
         if (tag == "") {
@@ -327,12 +214,11 @@ function query_posts(tag) {
     } else {
         $("#total_post").text(selected_posts.length);
     }
-    // current_posts_number = 0;
-    // readmore();
     render_posts(selected_posts.length, selected_posts);
 }
 
 function render_posts(number_post, posts) {
+    var $grid = $("#grid")
     if (posts.length > 0) {
         for (var i=0; i < number_post; i++) {
             var post_type = posts[i].type;
@@ -351,29 +237,29 @@ function render_posts(number_post, posts) {
                     break;
             }
 
-            $(".grid").append(post_html);
-            $(".grid").imagesLoaded(function() {
-                $(".grid").masonry({
-                    columnWidth: '.grid-sizer',
-                    itemSelector: '.grid-item',
-                    percentPosition: true
-                });
-            }); 
+            $grid.append(post_html);
         }
-        // current_posts_number = number_post;
-    }
+        $grid.imagesLoaded().progress(function() {
+            $grid.masonry({
+                columnWidth: '.grid-sizer',
+                itemSelector: '.grid-item',
+                percentPosition: true
+            });
+            $grid.masonry('reloadItems');
+            hideLoading();
+        });
 
-    setTimeout(function() {
-        $(".grid").masonry();
+        $("img.lazy").lazyload({
+            threshold : 400,
+            effect : "fadeIn",
+            load: lazyloadHandler
+        });
+        $('img.lazy').trigger('scroll');
+    }else{
         hideLoading();
-        if(posts.length == 0){
-            showAlert();
-        }
-    }, 1500);
+        showAlert();
 
-    $(".grid").imagesLoaded().progress(function() {
-        $(".grid").masonry('reloadItems');
-    });
+    }
 
     $(".photo-wrap").click(function(event) {
         event.preventDefault();
@@ -393,12 +279,6 @@ function render_posts(number_post, posts) {
     $(".preview-close").on("click", function(){
         hideImagePreview();
     });
-
-    // if (current_posts_number == posts.length) {
-    //     showLoadEnd();
-    // } else {
-    //     showLoadMore();
-    // }
 
     // $(".shortcut").mouseenter(function() {
     //     clearTimeout(preview_timer);
@@ -421,6 +301,12 @@ function render_posts(number_post, posts) {
     // });
 
     $('[data-toggle="tooltip"]').tooltip();
+
+    function lazyloadHandler(){
+        $grid.imagesLoaded().progress(function() {
+            $grid.masonry();
+        });
+    }
 }
 
 function showImagePreview(id){
@@ -502,7 +388,9 @@ function render_photo(post) {
     var photo_post = $('<div class="photo--post"></div>')
     for (var i = 0; i < post.photos.length; i++) {
         var photo_link = $('<a href="' + post['post_url'] + ' target=\"_blank\""></a>');
-        var photo_img = $('<img src="' + post.photos[i].original_size.url + '" alt="' + post.slug + '">');
+        var photo_img = $('<img class="lazy" data-original="' + post.photos[i].original_size.url + '" alt="' + post.slug + '">');
+        // var photo_img = $('<img src="' + post.photos[i].original_size.url + '" alt="' + post.slug + '">');
+
     }
 
     photo_link.append(photo_img);
@@ -528,13 +416,12 @@ function render_video(post) {
     var article_content = $('<div class="article-content"></div>');
     var video_stage = $("<div class='video-stage'></div>");
     var video_container = $("<div class='video-container ready video' id='" + post.id + "'></div>");
-    // var iframe = render_iframe(post);
     var shortcut = $('<div class="video-shortcut"></div>')
     var shortcut_img = $('<img >');
-    shortcut_img.attr("src", post.thumbnail_url);
+    // shortcut_img.attr("src", post.thumbnail_url);
+    shortcut_img.addClass("lazy");
+    shortcut_img.attr("data-original", post.thumbnail_url);
     shortcut.append(shortcut_img);
-    // var shortcut = video_shortcut(post);
-    // video_container.append(shortcut);
     video_container.append(shortcut);
     video_stage.append(video_container);
     var caption = $('<div class="caption">' + post['caption'] + '</div>');
@@ -570,7 +457,6 @@ function render_text(post) {
         body = body.substring(0, start_index);
         body += '<a href="' + post['post_url'] + '" target=\"_blank\" class="readmore">KEEP READING</a>';
     }
-
     body = analysis_caption_iframe(body, post.id, isDoubleSize);
     article_content.append(title).append(body);
     var icon = render_icon(post);
@@ -598,10 +484,13 @@ function analysis_caption_iframe(caption, post_id, isDoubleSize) {
     link_element.attr("href", "http://woolito.tumblr.com/post/" + post_id + "/");
     var shortcut_element = $("<img >");
     shortcut_element.addClass("shortcut");
+    shortcut_element.addClass("lazy");
     if(isDoubleSize){
-        shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/maxresdefault.jpg");
+        // shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/maxresdefault.jpg");
+        shortcut_element.attr("data-original", "https://i.ytimg.com/vi/" + youtube_id + "/maxresdefault.jpg");
     }else{
-        shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");    
+        // shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
+        shortcut_element.attr("data-original", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
     }
     shortcut_element.attr("youtube_id", youtube_id);
     shortcut_element.attr("data-toggle", "tooltip");
@@ -626,34 +515,9 @@ function render_icon(post) {
     return ul;
 }
 
-function video_shortcut(post) {}
-
-function render_iframe(post) {
-    var video_source = (post.player[0].embed_code);
-
-    // if (video_source.indexOf("youtube") > -1) {
-    //     video_source = post['video-source'];
-    //     var div_element = $('<div id="iframe_'+post.id+'" class="post_iframe">');
-    //     var start_index = video_source.lastIndexOf("/")+1;
-    //     var youtube_id = video_source.substring(start_index);
-    //     var img_element = $('<img class="labnolIframe" src="https://i.ytimg.com/vi/'+youtube_id+'/hqdefault.jpg">');
-    //     var click_element = $('<div class="play-button" onclick="labnolIframe_order(\'iframe_'+post.id+'\', \''+youtube_id+'\')"></div>');
-    //     div_element.append(img_element).append(click_element);
-    //     return div_element;
-    // }
-
-    var url = post.video_url;
-    var html = $('<iframe src="' + url + '" class="embed_iframe tumblr_video_iframe" scrolling="no" frameborder="0" data-can-gutter data-can-resize allowfullscreen mozallowfunscreen webkitallowfullscreen></iframe>')
-    return html;
-}
-
 function showLoading() {
     $(".mask").css("display", "inherit");
     $("#loading").css("display", "inherit");
-
-    // $(".load-more-loading").css("display", "inline");
-    // $(".load-more-end").css("display", "none");
-    // $(".load-more-text").css("display", "none");
 }
 
 function hideLoading() {
@@ -673,15 +537,3 @@ function showAlert(){
         $alert.css("display", "none");
     }, 2000);
 }
-
-// function showLoadEnd(argument) {
-//     $(".load-more-loading").css("display", "none");
-//     $(".load-more-end").css("display", "inline");
-//     $(".load-more-text").css("display", "none");
-// }
-
-// function showLoadMore() {
-//     $(".load-more-loading").css("display", "none");
-//     $(".load-more-end").css("display", "none");
-//     $(".load-more-text").css("display", "inline");
-// }
