@@ -895,101 +895,445 @@
         <div class="posts-holder">
             {block:Posts inlineMediaWidth="1280" inlineNestedMediaWidth="1280"}
             <article id="{PostID}" class="type_{PostType} {TagsAsClasses}" rel="{ReblogURL}">
+
                 <div class="article-content">
-                    {block:Text}
-                    <!-- Text Post -->
-                    {block:Title}
-                    <h2>{block:IndexPage}<a href="{Permalink}" title="{Title}">{/block:IndexPage}{Title}{block:IndexPage}</a>{/block:IndexPage}</h2> {/block:Title} {Body} {/block:Text} {block:Date}
-                    <ul class="icons{block:IfWhiteIcons} white{/block:IfWhiteIcons}">
-                        {block:IndexPage}
-                        <li class="link">
-                            <a href="{Permalink}" title="View Post" class="social-eye"></a>
-                        </li>{/block:IndexPage}
-                        <li class="like">{block:IfWhiteIcons}{LikeButton color="white" size="16"}{/block:IfWhiteIcons}{block:IfNotWhiteIcons}{LikeButton color="black" size="16"}{/block:IfNotWhiteIcons}</li>
-                        <li class="reblog">
-                            <i class="reblog-icon">{block:IfWhiteIcons}{ReblogButton color="white" size="16"}{/block:IfWhiteIcons}{block:IfNotWhiteIcons}{ReblogButton color="black" size="16"}{/block:IfNotWhiteIcons}</i>
-                        </li>
-                        {block:IfSharer}
-                        <li class="sharer">
-                            <a class="social-export"></a>
-                            <div class="sharer-wrap">
-                                <ul>
-                                    {block:IfSharerTwitter}
-                                    <li class="twitter">
-                                        <a href="https://twitter.com/intent/tweet?url={ShortURL}" title="Share on Twitter" class="social-tweets" target="_blank"></a>
-                                    </li>
-                                    {/block:IfSharerTwitter} {block:IfSharerFacebook}
-                                    <li class="facebook">
-                                        <a href="http://www.facebook.com/sharer.php?u={Permalink}" title="Share on Facebook" class="social-facebook" target="_blank"></a>
-                                    </li>
-                                    {/block:IfSharerFacebook} {block:IfSharerGoogle}
-                                    <li class="gplus">
-                                        <a href="https://plus.google.com/share?url={Permalink}" title="Share on Google +" class="social-gplus" target="_blank"></a>
-                                    </li>
-                                    {/block:IfSharerGoogle} {block:IfSharerPinterest}
-                                    <li class="pinterest">
-                                        <a href="https://pinterest.com/pin/create/button/?url={Permalink}{block:Text}&media={PortraitURL-128}{/block:Text}{block:Photo}&media={PhotoURL-HighRes}{/block:Photo}{block:Panorama}&media={PhotoURL-Panorama}{/block:Panorama}{block:Photoset}{block:Photos}&media={PhotoURL-500}{/block:Photos}{/block:Photoset}{block:Quote}&media={PortraitURL-128}{/block:Quote}{block:Link}&media={PortraitURL-128}{/block:Link}{block:Chat}&media={PortraitURL-128}{/block:Chat}{block:Audio}&media={PortraitURL-128}{/block:Audio}{block:Video}&media={PortraitURL-128}{block:VideoThumbnail}&media={VideoThumbnailURL}{/block:VideoThumbnail}{/block:Video}{block:Answer}&media={PortraitURL-128}{/block:Answer}{block:PostTitle}&description={PostTitle}{/block:PostTitle}" title="Share on Pinterest" class="social-pinterest" target="_blank"></a>
-                                    </li>
-                                    {/block:IfSharerPinterest}
-                                </ul>
-                            </div>
-                        </li>
-                        {/block:IfSharer}
-                    </ul>
-                    {block:IfShowMetaOnHome} {block:IndexPage}
-                    <div class="post-meta">
-                        <a href="{Permalink}">{TimeAgo}</a> &nbsp;&nbsp; {block:RebloggedFrom}<a class="reblogged" href="{ReblogParentURL}" title="{ReblogParentTitle}">Reblogged from {ReblogParentTitle}</a>{/block:RebloggedFrom} &nbsp;&nbsp; {block:NoteCount}<a href="{Permalink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}
+
+
+
+                 
+                {block:Text}
+
+                <!-- Text Post -->
+
+                {block:Title}
+                <h2>{block:IndexPage}<a href="{Permalink}" title="{Title}">{/block:IndexPage}{Title}{block:IndexPage}</a>{/block:IndexPage}</h2>
+                {/block:Title}
+
+                {Body}
+
+                {/block:Text}
+
+
+
+                 
+                {block:Photo}
+
+                <!-- Photo Post -->
+
+                <div class="photo-wrap {block:IndexPage}{select:Photo Link}{/block:IndexPage}{block:PermalinkPage}{select:Photo Link Permalink}{/block:PermalinkPage}">
+
+                    <div class="photo--post">
+                        <a href="{Permalink}" title="{Title}">
+                            {block:IfSingleColumnLayout}
+                            <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                            {/block:IfSingleColumnLayout}
+                            {block:IfNotSingleColumnLayout}
+                            <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                            {/block:IfNotSingleColumnLayout}
+                        </a>
                     </div>
-                    {block:HasTags}
-                    <div class="tagged">
-                        {lang:Tagged}: {block:Tags}<a href="{TagURL}">#{Tag}</a> {/block:Tags}
+
+                    <div class="photo--image">
+                        {LinkOpenTag}
+                            {block:IfSingleColumnLayout}
+                            <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                            {/block:IfSingleColumnLayout}
+                            {block:IfNotSingleColumnLayout}
+                            <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                            {/block:IfNotSingleColumnLayout}
+                        {LinkCloseTag}
                     </div>
-                    {/block:HasTags} {/block:IndexPage} {/block:IfShowMetaOnHome} {block:IfDisqusShortname} {block:IndexPage}
-                    <a class="dsq-comment-count" href="{Permalink}#disqus_thread">Comments</a>
-                    <script type="text/javascript">
+
+                    <div class="photo--lightbox">
+                        <a href="{PhotoURL-HighRes}">
+                            {block:IfSingleColumnLayout}
+                            <img src="{PhotoURL-HighRes}" />
+                            {/block:IfSingleColumnLayout}
+                            {block:IfNotSingleColumnLayout}
+                            <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" data-highres="{PhotoURL-HighRes}" />
+                            {/block:IfNotSingleColumnLayout}
+                        </a>
+                    </div>
+
+                    <div class="photo--none">
+                        {block:IfSingleColumnLayout}
+                        <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                        {/block:IfSingleColumnLayout}
+                        {block:IfNotSingleColumnLayout}
+                        <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                        {/block:IfNotSingleColumnLayout}
+                    </div>
+
+                </div>
+
+                {block:Caption}
+                <div class="caption">
+                    {Caption}
+                </div>
+                {/block:Caption}
+
+                {/block:Photo}
+
+
+
+
+                {block:Panorama}
+
+                <!-- Panorama Post -->
+
+                <div class="photo-wrap {block:IndexPage}{select:Panorama Link}{/block:IndexPage}{block:PermalinkPage}{select:Panorama Link Permalink}{/block:PermalinkPage}">
+
+                    <div class="photo--image">
+                        {LinkOpenTag}
+                            {block:IfSingleColumnLayout}
+                            <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                            {/block:IfSingleColumnLayout}
+                            {block:IfNotSingleColumnLayout}
+                            <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                            {/block:IfNotSingleColumnLayout}
+                        {LinkCloseTag}
+                    </div>
+
+                    <div class="photo--post">
+                        <a href="{Permalink}" title="{Title}">
+                            {block:IfSingleColumnLayout}
+                            <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                            {/block:IfSingleColumnLayout}
+                            {block:IfNotSingleColumnLayout}
+                            <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                            {/block:IfNotSingleColumnLayout}
+                        </a>
+                    </div>
+
+                    <div class="photo--none">
+                        {block:IfSingleColumnLayout}
+                        <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                        {/block:IfSingleColumnLayout}
+                        {block:IfNotSingleColumnLayout}
+                        <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                        {/block:IfNotSingleColumnLayout}
+                    </div>
+
+                </div>
+
+                {block:Caption}
+                <div class="caption">
+                    {Caption}
+                </div>
+                {/block:Caption}
+
+                {/block:Panorama}
+
+
+
+                 
+                {block:Photoset}
+
+                <!-- Photoset Post -->
+
+                {block:IndexPage}
+                {block:IfPhotosetCover}
+                <a href="{Permalink}" title="{Title}" class="photoset-wrap">
+                    {block:Photos}
+                    <img src="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                    {/block:Photos}
+                </a>
+                {/block:IfPhotosetCover}
+                {block:IfNotPhotosetCover}
+                <div class="photoset-grid {select:Photoset Link}" data-layout="{PhotosetLayout}" data-id="photoset{PostID}" data-post="{Permalink}" {block:IfPhotosetSpacing}data-gutter="{text:Photoset Spacing}"{block:IfPhotosetSpacing}>
+                    {block:Photos}
+                    <img src="{PhotoURL-500}"
+                        {block:HighRes}data-highres="{PhotoURL-HighRes}"{/block:HighRes}
+                        {block:Caption}alt="{Caption}"{/block:caption}
+                        data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}"/>
+                    {/block:Photos}
+                </div>
+                {/block:IfNotPhotosetCover}
+                {/block:IndexPage}
+
+                {block:PermalinkPage}
+                <div class="photoset-grid {select:Photoset Link Permalink}" data-layout="{PhotosetLayout}" data-id="photoset{PostID}" {block:IfPhotosetSpacing}data-gutter="{text:Photoset Spacing}"{block:IfPhotosetSpacing}>
+                    {block:Photos}
+                    <img src="{PhotoURL-500}"
+                        {block:HighRes}data-highres="{PhotoURL-HighRes}"{/block:HighRes}
+                        {block:Caption}alt="{Caption}"{/block:caption}
+                        data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}"/>
+                    {/block:Photos}
+                </div>
+                {/block:PermalinkPage}
+
+                {block:Caption}
+                <div class="caption">
+                    {Caption}
+                </div>
+                {/block:caption}
+
+                {/block:Photoset}
+
+
+
+
+                {block:Video}
+
+                <!-- Video Post -->
+
+                <div class="video-stage">
+                    <div class="video-container" id="{postID}">
+                        {VideoEmbed-700}
+                    </div>
+                </div>
+
+                {block:Caption}
+                <div class="caption">
+                    {Caption}
+                </div>
+                {/block:Caption}
+
+                {/block:Video}
+
+
+
+
+                {block:Audio}
+
+                <!-- Audio Post -->
+
+                {block:AudioEmbed}
+                    <div class="audio-embed">
+                        {AudioEmbed}
+                    </div>
+                {/block:AudioEmbed}
+
+                {block:ExternalAudio}
+                    <a href="{ExternalAudioURL}">{lang:Download}</a>
+                {/block:ExternalAudio}
+
+                {block:Caption}
+                <div class="caption">
+                    {Caption}
+                </div>
+                {/block:Caption}
+
+                {/block:Audio}
+
+
+
+
+                {block:Quote}
+
+                <!-- Quote Post -->
+
+                <div class="quote {Length}">
+                    {Quote}
+                </div>             
+
+                {block:Source}
+                    <div class="quote-author">- {Source}</div>
+                {/block:Source}
+
+                {/block:Quote}
+
+
+
+
+                {block:Answer}
+                 
+                <!-- Answer Post -->
+                 
+                <div class="answer-wrap">
+                    <div class="answer-image {AvatarShape}"><img src="{AskerPortraitURL-64}"></div>
+                    <div class="answer-person">{Asker} asked:</div>
+                    <div class="answer-text">{Question}</div>
+                </div>
+
+                <hr>
+
+                {block:Answerer}
+                <div class="answer-wrap">
+                    <div class="answer-image {AvatarShape}"><img src="{AnswererPortraitURL-64}" alt="{Title}"/></div>
+                    <div class="answer-person">{Answerer} answered:</div>
+                    <div class="answer-text">{Answer}</div>
+                </div>
+                <hr>
+                {/block:Answerer}
+
+                <div class="answer-wrap">
+                    {Replies}
+                </div>
+
+                {/block:Answer}
+
+
+
+
+                {block:Chat}
+
+                <!-- Chat Post -->
+
+                {block:Title}
+                <h2>{block:IndexPage}<a href="{Permalink}" title="{Title}">{/block:IndexPage}{Title}{block:IndexPage}</a>{/block:IndexPage}</h2>
+                {/block:Title}
+
+                {block:Lines}
+                    <div class="line {Alt}">{block:Label}<strong>{Label}</strong>{/block:Label} {Line}</div>
+                {/block:Lines}
+
+                {/block:Chat}
+
+
+
+
+                {block:Link}
+
+                <!-- Link Post -->
+
+                <a href="{URL}" class="the-link" {Target}>
+                {block:Thumbnail}<img src="{Thumbnail-HighRes}" alt="{Name}"/>{/block:Thumbnail}
+                    <div class="the-link-text">
+                        {block:Host}<span>{Host}</span>{/block:Host}
+                        {Name} <i class="social-right"></i>
+                        {block:Excerpt}<span>{Excerpt}</span>{/block:Excerpt}
+                    </div>
+                </a>
+
+                {block:Description}
+                <div class="caption">
+                    {Description}
+                </div>             
+                {/block:Description}
+
+                {/block:Link}
+
+
+
+
+                {block:Date}
+
+                <ul class="icons{block:IfWhiteIcons} white{/block:IfWhiteIcons}">
+                    {block:IndexPage}<li class="link"><a href="{Permalink}" title="View Post" class="social-eye"></a></li>{/block:IndexPage}
+                    <li class="like">{block:IfWhiteIcons}{LikeButton color="white" size="16"}{/block:IfWhiteIcons}{block:IfNotWhiteIcons}{LikeButton color="black" size="16"}{/block:IfNotWhiteIcons}</li>
+                    <li class="reblog">
+                        <i class="reblog-icon">{block:IfWhiteIcons}{ReblogButton color="white" size="16"}{/block:IfWhiteIcons}{block:IfNotWhiteIcons}{ReblogButton color="black" size="16"}{/block:IfNotWhiteIcons}</i>
+                    </li>
+                    {block:IfSharer}
+                    <li class="sharer">
+                        <a class="social-export"></a>
+                        <div class="sharer-wrap">
+                            <ul>
+                                {block:IfSharerTwitter}
+                                <li class="twitter">
+                                    <a href="https://twitter.com/intent/tweet?url={ShortURL}" title="Share on Twitter" class="social-tweets" target="_blank"></a>
+                                </li>
+                                {/block:IfSharerTwitter}
+                                {block:IfSharerFacebook}
+                                <li class="facebook">
+                                    <a href="http://www.facebook.com/sharer.php?u={Permalink}" title="Share on Facebook" class="social-facebook" target="_blank"></a>
+                                </li>
+                                {/block:IfSharerFacebook}
+                                {block:IfSharerGoogle}
+                                <li class="gplus">
+                                    <a href="https://plus.google.com/share?url={Permalink}" title="Share on Google +" class="social-gplus" target="_blank"></a>
+                                </li>
+                                {/block:IfSharerGoogle}
+                                {block:IfSharerPinterest}
+                                <li class="pinterest">
+                                    <a href="https://pinterest.com/pin/create/button/?url={Permalink}{block:Text}&media={PortraitURL-128}{/block:Text}{block:Photo}&media={PhotoURL-HighRes}{/block:Photo}{block:Panorama}&media={PhotoURL-Panorama}{/block:Panorama}{block:Photoset}{block:Photos}&media={PhotoURL-500}{/block:Photos}{/block:Photoset}{block:Quote}&media={PortraitURL-128}{/block:Quote}{block:Link}&media={PortraitURL-128}{/block:Link}{block:Chat}&media={PortraitURL-128}{/block:Chat}{block:Audio}&media={PortraitURL-128}{/block:Audio}{block:Video}&media={PortraitURL-128}{block:VideoThumbnail}&media={VideoThumbnailURL}{/block:VideoThumbnail}{/block:Video}{block:Answer}&media={PortraitURL-128}{/block:Answer}{block:PostTitle}&description={PostTitle}{/block:PostTitle}" title="Share on Pinterest" class="social-pinterest" target="_blank"></a>
+                                </li>
+                                {/block:IfSharerPinterest}
+                            </ul>
+                        </div>
+                    </li>
+                    {/block:IfSharer}
+                </ul>
+
+                {block:IfShowMetaOnHome}
+                {block:IndexPage}
+                <div class="post-meta">
+                    <a href="{Permalink}">{TimeAgo}</a> &nbsp;&nbsp; {block:RebloggedFrom}<a class="reblogged" href="{ReblogParentURL}" title="{ReblogParentTitle}">Reblogged from {ReblogParentTitle}</a>{/block:RebloggedFrom} &nbsp;&nbsp; {block:NoteCount}<a href="{Permalink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}
+                </div>             
+                {block:HasTags}
+                <div class="tagged">
+                    {lang:Tagged}: {block:Tags}<a href="{TagURL}">#{Tag}</a> {/block:Tags}
+                </div>
+                {/block:HasTags}
+                {/block:IndexPage}
+                {/block:IfShowMetaOnHome}
+
+                {block:IfDisqusShortname}
+                {block:IndexPage}
+                <a class="dsq-comment-count" href="{Permalink}#disqus_thread">Comments</a>
+                <script type="text/javascript">
                     var disqus_shortname = '{text:Disqus Shortname}';
-                    (function() {
-                        var s = document.createElement('script');
-                        s.async = true;
+                    (function () {
+                        var s = document.createElement('script'); s.async = true;
                         s.type = 'text/javascript';
                         s.src = '//' + disqus_shortname + '.disqus.com/count.js';
                         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
                     }());
-                    </script>
-                    {/block:IndexPage} {/block:IfDisqusShortname} {block:PermalinkPage} {block:GroupMembers} {block:IfShowGroupAuthor}
-                    <div class="group-author">
-                        <a href="{PostAuthorURL}" title="{PostAuthorTitle}"><img src="{PostAuthorPortraitURL-30}" alt="{PostAuthorTitle}" class="{AvatarShape}">Posted by {PostAuthorTitle}</a>
-                    </div>
-                    {/block:IfShowGroupAuthor} {/block:GroupMembers}
-                    <div class="post-meta">
-                        {TimeAgo}
-                        <br /> {block:ContentSource} Source: {SourceLink}
-                        <br /> {/block:ContentSource} {block:RebloggedFrom}
-                        <a class="reblogged" href="{ReblogParentURL}" title="{ReblogParentTitle}">Reblogged from {ReblogParentTitle}</a> {/block:RebloggedFrom}
-                    </div>
-                    {block:HasTags}
-                    <div class="tagged">
-                        {lang:Tagged}: {block:Tags}<a href="{TagURL}">#{Tag}</a> {/block:Tags}
-                    </div>
-                    {/block:HasTags} {block:IfDisqusShortname}
-                    <div id="disqus_thread" class="disqus"></div>
-                    <script type="text/javascript">
+                </script>              
+                {/block:IndexPage}
+                {/block:IfDisqusShortname}
+
+
+
+
+                {block:PermalinkPage}
+
+
+                {block:GroupMembers}
+                {block:IfShowGroupAuthor}
+                <div class="group-author">
+                    <a href="{PostAuthorURL}" title="{PostAuthorTitle}"><img src="{PostAuthorPortraitURL-30}" alt="{PostAuthorTitle}"class="{AvatarShape}">Posted by {PostAuthorTitle}</a>
+                </div>
+                {/block:IfShowGroupAuthor}
+                {/block:GroupMembers}
+
+
+                <div class="post-meta">
+                    {TimeAgo}<br />
+                    {block:ContentSource}
+                    Source: {SourceLink}<br />
+                    {/block:ContentSource}
+                    {block:RebloggedFrom}
+                    <a class="reblogged" href="{ReblogParentURL}" title="{ReblogParentTitle}">Reblogged from {ReblogParentTitle}</a>
+                    {/block:RebloggedFrom}
+                </div>
+
+                {block:HasTags}
+                <div class="tagged">
+                    {lang:Tagged}: {block:Tags}<a href="{TagURL}">#{Tag}</a> {/block:Tags}
+                </div>
+                {/block:HasTags}
+
+                {block:IfDisqusShortname}
+                <div id="disqus_thread" class="disqus"></div>
+                <script type="text/javascript">
                     var disqus_shortname = '{text:Disqus Shortname}';
                     (function() {
-                        var dsq = document.createElement('script');
-                        dsq.type = 'text/javascript';
-                        dsq.async = true;
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
                         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
                         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
                     })();
-                    </script>
-                    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                    <a href="http://disqus.com" class="dsq-brlink">Comments powered by <span class="logo-disqus">Disqus</span></a> {/block:IfDisqusShortname} {block:PostNotes}
-                    <div id="notes" class="post-notes {AvatarShape}">
-                        {PostNotes-16}
-                    </div>
-                    {/block:PostNotes} {/block:PermalinkPage} {/block:Date}
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">Comments powered by <span class="logo-disqus">Disqus</span></a>
+                {/block:IfDisqusShortname}
+
+                {block:PostNotes}
+                <div id="notes" class="post-notes {AvatarShape}">
+                    {PostNotes-16}
                 </div>
+                {/block:PostNotes}
+
+                {/block:PermalinkPage}
+
+                {/block:Date}
+
+
+
+
+                </div>             
+
             </article>
             {/block:Posts}
         </div>
@@ -1198,8 +1542,8 @@
                         });
                     });    
                 }else{
-                    var gridSizer = document.getElementsByClassName("grid-sizer");
-                    gridSizer[1].style.display = "none";
+                    // var gridSizer = document.getElementsByClassName("grid-sizer");
+                    // gridSizer[1].style.display = "none";
                 }
                 
             }
