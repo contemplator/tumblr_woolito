@@ -14,7 +14,7 @@
     <meta property="og:description" content="我們努力創作並分享笑容，希望能為彼此的生活點綴一些無厘頭的樂趣！">
     <meta property="og:image" content="http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png">
     <!-- detect mobile agent or size -->
-    <script src="http://static.tumblr.com/sirdwhf/5Byoexvk9/detect-mobile.js"></script>
+    <script src="http://static.tumblr.com/sirdwhf/uUkofswvo/detect-mobile.js"></script>
     <!-- jquery ui -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/z3pnekdqv/precrafted-social.css">
@@ -112,7 +112,7 @@
                 <div class="drawer_icon">
                     <img src="http://static.tumblr.com/sirdwhf/6PVobwmdh/drawer.png">
                 </div>
-                <div class="title">Woolito Studio</div>
+                <div class="title"><a href="/">Woolito Studio</a></div>
                 <div class="find-us">
                     <a href="/contact-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/V2Lof6jne/find_us.png"></a>
                 </div>
@@ -123,51 +123,57 @@
                 </div>
             </section>
             <div id="select-section">
-                <div id="selector">
-                    <div class="arrow">
-                        <img src="http://static.tumblr.com/sirdwhf/QrDobwm8g/arrow.png">
-                    </div>
-                    <div class="select-content">
-                        <div class="select-works">
-                            <span>作品篩選 Filter</span>
-                            <!-- <div class="selected" onclick="disable_radio(this)"><div class="selected-chinese">動態漫畫</div><div class="selected-english">Moving Comicsadfsadfs</div><img src="http://static.tumblr.com/sirdwhf/yRso8llbo/radio_checkd.png"></div> -->
-                            <span>&nbsp/&nbsp&nbsp點此展開選單</span>
-                            <!-- <span>&nbsp/&nbsp</span> -->
+                <div class="toggle-field">
+                    <div id="selector">
+                        <div class="arrow">
+                            <img src="http://static.tumblr.com/sirdwhf/QrDobwm8g/arrow.png">
                         </div>
-                        <div class="select-number">
-                            <span>共計</span>
-                            <span id="total_post">168</span>
-                            <span>&nbsp部作品</span>
+                        <div class="select-content">
+                            <div class="select-works">
+                                <span>作品篩選 Filter</span>
+                                <!-- <div class="selected" onclick="disable_radio(this)"><div class="selected-chinese">動態漫畫</div><div class="selected-english">Moving Comicsadfsadfs</div><img src="http://static.tumblr.com/sirdwhf/yRso8llbo/radio_checkd.png"></div> -->
+                                <span>&nbsp/&nbsp&nbsp點此展開選單</span>
+                                <!-- <span>&nbsp/&nbsp</span> -->
+                            </div>
+                            <div class="select-number">
+                                <span>共計</span>
+                                <span id="total_post">168</span>
+                                <span>&nbsp部作品</span>
+                            </div>
                         </div>
                     </div>
+                    <div id="divider">
+                        <div class="divider"></div>
+                        <div class="divider"></div>
+                        <div class="divider"></div>
+                    </div>    
                 </div>
-                <div id="divider">
-                    <div class="divider"></div>
-                    <div class="divider"></div>
-                    <div class="divider"></div>
+                
+                <div id="selector-table-div">
+                    <table id="selector-table" RULES="cols">
+                        <tr class="category">
+                            <td select-category="Purpose">
+                                <div class="title">
+                                    <div class="chinese">動畫用途</div>
+                                    <div class="english">Purpose</div>
+                                </div>
+                            </td>
+                            <td select-category="Style">
+                                <div class="title">
+                                    <div class="chinese">動畫類型</div>
+                                    <div class="english">Style</div>
+                                </div>
+                            </td>
+                            <td select-category="Original">
+                                <div class="title">
+                                    <div class="chinese">原創內容</div>
+                                    <div class="english">Original</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
                 </div>
-                <table id="selector-table" RULES="cols">
-                    <tr class="category">
-                        <td select-category="Purpose">
-                            <div class="title">
-                                <div class="chinese">動畫用途</div>
-                                <div class="english">Purpose</div>
-                            </div>
-                        </td>
-                        <td select-category="Style">
-                            <div class="title">
-                                <div class="chinese">動畫類型</div>
-                                <div class="english">Style</div>
-                            </div>
-                        </td>
-                        <td select-category="Original">
-                            <div class="title">
-                                <div class="chinese">原創內容</div>
-                                <div class="english">Original</div>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+                
             </div>
         </div>
         <div class="mask"></div>
@@ -184,7 +190,7 @@
 <!-- hammer js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
 <!-- drawer listener -->
-<script src="http://static.tumblr.com/sirdwhf/fuSof87ay/woolito-slider.js"></script>
+<script src="http://static.tumblr.com/sirdwhf/jsbofswut/woolito-slider.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
 <script src="js/works-mobile.js"></script>
 

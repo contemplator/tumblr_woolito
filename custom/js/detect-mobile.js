@@ -1,4 +1,4 @@
-console.log("width: " + screen.availWidth);
+console.log("width: " + window.innerWidth);
 console.log("user agent: " + navigator.userAgent);
 console.log(get_current_location());
 var current_location = get_current_location();
@@ -56,7 +56,7 @@ function ismobile() {
 }
 
 function ismobile_size() {
-    var width = screen.availWidth;
+    var width = window.innerWidth;
     if (width <= 768) {
         return true;
     } else {

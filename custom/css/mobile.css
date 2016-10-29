@@ -78,7 +78,8 @@ body {
     height: auto;*/
 }
 
-#header .find-us a, #header .find-us img{
+#header .find-us a,
+#header .find-us img {
     height: 100%;
     width: auto;
     margin: 0px auto;
@@ -86,6 +87,10 @@ body {
 
 
 /* drawer */
+
+.drawer {
+    max-width: 400px;
+}
 
 .drawer-body {
     padding: 0px;
@@ -97,11 +102,6 @@ body {
     background-color: #fff;
     text-align: center;
 }
-
-.drawer-controls {
-    height: 45px;
-}
-
 
 /* shortcut */
 
@@ -239,21 +239,8 @@ section {
     width: 100%;
 }
 
-
-/* fixed bootstrap drawer */
-
-.drawer-controls {
-    height: auto;
-}
-
-.drawer-contents{
+.drawer-contents {
     background-color: #fff;
-}
-
-/* fixed jquery mobile */
-
-.ui-loader-default {
-    display: none;
 }
 
 .mask {
@@ -265,4 +252,15 @@ section {
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 2;
     display: none;
+}
+
+/* swipe field*/
+.swipe-field{
+    height: 100vh;
+    width: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    visibility: collapse;
 }
