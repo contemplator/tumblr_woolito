@@ -246,7 +246,10 @@ function render_posts(number_post, posts) {
                 percentPosition: true
             });
             $grid.masonry('reloadItems');
-            hideLoading();
+            
+            setTimeout(function(){
+                hideLoading();    
+            }, 1000);
         });
 
         $("img.lazy").lazyload({
@@ -258,7 +261,6 @@ function render_posts(number_post, posts) {
     }else{
         hideLoading();
         showAlert();
-
     }
 
     $(".photo-wrap").click(function(event) {

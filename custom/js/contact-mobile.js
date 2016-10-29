@@ -15,13 +15,19 @@ $(function() {
     });
 
     $("#input-idea").focus(function() {
-        $("#input-idea").val("");
+        var idea = $("#input-idea").val();
+        if(idea == "任何我們能幫助您的需求都歡迎寫下來"){
+            $("#input-idea").val("");    
+        }
     });
 
     $("#input-idea").focusout(function() {
         var idea = $("#input-idea").val();
-        if (idea == "") {
+        if (idea == "任何我們能幫助您的需求都歡迎寫下來" || idea == "") {
             $("#input-idea").val("任何我們能幫助您的需求都歡迎寫下來");
+            $("#input-idea").css("color", "#aaa");
+        } else {
+            $("#input-idea").css("color", "#fff");
         }
     });
 
@@ -59,7 +65,7 @@ $(function() {
 
 function enable_type_radio(element) {
     $(".type label img").attr("src", "http://static.tumblr.com/sirdwhf/7egof82eq/contact_uncheck_radio.png");
-    $(element.currentTarget.childNodes[1]).attr("src", "http://static.tumblr.com/sirdwhf/S1Uof82e4/contact_check_radio.png");
+    $(element.currentTarget).find("img").attr("src", "http://static.tumblr.com/sirdwhf/S1Uof82e4/contact_check_radio.png");
 }
 
 function show_budge_select() {
