@@ -225,7 +225,7 @@ document.addEventListener('mousewheel', function(e) {
                 <label class="chinese">聯絡電話</label>
                 <label class="english">Telephone Number</label>
                 <div class="input-field">
-                    <input type="text" id="input-phone" />
+                    <input type="text" id="input-phone" onkeyup="return validateNumber(this, value)"  />
                 </div>
             </div>
             <div class="email">

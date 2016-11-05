@@ -73,9 +73,19 @@ $(function() {
     });
 });
 
+function validateNumber(element, value){
+    var x = event.keyCode;
+    var last = value.charAt(value.length-1);
+    if(!("1234567890".indexOf(last) > -1)){
+        value = value.substring(0, value.length-1);
+    }
+
+    element.value = value.replace(/(\d{4})(\d{3})(\d{3})/, "$1-$2-$3");
+}
+
 function enable_type_radio(element) {
     $(".type label img").attr("src", "http://static.tumblr.com/sirdwhf/7egof82eq/contact_uncheck_radio.png");
-    $(element.currentTarget.childNodes[1]).attr("src", "http://static.tumblr.com/sirdwhf/S1Uof82e4/contact_check_radio.png");
+    $(element.currentTarget).find("img").attr("src", "http://static.tumblr.com/sirdwhf/S1Uof82e4/contact_check_radio.png");
 }
 
 function fixLeftSelector() {
@@ -178,7 +188,7 @@ function verifyInput() {
     for (var i = 0; i < error.length; i++) {
         switch (error[i]) {
             case "idea":
-                $(".idea .input-field").css("border", "3px solid #ea4e4d");
+                $(".idea .input-field").css("border", "3px solid #E94D4C");
                 $(".idea img.error").css("display", "inline");
                 $(".idea label.error").css("display", "inline-block");
                 break;
@@ -187,12 +197,12 @@ function verifyInput() {
                 //     $(".type .error").css("visibility", "initial");
                 //     break;
             case "name":
-                $(".name .input-field").css("border", "3px solid #ea4e4d");
+                $(".name .input-field").css("border", "3px solid #E94D4C");
                 $(".name img.error").css("display", "inline");
                 $(".name label.error").css("display", "inline-block");
                 break;
             case "email":
-                $(".email .input-field").css("border", "3px solid #ea4e4d");
+                $(".email .input-field").css("border", "3px solid #E94D4C");
                 $(".email img.error").css("display", "inline");
                 $(".email label.error").css("display", "inline-block");
                 break;

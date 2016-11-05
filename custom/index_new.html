@@ -760,7 +760,7 @@
             </tr>
             <tr>
                 <td>
-                    <a href="service" rel="external"><img src="http://static.tumblr.com/sirdwhf/agXoflb90/top-service.png"></a>
+                    <a href="service" rel="external"><img src="http://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
                 </td>
             </tr>
             <tr>
@@ -874,7 +874,7 @@
                         <a href="aboutus-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
                     </div>
                     <div class="top-post">
-                        <a href="service-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/agXoflb90/top-service.png"></a>
+                        <a href="service-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
                     </div>
                     <div class="top-post">
                         <a href="contact-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
@@ -1389,7 +1389,8 @@
 <!-- hammer js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
 <script src="http://static.tumblr.com/sirdwhf/fuSof87ay/woolito-slider.js"></script>
-<!-- <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+<script src="http://static.tumblr.com/sirdwhf/NJuog0slp/article.js"></script>
+
 <script type="text/javascript">
     var posts = [];
     var current_posts_number = 0;
@@ -1527,6 +1528,8 @@
                     case "photo":
                         post_html = render_photo(posts[i]);
                         break;
+                    case "audio":
+                        post_html = Article.renderAudio();
                     default:
                         break;
                 }

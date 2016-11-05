@@ -350,3 +350,8 @@ div.play-button {
     max-height: 80vh;
     max-width: 60%;
 }
+
+/* article audio */
+.type_audio iframe{
+    width: 100%;
+}

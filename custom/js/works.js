@@ -228,11 +228,17 @@ function render_posts(number_post, posts) {
                     post_html = render_video(posts[i]);
                     break;
                 case "text":
-                    post_html = render_text(posts[i]);
+                    post_html = Article.renderText(posts[i]);
+                    // console.log(post_html);
+                    // post_html = render_text(posts[i]);
                     break;
                 case "photo":
                     post_html = render_photo(posts[i]);
                     break;
+                case "audio":
+                    // post_html = render_audio(posts[i]);
+                    post_html = Article.renderAudio(posts[i]);
+                    // console.log(Article);
                 default:
                     break;
             }
@@ -384,7 +390,7 @@ function render_photo(post) {
     for(var i=0; i<tags.length; i++){
         article.addClass(tags[i]);
     }
-    article.attr("rel", post['post_url']);
+    article.attr("rel", post.post_url);
     var article_content = $('<div class="article-content"></div>');
     var photo_wrap = $('<div class="photo-wrap post"></div>');
     var photo_post = $('<div class="photo--post"></div>')
