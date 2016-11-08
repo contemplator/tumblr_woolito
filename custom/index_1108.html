@@ -1392,7 +1392,7 @@
 <script src="http://static.tumblr.com/sirdwhf/NJuog0slp/article.js"></script>
 
 <script type="text/javascript">
-    var posts = {};
+    var posts = [];
     var current_posts_number = 0;
     var modalHidden;
     var preview_timer;
@@ -1429,8 +1429,8 @@
 
     function query_all_posts() {
         var key = "zcBf3tONWu9lQTSzrewHYU3WRdgbv1VtPGHXXMaZlZgN6Sz0lc";
-        var home_posts = [];
-        var select_posts = [];
+        var normal_posts = [];
+        var top_posts = [];
         $(".grid").html('<div class="grid-sizer"></div>');
 
         $.ajax({
@@ -1448,69 +1448,110 @@
                     if (tags == undefined) {
                         tags = [];
                     };
-                    if (tags.indexOf("home_only") > -1) {
-                        if(tags.indexOf("top") > -1){
-                            top_posts.unshift(data_json[i]);
-                        }else{
-                            home_posts.push(data_json[i]);    
+                    if (tags.indexOf("home") > -1 || tags.indexOf("onlyhome") > -1) {
+                        if (tags.indexOf("top") > -1) {
+                            top_posts.push(data_json[i]);
+                        } else {
+                            normal_posts.push(data_json[i]);
                         }
-                    } else if(tags.indexOf("select") > -1){
-                        select_posts.push(data_json[i]);
                     }
                 } catch (err) {
                     console.log(err);
                     continue;
                 }
             }
-            posts.home = home_posts;
-            posts.select = select_posts;
-            console.log(posts);
+            for (var i = 0; i < top_posts.length; i++) {
+                posts.push(top_posts[i]);
+            }
+            for (var i = 0; i < normal_posts.length; i++) {
+                posts.push(normal_posts[i]);
+            }
 
-            render_posts();
+            query_posts("");
         });
     }
 
-    function render_posts() {
+    function query_posts(tag) {
+        var selected_posts = [];
+        var tags = [];
+
+        for (var i = 0; i < posts.length; i++) {
+            if (tag == "") {
+                selected_posts = posts;
+                continue;
+            }
+            try {
+                tags = posts[i].tags;
+                if (tags == undefined) {
+                    tags = [];
+                };
+                if (tags.indexOf(tag) > -1) {
+                    selected_posts.push(posts[i]);
+                }
+            } catch (err) {
+                console.log(err);
+                continue;
+            }
+        }
+
+        if (!posts) {
+            $("#total_post").text("0");
+        } else {
+            $("#total_post").text(selected_posts.length);
+        }
+        current_posts_number = 0;
+        readmore(selected_posts);
+    }
+
+    function readmore(posts) {
+        var new_posts_number = current_posts_number + 6;
+        if (posts.length - new_posts_number <= 0) {
+            new_posts_number = posts.length;
+        }
+        render_posts(new_posts_number, posts);
+    }
+
+    function render_posts(number_post, posts) {
         $(".grid").html('<div class="grid-sizer"></div>');
 
-        // if(posts.length > 0){
-            for(var key in posts){
-                if (!posts.hasOwnProperty(key)) continue;
-                console.log(key);
-                var posts_array = posts[key];
-                console.log(posts_array);
-                for(var i=0; i<posts_array.length; i++){
-                    var post_type = posts_array[i].type;
-                    var post_html = null;
-                    switch (post_type) {
-                        case "video":
-                            post_html = render_video(posts_array[i]);
-                            break;
-                        case "text":
-                            post_html = render_text(posts_array[i]);
-                            break;
-                        case "photo":
-                            post_html = render_photo(posts_array[i]);
-                            break;
-                        case "audio":
-                            post_html = Article.renderAudio(posts_array[i]);
-                        default:
-                            break;
-                    }
-                    $(".grid").append(post_html);
-
-                    if(!ismobile && !ismobile_size){
-                        $(".grid").imagesLoaded(function() {
-                            $(".grid").masonry({
-                                columnWidth: '.grid-sizer',
-                                itemSelector: '.grid-item',
-                                percentPosition: true
-                            });
-                        });
-                    }
+        if (posts.length > 0) {
+            for (var i = current_posts_number; i < number_post; i++) {
+                var post_type = posts[i].type;
+                var post_html = null;
+                switch (post_type) {
+                    case "video":
+                        post_html = render_video(posts[i]);
+                        break;
+                    case "text":
+                        post_html = render_text(posts[i]);
+                        break;
+                    case "photo":
+                        post_html = render_photo(posts[i]);
+                        break;
+                    case "audio":
+                        post_html = Article.renderAudio();
+                    default:
+                        break;
                 }
+
+                $(".grid").append(post_html);
+
+                if(!ismobile && !ismobile_size){
+                    $(".grid").imagesLoaded(function() {
+                        $(".grid").masonry({
+                            columnWidth: '.grid-sizer',
+                            itemSelector: '.grid-item',
+                            percentPosition: true
+                        });
+                    });    
+                }else{
+                    // var gridSizer = document.getElementsByClassName("grid-sizer");
+                    // gridSizer[1].style.display = "none";
+                }
+                
             }
-        // }
+            current_posts_number = number_post;
+        }
 
         $('[data-toggle="tooltip"]').tooltip();
     }
