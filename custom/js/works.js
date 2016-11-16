@@ -152,8 +152,8 @@ function query_all_posts() {
                 if (tags == undefined) {
                     tags = [];
                 };
-                if (tags.indexOf("onlyhome") > -1 ) {
-                    console.log("onlyhome");
+                if (tags.indexOf("home_only") > -1 ) {
+                    console.log("home_only");
                 }else{
                     if(tags.indexOf("top") > -1){
                         top_posts.push(data_json[i]);
@@ -228,9 +228,9 @@ function render_posts(number_post, posts) {
                     post_html = render_video(posts[i]);
                     break;
                 case "text":
-                    post_html = Article.renderText(posts[i]);
+                    // post_html = Article.renderText(posts[i]);
                     // console.log(post_html);
-                    // post_html = render_text(posts[i]);
+                    post_html = render_text(posts[i]);
                     break;
                 case "photo":
                     post_html = render_photo(posts[i]);

@@ -2,68 +2,806 @@
 <html>
 
 <head>
-    <title>梅問題範例展示「CSS3-text-justify」</title>
+    <title>Test Table</title>
     <meta charset="UTF-8">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script type="text/javascript">
-        $(function(){
-            console.log("ready");
-        })
-    </script>
-
+    <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/z3pnekdqv/precrafted-social.css">
+    <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/g6Fnsuud3/fixie-styles.css">
+    <!--bootstrap and drawer css-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/css/bootstrap-drawer.min.css">
 </head>
-
-<body>
-    <textarea id="visChangeText" style="width:300px;height:100px">asdf</textarea>
-</body>
-<script>
-var browserPrefixes = ['moz', 'ms', 'o', 'webkit'];
-
-var visProp = getHiddenProp();
-if (visProp) {
-    var evtname = visProp.replace(/[H|h]idden/, '') + 'visibilitychange';
-    console.log(evtname);
-    document.addEventListener(evtname, visChange);
-    // document.addEventListener(evtname, iframeChange);
+<style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+body {
+    background-color: #e6e6e6;
+    font-family: 'Noto Sans TC', sans-serif;
 }
 
-function getHiddenProp() {
-    var prefixes = ['webkit', 'moz', 'ms', 'o'];
+h2 {
+    font-size: 20px;
+    text-transform: inherit;
+}
 
-    // if 'hidden' is natively supported just return it
-    if ('hidden' in document) {
-        return 'hidden'
-    };
+.desktop {
+    display: initial;
+}
 
-    // otherwise loop over all the known prefixes until we find one
-    for (var i = 0; i < prefixes.length; i++) {
-        if ((prefixes[i] + 'Hidden') in document) {
-            console.log(prefixes[i] + 'Hidden')
-            return prefixes[i] + 'Hidden';
+.mobile {
+    display: none;
+}
+
+
+/* navigation */
+
+header .logo h1 {
+    font-weight: bold;
+    text-transform: none;
+}
+
+div.center {
+    padding-top: 0px;
+    padding-left: 0px;
+}
+
+header .center .centered {
+    display: block;
+    height: 100vh;
+    overflow: auto;
+    background-color: #fff;
+}
+
+.logo a {
+    color: #000;
+    text-decoration: none;
+}
+
+header p.description {
+    margin: 0px;
+}
+
+
+/* navigation */
+
+#navigation ul li {
+    border-top: 2px #ddd solid;
+    width: 90%;
+    margin: 0px auto;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    font-size: 100%;
+    line-height: 1.5em;
+    font-weight: 400;
+    text-align: left;
+    list-style: none;
+}
+
+#navigation ul li a {
+    margin-left: 20%;
+    color: #000;
+}
+
+#navigation .label-chinese {
+    display: inline-block;
+    letter-spacing: 1px;
+    width: 30%;
+}
+
+#navigation .label-english {
+    display: inline;
+    letter-spacing: 1px;
+    font-size: 80%;
+    width: 40%;
+}
+
+#shortcut {
+    padding: 20px;
+}
+
+.social_network {
+    margin-top: 10px;
+}
+
+.social_network img {
+    display: inline;
+    height: 35px;
+    width: auto;
+}
+
+
+/* article */
+
+section {
+    margin-bottom: 0px;
+}
+
+img.shortcut {
+    width: 100%;
+}
+
+.grid {
+    margin-top: 0px;
+}
+
+.single-post article {
+    margin-top: 0px;
+}
+
+article,
+.grid-item {
+    width: 33.33%;
+}
+
+.single-post article {
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.grid-item {
+    background-color: #fff;
+    padding: 40px;
+    border: 2px #e6e6e6 solid;
+}
+
+.article_content iframe {
+    width: 100%;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: auto;
+}
+
+.single-post article {
+    margin-top: 0px;
+}
+
+#youtube_iframe {
+    max-height: 460px;
+}
+
+.readmore {
+    display: block;
+}
+
+u {
+    text-decoration: underline;
+}
+
+
+/* top */
+
+.top.mobile,
+.top.desktop {
+    width: 100%;
+}
+
+table.top {
+    width: 100%;
+}
+
+.top td {
+    background-color: #fff;
+    border: 4px solid #e6e6e6;
+    border-left: 2px solid #e6e6e6;
+    padding: 10px 20px;
+}
+
+.top td img {
+    width: 100%;
+    height: auto
+}
+
+.top .top-post {
+    background: #fff;
+    padding: 20px;
+    margin: 5px 2px;
+}
+
+
+/* top */
+
+
+/* youtube */
+
+.post_iframe {
+    position: relative;
+    height: auto;
+}
+
+div.play-button {
+    height: 72px;
+    width: 72px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -36px;
+    margin-left: -36px;
+    background: url("http://i.imgur.com/TxzC70f.png");
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+#product_video iframe {
+    width: 90%;
+    margin-bottom: 3%;
+}
+
+.labnolIframe {
+    width: 100%;
+    height: 100%;
+}
+
+#preview_youtube {
+    height: 450px;
+    width: 600px;
+    border: 5px #363636 solid;
+    background-color: #363636;
+    z-index: 110;
+}
+
+#preview_youtube figure,
+#preview_youtube figure iframe {
+    height: 100%;
+    width: 100%;
+    border: 0px;
+}
+
+#preview_youtube #current_status {
+    position: absolute;
+    bottom: 0px;
+    color: #FFF;
+    background-color: #363636;
+    width: 100%;
+    height: 12%;
+    text-align: center;
+    font-size: 2.5em;
+    line-height: 1.5em;
+}
+
+.preview_hide {
+    display: none;
+}
+
+.preview_show {
+    display: initial;
+    position: absolute;
+}
+
+
+/* tooltip */
+
+.tooltip {
+    position: absolute;
+    width: 140px;
+}
+
+.tooltip-inner {
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+
+/* ---- grid ---- */
+
+.grid {
+    background: #E6E6E6;
+}
+
+
+/* clearfix */
+
+.grid:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+
+/* ---- grid-item ---- */
+
+.grid-sizer,
+.grid-item {
+    width: 33.33%;
+}
+
+.grid-item {
+    float: left;
+}
+
+/* image preview */
+#image-preview{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    right: 0;
+    margin: 0px auto;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 3;
+}
+
+.arrow-left , .arrow-right, .preview-close{
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin: 0px 20px;
+}
+
+.arrow-left , .arrow-right, .preview-close:hover{
+}
+
+.middle-table{
+    display: table;
+    vertical-align: middle;
+    width: 100%;
+    height: 100vh;
+}
+
+.table-field{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.preview-close{
+    margin: 20px 0px;
+}
+
+#image-preview img, .arrow-left , .arrow-right{
+    display: inline;
+    max-height: 80vh;
+    max-width: 60%;
+}
+
+@media only screen and (min-width: 1800px) {
+    .grid-sizer,
+    .grid-item {
+        width: 25%;
+    }
+    .double_size {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 1800px) {
+    .grid-sizer,
+    .grid-item {
+        width: 33.33%;
+    }
+    .double_size {
+        width: 33.33%;
+    }
+    .article {
+        width: 25%;
+        border: 2px solid #e6e6e6;
+        float: left;
+        padding: 10px;
+        background-color: #fff;
+        height: 100%;
+        overflow-y: scroll;
+    }
+    .article.home_only img {
+        max-height: 100%;
+        height: auto;
+        margin: 0px auto;
+    }
+    .article.select {
+        width: 50%;
+    }
+    .article.select .article-title {
+        font-size: 1.5em;
+    }
+    .article.select img {
+        max-height: 250px;
+        width: auto;
+        margin: 10px auto;
+    }
+}
+
+@media only screen and (max-width: 1420px) {
+    .grid-sizer,
+    .grid-item {
+        width: 50%;
+    }
+    .double_size {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .grid-sizer,
+    .grid-item {
+        width: 100%;
+    }
+    header,
+    div.center {
+        width: 40%;
+    }
+    section {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .desktop {
+        display: none;
+    }
+    .mobile {
+        display: initial;
+    }
+    .grid-sizer,
+    .grid-item {
+        width: 100%;
+        padding: 20px;
+    }
+    div.center {
+        width: 100%;
+        height: 100vh;
+    }
+    .drawer {
+        max-width: 400px;
+    }
+    /* container header */
+    .container {
+        padding-left: 0px;
+        padding-right: 0px;
+        background-color: #e3e3e3;
+        width: 100%;
+    }
+    #header {
+        background-color: #fff;
+        display: table;
+        padding: 0px 0px;
+        height: 40px;
+        width: 100%;
+        position: fixed;
+        top: 0px;
+        z-index: 2;
+        border-bottom: 1px solid #E6E6E6;
+    }
+    #header .drawer_icon {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        padding: 0px 0px;
+        border-right: 1px solid #E6E6E6;
+        width: 15%;
+    }
+    #header .drawer_icon img {
+        margin: 0px auto;
+    }
+    #header .title {
+        display: table-cell;
+        text-align: center;
+        color: #8D8D8D;
+        text-transform: uppercase;
+        vertical-align: middle;
+        width: 70%;
+        font-size: 150%;
+    }
+    #header .find-us {
+        display: table-cell;
+        vertical-align: middle;
+        height: inherit;
+        height: 40px;
+        width: auto;
+        text-align: right;
+    }
+    #header .find-us a,
+    #header .find-us img {
+        height: 100%;
+        width: auto;
+        margin: 0px auto;
+    }
+    /* drawer */
+    .drawer-body {
+        padding: 0px;
+    }
+    .center {
+        padding-top: 0px;
+        padding-left: 0px;
+        background-color: #fff;
+        text-align: center;
+    }
+    .drawer-controls {
+        height: 45px;
+    }
+    /* shortcut */
+    #shortcut {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 10px 10px 50px 10px;
+    }
+    .avatar {
+        width: 40%;
+        margin: 5% auto;
+    }
+    .avatar img {
+        width: 100%;
+    }
+    .avatar.circle img {
+        border-radius: 100%;
+    }
+    .avatar img {
+        overflow: hidden;
+        display: inline-block;
+    }
+    .logo a {
+        color: #767676;
+        text-decoration: none;
+    }
+    .logo h1 a {
+        font-size: 65%;
+        font-weight: 300;
+    }
+    p.description {
+        margin: 0px;
+        font-size: 45%;
+    }
+    /* Navigation */
+    #navigation ul {
+        background: #fff;
+    }
+    #navigation ul li {
+        border-top: 2px #ddd solid;
+        width: 90%;
+        margin: 0px auto;
+        padding-top: 3%;
+        padding-bottom: 3%;
+        font-size: 100%;
+        line-height: 1.5em;
+        font-weight: 400;
+        text-align: left;
+        max-height: none;
+    }
+    #navigation ul li a {
+        margin-left: 15%;
+        color: #000;
+        background-color: #fff;
+    }
+    #navigation ul li:nth-child(4) {
+        margin-bottom: 0px;
+    }
+    .social_network {
+        padding: 10px;
+    }
+    .social_network img {
+        display: inline;
+        height: 8vh;
+        width: auto;
+    }
+    #navigation .label-chinese {
+        display: inline-block;
+        letter-spacing: 1px;
+        width: 40%;
+    }
+    #navigation .label-english {
+        display: inline;
+        letter-spacing: 1px;
+        font-size: 80%;
+        width: 40%;
+    }
+    /* section */
+    section {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        float: none;
+        width: 100%;
+        padding: 10px;
+    }
+    /* top */
+    .top .top-post img {
+        width: 100%;
+    }
+    /* article */
+    .caption {
+        margin-top: 10px;
+    }
+    .icons {
+        margin: 0px 0px -12px -5px;
+    }
+    #youtube_iframe {
+        max-height: 200px;
+    }
+    /* mobile */
+    .tmblr-iframe--controls.iframe-controls--phone-mobile,
+    .tmblr-iframe--mobile-logged-in-controls.iframe-controls--phone-mobile {
+        display: none;
+    }
+    .tmblr-iframe--controls-phone-container {
+        padding-top: 0px;
+    }
+    .mask {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 10;
+    }
+}
+</style>
+
+<body>
+    <article id="152099375899" class="type_text top double_size product_introduce 2d_animation motion_graphic character_animation select" rel="https://www.tumblr.com/reblog/152099375899/sLVGU0uf">
+        <div class="article-content">
+            <!-- Text Post -->
+            <h2>趨勢 2017 產品宣傳</h2>
+            <figure class="tmblr-embed tmblr-full">
+                <iframe width="1280" height="721" id="youtube_iframe" src="https://www.youtube.com/embed/Ke5TawGEUMo?feature=oembed&amp;enablejsapi=1&amp;origin=https://safe.txmblr.com&amp;wmode=opaque" frameborder="0" allowfullscreen=""></iframe>
+            </figure>
+            <p>這是一支用來宣告趨勢 2017 年度產品的概念性動畫，負責在記者會的開場，以及網路上面播映。&nbsp;
+                <br>
+            </p>
+            <!-- more -->
+            <p>
+                目標群眾偏向男性為導向，主色以藍色為主，設定是帶來穩定與安心的感覺。雖是資訊科技類的影片，但我們避免過於科技與專業感，反而採用「輕鬆活潑」的氣氛增加親切感。
+                <br>
+            </p>
+            <p>
+                為避免一成不變，整體顏色方面我們依不同情節而有不同變化。
+                <br>
+            </p>
+            <figure data-orig-width="1802" data-orig-height="1013" class="tmblr-full"><img src="http://68.media.tumblr.com/3b3663f3df30ea978be47c492918d2aa/tumblr_inline_ofernejRPf1ta3w7d_1280.png" alt="image" data-orig-width="1802" data-orig-height="1013" width="1280" height="719"></figure>
+            <p>
+                <br>
+            </p>
+            <p>
+                搭配趨勢科技新的「西洋劍手」的形象設定，我們也協助創造了一個動畫版的西洋劍手，供客戶未來延伸使用，後續客戶便 依此角色開發了一個簡單的網路小遊戲，配合粉絲團活動做宣傳。主角的顏色是以 LOGO 的紅色為主，利用背景的藍色做對比襯托，能 <b>讓觀眾將注意力專注在紅色主角上面，把品牌印象烙印在腦海之中</b>。
+                <br>
+            </p>
+            <figure data-orig-width="1695" data-orig-height="603" class="tmblr-full"><img src="http://68.media.tumblr.com/8df0cc95a08d885cf27e31edc53f2f63/tumblr_inline_oferoy2gCb1ta3w7d_1280.jpg" alt="image" data-orig-width="1695" data-orig-height="603" width="1280" height="455"></figure>
+            <p>
+                <br>
+            </p>
+            <p>
+                很開心有機會協助趨勢科技設計動畫。傳達產品的功能，不見得要直接了當地講述產品功能，建議找出最重要的 核心訊息 為何，影片中的每一秒、每個畫面，都是為了傳達這個訊息而存在著。
+                <br>
+            </p>
+            <ul class="icons">
+                <li class="like">
+                    <div class="like_button" data-post-id="152099375899" data-blog-name="woolito" id="like_button_152099375899">
+                        <iframe id="like_iframe_152099375899" src="http://assets.tumblr.com/assets/html/like_iframe.html?_v=399aee1ea58b6007c2190a8138f100e5#name=woolito&amp;post_id=152099375899&amp;color=black&amp;rk=sLVGU0uf" scrolling="no" width="16" height="16" frameborder="0" class="like_toggle" allowtransparency="true" name="like_iframe_152099375899"></iframe>
+                    </div>
+                </li>
+                <li class="reblog"><i class="reblog-icon"><a href="https://www.tumblr.com/reblog/152099375899/sLVGU0uf" class="reblog_button" style="display: block;width:16px;height:16px;"><svg width="100%" height="100%" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000"><path d="M5.01092527,5.99908429 L16.0088498,5.99908429 L16.136,9.508 L20.836,4.752 L16.136,0.083 L16.1360004,3.01110845 L2.09985349,3.01110845 C1.50585349,3.01110845 0.979248041,3.44726568 0.979248041,4.45007306 L0.979248041,10.9999998 L3.98376463,8.30993634 L3.98376463,6.89801007 C3.98376463,6.20867902 4.71892527,5.99908429 5.01092527,5.99908429 Z"></path><path d="M17.1420002,13.2800293 C17.1420002,13.5720293 17.022957,14.0490723 16.730957,14.0490723 L4.92919922,14.0490723 L4.92919922,11 L0.5,15.806 L4.92919922,20.5103758 L5.00469971,16.9990234 L18.9700928,16.9990234 C19.5640928,16.9990234 19.9453125,16.4010001 19.9453125,15.8060001 L19.9453125,9.5324707 L17.142,12.203"></path></svg></a></i></li>
+                <li class="sharer">
+                    <a class="social-export"></a>
+                    <div class="sharer-wrap">
+                        <ul>
+                            <li class="twitter">
+                                <a href="https://twitter.com/intent/tweet?url=https://tmblr.co/ZzESoj2Dfr4iR" title="Share on Twitter" class="social-tweets" target="_blank"></a>
+                            </li>
+                            <li class="facebook">
+                                <a href="http://www.facebook.com/sharer.php?u=http://woolito.tumblr.com/post/152099375899/趨勢-2017-產品宣傳" title="Share on Facebook" class="social-facebook" target="_blank"></a>
+                            </li>
+                            <li class="gplus">
+                                <a href="https://plus.google.com/share?url=http://woolito.tumblr.com/post/152099375899/趨勢-2017-產品宣傳" title="Share on Google +" class="social-gplus" target="_blank"></a>
+                            </li>
+                            <li class="pinterest">
+                                <a href="https://pinterest.com/pin/create/button/?url=http://woolito.tumblr.com/post/152099375899/趨勢-2017-產品宣傳&amp;media=http://68.media.tumblr.com/avatar_8aeb4c547c3b_128.png&amp;description=趨勢 2017 產品宣傳" title="Share on Pinterest" class="social-pinterest" target="_blank"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <div class="post-meta">
+                3 週前
+                <br>
+            </div>
+            <div class="tagged">
+                已標記: <a href="http://woolito.tumblr.com/tagged/%E8%B6%A8%E5%8B%A2%E7%A7%91%E6%8A%80">#趨勢科技</a> <a href="http://woolito.tumblr.com/tagged/top">#top</a> <a href="http://woolito.tumblr.com/tagged/double_size">#double_size</a> <a href="http://woolito.tumblr.com/tagged/product_introduce">#product_introduce</a> <a href="http://woolito.tumblr.com/tagged/2d_animation">#2d_animation</a> <a href="http://woolito.tumblr.com/tagged/motion_graphic">#motion_graphic</a> <a href="http://woolito.tumblr.com/tagged/character_animation">#character_animation</a> <a href="http://woolito.tumblr.com/tagged/select">#select</a>
+            </div>
+        </div>
+    </article>
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript">
+var images = [];
+var previewCurrenImage = 0;
+
+fixSinglePostPage();
+
+function fixSinglePostPage(){
+    
+    getImages();
+    $("img").click(function(event){
+        event.preventDefault();
+        showImagePreview(event);
+    });
+}
+
+function getImages(){
+    var articleContent = $(".article-content");
+    var imagesJquery = articleContent.find("img");
+    for(var i=0; i<imagesJquery.length; i++){
+        var image = {};
+        var imageJquery = $(imagesJquery[i]);
+        image.src = imageJquery.attr("src");
+        images.push(image);
+    }
+}
+
+function showImagePreview(event){
+    console.log(event);
+    var target = event.currentTarget;
+    var currentSrc = target.currentSrc;
+    var index = findObjectIndex(images, currentSrc);
+    previewCurrenImage = index;
+
+    var preview = document.createElement("div");
+    preview.setAttribute("id", "image-preview");
+    var middleTable = document.createElement("div");
+    middleTable.className = "middle-table";
+    var tableField = document.createElement("div");
+    tableField.className = "table-field";
+    var arrowLeft = document.createElement("span");
+    arrowLeft.setAttribute("id", "arrow-left");
+    arrowLeft.className = "arrow-left glyphicon glyphicon-chevron-left";
+    if(index<=0){
+        arrowLeft.style.display = "none";
+    }
+    arrowLeft.addEventListener("click", function(){
+        preImage();
+    });
+    var imageElement = document.createElement("img");
+    imageElement.setAttribute("id", "preview-image");
+    imageElement.setAttribute("src", currentSrc);
+    var arrowRight = document.createElement("span");
+    arrowRight.setAttribute("id", "arrow-right");
+    arrowRight.className = "arrow-right glyphicon glyphicon-chevron-right";
+    if(index>=images.length-1){
+        arrowRight.style.display = "none";
+    }
+    arrowRight.addEventListener("click", function(){
+        nextImage();
+    });
+    var close = document.createElement("div");
+    close.className = "preview-close";
+    var closeIcon = document.createElement("span");
+    closeIcon.className = "glyphicon glyphicon-remove";
+    close.addEventListener("click", function(){
+        document.body.removeChild(preview);
+    });
+
+    close.appendChild(closeIcon);
+    tableField.appendChild(arrowLeft);
+    tableField.appendChild(imageElement);
+    tableField.appendChild(arrowRight);
+    middleTable.appendChild(tableField).appendChild(close);
+    preview.appendChild(middleTable);
+
+    document.body.appendChild(preview);
+}
+
+function findObjectIndex(array, value){
+    for(var i=0; i<array.length; i++){
+        if(array[i].src == value){
+            return i;
         }
     }
-
-    // otherwise it's not supported
     return null;
 }
 
-function visChange() {
-    var txtFld = document.getElementById('visChangeText');
-
-    if (isHidden()) {
-        txtFld.value += "Tab Hidden!\n";
-        console.log("Tab Hidden!");
-    } else {
-        txtFld.value += "Tab Visible!\n";
-        console.log("Tab Visible!");
+function preImage(){
+    previewCurrenImage--;
+    var previewImage = document.getElementById("preview-image");
+    previewImage.setAttribute("src", images[previewCurrenImage].src);
+    if(previewCurrenImage >= 0){
+        document.getElementById("arrow-left").style.display = "none";
     }
+    document.getElementById("arrow-right").style.display = "initial";
 }
 
-function isHidden() {
-    var prop = getHiddenProp();
-    if (!prop) return false;
-
-    return document[prop];
+function nextImage(index){
+    previewCurrenImage++;
+    var previewImage = document.getElementById("preview-image");
+    previewImage.setAttribute("src", images[previewCurrenImage].src);
+    if(previewCurrenImage <= images.length-1){
+        document.getElementById("arrow-right").style.display = "none";
+    }
+    document.getElementById("arrow-left").style.display = "initial";
 }
 </script>
 

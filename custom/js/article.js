@@ -4,7 +4,7 @@ var Article = {
         article.setAttribute("id", post.id);
         article.className = "type_audio grid-item ";
         for (var i = 0; i < post.tags.length; i++) {
-            article.className += post.tags[i];
+            article.className += " " + post.tags[i];
         }
         article.setAttribute("rel", post.post_url);
         return article;
@@ -37,8 +37,8 @@ var Article = {
         body = Article.analysisTextIframeImage(body, post.id, (post.tags.indexOf("double_size") > -1));
         articleContent.innerHTML = body;
         articleContent.insertBefore(titleLink, articleContent.childNodes[0]);
-        // var icon = render_icon(post);
-        // article_content.append(icon);
+        // var icons = Article.renderIcons(post);
+        // articleContent.append(icons);
         article.appendChild(articleContent);
         return article;
     },
@@ -64,10 +64,12 @@ var Article = {
         var caption = document.createElement("div");
         caption.className = "caption";
         caption.innerHTML = post.caption;
+        var icons = Article.renderIcons(post);
         var icons = document.createElement("div");
         icons.className = "icons";
 
-        article.appendChild(audioEmbed).appendChild(caption).appendChild(icons);
+        // articleContent.appendChild(audioEmbed).appendChild(caption).appendChild(icon);
+        // article.appendChild(articleContent);
         return article;
     },
     renderVideo: function(post) {
@@ -96,10 +98,10 @@ var Article = {
         shortcutElement.className = "shortcut lazy";
         if(youtubeId){
             if (isDoubleSize) {
-                shortcutElement.setAttribute("src", "resources/Loading_icon.gif");
+                shortcutElement.setAttribute("src", "http://static.tumblr.com/sirdwhf/d3fogfnxn/loading_icon.gif");
                 shortcutElement.setAttribute("data-original", "https://i.ytimg.com/vi/" + youtubeId + "/maxresdefault.jpg");
             } else {
-                shortcutElement.setAttribute("src", "resources/Loading_icon.gif");
+                shortcutElement.setAttribute("src", "http://static.tumblr.com/sirdwhf/d3fogfnxn/loading_icon.gif");
                 shortcutElement.setAttribute("data-original", "https://i.ytimg.com/vi/" + youtubeId + "/hqdefault.jpg");
             }
             shortcutElement.setAttribute("youtube_id", youtubeId);
@@ -120,6 +122,7 @@ var Article = {
         return body;
     },
     renderIcons: function(post) {
+        // not finish;
         var ul = $("<ul class='icons'></ul>");
         var li_link = $('<li class="link"><a href="' + post['post_url'] + '" target=\"_blank\" title="View Post" class="social-eye"></a></li>');
         // var li_like = $('<li class="like"><div class="like_button" data-post-id="' + post.id + '" data-blog-name="woolito" id="like_button_' + post.id + '"></div></li>');
@@ -129,6 +132,11 @@ var Article = {
         var li_share = $('<li class="sharer"><a class="social-export"></a><div class="sharer-wrap"><ul><li class="facebook"><a href="http://www.facebook.com/sharer.php?u=' + post['post_url'] + '" title="Share on Facebook" class="social-facebook" target="_blank" ></a></li><li class="gplus"><a href="https://plus.google.com/share?url=' + post['post_url'] + '" title="Share on Google +" class ="social-gplus" target="_blank"></a></li><li class="pinterest" ><a href="https://pinterest.com/pin/create/button/?url=' + post['post_url'] + '&amp;media=http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" title="Share on Pinterest" class="social-pinterest" target="_blank"></a></li></ul></div></li>');
         ul.append(li_link).append(li_reblog).append(li_share);
         // ul.append(li_link).append(li_like).append(li_reblog).append(li_share);
-        return ul;
+
+        var html_string = ul.html();
+        var temp_div = document.createElement("div");
+        temp_div.innerHTML = html_string;
+        var element = temp_div.firstChild;
+        return element;
     },
 };

@@ -130,8 +130,8 @@ function query_all_posts() {
                 if (tags == undefined) {
                     tags = [];
                 };
-                if (tags.indexOf("onlyhome") > -1 ) {
-                    console.log("onlyhome");
+                if (tags.indexOf("home_only") > -1 ) {
+                    console.log("home_only");
                 }else{
                     if(tags.indexOf("top") > -1){
                         top_posts.push(data_json[i]);
