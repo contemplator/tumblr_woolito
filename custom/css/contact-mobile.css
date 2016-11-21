@@ -159,9 +159,9 @@ img.tip {
 }
 
 
-/* budge */
+/* budget */
 
-.budge #input-budge {
+.budget #input-budget {
     color: #0a9589;
 }
 
@@ -169,7 +169,7 @@ body.modal-open {
     overflow: visible;
 }
 
-.budge #budge-modal .modal-dialog {
+.budget #budget-modal .modal-dialog {
     position: fixed;
     top: 30%;
     right: 0;
@@ -180,18 +180,18 @@ body.modal-open {
     text-align: center;
 }
 
-.budge #budge-modal .modal-body {
+.budget #budget-modal .modal-body {
     padding: 0px;
 }
 
-.budge #budge-modal .budge-choice {
+.budget #budget-modal .budget-choice {
     color: #000;
     font-size: 1.2em;©
     padding: 10px 5px;
     border-bottom: #ccc solid 1px;
 }
 
-.budge #budge-modal .budge-choice:hover {
+.budget #budget-modal .budget-choice:hover {
     background-color: rgba(0, 184, 255, 0.38)
 }
 

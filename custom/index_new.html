@@ -256,7 +256,7 @@
     
     /* navigation */
     #navigation ul li {
-        border-top: 2px #ddd solid;
+        border-top: 2px #e5e5e4 solid;
         width: 90%;
         margin: 0px auto;
         padding-top: 3%;
@@ -268,15 +268,41 @@
         list-style: none;
     }
 
-    #navigation ul li a {
-        margin-left: 20%;
+    #navigation ul li:hover{
+        background-color: #e5e5e4;
+    }
+
+    #navigation ul li a div{
+        display: block;
         color: #000;
+        width: 170px;
+        height: 30px;
+        margin: 0px auto;
+    }
+
+    #navigation .label-chinese, #navigation .label-english{
+        font-size: 100%;
+        line-height: 30px;
     }
 
     #navigation .label-chinese {
-        display: inline-block;
-        letter-spacing: 1px;
-        width: 30%;
+        width: 40%;
+        float: right;
+    }
+
+    .justify {
+      text-align: justify;
+      text-justify: inter-ideograph;
+      -ms-text-justufy: inter-ideograph;
+      -moz-text-align-last: justify;
+      -webkit-text-aling-last: justify;
+      height: 30px;
+    }
+
+    .justify:after {
+      content: '';
+      display: inline-block;
+      width: 100%;
     }
 
     #navigation .label-english {
@@ -291,13 +317,41 @@
     }
     
     .social_network {
-        margin-top: 10px;
+        margin-top: 20px;
+    }
+
+    .social_network a {
+        margin: 0px 3px;
     }
     
     .social_network img {
         display: inline;
         height: 35px;
         width: auto;
+    }
+
+    .youtube {
+        position: relative;
+    }
+
+    .youtube:hover .original img,
+    .youtube:hover .business img {
+        display: block;
+    }
+
+    .business img,
+    .original img {
+        position: absolute;
+        left: 35px;
+        display: none;
+    }
+
+    .original img {
+        top: -25px;
+    }
+
+    .business img {
+        top: 10px;
     }
     /* article */
     
@@ -927,54 +981,64 @@
                     <p class="description">希望能為彼此的生活點綴</p>
                     <p class="description">一些無厘頭的樂趣！</p>
                     <div class="social_network">
-                        <a href="https://www.facebook.com/Woolito/" target="_blank"><img src="http://static.tumblr.com/sirdwhf/Uorof6jh9/facebook.png"></a>
-                        <a href="https://www.youtube.com/user/WoolitoFilm" target="_blank"><img src="http://static.tumblr.com/sirdwhf/GbHof6jif/youtube.png"></a>
-                        <a href="https://page.line.me/woolito" target="_blank"><img src="http://static.tumblr.com/sirdwhf/MD9of6jj4/line.png"></a>
-                        <a href="https://www.instagram.com/woolito_studio/" target="_blank"><img src="http://static.tumblr.com/sirdwhf/1SVof6jjz/instagram.png"></a>
+                        <a href="https://www.facebook.com/Woolito/" target="_blank"><img src="http://static.tumblr.com/sirdwhf/Jd6ogz322/facebook.png"></a>
+                        <a href="https://page.line.me/woolito" target="_blank"><img src="http://static.tumblr.com/sirdwhf/cQ3ogz32k/line.png"></a>
+                        <a href="https://www.instagram.com/woolito_studio/" target="_blank"><img src="http://static.tumblr.com/sirdwhf/WShogz32q/instagram.png"></a>
+                        <span class="youtube">
+                            <a href="#" target="_blank"><img src="http://static.tumblr.com/sirdwhf/l4Uogz32f/youtube.png"></a>
+                            <a href="#" target="_blank" class="original"><img src="http://static.tumblr.com/sirdwhf/YiHogz333/original.png"></a>
+                            <a href="#" target="_blank" class="business"><img src="http://static.tumblr.com/sirdwhf/v0iogz32z/business.png"></a>
+                        </span>
                     </div>
                 </div>
                 <div id="navigation">
                     <ul>
                         <li>
-                            <a href="/contact" rel="external">
-                                <div class="label-chinese">
-                                    聯繫我們</div>
-                                <div class="label-english">Contact</div>
+                            <a href="/contact">
+                                <div>
+                                    <span class="label-english">Contact</span>
+                                    <span class="label-chinese justify">聯繫我們</span>    
+                                </div>
                             </a>
                         </li>
                         <li>
-                            <a href="/aboutus" rel="external">
-                                <span class="label-chinese">
-                                    關於我們</span>
-                                <span class="label-english">About Woolito</span>
+                            <a href="/service">
+                                <div>
+                                    <span class="label-english">Service</span>
+                                    <span class="label-chinese justify">商業服務</span>
+                                </div>
                             </a>
                         </li>
                         <li>
-                            <a href="/service" rel="external">
-                                <span class="label-chinese">
-                                    商業服務</span>
-                                <span class="label-english">Service</span>
+                            <a href="/works">
+                                <div>
+                                    <span class="label-english">Works</span>
+                                    <span class="label-chinese justify">作品集</span>    
+                                </div>
                             </a>
                         </li>
                         <li>
-                            <a href="/works" rel="external">
-                                <span class="label-chinese">
-                                    作品集</span>
-                                <span class="label-english">Works</span>
+                            <a href="/ideas">
+                                <div>
+                                    <span class="label-english">Ideas</span>
+                                    <span class="label-chinese justify">沒靈感</span>
+                                </div>
                             </a>
                         </li>
                         <li>
                             <a href="http://woolito.shoplineapp.com/" target="_blank">
-                                <span class="label-chinese">
-                                    原創商品</span>
-                                <span class="label-english">Shop</span>
+                                <div>
+                                    <span class="label-english">Shop</span>
+                                    <span class="label-chinese justify">原創商品</span>    
+                                </div>
                             </a>
                         </li>
                         <li>
                             <a href="https://store.line.me/stickershop/author/72619" target="_blank">
-                                <span class="label-chinese">
-                                    LINE 貼圖</span>
-                                <span class="label-english">LINE Sticker</span>
+                                <div>
+                                    <span class="label-english">Sticker</span>
+                                    <span class="label-chinese justify">LINE貼圖</span>    
+                                </div>
                             </a>
                         </li>
                     </ul>
@@ -1607,10 +1671,6 @@
             $("img").on("load", function(){
                 fixHeight();
             });
-            console.log(ismobile_size());
-            console.log(ismobile());
-        }else{
-            console.log("ismobile");
         }
 
         fixSinglePostPage();
@@ -1795,7 +1855,6 @@
         if(!(path.indexOf("/post/") > -1)){
             return;
         }
-        console.log("fixSinglePostPage");
 
         getImages();
         $(".article-content img").click(function(event){
@@ -1825,6 +1884,12 @@
         preview.setAttribute("id", "image-preview");
         var middleTable = document.createElement("div");
         middleTable.className = "middle-table";
+        middleTable.addEventListener("click", function(){
+            try{
+                preview.parentElement.removeChild(preview);    
+            } catch (err){
+            }
+        });
         var tableField = document.createElement("div");
         tableField.className = "table-field";
         var arrowLeft = document.createElement("span");
@@ -1833,19 +1898,25 @@
         if(index<=0){
             arrowLeft.style.display = "none";
         }
-        arrowLeft.addEventListener("click", function(){
+        arrowLeft.addEventListener("click", function(event){
+            event.stopPropagation();
             preImage();
         });
         var imageElement = document.createElement("img");
         imageElement.setAttribute("id", "preview-image");
         imageElement.setAttribute("src", currentSrc);
+        imageElement.addEventListener("click", function(event){
+            event.stopPropagation();
+            nextImage();
+        });
         var arrowRight = document.createElement("span");
         arrowRight.setAttribute("id", "arrow-right");
         arrowRight.className = "arrow-right glyphicon glyphicon-chevron-right";
         if(index>=images.length-1){
             arrowRight.style.display = "none";
         }
-        arrowRight.addEventListener("click", function(){
+        arrowRight.addEventListener("click", function(event){
+            event.stopPropagation();
             nextImage();
         });
         var close = document.createElement("div");
@@ -1853,7 +1924,10 @@
         var closeIcon = document.createElement("span");
         closeIcon.className = "glyphicon glyphicon-remove";
         close.addEventListener("click", function(){
-            document.body.removeChild(preview);
+            try{
+                preview.parentElement.removeChild(preview);    
+            } catch (err){
+            }
         });
 
         close.appendChild(closeIcon);
@@ -1864,6 +1938,23 @@
         preview.appendChild(middleTable);
 
         document.body.appendChild(preview);
+        document.addEventListener("keydown", function(event){
+            var keyCode = event.keyCode;
+            switch(keyCode){
+                case 27:
+                    try{
+                        preview.parentElement.removeChild(preview);    
+                    } catch (err){
+                    }
+                    break;
+                case 37:
+                    preImage();
+                    break;
+                case 39:
+                    nextImage();
+                    break;
+            }
+        }, false);
     }
 
     function findObjectIndex(array, value){
@@ -1876,20 +1967,28 @@
     }
 
     function preImage(){
-        previewCurrenImage--;
+        if(previewCurrenImage > 0){
+            previewCurrenImage--;
+        }else{
+            // 已經是第一張圖片
+        }
         var previewImage = document.getElementById("preview-image");
         previewImage.setAttribute("src", images[previewCurrenImage].src);
-        if(previewCurrenImage >= 0){
+        if(previewCurrenImage <= 0){
             document.getElementById("arrow-left").style.display = "none";
         }
         document.getElementById("arrow-right").style.display = "initial";
     }
 
     function nextImage(index){
-        previewCurrenImage++;
+        if(previewCurrenImage < images.length-1){
+            previewCurrenImage++;
+        }else{
+            // 已經是最後一張圖片
+        }
         var previewImage = document.getElementById("preview-image");
         previewImage.setAttribute("src", images[previewCurrenImage].src);
-        if(previewCurrenImage <= images.length-1){
+        if(previewCurrenImage >= images.length-1){
             document.getElementById("arrow-right").style.display = "none";
         }
         document.getElementById("arrow-left").style.display = "initial";

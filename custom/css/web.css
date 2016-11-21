@@ -49,7 +49,7 @@ header p.description {
 /* navigation */
 
 #navigation ul li {
-    border-top: 2px #ddd solid;
+    border-top: 2px #e5e5e4 solid;
     width: 90%;
     margin: 0px auto;
     padding-top: 3%;
@@ -61,22 +61,49 @@ header p.description {
     list-style: none;
 }
 
-#navigation ul li a {
-    margin-left: 20%;
+#navigation ul li:hover {
+    background-color: #e5e5e4;
+}
+
+#navigation ul li a div {
+    display: block;
     color: #000;
+    width: 170px;
+    height: 30px;
+    margin: 0px auto;
+}
+
+#navigation .label-chinese,
+#navigation .label-english {
+    font-size: 100%;
+    line-height: 30px;
 }
 
 #navigation .label-chinese {
+    /*letter-spacing: 1px;*/
+    width: 40%;
+    float: right;
+}
+
+.justify {
+    text-align: justify;
+    text-justify: inter-ideograph;
+    -ms-text-justufy: inter-ideograph;
+    -moz-text-align-last: justify;
+    -webkit-text-aling-last: justify;
+    height: 30px;
+}
+
+.justify:after {
+    content: '';
     display: inline-block;
-    letter-spacing: 1px;
-    width: 30%;
+    width: 100%;
 }
 
 #navigation .label-english {
-    display: inline;
     letter-spacing: 1px;
-    font-size: 80%;
     width: 40%;
+    float: left;
 }
 
 #shortcut {
@@ -84,7 +111,11 @@ header p.description {
 }
 
 .social_network {
-    margin-top: 10px;
+    margin-top: 20px;
+}
+
+.social_network a {
+    margin: 0px 3px;
 }
 
 .social_network img {
@@ -93,6 +124,34 @@ header p.description {
     width: auto;
 }
 
+.youtube {
+    position: relative;
+}
+
+.youtube:hover .original img,
+.youtube:hover .business img {
+    display: block;
+}
+
+.business,
+.original {
+    /*display: block;*/
+}
+
+.business img,
+.original img {
+    position: absolute;
+    left: 35px;
+    display: none;
+}
+
+.original img {
+    top: -25px;
+}
+
+.business img {
+    top: 10px;
+}
 
 /* modal */
 

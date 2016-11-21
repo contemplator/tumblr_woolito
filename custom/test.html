@@ -63,7 +63,7 @@ header p.description {
 /* navigation */
 
 #navigation ul li {
-    border-top: 2px #ddd solid;
+    border-top: 2px #e5e5e4 solid;
     width: 90%;
     margin: 0px auto;
     padding-top: 3%;
@@ -75,22 +75,49 @@ header p.description {
     list-style: none;
 }
 
-#navigation ul li a {
-    margin-left: 20%;
+#navigation ul li:hover {
+    background-color: #e5e5e4;
+}
+
+#navigation ul li a div {
+    display: block;
     color: #000;
+    width: 170px;
+    height: 30px;
+    margin: 0px auto;
+}
+
+#navigation .label-chinese,
+#navigation .label-english {
+    font-size: 100%;
+    line-height: 30px;
 }
 
 #navigation .label-chinese {
+    /*letter-spacing: 1px;*/
+    width: 40%;
+    float: right;
+}
+
+.justify {
+    text-align: justify;
+    text-justify: inter-ideograph;
+    -ms-text-justufy: inter-ideograph;
+    -moz-text-align-last: justify;
+    -webkit-text-aling-last: justify;
+    height: 30px;
+}
+
+.justify:after {
+    content: '';
     display: inline-block;
-    letter-spacing: 1px;
-    width: 30%;
+    width: 100%;
 }
 
 #navigation .label-english {
-    display: inline;
     letter-spacing: 1px;
-    font-size: 80%;
     width: 40%;
+    float: left;
 }
 
 #shortcut {
@@ -98,13 +125,46 @@ header p.description {
 }
 
 .social_network {
-    margin-top: 10px;
+    margin-top: 20px;
+}
+
+.social_network a {
+    margin: 0px 3px;
 }
 
 .social_network img {
     display: inline;
     height: 35px;
     width: auto;
+}
+
+.youtube {
+    position: relative;
+}
+
+.youtube:hover .original img,
+.youtube:hover .business img {
+    display: block;
+}
+
+.business,
+.original {
+    /*display: block;*/
+}
+
+.business img,
+.original img {
+    position: absolute;
+    left: 35px;
+    display: none;
+}
+
+.original img {
+    top: -25px;
+}
+
+.business img {
+    top: 10px;
 }
 
 
@@ -196,9 +256,6 @@ table.top {
     padding: 20px;
     margin: 5px 2px;
 }
-
-
-/* top */
 
 
 /* youtube */
@@ -308,8 +365,10 @@ div.play-button {
     float: left;
 }
 
+
 /* image preview */
-#image-preview{
+
+#image-preview {
     position: fixed;
     width: 100%;
     height: 100vh;
@@ -321,33 +380,38 @@ div.play-button {
     z-index: 3;
 }
 
-.arrow-left , .arrow-right, .preview-close{
+.arrow-left,
+.arrow-right,
+.preview-close {
     color: #fff;
     font-size: 1.5em;
     cursor: pointer;
     margin: 0px 20px;
 }
 
-.arrow-left , .arrow-right, .preview-close:hover{
-}
+.arrow-left,
+.arrow-right,
+.preview-close:hover {}
 
-.middle-table{
+.middle-table {
     display: table;
     vertical-align: middle;
     width: 100%;
     height: 100vh;
 }
 
-.table-field{
+.table-field {
     display: table-cell;
     vertical-align: middle;
 }
 
-.preview-close{
+.preview-close {
     margin: 20px 0px;
 }
 
-#image-preview img, .arrow-left , .arrow-right{
+#image-preview img,
+.arrow-left,
+.arrow-right {
     display: inline;
     max-height: 80vh;
     max-width: 60%;
@@ -624,185 +688,85 @@ div.play-button {
 </style>
 
 <body>
-    <article id="152099375899" class="type_text top double_size product_introduce 2d_animation motion_graphic character_animation select" rel="https://www.tumblr.com/reblog/152099375899/sLVGU0uf">
-        <div class="article-content">
-            <!-- Text Post -->
-            <h2>趨勢 2017 產品宣傳</h2>
-            <figure class="tmblr-embed tmblr-full">
-                <iframe width="1280" height="721" id="youtube_iframe" src="https://www.youtube.com/embed/Ke5TawGEUMo?feature=oembed&amp;enablejsapi=1&amp;origin=https://safe.txmblr.com&amp;wmode=opaque" frameborder="0" allowfullscreen=""></iframe>
-            </figure>
-            <p>這是一支用來宣告趨勢 2017 年度產品的概念性動畫，負責在記者會的開場，以及網路上面播映。&nbsp;
-                <br>
-            </p>
-            <!-- more -->
-            <p>
-                目標群眾偏向男性為導向，主色以藍色為主，設定是帶來穩定與安心的感覺。雖是資訊科技類的影片，但我們避免過於科技與專業感，反而採用「輕鬆活潑」的氣氛增加親切感。
-                <br>
-            </p>
-            <p>
-                為避免一成不變，整體顏色方面我們依不同情節而有不同變化。
-                <br>
-            </p>
-            <figure data-orig-width="1802" data-orig-height="1013" class="tmblr-full"><img src="http://68.media.tumblr.com/3b3663f3df30ea978be47c492918d2aa/tumblr_inline_ofernejRPf1ta3w7d_1280.png" alt="image" data-orig-width="1802" data-orig-height="1013" width="1280" height="719"></figure>
-            <p>
-                <br>
-            </p>
-            <p>
-                搭配趨勢科技新的「西洋劍手」的形象設定，我們也協助創造了一個動畫版的西洋劍手，供客戶未來延伸使用，後續客戶便 依此角色開發了一個簡單的網路小遊戲，配合粉絲團活動做宣傳。主角的顏色是以 LOGO 的紅色為主，利用背景的藍色做對比襯托，能 <b>讓觀眾將注意力專注在紅色主角上面，把品牌印象烙印在腦海之中</b>。
-                <br>
-            </p>
-            <figure data-orig-width="1695" data-orig-height="603" class="tmblr-full"><img src="http://68.media.tumblr.com/8df0cc95a08d885cf27e31edc53f2f63/tumblr_inline_oferoy2gCb1ta3w7d_1280.jpg" alt="image" data-orig-width="1695" data-orig-height="603" width="1280" height="455"></figure>
-            <p>
-                <br>
-            </p>
-            <p>
-                很開心有機會協助趨勢科技設計動畫。傳達產品的功能，不見得要直接了當地講述產品功能，建議找出最重要的 核心訊息 為何，影片中的每一秒、每個畫面，都是為了傳達這個訊息而存在著。
-                <br>
-            </p>
-            <ul class="icons">
-                <li class="like">
-                    <div class="like_button" data-post-id="152099375899" data-blog-name="woolito" id="like_button_152099375899">
-                        <iframe id="like_iframe_152099375899" src="http://assets.tumblr.com/assets/html/like_iframe.html?_v=399aee1ea58b6007c2190a8138f100e5#name=woolito&amp;post_id=152099375899&amp;color=black&amp;rk=sLVGU0uf" scrolling="no" width="16" height="16" frameborder="0" class="like_toggle" allowtransparency="true" name="like_iframe_152099375899"></iframe>
+    <header class="desktop">
+        <div class="center">
+            <div class="centered">
+                <div id="shortcut">
+                    <div class="avatar">
+                        <a href="/" title="Woolito Studio" class="avatar circle" rel="external"><img src="http://67.media.tumblr.com/avatar_8aeb4c547c3b_128.png" alt="Woolito Studio" class="default"></a>
                     </div>
-                </li>
-                <li class="reblog"><i class="reblog-icon"><a href="https://www.tumblr.com/reblog/152099375899/sLVGU0uf" class="reblog_button" style="display: block;width:16px;height:16px;"><svg width="100%" height="100%" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000"><path d="M5.01092527,5.99908429 L16.0088498,5.99908429 L16.136,9.508 L20.836,4.752 L16.136,0.083 L16.1360004,3.01110845 L2.09985349,3.01110845 C1.50585349,3.01110845 0.979248041,3.44726568 0.979248041,4.45007306 L0.979248041,10.9999998 L3.98376463,8.30993634 L3.98376463,6.89801007 C3.98376463,6.20867902 4.71892527,5.99908429 5.01092527,5.99908429 Z"></path><path d="M17.1420002,13.2800293 C17.1420002,13.5720293 17.022957,14.0490723 16.730957,14.0490723 L4.92919922,14.0490723 L4.92919922,11 L0.5,15.806 L4.92919922,20.5103758 L5.00469971,16.9990234 L18.9700928,16.9990234 C19.5640928,16.9990234 19.9453125,16.4010001 19.9453125,15.8060001 L19.9453125,9.5324707 L17.142,12.203"></path></svg></a></i></li>
-                <li class="sharer">
-                    <a class="social-export"></a>
-                    <div class="sharer-wrap">
-                        <ul>
-                            <li class="twitter">
-                                <a href="https://twitter.com/intent/tweet?url=https://tmblr.co/ZzESoj2Dfr4iR" title="Share on Twitter" class="social-tweets" target="_blank"></a>
-                            </li>
-                            <li class="facebook">
-                                <a href="http://www.facebook.com/sharer.php?u=http://woolito.tumblr.com/post/152099375899/趨勢-2017-產品宣傳" title="Share on Facebook" class="social-facebook" target="_blank"></a>
-                            </li>
-                            <li class="gplus">
-                                <a href="https://plus.google.com/share?url=http://woolito.tumblr.com/post/152099375899/趨勢-2017-產品宣傳" title="Share on Google +" class="social-gplus" target="_blank"></a>
-                            </li>
-                            <li class="pinterest">
-                                <a href="https://pinterest.com/pin/create/button/?url=http://woolito.tumblr.com/post/152099375899/趨勢-2017-產品宣傳&amp;media=http://68.media.tumblr.com/avatar_8aeb4c547c3b_128.png&amp;description=趨勢 2017 產品宣傳" title="Share on Pinterest" class="social-pinterest" target="_blank"></a>
-                            </li>
-                        </ul>
+                    <div class="logo">
+                        <h1><a href="/" rel="external" title="Woolito Studio">Woolito Studio</a></h1></div>
+                    <p class="description">我們努力創作有趣的動畫與圖文並分享笑容</p>
+                    <p class="description">希望能為彼此的生活點綴</p>
+                    <p class="description">一些無厘頭的樂趣！</p>
+                    <div class="social_network">
+                        <a href="https://www.facebook.com/Woolito/" target="_blank"><img src="http://static.tumblr.com/sirdwhf/Jd6ogz322/facebook.png"></a>
+                        <a href="https://page.line.me/woolito" target="_blank"><img src="http://static.tumblr.com/sirdwhf/cQ3ogz32k/line.png"></a>
+                        <a href="https://www.instagram.com/woolito_studio/" target="_blank"><img src="http://static.tumblr.com/sirdwhf/WShogz32q/instagram.png"></a>
+                        <span class="youtube">
+                            <a href="#" target="_blank"><img src="http://static.tumblr.com/sirdwhf/l4Uogz32f/youtube.png"></a>
+                            <a href="#" target="_blank" class="original"><img src="http://static.tumblr.com/sirdwhf/YiHogz333/original.png"></a>
+                            <a href="#" target="_blank" class="business"><img src="http://static.tumblr.com/sirdwhf/v0iogz32z/business.png"></a>
+                        </span>
                     </div>
-                </li>
-            </ul>
-            <div class="post-meta">
-                3 週前
-                <br>
-            </div>
-            <div class="tagged">
-                已標記: <a href="http://woolito.tumblr.com/tagged/%E8%B6%A8%E5%8B%A2%E7%A7%91%E6%8A%80">#趨勢科技</a> <a href="http://woolito.tumblr.com/tagged/top">#top</a> <a href="http://woolito.tumblr.com/tagged/double_size">#double_size</a> <a href="http://woolito.tumblr.com/tagged/product_introduce">#product_introduce</a> <a href="http://woolito.tumblr.com/tagged/2d_animation">#2d_animation</a> <a href="http://woolito.tumblr.com/tagged/motion_graphic">#motion_graphic</a> <a href="http://woolito.tumblr.com/tagged/character_animation">#character_animation</a> <a href="http://woolito.tumblr.com/tagged/select">#select</a>
+                </div>
+                <div id="navigation">
+                    <ul>
+                        <li>
+                            <a href="/contact">
+                                <div>
+                                    <span class="label-english">Contact</span>
+                                    <span class="label-chinese justify">聯繫我們</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/service">
+                                <div>
+                                    <span class="label-english">Service</span>
+                                    <span class="label-chinese justify">商業服務</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/works">
+                                <div>
+                                    <span class="label-english">Works</span>
+                                    <span class="label-chinese justify">作品集</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/ideas">
+                                <div>
+                                    <span class="label-english">Ideas</span>
+                                    <span class="label-chinese justify">沒靈感</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://woolito.shoplineapp.com/" target="_blank">
+                                <div>
+                                    <span class="label-english">Shop</span>
+                                    <span class="label-chinese justify">原創商品</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://store.line.me/stickershop/author/72619" target="_blank">
+                                <div>
+                                    <span class="label-english">Sticker</span>
+                                    <span class="label-chinese justify">LINE貼圖</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </article>
+    </header>
 </body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-<script type="text/javascript">
-var images = [];
-var previewCurrenImage = 0;
-
-fixSinglePostPage();
-
-function fixSinglePostPage(){
-    
-    getImages();
-    $("img").click(function(event){
-        event.preventDefault();
-        showImagePreview(event);
-    });
-}
-
-function getImages(){
-    var articleContent = $(".article-content");
-    var imagesJquery = articleContent.find("img");
-    for(var i=0; i<imagesJquery.length; i++){
-        var image = {};
-        var imageJquery = $(imagesJquery[i]);
-        image.src = imageJquery.attr("src");
-        images.push(image);
-    }
-}
-
-function showImagePreview(event){
-    console.log(event);
-    var target = event.currentTarget;
-    var currentSrc = target.currentSrc;
-    var index = findObjectIndex(images, currentSrc);
-    previewCurrenImage = index;
-
-    var preview = document.createElement("div");
-    preview.setAttribute("id", "image-preview");
-    var middleTable = document.createElement("div");
-    middleTable.className = "middle-table";
-    var tableField = document.createElement("div");
-    tableField.className = "table-field";
-    var arrowLeft = document.createElement("span");
-    arrowLeft.setAttribute("id", "arrow-left");
-    arrowLeft.className = "arrow-left glyphicon glyphicon-chevron-left";
-    if(index<=0){
-        arrowLeft.style.display = "none";
-    }
-    arrowLeft.addEventListener("click", function(){
-        preImage();
-    });
-    var imageElement = document.createElement("img");
-    imageElement.setAttribute("id", "preview-image");
-    imageElement.setAttribute("src", currentSrc);
-    var arrowRight = document.createElement("span");
-    arrowRight.setAttribute("id", "arrow-right");
-    arrowRight.className = "arrow-right glyphicon glyphicon-chevron-right";
-    if(index>=images.length-1){
-        arrowRight.style.display = "none";
-    }
-    arrowRight.addEventListener("click", function(){
-        nextImage();
-    });
-    var close = document.createElement("div");
-    close.className = "preview-close";
-    var closeIcon = document.createElement("span");
-    closeIcon.className = "glyphicon glyphicon-remove";
-    close.addEventListener("click", function(){
-        document.body.removeChild(preview);
-    });
-
-    close.appendChild(closeIcon);
-    tableField.appendChild(arrowLeft);
-    tableField.appendChild(imageElement);
-    tableField.appendChild(arrowRight);
-    middleTable.appendChild(tableField).appendChild(close);
-    preview.appendChild(middleTable);
-
-    document.body.appendChild(preview);
-}
-
-function findObjectIndex(array, value){
-    for(var i=0; i<array.length; i++){
-        if(array[i].src == value){
-            return i;
-        }
-    }
-    return null;
-}
-
-function preImage(){
-    previewCurrenImage--;
-    var previewImage = document.getElementById("preview-image");
-    previewImage.setAttribute("src", images[previewCurrenImage].src);
-    if(previewCurrenImage >= 0){
-        document.getElementById("arrow-left").style.display = "none";
-    }
-    document.getElementById("arrow-right").style.display = "initial";
-}
-
-function nextImage(index){
-    previewCurrenImage++;
-    var previewImage = document.getElementById("preview-image");
-    previewImage.setAttribute("src", images[previewCurrenImage].src);
-    if(previewCurrenImage <= images.length-1){
-        document.getElementById("arrow-right").style.display = "none";
-    }
-    document.getElementById("arrow-left").style.display = "initial";
-}
-</script>
 
 </html>

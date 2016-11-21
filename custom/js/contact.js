@@ -1,10 +1,11 @@
 $(function() {
-    $.getScript("https://cdn.firebase.com/js/client/2.4.2/firebase.js", function() {
+    $.getScript("https://www.gstatic.com/firebasejs/3.6.1/firebase.js", function() {
         var config = {
-            apiKey: "AIzaSyD_aUK5etSpwD2Dp3jq0uFjypQxXKY5TUY",
-            authDomain: "woolito-tumblr.firebaseapp.com",
-            databaseURL: "https://woolito-tumblr.firebaseio.com",
-            storageBucket: "woolito-tumblr.appspot.com",
+            apiKey: "AIzaSyBNy15wX554wZwTaHuiDTq4O_BA82yXUdE",
+            authDomain: "woolito-tumblr-7b996.firebaseapp.com",
+            databaseURL: "https://woolito-tumblr-7b996.firebaseio.com",
+            storageBucket: "woolito-tumblr-7b996.appspot.com",
+            messagingSenderId: "553913781545"
         };
         firebase.initializeApp(config);
         console.log("init firebase done!");
@@ -80,7 +81,7 @@ function validateNumber(element, value){
         value = value.substring(0, value.length-1);
     }
 
-    element.value = value.replace(/(\d{4})(\d{3})(\d{3})/, "$1-$2-$3");
+    // element.value = value.replace(/(\d{4})(\d{3})(\d{3})/, "$1-$2-$3");
 }
 
 function enable_type_radio(element) {
@@ -117,7 +118,7 @@ function fixLeftSelector() {
     var budge = range_field_left_map[closest_value];
 
     $("#left-selector").css("left", closest_value + "px");
-    $("#left-selector").attr("data-budge", budge);
+    $("#left-selector").attr("data-budget", budge);
     showBudgeRange();
 }
 
@@ -147,7 +148,7 @@ function fixRightSelector() {
     var budge = range_field_right_map[closest_value];
 
     $("#right-selector").css("left", closest_value + "px");
-    $("#right-selector").attr("data-budge", budge);
+    $("#right-selector").attr("data-budget", budge);
     showBudgeRange();
 }
 
@@ -184,7 +185,7 @@ function verifyInput() {
     if (!validateEmail(email)) {
         error.push("email");
     }
-    console.log(error);
+    // console.log(error);
     for (var i = 0; i < error.length; i++) {
         switch (error[i]) {
             case "idea":
@@ -215,8 +216,8 @@ function verifyInput() {
         return;
     }
 
-    var min_budge = $("#left-selector").attr("data-budge");
-    var max_budge = $("#right-selector").attr("data-budge");
+    var min_budget = $("#left-selector").attr("data-budget");
+    var max_budget = $("#right-selector").attr("data-budget");
 
     var datetime = new Date();
 
@@ -226,11 +227,11 @@ function verifyInput() {
             type: type,
             name: name,
             email: email,
-            min_budge: min_budge,
-            max_budge: max_budge,
+            min_budget: min_budget,
+            max_budget: max_budget,
             phone: $("#input-phone").val()
         }
-        // console.log(data);
+    console.log(data);
 
     sendData(data);
 }
@@ -246,24 +247,24 @@ function sendData(data) {
         type: data.type,
         name: data.name,
         email: data.email,
-        min_budge: data.min_budge,
-        max_budge: data.max_budge,
+        min_budget: data.min_budget,
+        max_budget: data.max_budget,
         phone: data.phone
     }).key;
-    console.log(newApplyKey);
+    // console.log(newApplyKey);
 
     $.ajax({
         url: "https://script.google.com/macros/s/AKfycbzjCXG4CFKRGDao1ygu8yaVQMDglLiGwmtSUnMASiKbQK4MvuHN/exec?&callback=?",
         dataType: "text",
-        method: "GET",
+        method: "POST",
         data: data,
         beforeSend: showLoading(),
         // error: showError(),
         // success: showSuccess()
     }).done(function(response) {
-        // console.log(response);
+        console.log(response)
         hideLoading();
-        showSuccess();
+        successRedirect(response);
     });
 }
 
@@ -287,10 +288,10 @@ function showError() {
     $("#alert-danger").addClass("in");
 }
 
-function showSuccess() {
-    $(".mask").css("display", "inherit");
-    $("#alert-success").css("display", "block");
-    $("#alert-success").addClass("in");
+function successRedirect(response) {
+    var startIndex = response.indexOf(":")+1;
+    var row = response.substring(startIndex);
+    location.href = "applySuccess?row="+row;
 }
 
 jQuery.fn.onPositionChanged = function(trigger, millis) {

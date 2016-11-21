@@ -1,10 +1,11 @@
 $(function() {
-    $.getScript("https://cdn.firebase.com/js/client/2.4.2/firebase.js", function() {
+    $.getScript("https://www.gstatic.com/firebasejs/3.6.1/firebase.js", function() {
         var config = {
-            apiKey: "AIzaSyD_aUK5etSpwD2Dp3jq0uFjypQxXKY5TUY",
-            authDomain: "woolito-tumblr.firebaseapp.com",
-            databaseURL: "https://woolito-tumblr.firebaseio.com",
-            storageBucket: "woolito-tumblr.appspot.com",
+            apiKey: "AIzaSyBNy15wX554wZwTaHuiDTq4O_BA82yXUdE",
+            authDomain: "woolito-tumblr-7b996.firebaseapp.com",
+            databaseURL: "https://woolito-tumblr-7b996.firebaseio.com",
+            storageBucket: "woolito-tumblr-7b996.appspot.com",
+            messagingSenderId: "553913781545"
         };
         firebase.initializeApp(config);
         console.log("init firebase done!");
@@ -33,9 +34,9 @@ $(function() {
 
     $(".type label").on("click", enable_type_radio);
 
-    $(".budge .input-field").on("click", show_budge_select);
+    $(".budget .input-field").on("click", show_budget_select);
 
-    $(".budge .budge-choice").on("click", choose_budge);
+    $(".budget .budget-choice").on("click", choose_budget);
 
     $(".name .input-field").click(function() {
         $("#input-name").focus();
@@ -68,15 +69,15 @@ function enable_type_radio(element) {
     $(element.currentTarget).find("img").attr("src", "http://static.tumblr.com/sirdwhf/S1Uof82e4/contact_check_radio.png");
 }
 
-function show_budge_select() {
-    $('#budge-modal').modal('show');
+function show_budget_select() {
+    $('#budget-modal').modal('show');
 }
 
-function choose_budge(event){
-    $("#input-budge").text(event.currentTarget.innerText);
-    $(".budge-choice").css("background-color", "#fff");
+function choose_budget(event){
+    $("#input-budget").text(event.currentTarget.innerText);
+    $(".budget-choice").css("background-color", "#fff");
     $(event.currentTarget).css("background-color", "#ccc");
-    $('#budge-modal').modal('hide');
+    $('#budget-modal').modal('hide');
 }
 
 function verifyInput() {
@@ -119,10 +120,10 @@ function verifyInput() {
         return;
     }
 
-    var budge = $("#input-budge").text();
-    var budges = budge.split("-");
-    var min_budge = budges[0].replace(",", "");
-    var max_budge = budges[1].replace(",", "");
+    var budget = $("#input-budget").text();
+    var budgets = budget.split("-");
+    var min_budget = budgets[0].replace(",", "");
+    var max_budget = budgets[1].replace(",", "");
     var datetime = new Date();
 
     var data = {
@@ -131,8 +132,8 @@ function verifyInput() {
         type: type,
         name: name,
         email: email,
-        min_budge: min_budge,
-        max_budge: max_budge,
+        min_budget: min_budget,
+        max_budget: max_budget,
         phone: $("#input-phone").val()
     }
 
@@ -150,23 +151,23 @@ function sendData(data) {
         type: data.type,
         name: data.name,
         email: data.email,
-        min_budge: data.min_budge,
-        max_budge: data.max_budge,
+        min_budget: data.min_budget,
+        max_budget: data.max_budget,
         phone: data.phone
     }).key;
-    console.log(newApplyKey);
+    // console.log(newApplyKey);
 
     $.ajax({
         url: "https://script.google.com/macros/s/AKfycbzjCXG4CFKRGDao1ygu8yaVQMDglLiGwmtSUnMASiKbQK4MvuHN/exec?&callback=?",
         dataType: "text",
-        method: "GET",
+        method: "POST",
         data: data,
         beforeSend: showLoading(),
         // error: showError(),
         // success: showSuccess()
     }).done(function(response) {
         hideLoading();
-        showSuccess();
+        successRedirect(response);
     });
 }
 
@@ -190,8 +191,8 @@ function showError() {
     $("#alert-danger").addClass("in");
 }
 
-function showSuccess() {
-    $(".mask").css("display", "inherit");
-    $("#alert-success").css("display", "block");
-    $("#alert-success").addClass("in");
+function successRedirect(response) {
+    var startIndex = response.indexOf(":")+1;
+    var row = response.substring(startIndex);
+    location.href = "applySuccess?row="+row;
 }
