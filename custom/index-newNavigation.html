@@ -219,6 +219,10 @@
         text-transform: inherit;
     }
 
+    a, a:hover{
+        text-decoration-style: none;
+    }
+
     .desktop{
         display: initial;
     }
@@ -612,13 +616,9 @@
             width: 50%;
         }
 
-        .article.select .article-title{
-            font-size: 1.5em;
-        }
         .article.select img{
-            max-height: 250px;
-            width: auto;
-            margin: 10px auto;
+            display: initial;
+            vertical-align: middle;
         }
     }
 
@@ -651,13 +651,9 @@
             width: 50%;
         }
 
-        .article.select .article-title{
-            font-size: 1.5em;
-        }
         .article.select img{
-            max-height: 250px;
-            width: auto;
-            margin: 10px auto;
+            display: initial;
+            vertical-align: middle;
         }
     }
 
@@ -690,13 +686,9 @@
             width: 50%;
         }
 
-        .article.select .article-title{
-            font-size: 1.5em;
-        }
         .article.select img{
-            max-height: 250px;
-            width: auto;
-            margin: 10px auto;
+            display: initial;
+            vertical-align: middle;
         }
     }
 
@@ -1637,6 +1629,20 @@
     </section>
     {/block:PermalinkPage}
 </body>
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 941096043;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/941096043/?guid=ON&amp;script=0"/>
+</div>
+</noscript>
 <!-- jquery -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 <!-- instagram -->
@@ -1665,13 +1671,6 @@
         
         var path = location.pathname;
         var isSinglePage = (path.indexOf("/post/") > -1);
-
-        if(!ismobile_size() && !ismobile() && !isSinglePage){
-            fixHeight();
-            $("img").on("load", function(){
-                fixHeight();
-            });
-        }
 
         fixSinglePostPage();
 
@@ -1706,6 +1705,10 @@
         var windowHeight = document.body.clientHeight;
         var maxHeight = windowHeight - topHeight;
         articles.style.height = maxHeight + "px";
+        var selectArticles = document.getElementsByClassName("select");
+        for(var i=0; i<selectArticles.length; i++){
+            selectArticles[i].style.lineHeight = maxHeight-20 + "px";
+        }
         console.log(maxHeight);
     }
 
@@ -1749,6 +1752,7 @@
             // console.log(posts);
 
             render_posts();
+            fixHeight();
         });
     }
 
@@ -1764,6 +1768,7 @@
                         post_element = render_home(posts_array[i]);
                         break;
                     case "select":
+                        console.log(posts_array[i]);
                         post_element = render_select(posts_array[i]);
                         break;
                     default:
@@ -1802,23 +1807,13 @@
         for (var i = 0; i < tags.length; i++) {
             article.className += " " + tags[i];
         }
-        var articleContent = document.createElement("div");
-        articleContent.className = "article-content";
-        var articleTitle = document.createElement("a");
-        articleTitle.className = "article-title";
-        articleTitle.setAttribute("href", post.post_url);
-        articleTitle.setAttribute("target", "_blank");
-        articleTitle.innerText = post.slug;
-        var articleBody = post.body;
-        if (articleBody.indexOf("<!-- more -->") > -1) {
-            var start_index = articleBody.indexOf("<!-- more -->");
-            articleBody = articleBody.substring(0, start_index);
-            // articleBody += '<a href="' + post['post_url'] + '" target=\"_blank\" class="readmore">KEEP READING</a>';
-        }
-        articleBody = analysis_caption_iframe(articleBody, post.id);
-        articleContent.appendChild(articleTitle);
-        articleContent.innerHTML += articleBody;
-        article.appendChild(articleContent);
+        var articleLink = document.createElement("a");
+        articleLink.setAttribute("href", post.link_url);
+        articleLink.setAttribute("target", "_blank");
+        var articleImage = document.createElement("img");
+        articleImage.setAttribute("src", post.photos[0].original_size.url);
+        articleLink.appendChild(articleImage);
+        article.appendChild(articleLink);
         return article;
     }
 

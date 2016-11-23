@@ -8,7 +8,7 @@ h2 {
     text-transform: inherit;
 }
 
-a{
+a, a:hover{
     text-decoration: none;
 }
 
@@ -49,7 +49,7 @@ header p.description {
 /* navigation */
 
 #navigation ul li {
-    border-top: 2px #e5e5e4 solid;
+    border-top: 2px #ddd solid;
     width: 90%;
     margin: 0px auto;
     padding-top: 3%;
@@ -61,49 +61,26 @@ header p.description {
     list-style: none;
 }
 
-#navigation ul li:hover {
-    background-color: #e5e5e4;
+#navigation ul li:hover{
+    background: #e5e5e4;
 }
 
-#navigation ul li a div {
-    display: block;
+#navigation ul li div {
+    padding-left: 15%;
     color: #000;
-    width: 170px;
-    height: 30px;
-    margin: 0px auto;
-}
-
-#navigation .label-chinese,
-#navigation .label-english {
-    font-size: 100%;
-    line-height: 30px;
 }
 
 #navigation .label-chinese {
-    /*letter-spacing: 1px;*/
-    width: 40%;
-    float: right;
-}
-
-.justify {
-    text-align: justify;
-    text-justify: inter-ideograph;
-    -ms-text-justufy: inter-ideograph;
-    -moz-text-align-last: justify;
-    -webkit-text-aling-last: justify;
-    height: 30px;
-}
-
-.justify:after {
-    content: '';
     display: inline-block;
-    width: 100%;
+    letter-spacing: 1px;
+    width: 45%;
 }
 
 #navigation .label-english {
+    display: inline;
     letter-spacing: 1px;
+    font-size: 80%;
     width: 40%;
-    float: left;
 }
 
 #shortcut {

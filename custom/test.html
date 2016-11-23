@@ -4,6 +4,8 @@
 <head>
     <title>Test Table</title>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
     <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/z3pnekdqv/precrafted-social.css">
     <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/g6Fnsuud3/fixie-styles.css">
     <!--bootstrap and drawer css-->
@@ -15,11 +17,17 @@
 body {
     background-color: #e6e6e6;
     font-family: 'Noto Sans TC', sans-serif;
+    overflow: hidden;
 }
 
 h2 {
     font-size: 20px;
     text-transform: inherit;
+}
+
+a,
+a:hover {
+    text-decoration: none;
 }
 
 .desktop {
@@ -38,15 +46,16 @@ header .logo h1 {
     text-transform: none;
 }
 
-div.center {
+header div.center {
     padding-top: 0px;
     padding-left: 0px;
+    padding-bottom: : 0px;
 }
 
 header .center .centered {
     display: block;
     height: 100vh;
-    overflow: auto;
+    overflow: hidden;
     background-color: #fff;
 }
 
@@ -63,7 +72,7 @@ header p.description {
 /* navigation */
 
 #navigation ul li {
-    border-top: 2px #e5e5e4 solid;
+    border-top: 2px #ddd solid;
     width: 90%;
     margin: 0px auto;
     padding-top: 3%;
@@ -76,48 +85,25 @@ header p.description {
 }
 
 #navigation ul li:hover {
-    background-color: #e5e5e4;
+    background: #e5e5e4;
 }
 
-#navigation ul li a div {
-    display: block;
+#navigation ul li div {
+    padding-left: 20%;
     color: #000;
-    width: 170px;
-    height: 30px;
-    margin: 0px auto;
-}
-
-#navigation .label-chinese,
-#navigation .label-english {
-    font-size: 100%;
-    line-height: 30px;
 }
 
 #navigation .label-chinese {
-    /*letter-spacing: 1px;*/
-    width: 40%;
-    float: right;
-}
-
-.justify {
-    text-align: justify;
-    text-justify: inter-ideograph;
-    -ms-text-justufy: inter-ideograph;
-    -moz-text-align-last: justify;
-    -webkit-text-aling-last: justify;
-    height: 30px;
-}
-
-.justify:after {
-    content: '';
     display: inline-block;
-    width: 100%;
+    letter-spacing: 1px;
+    width: 30%;
 }
 
 #navigation .label-english {
+    display: inline;
     letter-spacing: 1px;
+    font-size: 80%;
     width: 40%;
-    float: left;
 }
 
 #shortcut {
@@ -145,11 +131,6 @@ header p.description {
 .youtube:hover .original img,
 .youtube:hover .business img {
     display: block;
-}
-
-.business,
-.original {
-    /*display: block;*/
 }
 
 .business img,
@@ -243,7 +224,7 @@ table.top {
     background-color: #fff;
     border: 4px solid #e6e6e6;
     border-left: 2px solid #e6e6e6;
-    padding: 10px 20px;
+    padding: 15px 10px;
 }
 
 .top td img {
@@ -255,6 +236,28 @@ table.top {
     background: #fff;
     padding: 20px;
     margin: 5px 2px;
+}
+
+
+/* article */
+.article {
+    width: 25%;
+    border: 2px solid #e6e6e6;
+    float: left;
+    padding: 20px;
+    background-color: #fff;
+    height: 100%;
+    overflow-y: hidden;
+}
+.article.home_only img {
+    height: 100%;
+    margin: 0px auto;
+}
+.article.select {
+    width: 50%;
+}
+.article.select img {
+    display: initial;
 }
 
 
@@ -425,6 +428,14 @@ div.play-button {
     .double_size {
         width: 50%;
     }
+    .article {
+        width: 25%;
+        padding: 20px;
+        height: 100%;
+    }
+    .article.select {
+        width: 50%;
+    }
 }
 
 @media only screen and (max-width: 1800px) {
@@ -437,28 +448,11 @@ div.play-button {
     }
     .article {
         width: 25%;
-        border: 2px solid #e6e6e6;
-        float: left;
-        padding: 10px;
-        background-color: #fff;
+        padding: 25px;
         height: 100%;
-        overflow-y: scroll;
-    }
-    .article.home_only img {
-        max-height: 100%;
-        height: auto;
-        margin: 0px auto;
     }
     .article.select {
         width: 50%;
-    }
-    .article.select .article-title {
-        font-size: 1.5em;
-    }
-    .article.select img {
-        max-height: 250px;
-        width: auto;
-        margin: 10px auto;
     }
 }
 
@@ -468,6 +462,31 @@ div.play-button {
         width: 50%;
     }
     .double_size {
+        width: 100%;
+    }
+    .article {
+        width: 25%;
+        padding: 25px;
+        height: 100%;
+    }
+    .article.select {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 1080px) {
+    .desktop table.top {
+        display: none;
+    }
+    div.top.mobile {
+        display: initial;
+    }
+    .article {
+        width: 50%;
+        padding: 10px;
+        height: 100%;
+    }
+    .article.select {
         width: 100%;
     }
 }
@@ -483,6 +502,19 @@ div.play-button {
     }
     section {
         width: 60%;
+    }
+    .desktop table.top {
+        display: none;
+    }
+    div.top.mobile {
+        display: initial;
+    }
+    .article {
+        width: 50%;
+        padding: 10px;
+    }
+    .article.select {
+        width: 100%;
     }
 }
 
@@ -616,23 +648,14 @@ div.play-button {
         line-height: 1.5em;
         font-weight: 400;
         text-align: left;
-        max-height: none;
+        list-style: none;
     }
-    #navigation ul li a {
-        margin-left: 15%;
+    #navigation ul li:hover {
+        background: #e5e5e4;
+    }
+    #navigation ul li div {
+        padding-left: 20%;
         color: #000;
-        background-color: #fff;
-    }
-    #navigation ul li:nth-child(4) {
-        margin-bottom: 0px;
-    }
-    .social_network {
-        padding: 10px;
-    }
-    .social_network img {
-        display: inline;
-        height: 8vh;
-        width: auto;
     }
     #navigation .label-chinese {
         display: inline-block;
@@ -644,6 +667,16 @@ div.play-button {
         letter-spacing: 1px;
         font-size: 80%;
         width: 40%;
+    }
+    .social_network {
+        background: #fff;
+        padding: 10px;
+    }
+    .social_network img {
+        display: inline;
+        width: auto;
+        margin: 0px 5px;
+        width: auto;
     }
     /* section */
     section {
@@ -683,6 +716,14 @@ div.play-button {
         height: 100vh;
         background-color: rgba(0, 0, 0, 0.7);
         z-index: 10;
+        display: none;
+    }
+    .article {
+        width: 50%;
+        padding: 10px;
+    }
+    .article.select {
+        width: 100%;
     }
 }
 </style>
@@ -703,62 +744,38 @@ div.play-button {
                     <div class="social_network">
                         <a href="https://www.facebook.com/Woolito/" target="_blank"><img src="http://static.tumblr.com/sirdwhf/Jd6ogz322/facebook.png"></a>
                         <a href="https://page.line.me/woolito" target="_blank"><img src="http://static.tumblr.com/sirdwhf/cQ3ogz32k/line.png"></a>
-                        <a href="https://www.instagram.com/woolito_studio/" target="_blank"><img src="http://static.tumblr.com/sirdwhf/WShogz32q/instagram.png"></a>
-                        <span class="youtube">
-                            <a href="#" target="_blank"><img src="http://static.tumblr.com/sirdwhf/l4Uogz32f/youtube.png"></a>
-                            <a href="#" target="_blank" class="original"><img src="http://static.tumblr.com/sirdwhf/YiHogz333/original.png"></a>
-                            <a href="#" target="_blank" class="business"><img src="http://static.tumblr.com/sirdwhf/v0iogz32z/business.png"></a>
-                        </span>
-                    </div>
+                        <a href="https://www.instagram.com/woolito_studio/" target="_blank"><img src="http://static.tumblr.com/sirdwhf/WShogz32q/instagram.png"></a><span class="youtube"><a href="#" target="_blank"><img src="http://static.tumblr.com/sirdwhf/l4Uogz32f/youtube.png"></a><a href="#" target="_blank" class="original"><img src="http://static.tumblr.com/sirdwhf/YiHogz333/original.png"></a><a href="#" target="_blank" class="business"><img src="http://static.tumblr.com/sirdwhf/v0iogz32z/business.png"></a></span></div>
                 </div>
                 <div id="navigation">
                     <ul>
                         <li>
                             <a href="/contact">
-                                <div>
-                                    <span class="label-english">Contact</span>
-                                    <span class="label-chinese justify">聯繫我們</span>
-                                </div>
+                                <div><span class="label-chinese">聯繫我們</span><span class="label-english">Contact</span></div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/aboutus">
+                                <div><span class="label-chinese">關於我們</span><span class="label-english">About Woolito</span></div>
                             </a>
                         </li>
                         <li>
                             <a href="/service">
-                                <div>
-                                    <span class="label-english">Service</span>
-                                    <span class="label-chinese justify">商業服務</span>
-                                </div>
+                                <div><span class="label-chinese">商業服務</span><span class="label-english">Service</span></div>
                             </a>
                         </li>
                         <li>
                             <a href="/works">
-                                <div>
-                                    <span class="label-english">Works</span>
-                                    <span class="label-chinese justify">作品集</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/ideas">
-                                <div>
-                                    <span class="label-english">Ideas</span>
-                                    <span class="label-chinese justify">沒靈感</span>
-                                </div>
+                                <div><span class="label-chinese">作品集</span><span class="label-english">Works</span></div>
                             </a>
                         </li>
                         <li>
                             <a href="http://woolito.shoplineapp.com/" target="_blank">
-                                <div>
-                                    <span class="label-english">Shop</span>
-                                    <span class="label-chinese justify">原創商品</span>
-                                </div>
+                                <div><span class="label-chinese">原創商品</span><span class="label-english">Shop</span></div>
                             </a>
                         </li>
                         <li>
                             <a href="https://store.line.me/stickershop/author/72619" target="_blank">
-                                <div>
-                                    <span class="label-english">Sticker</span>
-                                    <span class="label-chinese justify">LINE貼圖</span>
-                                </div>
+                                <div><span class="label-chinese">LINE 貼圖</span><span class="label-english">LINE Sticker</span></div>
                             </a>
                         </li>
                     </ul>
@@ -766,7 +783,149 @@ div.play-button {
             </div>
         </div>
     </header>
+    <section class="the-posts index desktop">
+        <table class="top" id="top">
+            <tbody>
+                <tr>
+                    <td rowspan="3">
+                        <a href="works" rel="external"><img src="http://static.tumblr.com/sirdwhf/469oflb8k/top-works.png"></a>
+                    </td>
+                    <td>
+                        <a href="aboutus" rel="external"><img src="http://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="service" rel="external"><img src="http://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="contact" rel="external"><img src="http://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="top mobile">
+            <div class="top-post">
+                <a href="works-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/469oflb8k/top-works.png"></a>
+            </div>
+            <div class="top-post">
+                <a href="aboutus-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
+            </div>
+            <div class="top-post">
+                <a href="service-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
+            </div>
+            <div class="top-post">
+                <a href="contact-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
+            </div>
+        </div>
+        <div class="grid" id="fixed-posts" style="height: 390px;">
+            <div class="grid-sizer"></div>
+            <div id="153176696584" rel="http://woolito.tumblr.com/post/153176696584" class="article home_only top">
+                <a href="http://t.umblr.com/redirect?z=http%3A%2F%2Fbasketball.fantasysports.yahoo.com%2Fnba%2F57372%2F11&amp;t=ZjM3NzEzYWRhNmQzOWEyNjg1YTQ3ZjliNzk0MjMyNTkzMmMxMGRmNiwxNTMxNzY2OTY1ODQ%3D" target="_blank"><img src="http://68.media.tumblr.com/6e20b0a0fe92687e579b6eef446c7581/tumblr_ogn5q9AA791ud02amo2_400.png"></a>
+            </div>
+            <div id="153176741604" rel="http://woolito.tumblr.com/post/153176741604" class="article home_only">
+                <a href="undefined" target="_blank"><img src="http://68.media.tumblr.com/1066ee096c911280a52fa76ab5bc15c8/tumblr_ogn5sgkR681ud02amo1_400.png"></a>
+            </div>
+            <div id="153469206299" rel="http://woolito.tumblr.com/post/153469206299" class="article select" style="line-height: 370px;">
+                <a href="http://woolito.tumblr.com/post/152099375899/%E8%B6%A8%E5%8B%A2-2017-%E7%94%A2%E5%93%81%E5%AE%A3%E5%82%B3" target="_blank"><img src="http://68.media.tumblr.com/2becf8a66b055a3bd68d431dcc0598e5/tumblr_ogzocn64bU1ud02amo1_1280.png"></a>
+            </div>
+        </div>
+    </section>
+    <div class="mobile has-drawer">
+        <div id="drawerExample" class="drawer dw-xs-10 dw-sm-6 dw-md-4 fold" aria-labelledby="drawerExample">
+            <div class="drawer-contents">
+                <div class="drawer-body">
+                    <div class="center">
+                        <div class="centered">
+                            <div id="shortcut">
+                                <div class="avatar">
+                                    <a href="/" title="Woolito Studio" class="avatar circle" rel="external"><img src="http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" alt="Woolito Studio" class="default"></a>
+                                </div>
+                                <div class="logo">
+                                    <h1><a href="/" rel="external" title="Woolito Studio">Woolito Studio</a></h1></div>
+                                <p class="description">我們努力創作有趣的動畫與圖文並分享笑容</p>
+                                <p class="description">希望能為彼此的生活點綴</p>
+                                <p class="description">一些無厘頭的樂趣！</p>
+                            </div>
+                            <div id="navigation">
+                                <ul>
+                                    <li>
+                                        <a href="/contact">
+                                            <div><span class="label-chinese">聯繫我們</span><span class="label-english">Contact</span></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/aboutus">
+                                            <div><span class="label-chinese">關於我們</span><span class="label-english">About Woolito</span></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/service">
+                                            <div><span class="label-chinese">商業服務</span><span class="label-english">Service</span></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/works">
+                                            <div><span class="label-chinese">作品集</span><span class="label-english">Works</span></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="http://woolito.shoplineapp.com/" target="_blank">
+                                            <div><span class="label-chinese">原創商品</span><span class="label-english">Shop</span></div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://store.line.me/stickershop/author/72619" target="_blank">
+                                            <div><span class="label-chinese">LINE 貼圖</span><span class="label-english">LINE Sticker</span></div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="social_network">
+                                <a href="https://www.facebook.com/Woolito/" target="_blank"><img src="http://static.tumblr.com/sirdwhf/Jd6ogz322/facebook.png"></a>
+                                <a href="https://page.line.me/woolito" target="_blank"><img src="http://static.tumblr.com/sirdwhf/cQ3ogz32k/line.png"></a>
+                                <a href="https://www.instagram.com/woolito_studio/" target="_blank"><img src="http://static.tumblr.com/sirdwhf/WShogz32q/instagram.png"></a>
+                                <a href="https://www.youtube.com/user/WoolitoFilm" target="_blank"><img src="http://static.tumblr.com/sirdwhf/l4Uogz32f/youtube.png"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div id="header">
+                <div class="drawer_icon"><img src="http://static.tumblr.com/sirdwhf/6PVobwmdh/drawer.png"></div>
+                <div class="title">Woolito Studio</div>
+                <div class="find-us">
+                    <a href="/contact-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/V2Lof6jne/find_us.png"></a>
+                </div>
+            </div>
+            <section class="the-posts index">
+                <div class="top">
+                    <div class="top-post">
+                        <a href="works-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/469oflb8k/top-works.png"></a>
+                    </div>
+                    <div class="top-post">
+                        <a href="aboutus-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
+                    </div>
+                    <div class="top-post">
+                        <a href="service-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
+                    </div>
+                    <div class="top-post">
+                        <a href="contact-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
+                    </div>
+                </div>
+                <div class="grid" id="fixed-posts-mobile"></div>
+            </section>
+        </div>
+        <div class="mask"></div>
+    </div>
 </body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript">
+console.log(window.innerWidth);
+</script>
 
 </html>
