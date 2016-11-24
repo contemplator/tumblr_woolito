@@ -54,6 +54,10 @@ section {
     background-position: center bottom;
 }
 
+label{
+    margin: 0px 4px;
+}
+
 
 /* header */
 
@@ -165,6 +169,13 @@ img.tip {
     color: #0a9589;
 }
 
+.budget .advice{
+    background-color: #00c3b1;
+    padding: 0px 5px;
+    border-radius: 3px;
+    color: #333;
+}
+
 body.modal-open {
     overflow: visible;
 }
@@ -186,7 +197,7 @@ body.modal-open {
 
 .budget #budget-modal .budget-choice {
     color: #000;
-    font-size: 1.2em;©
+    font-size: 1.2em;
     padding: 10px 5px;
     border-bottom: #ccc solid 1px;
 }
@@ -294,31 +305,4 @@ div.btn-sender {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
     }
-}
-
-#alert-success,
-#alert-danger {
-    position: fixed;
-    width: 100%;
-    top: 20%;
-    text-align: center;
-    z-index: 3;
-    display: none;
-}
-
-.alert {
-    display: inline;
-    padding-right: 15px;
-}
-
-.alert .glyphicon-remove {
-    cursor: pointer;
-    margin-left: 20px;
-}
-
-
-/* temporarilly for jquery mobile */
-
-#select-11-button span {
-    display: none;
 }

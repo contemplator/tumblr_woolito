@@ -19,14 +19,15 @@
     <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/g6Fnsuud3/fixie-styles.css">
     <!--bootstrap css-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!-- jquery 1.10.2 and jquery ui js -->
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- custom -->
     <link rel="stylesheet" type="text/css" href="css/web.css">
     <link rel='stylesheet' type='text/css' href="css/contact.css">
 </head>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 var range_field_left_map = {};
 var range_field_right_map = {};
 
@@ -65,7 +66,7 @@ document.addEventListener('mousewheel', function(e) {
         e.preventDefault();
     }
 });
-</script>
+</script> -->
 <style type="text/css"></style>
 <body>
     <header>
@@ -161,30 +162,7 @@ document.addEventListener('mousewheel', function(e) {
                     <textarea id="input-idea" rows="10">任何我們能幫助您的需求都歡迎寫下來</textarea>
                 </div>
             </div>
-            <div class="type">
-                <label class="chinese">計畫類型</label>
-                <label class="english">Project Objectives</label>
-                <div class="input-field">
-                    <input type="radio" name="input-type" value="動畫設計" id="animation_design">
-                    <label for="animation_design">
-                        <img class="radio" src="http://static.tumblr.com/sirdwhf/7egof82eq/contact_uncheck_radio.png"> 動畫設計
-                    </label>
-                    <input type="radio" name="input-type" value="異業合作" id="cross_promotion">
-                    <label for="cross_promotion">
-                        <img class="radio" src="http://static.tumblr.com/sirdwhf/7egof82eq/contact_uncheck_radio.png"> 異業合作
-                    </label>
-                    <input type="radio" name="input-type" value="創意協助" id="creative_cooperation">
-                    <label for="creative_cooperation">
-                        <img class="radio" src="http://static.tumblr.com/sirdwhf/7egof82eq/contact_uncheck_radio.png"> 創意協助
-                    </label>
-                    <input type="radio" name="input-type" value="專業諮詢" id="professional_advisory">
-                    <label for="professional_advisory">
-                        <img class="radio" src="http://static.tumblr.com/sirdwhf/7egof82eq/contact_uncheck_radio.png"> 專業諮詢
-                    </label>
-                </div>
-                <img class="papa" src="http://static.tumblr.com/sirdwhf/IF1oc40fk/contact_papa.png">
-            </div>
-            <div class="budget">
+            <!-- <div class="budget">
                 <label class="chinese">預算</label>
                 <label class="english">Budget</label>
                 <label class="advice">讓我們提供您「最符合您預算」的建議</label>
@@ -216,6 +194,30 @@ document.addEventListener('mousewheel', function(e) {
                         $0 ~ $0
                     </div>
                 </div>
+            </div> -->
+            <div class="budget">
+                <label class="chinese">預算</label>
+                <label class="english">Budget</label>
+                <label class="advice">讓我們提供您「最符合您預算」的建議</label>
+                <div class="input-field">
+                    <div id="slider-range"></div>
+                    <div class="numbers-field">
+                        <div class="des">$0</div>
+                        <!-- <div class="des">$50,000</div> -->
+                        <div class="des">$100,000</div>
+                        <div class="des">$200,000</div>
+                        <div class="des">$300,000</div>
+                        <div class="des">$400,000</div>
+                        <div class="des">$500,000</div>
+                    </div>
+                    <div id="result">
+                        <span>$</span>
+                        <span id="min">0</span>
+                        <span>~</span>
+                        <span>$</span>
+                        <span id="max">50,000</span>
+                    </div>
+                </div>
             </div>
             <div class="name">
                 <label class="chinese">稱呼</label>
@@ -233,6 +235,7 @@ document.addEventListener('mousewheel', function(e) {
                 <div class="input-field">
                     <input type="text" id="input-phone" onkeyup="return validateNumber(this, value)"  />
                 </div>
+                <img class="papa" src="http://static.tumblr.com/sirdwhf/IF1oc40fk/contact_papa.png">
             </div>
             <div class="email">
                 <label class="chinese">聯絡信箱</label>

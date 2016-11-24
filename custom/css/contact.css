@@ -107,39 +107,6 @@ img.tip {
 }
 
 
-/* type */
-
-.type {
-    position: relative;
-    z-index: 2;
-}
-
-.type .input-field input[type='radio']{
-    visibility: hidden;
-    position: absolute;
-}
-
-.type .input-field img.radio{
-    display: inline;
-}
-
-.type .input-field label {
-    margin-right: 30px;
-    margin-bottom: 0px;
-    vertical-align: top;
-    cursor: pointer;
-}
-
-.type img.papa{
-    position: absolute;
-    margin-top: -175px;
-    margin-right: -40px;
-    right: 0;
-    z-index: 1;
-    width: auto;
-    height: auto;
-}
-
 .pointer {
     cursor: pointer;
     background-color: #fff;
@@ -197,7 +164,7 @@ img.tip {
 	margin-left: 5px;
 }
 
-.budget .input-field .range {
+/*.budget .input-field .range {
     margin: 0px auto;
     width: 80%;
     position: relative;
@@ -218,7 +185,7 @@ img.tip {
 .budget .input-field .numbers-field .des {
     display: inline-block;
     width: 12.8%;
-}
+}*/
 
 .budget label.advice {
     font-size: 100%;
@@ -227,6 +194,80 @@ img.tip {
     padding: 1px 3px;
     color: #000;
     margin-left: 5px;
+}
+
+/* new budget */
+#slider-range{
+    margin: 40px 14%;
+    margin-bottom: 0px;
+}
+#slider-range.ui-corner-all{
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+.ui-slider-range {
+    background: #f48192;
+}
+.ui-widget.ui-widget-content{
+    border: 0px solid;
+    background: #838383;
+}
+.ui-widget-content .ui-state-default:focus{
+    outline: none;
+    cursor: pointer;
+}
+.ui-widget-content .ui-state-default:nth-child(2){
+    background: url("http://static.tumblr.com/sirdwhf/Wexocf424/contact_lefthand.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border: 0px;
+}
+.ui-widget-content .ui-state-default:nth-child(3){
+    background: url("http://static.tumblr.com/sirdwhf/DXpocf42w/contact_righthand.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border: 0px;
+}
+.ui-slider-horizontal .ui-slider-handle:nth-child(2){
+    top: -2.7em;
+    margin-left: -2.4em;
+}
+.ui-slider-horizontal .ui-slider-handle:nth-child(3){
+    top: -2.7em;
+    margin-left: -0.4em;
+}
+.ui-slider .ui-slider-handle{
+    width: 3em;
+    height: 3em;
+}
+.budget .input-field .numbers-field{
+    text-align: center;
+    overflow-x: hidden;
+    margin: 0.5em 3em 2em 3em;
+}
+.budget .input-field .numbers-field .des {
+    display: inline-block;
+    width: 16%;
+}
+
+.phone{
+    position: relative;
+}
+
+.phone .input-field{
+    position: relative;
+    z-index: 0;
+}
+
+.phone img.papa{
+    position: absolute;
+    top: -27px;
+    right: -40px;
+    z-index: 0;
+    width: auto;
+    height: auto;
 }
 
 #result {
@@ -349,4 +390,27 @@ label.error{
 .alert .glyphicon-remove{
     cursor: pointer;
     margin-left: 20px;
+}
+
+/* */
+@media only screen and (max-width: 1212px) {
+    .budget .input-field .numbers-field{
+        margin: 0.5em 0em;
+        margin-bottom: 3em;
+    }
+    .budget .input-field .numbers-field .des{
+        width: 14%;
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .budget .input-field{
+        padding: 20px 0px;
+    }
+    .budget .input-field .numbers-field{
+        margin: 0.5em 0px;
+        margin-bottom: 3em;
+    }
+    .budget .input-field .numbers-field .des{
+        width: 13%;
+    }
 }

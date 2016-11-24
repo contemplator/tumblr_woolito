@@ -17,22 +17,18 @@ $(function() {
         }
     });
 
-    $("#left-selector").draggable({
-        axis: "x",
-        containment: $(".type .input-field"),
-        scroll: false,
-        stop: fixLeftSelector
-    });
-
-    $("#right-selector").draggable({
-        axis: "x",
-        containment: $(".type .input-field"),
-        scroll: false,
-        stop: fixRightSelector
-    });
-
-    $("#right-selector").one("drag", function(event, ui) {
-        $(".dragfield .tip").css("display", "none");
+    $("#slider-range").slider({
+        range: true,
+        min: 0,
+        max: 500000,
+        step: 50000,
+        values: [ 0, 50000 ],
+        slide: function( event, ui ) {
+            // $("#result").text( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+            numeral(1000).format('0,0')
+            $("#min").text(numeral(ui.values[0]).format('0,0'));
+            $("#max").text(numeral(ui.values[1]).format('0,0'));
+        }
     });
 
     $(".idea .input-field textarea").focusout(function() {
@@ -74,89 +70,19 @@ $(function() {
     });
 });
 
-function validateNumber(element, value){
+function validatePhone(element, value){
     var x = event.keyCode;
     var last = value.charAt(value.length-1);
     if(!("1234567890".indexOf(last) > -1)){
         value = value.substring(0, value.length-1);
     }
 
-    // element.value = value.replace(/(\d{4})(\d{3})(\d{3})/, "$1-$2-$3");
+    element.value = value.replace(/(\d\d\d\d)(\d\d\d)(\d\d\d)/, "$1-$2-$3");
 }
 
 function enable_type_radio(element) {
     $(".type label img").attr("src", "http://static.tumblr.com/sirdwhf/7egof82eq/contact_uncheck_radio.png");
     $(element.currentTarget).find("img").attr("src", "http://static.tumblr.com/sirdwhf/S1Uof82e4/contact_check_radio.png");
-}
-
-function fixLeftSelector() {
-    console.log("fixLeftSelector");
-    var left = $("#left-selector").position().left;
-    // console.log("left:" + left);
-    var right = $("#right-selector").position().left;
-    // console.log("right:" + right);
-    if (left > right) {
-        var keys_right = Object.keys(range_field_right_map);
-        var keys_left = Object.keys(range_field_left_map);
-        var index = keys_right.indexOf(right + "");
-        left = parseInt(keys_left[index - 1]);
-        if (index == 0) {
-            // to fix the mininum key of range_field_left_map always set to index 6
-            left = parseInt(keys_left[6]);
-        }
-    }
-    var keys = Object.keys(range_field_left_map);
-    var abses = [];
-    for (i = 0; i < keys.length; i++) {
-        var abs = Math.abs(left - keys[i]);
-        abses.push(abs);
-    }
-
-    var min_diff = Math.min.apply(null, abses); // 取出比較值最小的
-    var closest_index = abses.indexOf(min_diff); // 取出最小值的index
-    var closest_value = keys[closest_index]; // 取出最小值是位在哪一個位置
-    var budge = range_field_left_map[closest_value];
-
-    $("#left-selector").css("left", closest_value + "px");
-    $("#left-selector").attr("data-budget", budge);
-    showBudgeRange();
-}
-
-function fixRightSelector() {
-    var left = $("#left-selector").position().left;
-    var right = $("#right-selector").position().left;
-    if (right < left) {
-        var keys_left = Object.keys(range_field_left_map);
-        var keys_right = Object.keys(range_field_right_map);
-        var index = keys_left.indexOf(left + "");
-        right = parseInt(keys_right[index + 1]);
-        if (!right) {
-            right = parseInt(keys_right[0]);
-        }
-    }
-
-    var keys = Object.keys(range_field_right_map);
-    var abses = [];
-    for (i = 0; i < keys.length; i++) {
-        var abs = Math.abs(right - keys[i]);
-        abses.push(abs);
-    }
-
-    var min_diff = Math.min.apply(null, abses); // 取出比較值最小的
-    var closest_index = abses.indexOf(min_diff); // 取出最小值的index
-    var closest_value = keys[closest_index]; // 取出最小值是位在哪一個位置
-    var budge = range_field_right_map[closest_value];
-
-    $("#right-selector").css("left", closest_value + "px");
-    $("#right-selector").attr("data-budget", budge);
-    showBudgeRange();
-}
-
-function showBudgeRange() {
-    var left = parseInt($("#left-selector").position().left);
-    var right = parseInt($("#right-selector").position().left);
-    $("#result").text("$" + numeral(range_field_left_map[left]).format('0,0') + "~" + "$" + numeral(range_field_right_map[right]).format('0,0'));
-    // $("#result").text("$"+(range_field_left_map[left].formatMoney(0)) + "~" + "$" + range_field_right_map[right].formatMoney(0));
 }
 
 function verifyInput() {
@@ -167,14 +93,6 @@ function verifyInput() {
     if (idea == "" || idea == "任何我們能幫助您的需求都歡迎寫下來") {
         error.push("idea");
     }
-
-    var type = $("input[name='input-type']:checked").val();
-    if (type == undefined) {
-        type = null;
-    }
-    // if (!type) {
-    //     error.push("type");
-    // }
 
     var name = $("#input-name").val();
     if (!name) {
@@ -193,10 +111,6 @@ function verifyInput() {
                 $(".idea img.error").css("display", "inline");
                 $(".idea label.error").css("display", "inline-block");
                 break;
-                // case "type":
-                //     $(".type .input-field").css("border", "3px solid #ea4e4d");
-                //     $(".type .error").css("visibility", "initial");
-                //     break;
             case "name":
                 $(".name .input-field").css("border", "3px solid #E94D4C");
                 $(".name img.error").css("display", "inline");
@@ -216,19 +130,15 @@ function verifyInput() {
         return;
     }
 
-    var min_budget = $("#left-selector").attr("data-budget");
-    var max_budget = $("#right-selector").attr("data-budget");
-
     var datetime = new Date();
 
     var data = {
             time: datetime,
             idea: idea,
-            type: type,
             name: name,
             email: email,
-            min_budget: min_budget,
-            max_budget: max_budget,
+            min_budget: $("#min").text(),
+            max_budget: $("#max").text(),
             phone: $("#input-phone").val()
         }
     console.log(data);
@@ -244,7 +154,6 @@ function validateEmail(email) {
 function sendData(data) {
     var newApplyKey = firebase.database().ref('apply').push({
         idea: data.idea,
-        type: data.type,
         name: data.name,
         email: data.email,
         min_budget: data.min_budget,

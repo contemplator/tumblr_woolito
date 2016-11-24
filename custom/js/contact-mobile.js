@@ -32,8 +32,6 @@ $(function() {
         }
     });
 
-    $(".type label").on("click", enable_type_radio);
-
     $(".budget .input-field").on("click", show_budget_select);
 
     $(".budget .budget-choice").on("click", choose_budget);
@@ -54,20 +52,7 @@ $(function() {
         verifyInput();
     });
 
-    $('.alert-success').on('closed.bs.alert', function() {
-        location.reload();
-    });
-
-    $('.alert-danger').on('closed.bs.alert', function() {
-        // do something let engineer know what happen.
-    });
-
 });
-
-function enable_type_radio(element) {
-    $(".type label img").attr("src", "http://static.tumblr.com/sirdwhf/7egof82eq/contact_uncheck_radio.png");
-    $(element.currentTarget).find("img").attr("src", "http://static.tumblr.com/sirdwhf/S1Uof82e4/contact_check_radio.png");
-}
 
 function show_budget_select() {
     $('#budget-modal').modal('show');
@@ -85,11 +70,6 @@ function verifyInput() {
     var error = [];
     var idea = $("#input-idea").val();
 
-    var type = $("input[name='input-type']:checked").val();
-    if (!type) {
-        error.push("type");
-    }
-
     var name = $("#input-name").val();
     if (!name) {
         error.push("name");
@@ -102,9 +82,6 @@ function verifyInput() {
 
     for (var i = 0; i < error.length; i++) {
         switch (error[i]) {
-            case "type":
-                $(".type label.error").css("display", "initial");
-                break;
             case "name":
                 $(".name label.error").css("display", "initial");
                 break;
@@ -129,7 +106,6 @@ function verifyInput() {
     var data = {
         time: datetime,
         idea: idea,
-        type: type,
         name: name,
         email: email,
         min_budget: min_budget,
@@ -148,7 +124,6 @@ function validateEmail(email) {
 function sendData(data) {
     var newApplyKey = firebase.database().ref('apply').push({
         idea: data.idea,
-        type: data.type,
         name: data.name,
         email: data.email,
         min_budget: data.min_budget,
@@ -181,18 +156,18 @@ function hideLoading() {
     $("#loading").css("display", "none");
 }
 
-function hideAlert() {
-    $(".alert").alert("close");
-}
-
-function showError() {
-    $(".mask").css("display", "inherit");
-    $("#alert-danger").css("display", "block");
-    $("#alert-danger").addClass("in");
-}
-
 function successRedirect(response) {
     var startIndex = response.indexOf(":")+1;
     var row = response.substring(startIndex);
     location.href = "applySuccess?row="+row;
+}
+
+function validatePhone(element, value){
+    var x = event.keyCode;
+    var last = value.charAt(value.length-1);
+    if(!("1234567890".indexOf(last) > -1)){
+        value = value.substring(0, value.length-1);
+    }
+
+    element.value = value.replace(/(\d\d\d\d)(\d\d\d)(\d\d\d)/, "$1-$2-$3");
 }

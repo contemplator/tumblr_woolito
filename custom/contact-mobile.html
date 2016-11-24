@@ -52,48 +52,48 @@
                                     <li>
                                         <a href="/contact">
                                             <div>
+                                                <span class="label-chinese">聯繫我們</span>
                                                 <span class="label-english">Contact</span>
-                                                <span class="label-chinese justify">聯繫我們</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/aboutus">
+                                            <div>
+                                                <span class="label-chinese">關於我們</span>
+                                                <span class="label-english">About Woolito</span>
                                             </div>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="/service">
                                             <div>
+                                                <span class="label-chinese">商業服務</span>
                                                 <span class="label-english">Service</span>
-                                                <span class="label-chinese justify">商業服務</span>
                                             </div>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="/works">
                                             <div>
+                                                <span class="label-chinese">作品集</span>
                                                 <span class="label-english">Works</span>
-                                                <span class="label-chinese justify">作品集</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/ideas">
-                                            <div>
-                                                <span class="label-english">Ideas</span>
-                                                <span class="label-chinese justify">沒靈感</span>
                                             </div>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="http://woolito.shoplineapp.com/" target="_blank">
                                             <div>
+                                                <span class="label-chinese">原創商品</span>
                                                 <span class="label-english">Shop</span>
-                                                <span class="label-chinese justify">原創商品</span>
                                             </div>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="https://store.line.me/stickershop/author/72619" target="_blank">
                                             <div>
-                                                <span class="label-english">Sticker</span>
-                                                <span class="label-chinese justify">LINE貼圖</span>
+                                                <span class="label-chinese">LINE 貼圖</span>
+                                                <span class="label-english">LINE Sticker</span>
                                             </div>
                                         </a>
                                     </li>
@@ -124,34 +124,8 @@
                 <div class="idea">
                     <label class="chinese">告訴我們您的動畫IDEA</label>
                     <label class="english">Talk About Your Animation</label>
-                    <!-- <img class="tip" src="http://static.tumblr.com/sirdwhf/c8uoc40kz/error_flower.png"> -->
                     <div class="input-field">
                         <textarea id="input-idea" rows="10">任何我們能幫助您的需求都歡迎寫下來</textarea>
-                    </div>
-                </div>
-                <div class="type">
-                    <label class="chinese">計畫類型</label>
-                    <label class="english">Project Objectives</label>
-                    <img class="tip" src="http://static.tumblr.com/sirdwhf/c8uoc40kz/error_flower.png">
-                    <label class="error">這是必選欄位喔！</label>
-                    <div class="input-field">
-                        <input type="radio" name="input-type" value="動畫設計" id="animation_design">
-                        <label for="animation_design">
-                            <img class="radio" src="http://static.tumblr.com/sirdwhf/7egof82eq/contact_uncheck_radio.png"> 動畫設計
-                        </label>
-                        <input type="radio" name="input-type" value="異業合作" id="cross_promotion">
-                        <label for="cross_promotion">
-                            <img class="radio" src="http://static.tumblr.com/sirdwhf/7egof82eq/contact_uncheck_radio.png"> 異業合作
-                        </label>
-                        <br/>
-                        <input type="radio" name="input-type" value="創意協助" id="creative_cooperation">
-                        <label for="creative_cooperation">
-                            <img class="radio" src="http://static.tumblr.com/sirdwhf/7egof82eq/contact_uncheck_radio.png"> 創意協助
-                        </label>
-                        <input type="radio" name="input-type" value="專業諮詢" id="professional_advisory">
-                        <label for="professional_advisory">
-                            <img class="radio" src="http://static.tumblr.com/sirdwhf/7egof82eq/contact_uncheck_radio.png"> 專業諮詢
-                        </label>
                     </div>
                 </div>
                 <div class="budget">
@@ -189,7 +163,7 @@
                     <label class="chinese">聯絡電話</label>
                     <label class="english">Telephone Number</label>
                     <div class="input-field">
-                        <input type="tel" id="input-phone" />
+                        <input type="tel" id="input-phone" onkeyup="return validatePhone(this, value)"/>
                     </div>
                 </div>
                 <div class="email">
@@ -213,12 +187,6 @@
         <div id="loading">
             <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
             <span>傳送資料中...</span>
-        </div>
-        <div id="alert-success">
-            <div class="alert alert-success alert-dismissible fade in" role="alert">
-                <strong>我們收到資料了!</strong> 我們會儘快和您聯絡。
-                <span class="glyphicon glyphicon-remove" onclick="hideAlert()"></span>
-            </div>
         </div>
     </div>
 </body>
