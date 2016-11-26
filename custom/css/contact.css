@@ -272,7 +272,7 @@ img.tip {
 
 #result {
     text-align: center;
-    color: #c8373b;
+    color: #7c545a;
     font-size: 200%;
     margin-top: 15px;
 }
@@ -337,7 +337,6 @@ label.error{
 
 .footer {
     background-color: #fff;
-    border-radius: 20px 20px 0px 0px;
     text-align: center;
     padding: 20px;
 }

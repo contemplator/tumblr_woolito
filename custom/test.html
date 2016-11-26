@@ -14,10 +14,13 @@
 </head>
 <style type="text/css">
 @import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+html {
+    overflow-y: hidden;
+}
+
 body {
     background-color: #e6e6e6;
     font-family: 'Noto Sans TC', sans-serif;
-    overflow: hidden;
 }
 
 h2 {
@@ -41,11 +44,6 @@ a:hover {
 
 /* navigation */
 
-header .logo h1 {
-    font-weight: bold;
-    text-transform: none;
-}
-
 header div.center {
     padding-top: 0px;
     padding-left: 0px;
@@ -59,13 +57,17 @@ header .center .centered {
     background-color: #fff;
 }
 
-.logo a {
-    color: #000;
-    text-decoration: none;
-}
-
 header p.description {
     margin: 0px;
+}
+
+header .logo h1 {
+    text-transform: none;
+}
+
+header .logo h1 a {
+    font-weight: 300;
+    color: #000;
 }
 
 
@@ -75,8 +77,6 @@ header p.description {
     border-top: 2px #ddd solid;
     width: 90%;
     margin: 0px auto;
-    padding-top: 3%;
-    padding-bottom: 3%;
     font-size: 100%;
     line-height: 1.5em;
     font-weight: 400;
@@ -89,14 +89,16 @@ header p.description {
 }
 
 #navigation ul li div {
-    padding-left: 20%;
+    padding-left: 15%;
+    padding-bottom: 10px;
+    padding-top: 10px;
     color: #000;
 }
 
 #navigation .label-chinese {
     display: inline-block;
     letter-spacing: 1px;
-    width: 30%;
+    width: 45%;
 }
 
 #navigation .label-english {
@@ -153,6 +155,7 @@ header p.description {
 
 section {
     margin-bottom: 0px;
+    padding: 5px 0px;
 }
 
 img.shortcut {
@@ -222,9 +225,15 @@ table.top {
 
 .top td {
     background-color: #fff;
-    border: 4px solid #e6e6e6;
-    border-left: 2px solid #e6e6e6;
+    border-left: 0px solid #e6e6e6;
+    border-right: 0px solid #e6e6e6;
+    border-bottom: 2px solid #e6e6e6;
     padding: 15px 10px;
+}
+
+.top tr:nth-child(1) td:nth-child(1) {
+    border-right: 4px solid #e6e6e6;
+    border-left: 2px solid #e6e6e6;
 }
 
 .top td img {
@@ -240,91 +249,29 @@ table.top {
 
 
 /* article */
+
+#fixed-posts {
+    display: flex;
+}
+
 .article {
-    width: 25%;
     border: 2px solid #e6e6e6;
-    float: left;
     padding: 20px;
     background-color: #fff;
-    height: 100%;
     overflow-y: hidden;
+    max-height: 100%;
+    width: 25%;
+    text-align: center;
 }
-.article.home_only img {
-    height: 100%;
-    margin: 0px auto;
-}
+
 .article.select {
     width: 50%;
 }
-.article.select img {
-    display: initial;
-}
 
-
-/* youtube */
-
-.post_iframe {
-    position: relative;
-    height: auto;
-}
-
-div.play-button {
-    height: 72px;
-    width: 72px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -36px;
-    margin-left: -36px;
-    background: url("http://i.imgur.com/TxzC70f.png");
-    background-repeat: no-repeat;
-    cursor: pointer;
-}
-
-#product_video iframe {
-    width: 90%;
-    margin-bottom: 3%;
-}
-
-.labnolIframe {
-    width: 100%;
-    height: 100%;
-}
-
-#preview_youtube {
-    height: 450px;
-    width: 600px;
-    border: 5px #363636 solid;
-    background-color: #363636;
-    z-index: 110;
-}
-
-#preview_youtube figure,
-#preview_youtube figure iframe {
-    height: 100%;
-    width: 100%;
-    border: 0px;
-}
-
-#preview_youtube #current_status {
-    position: absolute;
-    bottom: 0px;
-    color: #FFF;
-    background-color: #363636;
-    width: 100%;
-    height: 12%;
-    text-align: center;
-    font-size: 2.5em;
-    line-height: 1.5em;
-}
-
-.preview_hide {
-    display: none;
-}
-
-.preview_show {
-    display: initial;
-    position: absolute;
+.article img {
+    margin: 0px auto;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 
@@ -431,7 +378,6 @@ div.play-button {
     .article {
         width: 25%;
         padding: 20px;
-        height: 100%;
     }
     .article.select {
         width: 50%;
@@ -449,7 +395,6 @@ div.play-button {
     .article {
         width: 25%;
         padding: 25px;
-        height: 100%;
     }
     .article.select {
         width: 50%;
@@ -467,7 +412,6 @@ div.play-button {
     .article {
         width: 25%;
         padding: 25px;
-        height: 100%;
     }
     .article.select {
         width: 50%;
@@ -475,16 +419,22 @@ div.play-button {
 }
 
 @media only screen and (max-width: 1080px) {
+    html {
+        overflow-y: auto;
+    }
     .desktop table.top {
         display: none;
     }
     div.top.mobile {
         display: initial;
     }
+    #fixed-posts{
+        display: block;
+    }
     .article {
         width: 50%;
         padding: 10px;
-        height: 100%;
+        float: left;
     }
     .article.select {
         width: 100%;
@@ -508,13 +458,6 @@ div.play-button {
     }
     div.top.mobile {
         display: initial;
-    }
-    .article {
-        width: 50%;
-        padding: 10px;
-    }
-    .article.select {
-        width: 100%;
     }
 }
 
@@ -654,13 +597,13 @@ div.play-button {
         background: #e5e5e4;
     }
     #navigation ul li div {
-        padding-left: 20%;
+        padding-left: 15%;
         color: #000;
     }
     #navigation .label-chinese {
         display: inline-block;
         letter-spacing: 1px;
-        width: 40%;
+        width: 45%;
     }
     #navigation .label-english {
         display: inline;
@@ -717,13 +660,6 @@ div.play-button {
         background-color: rgba(0, 0, 0, 0.7);
         z-index: 10;
         display: none;
-    }
-    .article {
-        width: 50%;
-        padding: 10px;
-    }
-    .article.select {
-        width: 100%;
     }
 }
 </style>
@@ -820,17 +756,7 @@ div.play-button {
                 <a href="contact-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
             </div>
         </div>
-        <div class="grid" id="fixed-posts" style="height: 390px;">
-            <div class="grid-sizer"></div>
-            <div id="153176696584" rel="http://woolito.tumblr.com/post/153176696584" class="article home_only top">
-                <a href="http://t.umblr.com/redirect?z=http%3A%2F%2Fbasketball.fantasysports.yahoo.com%2Fnba%2F57372%2F11&amp;t=ZjM3NzEzYWRhNmQzOWEyNjg1YTQ3ZjliNzk0MjMyNTkzMmMxMGRmNiwxNTMxNzY2OTY1ODQ%3D" target="_blank"><img src="http://68.media.tumblr.com/6e20b0a0fe92687e579b6eef446c7581/tumblr_ogn5q9AA791ud02amo2_400.png"></a>
-            </div>
-            <div id="153176741604" rel="http://woolito.tumblr.com/post/153176741604" class="article home_only">
-                <a href="undefined" target="_blank"><img src="http://68.media.tumblr.com/1066ee096c911280a52fa76ab5bc15c8/tumblr_ogn5sgkR681ud02amo1_400.png"></a>
-            </div>
-            <div id="153469206299" rel="http://woolito.tumblr.com/post/153469206299" class="article select" style="line-height: 370px;">
-                <a href="http://woolito.tumblr.com/post/152099375899/%E8%B6%A8%E5%8B%A2-2017-%E7%94%A2%E5%93%81%E5%AE%A3%E5%82%B3" target="_blank"><img src="http://68.media.tumblr.com/2becf8a66b055a3bd68d431dcc0598e5/tumblr_ogzocn64bU1ud02amo1_1280.png"></a>
-            </div>
+        <div id="fixed-posts">
         </div>
     </section>
     <div class="mobile has-drawer">
@@ -925,7 +851,336 @@ div.play-button {
 </body>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 <script type="text/javascript">
-console.log(window.innerWidth);
+var posts = {};
+var images = [];
+
+$(function() {
+    console.log("width: " + $(window).width());
+    console.log("user agent: " + navigator.userAgent);
+
+    var path = location.pathname;
+    var isSinglePage = (path.indexOf("/post/") > -1);
+
+    fixSinglePostPage();
+
+    if (!isSinglePage) {
+        query_all_posts();
+    }
+});
+
+function ismobile() {
+    if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function ismobile_size() {
+    var width = $(window).width();
+    var href = location.href;
+    var index = href.lastIndexOf("/") + 1;
+    href = href.substring(index);
+    if (width <= 768) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function fixHeight() {
+    var articles = document.getElementById("fixed-posts");
+    var topHeight = document.getElementById("top").offsetHeight;
+    var windowHeight = document.body.clientHeight;
+    var maxHeight = windowHeight - topHeight - 10;
+    articles.style.maxHeight = maxHeight + "px";
+    var selectArticles = document.getElementsByClassName("select");
+    console.log(maxHeight);
+}
+
+function query_all_posts() {
+    var key = "zcBf3tONWu9lQTSzrewHYU3WRdgbv1VtPGHXXMaZlZgN6Sz0lc";
+    var home_posts = [];
+    var select_posts = [];
+
+    $.ajax({
+        url: "http://api.tumblr.com/v2/blog/woolito.tumblr.com/posts",
+        type: "GET",
+        dataType: 'jsonp',
+        data: {
+            api_key: key
+        }
+    }).done(function(data) {
+        var data_json = data.response.posts;
+        for (var i = 0; i < data_json.length; i++) {
+            try {
+                tags = data_json[i].tags;
+                if (tags == undefined) {
+                    tags = [];
+                };
+                if (tags.indexOf("home_only") > -1) {
+                    if (tags.indexOf("top") > -1) {
+                        home_posts.unshift(data_json[i]);
+                    } else {
+                        home_posts.push(data_json[i]);
+                    }
+                } else if (tags.indexOf("select") > -1) {
+                    select_posts.push(data_json[i]);
+                }
+            } catch (err) {
+                console.log(err);
+                continue;
+            }
+        }
+        posts.home = home_posts;
+        posts.select = select_posts;
+
+        render_posts();
+        if (window.innerWidth > 1080) {
+            fixHeight();
+        }
+    });
+}
+
+function render_posts() {
+    var post_element;
+    var desktopOrder = ["home", "select"];
+    var mobileOrder = ["select", "home"];
+    var order = desktopOrder;
+    var articles = document.getElementById("fixed-posts");
+    if (window.innerWidth < 1080 && window.innerWidth > 768) {
+        order = mobileOrder;
+    } else if (window.innerWidth <= 768) {
+        articles = document.getElementById("fixed-posts-mobile");
+        order = mobileOrder;
+    }
+
+    for (var i = 0; i < order.length; i++) {
+        var posts_array = posts[order[i]];
+        console.log(posts[order[i]]);
+        for (var j = 0; j < posts_array.length; j++) {
+            switch (order[i]) {
+                case "home":
+                    post_element = render_home(posts_array[j]);
+                case "select":
+                    post_element = render_select(posts_array[j]);
+                default:
+                    break;
+            }
+            articles.appendChild(post_element);
+        }
+    }
+}
+
+function render_home(post) {
+    var article = document.createElement("div");
+    article.setAttribute("id", post.id);
+    article.setAttribute("rel", post.post_url);
+    article.className = "article";
+    var tags = post.tags;
+    for (var i = 0; i < tags.length; i++) {
+        article.className += " " + tags[i];
+    }
+    var articleLink = document.createElement("a");
+    articleLink.setAttribute("href", post.link_url);
+    var articleImage = document.createElement("img");
+    articleImage.setAttribute("src", post.photos[0].original_size.url);
+    articleLink.appendChild(articleImage);
+    article.appendChild(articleLink);
+    return article;
+}
+
+function render_select(post) {
+    var article = document.createElement("div");
+    article.setAttribute("id", post.id);
+    article.setAttribute("rel", post.post_url);
+    article.className = "article";
+    var tags = post.tags;
+    for (var i = 0; i < tags.length; i++) {
+        article.className += " " + tags[i];
+    }
+    var articleLink = document.createElement("a");
+    articleLink.setAttribute("href", post.link_url);
+    var articleImage = document.createElement("img");
+    articleImage.setAttribute("src", post.photos[0].original_size.url);
+    articleLink.appendChild(articleImage);
+    article.appendChild(articleLink);
+    return article;
+}
+
+function analysis_caption_iframe(caption, post_id) {
+    if (!(caption.indexOf("youtube_iframe") > -1)) {
+        return caption;
+    }
+    var patt = /https:\/\/www.youtube.com\/embed\/(\w+)\?/i;
+    var patt2 = /<figure(.*)>(.*)<\/figure>/i;
+    var youtube_id = caption.match(patt)[1];
+    var link_element = $('<a target="_blank"></a>');
+    link_element.attr("href", "http://woolito.tumblr.com/post/" + post_id + "/");
+    var shortcut_element = $("<img >");
+    shortcut_element.addClass("shortcut");
+    shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
+    shortcut_element.attr("youtube_id", youtube_id);
+    shortcut_element.attr("data-toggle", "tooltip");
+    shortcut_element.attr("data-placement", "bottom");
+    shortcut_element.attr("title", "點擊觀看作品介紹");
+    link_element.html(shortcut_element);
+    link_element = link_element.prop('outerHTML');
+
+    caption = caption.replace(patt2, link_element);
+    return caption;
+}
+
+function fixMobile() {
+    $(".desktop").css("display", "none");
+    // $(".mobile").css("display", "block");
+}
+
+function fixSinglePostPage() {
+    var path = location.pathname;
+    if (!(path.indexOf("/post/") > -1)) {
+        return;
+    }
+
+    // attach lightbox event on img
+    getImages();
+    $(".article-content img").click(function(event) {
+        event.preventDefault();
+        showImagePreview(event);
+    });
+
+    // fix html no scroll bar
+    document.documentElement.style.height = "120vh";
+    document.documentElement.style.overflowY = "auto";
+}
+
+function getImages() {
+    var articleContent = $(".article-content");
+    var imagesJquery = articleContent.find("img");
+    for (var i = 0; i < imagesJquery.length; i++) {
+        var image = {};
+        var imageJquery = $(imagesJquery[i]);
+        image.src = imageJquery.attr("src");
+        images.push(image);
+    }
+}
+
+function showImagePreview(event) {
+    var target = event.currentTarget;
+    var currentSrc = target.currentSrc;
+    var index = findObjectIndex(images, currentSrc);
+    previewCurrenImage = index;
+
+    var preview = document.createElement("div");
+    preview.setAttribute("id", "image-preview");
+    var middleTable = document.createElement("div");
+    middleTable.className = "middle-table";
+    middleTable.addEventListener("click", function() {
+        try {
+            preview.parentElement.removeChild(preview);
+        } catch (err) {}
+    });
+    var tableField = document.createElement("div");
+    tableField.className = "table-field";
+    var arrowLeft = document.createElement("span");
+    arrowLeft.setAttribute("id", "arrow-left");
+    arrowLeft.className = "arrow-left glyphicon glyphicon-chevron-left";
+    if (index <= 0) {
+        arrowLeft.style.display = "none";
+    }
+    arrowLeft.addEventListener("click", function(event) {
+        event.stopPropagation();
+        preImage();
+    });
+    var imageElement = document.createElement("img");
+    imageElement.setAttribute("id", "preview-image");
+    imageElement.setAttribute("src", currentSrc);
+    imageElement.addEventListener("click", function(event) {
+        event.stopPropagation();
+        nextImage();
+    });
+    var arrowRight = document.createElement("span");
+    arrowRight.setAttribute("id", "arrow-right");
+    arrowRight.className = "arrow-right glyphicon glyphicon-chevron-right";
+    if (index >= images.length - 1) {
+        arrowRight.style.display = "none";
+    }
+    arrowRight.addEventListener("click", function(event) {
+        event.stopPropagation();
+        nextImage();
+    });
+    var close = document.createElement("div");
+    close.className = "preview-close";
+    var closeIcon = document.createElement("span");
+    closeIcon.className = "glyphicon glyphicon-remove";
+    close.addEventListener("click", function() {
+        try {
+            preview.parentElement.removeChild(preview);
+        } catch (err) {}
+    });
+
+    close.appendChild(closeIcon);
+    tableField.appendChild(arrowLeft);
+    tableField.appendChild(imageElement);
+    tableField.appendChild(arrowRight);
+    middleTable.appendChild(tableField).appendChild(close);
+    preview.appendChild(middleTable);
+
+    document.body.appendChild(preview);
+    document.addEventListener("keydown", function(event) {
+        var keyCode = event.keyCode;
+        switch (keyCode) {
+            case 27:
+                try {
+                    preview.parentElement.removeChild(preview);
+                } catch (err) {}
+                break;
+            case 37:
+                preImage();
+                break;
+            case 39:
+                nextImage();
+                break;
+        }
+    }, false);
+}
+
+function findObjectIndex(array, value) {
+    for (var i = 0; i < array.length; i++) {
+        if (array[i].src == value) {
+            return i;
+        }
+    }
+    return null;
+}
+
+function preImage() {
+    if (previewCurrenImage > 0) {
+        previewCurrenImage--;
+    } else {
+        // 已經是第一張圖片
+    }
+    var previewImage = document.getElementById("preview-image");
+    previewImage.setAttribute("src", images[previewCurrenImage].src);
+    if (previewCurrenImage <= 0) {
+        document.getElementById("arrow-left").style.display = "none";
+    }
+    document.getElementById("arrow-right").style.display = "initial";
+}
+
+function nextImage(index) {
+    if (previewCurrenImage < images.length - 1) {
+        previewCurrenImage++;
+    } else {
+        // 已經是最後一張圖片
+    }
+    var previewImage = document.getElementById("preview-image");
+    previewImage.setAttribute("src", images[previewCurrenImage].src);
+    if (previewCurrenImage >= images.length - 1) {
+        document.getElementById("arrow-right").style.display = "none";
+    }
+    document.getElementById("arrow-left").style.display = "initial";
+}
 </script>
 
 </html>

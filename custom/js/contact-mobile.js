@@ -98,9 +98,17 @@ function verifyInput() {
     }
 
     var budget = $("#input-budget").text();
-    var budgets = budget.split("-");
-    var min_budget = budgets[0].replace(",", "");
-    var max_budget = budgets[1].replace(",", "");
+    var min_budget = "";
+    var max_budget = "無預算限制";
+    if(budget.indexOf("~") > 0){
+        var budgets = budget.split("~");
+        min_budget = budgets[0].trim();
+        max_budget = budgets[1].trim();
+    }else{
+        min_budget = "";
+        max_budget = "無預算限制";
+    }
+    
     var datetime = new Date();
 
     var data = {

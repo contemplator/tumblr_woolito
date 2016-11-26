@@ -209,10 +209,12 @@
     <meta name="twitter:image" content="{PortraitURL-128}" />{/block:Answer}{/block:Posts}{/block:PermalinkPage}
     <style type="text/css">
     @import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+    html {
+        overflow-y: hidden;
+    }
     body {
         background-color: #e6e6e6;
         font-family: 'Noto Sans TC', sans-serif;
-        overflow: hidden;
     }
 
     h2 {
@@ -236,11 +238,6 @@
 
     /* navigation */
 
-    header .logo h1 {
-        font-weight: bold;
-        text-transform: none;
-    }
-
     header div.center {
         padding-top: 0px;
         padding-left: 0px;
@@ -254,15 +251,18 @@
         background-color: #fff;
     }
 
-    .logo a {
-        color: #000;
-        text-decoration: none;
-    }
-
     header p.description {
         margin: 0px;
     }
 
+    header .logo h1 {
+        text-transform: none;
+    }
+
+    header .logo h1 a {
+        font-weight: 300;
+        color: #000;
+    }
 
     /* navigation */
 
@@ -270,8 +270,6 @@
         border-top: 2px #ddd solid;
         width: 90%;
         margin: 0px auto;
-        padding-top: 3%;
-        padding-bottom: 3%;
         font-size: 100%;
         line-height: 1.5em;
         font-weight: 400;
@@ -285,6 +283,8 @@
 
     #navigation ul li div {
         padding-left: 15%;
+        padding-bottom: 10px;
+        padding-top: 10px;
         color: #000;
     }
 
@@ -303,10 +303,6 @@
 
     #shortcut {
         padding: 20px;
-    }
-
-    .social_network {
-        margin-top: 20px;
     }
 
     .social_network a {
@@ -348,6 +344,7 @@
 
     section {
         margin-bottom: 0px;
+        padding: 5px 0px;
     }
 
     img.shortcut {
@@ -360,6 +357,10 @@
 
     .single-post article {
         margin-top: 0px;
+    }
+
+    .single-post article img{
+        cursor: pointer;
     }
 
     article,
@@ -417,9 +418,15 @@
 
     .top td {
         background-color: #fff;
-        border: 4px solid #e6e6e6;
-        border-left: 2px solid #e6e6e6;
+        border-left: 0px solid #e6e6e6;
+        border-right: 0px solid #e6e6e6;
+        border-bottom: 2px solid #e6e6e6;
         padding: 15px 10px;
+    }
+
+    .top tr:nth-child(1) td:nth-child(1){
+        border-right: 4px solid #e6e6e6;
+        border-left: 2px solid #e6e6e6;
     }
 
     .top td img {
@@ -433,95 +440,31 @@
         margin: 5px 2px;
     }
 
-
     /* article */
+
+    #fixed-posts {
+        display: flex;
+    }
+
     .article {
-        width: 25%;
         border: 2px solid #e6e6e6;
-        float: left;
         padding: 20px;
         background-color: #fff;
-        height: 100%;
         overflow-y: hidden;
+        max-height: 100%;
+        width: 25%;
+        text-align: center;
     }
-    .article.home_only img {
-        height: 100%;
-        margin: 0px auto;
-    }
+
     .article.select {
         width: 50%;
     }
-    .article.select img {
-        display: initial;
+
+    .article img {
+        margin: 0px auto;
+        max-height: 100%;
+        max-width: 100%;
     }
-
-
-    /* youtube */
-
-    .post_iframe {
-        position: relative;
-        height: auto;
-    }
-
-    div.play-button {
-        height: 72px;
-        width: 72px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-top: -36px;
-        margin-left: -36px;
-        background: url("http://i.imgur.com/TxzC70f.png");
-        background-repeat: no-repeat;
-        cursor: pointer;
-    }
-
-    #product_video iframe {
-        width: 90%;
-        margin-bottom: 3%;
-    }
-
-    .labnolIframe {
-        width: 100%;
-        height: 100%;
-    }
-
-    #preview_youtube {
-        height: 450px;
-        width: 600px;
-        border: 5px #363636 solid;
-        background-color: #363636;
-        z-index: 110;
-    }
-
-    #preview_youtube figure,
-    #preview_youtube figure iframe {
-        height: 100%;
-        width: 100%;
-        border: 0px;
-    }
-
-    #preview_youtube #current_status {
-        position: absolute;
-        bottom: 0px;
-        color: #FFF;
-        background-color: #363636;
-        width: 100%;
-        height: 12%;
-        text-align: center;
-        font-size: 2.5em;
-        line-height: 1.5em;
-    }
-
-    .preview_hide {
-        display: none;
-    }
-
-    .preview_show {
-        display: initial;
-        position: absolute;
-    }
-
 
     /* tooltip */
 
@@ -571,7 +514,7 @@
         width: 100%;
         height: 100vh;
         left: 0;
-        right: 0;
+        top: 0;
         margin: 0px auto;
         text-align: center;
         background-color: rgba(0, 0, 0, 0.7);
@@ -626,7 +569,6 @@
         .article {
             width: 25%;
             padding: 20px;
-            height: 100%;
         }
         .article.select {
             width: 50%;
@@ -644,7 +586,6 @@
         .article {
             width: 25%;
             padding: 25px;
-            height: 100%;
         }
         .article.select {
             width: 50%;
@@ -662,7 +603,6 @@
         .article {
             width: 25%;
             padding: 25px;
-            height: 100%;
         }
         .article.select {
             width: 50%;
@@ -670,6 +610,9 @@
     }
 
     @media only screen and (max-width: 1080px) {
+        html{
+            overflow-y: auto;
+        }
         .desktop table.top {
             display: none;
         }
@@ -679,7 +622,7 @@
         .article {
             width: 50%;
             padding: 10px;
-            height: 100%;
+            float: left;
         }
         .article.select {
             width: 100%;
@@ -703,13 +646,6 @@
         }
         div.top.mobile {
             display: initial;
-        }
-        .article {
-            width: 50%;
-            padding: 10px;
-        }
-        .article.select {
-            width: 100%;
         }
     }
 
@@ -830,26 +766,25 @@
             font-size: 45%;
         }
         /* Navigation */
-        #navigation ul {
-            background: #fff;
-        }
         #navigation ul li {
             border-top: 2px #ddd solid;
             width: 90%;
             margin: 0px auto;
-            padding-top: 3%;
-            padding-bottom: 3%;
             font-size: 100%;
             line-height: 1.5em;
             font-weight: 400;
             text-align: left;
             list-style: none;
         }
+
         #navigation ul li:hover {
             background: #e5e5e4;
         }
+
         #navigation ul li div {
             padding-left: 15%;
+            padding-bottom: 10px;
+            padding-top: 10px;
             color: #000;
         }
         #navigation .label-chinese {
@@ -941,13 +876,13 @@
                     <p class="description">希望能為彼此的生活點綴</p>
                     <p class="description">一些無厘頭的樂趣！</p>
                     <div class="social_network">
-                        <a href="https://www.facebook.com/Woolito/" target="_blank"><img src="http://static.tumblr.com/sirdwhf/Jd6ogz322/facebook.png"></a>
-                        <a href="https://page.line.me/woolito" target="_blank"><img src="http://static.tumblr.com/sirdwhf/cQ3ogz32k/line.png"></a>
-                        <a href="https://www.instagram.com/woolito_studio/" target="_blank"><img src="http://static.tumblr.com/sirdwhf/WShogz32q/instagram.png"></a>
+                        <a href="https://www.facebook.com/Woolito/" target="_blank"><img src="http://static.tumblr.com/sirdwhf/NRnoh89yk/facebook.png"></a>
+                        <a href="https://page.line.me/woolito" target="_blank"><img src="http://static.tumblr.com/sirdwhf/uIToh89yr/line.png"></a>
+                        <a href="https://www.instagram.com/woolito_studio/" target="_blank"><img src="http://static.tumblr.com/sirdwhf/Ky3oh89z6/instagram.png"></a>
                         <span class="youtube">
-                            <a href="#" target="_blank"><img src="http://static.tumblr.com/sirdwhf/l4Uogz32f/youtube.png"></a>
-                            <a href="#" target="_blank" class="original"><img src="http://static.tumblr.com/sirdwhf/YiHogz333/original.png"></a>
-                            <a href="#" target="_blank" class="business"><img src="http://static.tumblr.com/sirdwhf/v0iogz32z/business.png"></a>
+                            <a href="#" target="_blank"><img src="http://static.tumblr.com/sirdwhf/EBeoh89zf/youtube.png"></a>
+                            <a href="https://www.youtube.com/user/WoolitoFilm" target="_blank" class="original"><img src="http://static.tumblr.com/sirdwhf/E0Zoh89zo/original.png"></a>
+                            <a href="https://www.youtube.com/user/woooooolito" target="_blank" class="business"><img src="http://static.tumblr.com/sirdwhf/s6eoh89zu/business.png"></a>
                         </span>
                     </div>
                 </div>
@@ -1011,38 +946,38 @@
         <table class="top" id="top">
             <tr>
                 <td rowspan="3">
-                    <a href="works" rel="external"><img src="http://static.tumblr.com/sirdwhf/469oflb8k/top-works.png"></a>
+                    <a href="works"><img src="http://static.tumblr.com/sirdwhf/469oflb8k/top-works.png"></a>
                 </td>
                 <td>
-                    <a href="aboutus" rel="external"><img src="http://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="service" rel="external"><img src="http://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
+                    <a href="aboutus"><img src="http://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <a href="contact" rel="external"><img src="http://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
+                    <a href="service"><img src="http://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a href="contact"><img src="http://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
                 </td>
             </tr>
         </table>
         <div class="top mobile">
             <div class="top-post">
-                <a href="works-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/469oflb8k/top-works.png"></a>
+                <a href="works-mobile"><img src="http://static.tumblr.com/sirdwhf/469oflb8k/top-works.png"></a>
             </div>
             <div class="top-post">
-                <a href="aboutus-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
+                <a href="aboutus-mobile"><img src="http://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
             </div>
             <div class="top-post">
-                <a href="service-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
+                <a href="service-mobile"><img src="http://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
             </div>
             <div class="top-post">
-                <a href="contact-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
+                <a href="contact-mobile"><img src="http://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
             </div>
         </div>
-        <div class="grid" id="fixed-posts"></div>
+        <div id="fixed-posts">
     </section>
     {/block:IndexPage} 
 
@@ -1119,10 +1054,10 @@
                                 </ul>
                             </div>
                             <div class="social_network">
-                                <a href="https://www.facebook.com/Woolito/" target="_blank"><img src="http://static.tumblr.com/sirdwhf/Jd6ogz322/facebook.png"></a>
-                                <a href="https://page.line.me/woolito" target="_blank"><img src="http://static.tumblr.com/sirdwhf/cQ3ogz32k/line.png"></a>
-                                <a href="https://www.instagram.com/woolito_studio/" target="_blank"><img src="http://static.tumblr.com/sirdwhf/WShogz32q/instagram.png"></a>
-                                <a href="https://www.youtube.com/user/WoolitoFilm" target="_blank"><img src="http://static.tumblr.com/sirdwhf/l4Uogz32f/youtube.png"></a>
+                                <a href="https://www.facebook.com/Woolito/" target="_blank"><img src="http://static.tumblr.com/sirdwhf/NRnoh89yk/facebook.png"></a>
+                                <a href="https://page.line.me/woolito" target="_blank"><img src="http://static.tumblr.com/sirdwhf/uIToh89yr/line.png"></a>
+                                <a href="https://www.instagram.com/woolito_studio/" target="_blank"><img src="http://static.tumblr.com/sirdwhf/Ky3oh89z6/instagram.png"></a>
+                                <a href="https://www.youtube.com/user/WoolitoFilm" target="_blank"><img src="http://static.tumblr.com/sirdwhf/EBeoh89zf/youtube.png"></a>
                             </div>
                         </div>
                     </div>
@@ -1144,16 +1079,16 @@
             <section class="the-posts index">
                 <div class="top">
                     <div class="top-post">
-                        <a href="works-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/469oflb8k/top-works.png"></a>
+                        <a href="works-mobile"><img src="http://static.tumblr.com/sirdwhf/469oflb8k/top-works.png"></a>
                     </div>
                     <div class="top-post">
-                        <a href="aboutus-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
+                        <a href="aboutus-mobile"><img src="http://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
                     </div>
                     <div class="top-post">
-                        <a href="service-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
+                        <a href="service-mobile"><img src="http://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
                     </div>
                     <div class="top-post">
-                        <a href="contact-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
+                        <a href="contact-mobile"><img src="http://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
                     </div>
                 </div>
                 <div class="grid" id="fixed-posts-mobile"></div>
@@ -1643,7 +1578,7 @@ var google_remarketing_only = true;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/js/drawer.min.js"></script>
 <!-- hammer js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
-<script src="http://static.tumblr.com/sirdwhf/fuSof87ay/woolito-slider.js"></script>
+<script src="http://static.tumblr.com/sirdwhf/7u1oh6p2k/woolito-slider.js"></script>
 <script src="http://static.tumblr.com/sirdwhf/NJuog0slp/article.js"></script>
 
 <script type="text/javascript">
@@ -1657,10 +1592,15 @@ var google_remarketing_only = true;
         var path = location.pathname;
         var isSinglePage = (path.indexOf("/post/") > -1);
 
-        fixSinglePostPage();
+        window.onresize = function(event) {
+            fixHeight();
+        };
 
         if(!isSinglePage){
+            // document.
             query_all_posts();
+        }else{
+            fixSinglePostPage();
         }
     });
 
@@ -1689,7 +1629,7 @@ var google_remarketing_only = true;
         var topHeight = document.getElementById("top").offsetHeight;
         var windowHeight = document.body.clientHeight;
         var maxHeight = windowHeight - topHeight - 10;
-        articles.style.height = maxHeight + "px";
+        articles.style.maxHeight = maxHeight + "px";
         var selectArticles = document.getElementsByClassName("select");
         console.log(maxHeight);
     }
@@ -1698,7 +1638,6 @@ var google_remarketing_only = true;
         var key = "zcBf3tONWu9lQTSzrewHYU3WRdgbv1VtPGHXXMaZlZgN6Sz0lc";
         var home_posts = [];
         var select_posts = [];
-        $("#fixed-posts").html('<div class="grid-sizer"></div>');
 
         $.ajax({
             url: "http://api.tumblr.com/v2/blog/woolito.tumblr.com/posts",
@@ -1780,7 +1719,6 @@ var google_remarketing_only = true;
         }
         var articleLink = document.createElement("a");
         articleLink.setAttribute("href", post.link_url);
-        articleLink.setAttribute("target", "_blank");
         var articleImage = document.createElement("img");
         articleImage.setAttribute("src", post.photos[0].original_size.url);
         articleLink.appendChild(articleImage);
@@ -1799,7 +1737,6 @@ var google_remarketing_only = true;
         }
         var articleLink = document.createElement("a");
         articleLink.setAttribute("href", post.link_url);
-        articleLink.setAttribute("target", "_blank");
         var articleImage = document.createElement("img");
         articleImage.setAttribute("src", post.photos[0].original_size.url);
         articleLink.appendChild(articleImage);
@@ -1841,11 +1778,15 @@ var google_remarketing_only = true;
             return;
         }
 
+        // attach lightbox event on img
         getImages();
-        $(".article-content img").click(function(event){
+        $(".article-content img").click(function(event) {
             event.preventDefault();
             showImagePreview(event);
         });
+
+        // fix html no scroll bar
+        document.documentElement.style.overflowY = "auto";
     }
 
     function getImages(){
@@ -1860,6 +1801,7 @@ var google_remarketing_only = true;
     }
 
     function showImagePreview(event){
+        console.log("show");
         var target = event.currentTarget;
         var currentSrc = target.currentSrc;
         var index = findObjectIndex(images, currentSrc);
@@ -1968,8 +1910,6 @@ var google_remarketing_only = true;
     function nextImage(index){
         if(previewCurrenImage < images.length-1){
             previewCurrenImage++;
-        }else{
-            // 已經是最後一張圖片
         }
         var previewImage = document.getElementById("preview-image");
         previewImage.setAttribute("src", images[previewCurrenImage].src);

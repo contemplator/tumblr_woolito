@@ -60,8 +60,6 @@ a, a:hover{
     height: 40px;
     width: auto;
     text-align: right;
-    /*width: 100%;
-    height: auto;*/
 }
 
 #header .find-us a,
@@ -137,8 +135,6 @@ p.description {
     border-top: 2px #ddd solid;
     width: 90%;
     margin: 0px auto;
-    padding-top: 3%;
-    padding-bottom: 3%;
     font-size: 100%;
     line-height: 1.5em;
     font-weight: 400;
@@ -146,12 +142,14 @@ p.description {
     list-style: none;
 }
 
-#navigation ul li:hover{
+#navigation ul li:hover {
     background: #e5e5e4;
 }
 
 #navigation ul li div {
     padding-left: 15%;
+    padding-bottom: 10px;
+    padding-top: 10px;
     color: #000;
 }
 

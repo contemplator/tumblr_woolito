@@ -7,17 +7,6 @@ $(function() {
 
     initSelector();
     $("#selector").click(runEffect);
-    
-    var swipeElement = document.documentElement;
-    var hammer = new Hammer(swipeElement);
-    hammer.add(new Hammer.Pan({
-        threshold: 30
-    }));
-
-    hammer.set({
-        touchAction: 'auto'
-    });
-
     query_all_posts();
 });
 
@@ -44,13 +33,6 @@ function initSelector() {
         $(".select-option").click(function(event) {
             enable_radio(this);
         });
-
-        // var init_height = $(window).height() - ($("#selector").height() + $("#divider").height());
-        // $("#select-section").animate({
-        //     top: init_height + "px",
-        // }, 800, function() {
-        //     standard_height = $("#select-section").position().top;
-        // });
     });
 }
 

@@ -3,7 +3,7 @@ $(function() {
     var $drawer = $('.drawer');
     var hammer = new Hammer(swipeElement);
     hammer.add(new Hammer.Pan({
-        threshold: 60
+        threshold: 80
     }));
 
     hammer.set({
