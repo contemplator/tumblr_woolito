@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/z3pnekdqv/precrafted-social.css">
     <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/g6Fnsuud3/fixie-styles.css">
     <!--bootstrap and drawer css-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/css/bootstrap-drawer.min.css">
     <!-- Custom Options -->
     <!-- Custom Colors -->
@@ -305,6 +305,10 @@
         padding: 20px;
     }
 
+    .social_network {
+        margin-top: 20px;
+    }
+
     .social_network a {
         margin: 0px 3px;
     }
@@ -338,72 +342,6 @@
     .business img {
         top: 10px;
     }
-
-
-    /* article */
-
-    section {
-        margin-bottom: 0px;
-        padding: 5px 0px;
-    }
-
-    img.shortcut {
-        width: 100%;
-    }
-
-    .grid {
-        margin-top: 0px;
-    }
-
-    .single-post article {
-        margin-top: 0px;
-    }
-
-    .single-post article img{
-        cursor: pointer;
-    }
-
-    article,
-    .grid-item {
-        width: 33.33%;
-    }
-
-    .single-post article {
-        width: 100%;
-        margin-bottom: 0px;
-    }
-
-    .grid-item {
-        background-color: #fff;
-        padding: 40px;
-        border: 2px #e6e6e6 solid;
-    }
-
-    .article_content iframe {
-        width: 100%;
-    }
-
-    .video-container iframe {
-        width: 100%;
-        height: auto;
-    }
-
-    .single-post article {
-        margin-top: 0px;
-    }
-
-    #youtube_iframe {
-        max-height: 460px;
-    }
-
-    .readmore {
-        display: block;
-    }
-
-    u {
-        text-decoration: underline;
-    }
-
 
     /* top */
 
@@ -440,7 +378,90 @@
         margin: 5px 2px;
     }
 
+    #works{
+        background-image: url('http://static.tumblr.com/sirdwhf/hdjohdtt2/works1.png');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+    #works:hover{
+        -webkit-animation-name: works-animation;
+        /* Safari 4.0 - 8.0 */
+        -webkit-animation-duration: 0.8s;
+        /* Safari 4.0 - 8.0 */
+        animation-name: works-animation;
+        animation-duration: 0.8s;
+        animation-fill-mode: forwards;
+    }
+    #works img{visibility: hidden;}
+    @-webkit-keyframes works-animation {
+        0% {background-image: url('http://static.tumblr.com/sirdwhf/hdjohdtt2/works1.png');}
+        12.5% {background-image: url('http://static.tumblr.com/sirdwhf/hdjohdtt2/works1.png');}
+        25% {background-image: url('http://static.tumblr.com/sirdwhf/Dcjohdtt8/works2.png');}
+        37.5% {background-image: url('http://static.tumblr.com/sirdwhf/wgyohdttc/works3.png');}
+        50% {background-image: url('http://static.tumblr.com/sirdwhf/ZRxohdtth/works4.png');}
+        62.5% {background-image: url('http://static.tumblr.com/sirdwhf/Ts6ohdttk/works5.png');}
+        75% {background-image: url('http://static.tumblr.com/sirdwhf/z4fohdtto/works6.png');}
+        87.5% {background-image: url('http://static.tumblr.com/sirdwhf/LAPohdtts/works7.png');}
+        100% {background-image: url('http://static.tumblr.com/sirdwhf/L7Iohdttv/works8.png');}
+    }
+    /* Standard syntax */
+    
+    @keyframes works-animation {
+        0% {background-image: url('http://static.tumblr.com/sirdwhf/hdjohdtt2/works1.png');}
+        12.5% {background-image: url('http://static.tumblr.com/sirdwhf/hdjohdtt2/works1.png');}
+        25% {background-image: url('http://static.tumblr.com/sirdwhf/Dcjohdtt8/works2.png');}
+        37.5% {background-image: url('http://static.tumblr.com/sirdwhf/wgyohdttc/works3.png');}
+        50% {background-image: url('http://static.tumblr.com/sirdwhf/ZRxohdtth/works4.png');}
+        62.5% {background-image: url('http://static.tumblr.com/sirdwhf/Ts6ohdttk/works5.png');}
+        75% {background-image: url('http://static.tumblr.com/sirdwhf/z4fohdtto/works6.png');}
+        87.5% {background-image: url('http://static.tumblr.com/sirdwhf/LAPohdtts/works7.png');}
+        100% {background-image: url('http://static.tumblr.com/sirdwhf/L7Iohdttv/works8.png');}
+    }
+
     /* article */
+
+    section {
+        margin-bottom: 0px;
+        padding: 5px 0px;
+    }
+
+    .single-post article {
+        margin-top: 0px;
+    }
+
+    .single-post article #youtube_iframe {
+        max-height: 460px;
+    }
+
+    .single-post article img{
+        cursor: pointer;
+    }
+
+    .single-post article {
+        width: 100%;
+        margin-bottom: 0px;
+    }
+
+    .article_content iframe {
+        width: 100%;
+    }
+
+    .video-container iframe {
+        width: 100%;
+        height: auto;
+    }
+
+    .single-post article {
+        margin-top: 0px;
+    }
+
+    .readmore {
+        display: block;
+    }
+
+    u {
+        text-decoration: underline;
+    }
 
     #fixed-posts {
         display: flex;
@@ -483,19 +504,14 @@
 
     .grid {
         background: #E6E6E6;
+        margin-top: 0px;
     }
-
-
-    /* clearfix */
 
     .grid:after {
         content: '';
         display: block;
         clear: both;
     }
-
-
-    /* ---- grid-item ---- */
 
     .grid-sizer,
     .grid-item {
@@ -504,8 +520,10 @@
 
     .grid-item {
         float: left;
+        background-color: #fff;
+        padding: 40px;
+        border: 2px #e6e6e6 solid;
     }
-
 
     /* image preview */
 
@@ -515,47 +533,71 @@
         height: 100vh;
         left: 0;
         top: 0;
-        margin: 0px auto;
         text-align: center;
         background-color: rgba(0, 0, 0, 0.7);
         z-index: 3;
+        display: none;
     }
 
-    .arrow-left,
-    .arrow-right,
-    .preview-close {
-        color: #fff;
-        font-size: 1.5em;
+    .flex {
+        height: 88vh;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+    }
+
+    #image-preview .left,
+    #image-preview .right {
+        -webkit-flex: 1;
+        flex: 1;
         cursor: pointer;
-        margin: 0px 20px;
+        text-align: center;
+        color: #fff;
+        font-size: 2em;
     }
 
-    .arrow-left,
-    .arrow-right,
-    .preview-close:hover {}
-
-    .middle-table {
-        display: table;
-        vertical-align: middle;
-        width: 100%;
-        height: 100vh;
+    #image-preview #preview-image {
+        -webkit-flex: 9;
+        flex: 9;
     }
 
-    .table-field {
-        display: table-cell;
-        vertical-align: middle;
+    #image-preview #preview-image img {
+        max-width: 100%;
+        max-height: 86vh;
+        cursor: pointer;
+        margin: 0px auto;
     }
 
-    .preview-close {
-        margin: 20px 0px;
+    #images-slider{
+        height: 9vh;
     }
 
-    #image-preview img,
-    .arrow-left,
-    .arrow-right {
-        display: inline;
-        max-height: 80vh;
-        max-width: 60%;
+    #images-slider ul {
+        text-align: center;
+        margin-bottom: 0px;
+    }
+
+    #images-slider li {
+        display: inline-block;
+        padding: 0px 5px;
+        height: 80px;
+        width: 100px;
+        cursor: pointer;
+    }
+
+    #images-slider li.active img{
+        box-shadow: 0px 0px 30px #ff0000;
+        cursor: pointer;
+    }
+
+    #images-slider ul li img {
+        height: 10vh;
+        max-width: 100%;
+        max-height: 100%;
+        margin: 0px auto;
     }
 
     @media only screen and (min-width: 1800px) {
@@ -568,10 +610,17 @@
         }
         .article {
             width: 25%;
-            padding: 20px;
+            padding: 40px;
         }
         .article.select {
             width: 50%;
+        }
+        .top td{
+            padding: 30px 20px;
+        }
+        #navigation ul li div{
+            padding-top: 20px;
+            padding-bottom: 20px;
         }
     }
 
@@ -618,6 +667,9 @@
         }
         div.top.mobile {
             display: initial;
+        }
+        #fixed-posts{
+            display: block;
         }
         .article {
             width: 50%;
@@ -799,6 +851,7 @@
             width: 40%;
         }
         .social_network {
+            margin-top: 0px;
             background: #fff;
             padding: 10px;
         }
@@ -946,7 +999,11 @@
         <table class="top" id="top">
             <tr>
                 <td rowspan="3">
-                    <a href="works"><img src="http://static.tumblr.com/sirdwhf/469oflb8k/top-works.png"></a>
+                    <a href="works">
+                        <div id="works">
+                            <img src="http://static.tumblr.com/sirdwhf/469oflb8k/top-works.png">
+                        </div>
+                    </a>
                 </td>
                 <td>
                     <a href="aboutus"><img src="http://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
@@ -1547,6 +1604,24 @@
             {/block:Posts}
         </div>
     </section>
+    <div id="image-preview">
+        <div id="myCarousel" class="flex carousel slide" data-ride="carousel" data-interval="false">
+            <a class="left" href="#myCarousel" role="button" data-slide="prev">
+                <span class="arrow-left glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <div id="preview-image" class="carousel-inner" role="listbox">
+            </div>
+            <a class="right" href="#myCarousel" role="button" data-slide="next">
+                <span class="arrow-right glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+      
+        <div id="images-slider">
+            <ul>
+            </ul>
+        </div>
+    </div>
+
     {/block:PermalinkPage}
 </body>
 <script type="text/javascript">
@@ -1574,7 +1649,7 @@ var google_remarketing_only = true;
 <!-- <script src="http://static.tumblr.com/e6lc7yi/ewpneh29l/fixie-plugins.js"></script>
 <script src="http://static.tumblr.com/e6lc7yi/y7Yo1ifc4/fixie-app.js"></script> -->
 <!-- bootstrap and drawer js -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/js/drawer.min.js"></script>
 <!-- hammer js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
@@ -1592,13 +1667,11 @@ var google_remarketing_only = true;
         var path = location.pathname;
         var isSinglePage = (path.indexOf("/post/") > -1);
 
-        window.onresize = function(event) {
-            fixHeight();
-        };
-
         if(!isSinglePage){
-            // document.
             query_all_posts();
+            window.onresize = function(event) {
+                fixHeight();
+            };
         }else{
             fixSinglePostPage();
         }
@@ -1772,151 +1845,133 @@ var google_remarketing_only = true;
         // $(".mobile").css("display", "block");
     }
 
-    function fixSinglePostPage(){
+    function fixSinglePostPage() {
         var path = location.pathname;
-        if(!(path.indexOf("/post/") > -1)){
+        if (!(path.indexOf("/post/") > -1)) {
             return;
         }
 
-        // attach lightbox event on img
+        // fix html no scroll bar
+        document.documentElement.style.overflowY = "auto";
+        
+        // init bootstrap carousel
         getImages();
+
+        // attach lightbox event on img
         $(".article-content img").click(function(event) {
             event.preventDefault();
+            console.log(event);
             showImagePreview(event);
         });
 
-        // fix html no scroll bar
-        document.documentElement.style.overflowY = "auto";
-    }
-
-    function getImages(){
-        var articleContent = $(".article-content");
-        var imagesJquery = articleContent.find("img");
-        for(var i=0; i<imagesJquery.length; i++){
-            var image = {};
-            var imageJquery = $(imagesJquery[i]);
-            image.src = imageJquery.attr("src");
-            images.push(image);
-        }
-    }
-
-    function showImagePreview(event){
-        console.log("show");
-        var target = event.currentTarget;
-        var currentSrc = target.currentSrc;
-        var index = findObjectIndex(images, currentSrc);
-        previewCurrenImage = index;
-
-        var preview = document.createElement("div");
-        preview.setAttribute("id", "image-preview");
-        var middleTable = document.createElement("div");
-        middleTable.className = "middle-table";
-        middleTable.addEventListener("click", function(){
-            try{
-                preview.parentElement.removeChild(preview);    
-            } catch (err){
-            }
-        });
-        var tableField = document.createElement("div");
-        tableField.className = "table-field";
-        var arrowLeft = document.createElement("span");
-        arrowLeft.setAttribute("id", "arrow-left");
-        arrowLeft.className = "arrow-left glyphicon glyphicon-chevron-left";
-        if(index<=0){
-            arrowLeft.style.display = "none";
-        }
-        arrowLeft.addEventListener("click", function(event){
-            event.stopPropagation();
-            preImage();
-        });
-        var imageElement = document.createElement("img");
-        imageElement.setAttribute("id", "preview-image");
-        imageElement.setAttribute("src", currentSrc);
-        imageElement.addEventListener("click", function(event){
-            event.stopPropagation();
-            nextImage();
-        });
-        var arrowRight = document.createElement("span");
-        arrowRight.setAttribute("id", "arrow-right");
-        arrowRight.className = "arrow-right glyphicon glyphicon-chevron-right";
-        if(index>=images.length-1){
-            arrowRight.style.display = "none";
-        }
-        arrowRight.addEventListener("click", function(event){
-            event.stopPropagation();
-            nextImage();
-        });
-        var close = document.createElement("div");
-        close.className = "preview-close";
-        var closeIcon = document.createElement("span");
-        closeIcon.className = "glyphicon glyphicon-remove";
-        close.addEventListener("click", function(){
-            try{
-                preview.parentElement.removeChild(preview);    
-            } catch (err){
+        // change current active element
+        $('#myCarousel').on('slid.bs.carousel', function () {
+            var child = document.querySelectorAll("#preview-image .active")[0];
+            var parent = child.parentNode;
+            var index = Array.prototype.indexOf.call(parent.children, child);
+            var slide_lis = document.querySelectorAll("#images-slider ul li");
+            for(var i=0; i<slide_lis.length; i++){
+                if(index == i){
+                    slide_lis[i].className = "active";
+                }else{
+                    slide_lis[i].className = "";
+                }
             }
         });
 
-        close.appendChild(closeIcon);
-        tableField.appendChild(arrowLeft);
-        tableField.appendChild(imageElement);
-        tableField.appendChild(arrowRight);
-        middleTable.appendChild(tableField).appendChild(close);
-        preview.appendChild(middleTable);
-
-        document.body.appendChild(preview);
+        // bind listener 
         document.addEventListener("keydown", function(event){
             var keyCode = event.keyCode;
             switch(keyCode){
                 case 27:
-                    try{
-                        preview.parentElement.removeChild(preview);    
-                    } catch (err){
+                    var preview = document.getElementById("image-preview");
+                    if(preview.style.display != "none"){
+                        preview.style.display = "none";
                     }
                     break;
                 case 37:
-                    preImage();
+                    $('#myCarousel').carousel('prev');
                     break;
                 case 39:
-                    nextImage();
+                    $('#myCarousel').carousel('next');
                     break;
             }
-        }, false);
+        });
+
+        // bind disappear listener
+        document.getElementById("image-preview").addEventListener("click", function(event){
+            if(event.target.tagName.toLowerCase() != "img" &&
+                event.target.tagName.toLowerCase() != "span" && 
+                event.target.tagName.toLowerCase() != "a" &&
+                event.target.tagName.toLowerCase() != "li"){
+                document.getElementById("image-preview").style.display = "none";
+            }
+        });
     }
 
-    function findObjectIndex(array, value){
-        for(var i=0; i<array.length; i++){
-            if(array[i].src == value){
+    function getImages() {
+        var imagesElement = document.querySelectorAll('.article-content img');
+        // console.log(imagesElement);
+        for (var i = 0; i < imagesElement.length; i++) {
+            var image = {};
+            var imageElement = imagesElement[i];
+            image.src = imageElement.currentSrc;
+            images.push(image);
+        }
+
+        // init bottom of carousel
+        var slider_ul = document.querySelectorAll('#images-slider ul')[0];
+        slider_ul.innerHTML = "";
+        for(var i=0; i<images.length; i++){
+            var li = document.createElement("li");
+            li.setAttribute("onclick", '$("#myCarousel").carousel('+i+')');
+            var img = document.createElement("img");
+            img.setAttribute("src", images[i].src);
+            img.setAttribute("alt", "image");
+            // img.setAttribute("onclick", '$("#myCarousel").carousel('+i+')');
+            li.appendChild(img);
+            slider_ul.appendChild(li);
+        }
+
+        // init main content of carousel
+        var listbox = document.querySelectorAll("#preview-image")[0];
+        listbox.innerHTML = "";
+        for (var i = 0; i < images.length; i++) {
+            var item = document.createElement("div");
+            item.className = "item";
+            var item_img = document.createElement("img");
+            item_img.setAttribute("src", images[i].src);
+            img.setAttribute("alt", "image");
+            item.appendChild(item_img);
+            listbox.appendChild(item);
+        }
+    }
+
+    function showImagePreview(event) {
+        document.getElementById("image-preview").style.display = "initial";
+        var target = event.currentTarget;
+        var currentSrc = target.currentSrc;
+        var index = findObjectIndex(images, currentSrc);
+
+        var items = document.querySelectorAll("#preview-image .item");
+        var lis = document.querySelectorAll("#images-slider li");
+        for(var i=0; i<items.length; i++){
+            items[i].className = "item";
+            lis[i].className = "";
+            if(index == i){
+                items[i].className += " active";
+                lis[i].className = "active";
+            }
+        }
+    }
+
+    function findObjectIndex(array, value) {
+        for (var i = 0; i < array.length; i++) {
+            if (array[i].src == value) {
                 return i;
             }
         }
         return null;
-    }
-
-    function preImage(){
-        if(previewCurrenImage > 0){
-            previewCurrenImage--;
-        }else{
-            // 已經是第一張圖片
-        }
-        var previewImage = document.getElementById("preview-image");
-        previewImage.setAttribute("src", images[previewCurrenImage].src);
-        if(previewCurrenImage <= 0){
-            document.getElementById("arrow-left").style.display = "none";
-        }
-        document.getElementById("arrow-right").style.display = "initial";
-    }
-
-    function nextImage(index){
-        if(previewCurrenImage < images.length-1){
-            previewCurrenImage++;
-        }
-        var previewImage = document.getElementById("preview-image");
-        previewImage.setAttribute("src", images[previewCurrenImage].src);
-        if(previewCurrenImage >= images.length-1){
-            document.getElementById("arrow-right").style.display = "none";
-        }
-        document.getElementById("arrow-left").style.display = "initial";
     }
 </script>
 

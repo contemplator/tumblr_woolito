@@ -1,4 +1,4 @@
-var isBudgetDefault = true;
+var isBudgetDefault = false;
 
 $(function() {
     $.getScript("https://www.gstatic.com/firebasejs/3.6.1/firebase.js", function() {
@@ -24,14 +24,13 @@ $(function() {
         min: 0,
         max: 500000,
         step: 50000,
-        values: [ 0, 500000 ],
+        values: [ 100000, 200000 ],
         slide: function( event, ui ) {
             numeral(1000).format('0,0')
             $("#min").text(numeral(ui.values[0]).format('0,0'));
             $("#max").text(numeral(ui.values[1]).format('0,0'));
         }
     });
-    $("#slider-range").slider("disable");
 
     $(".idea .input-field textarea").focusout(function() {
         var idea = $("#input-idea").val();
@@ -134,7 +133,7 @@ function verifyInput() {
 
     var datetime = new Date();
     var min_budget, max_budget;
-    if(isBudgetDefault){
+    if(isBudgetDefault == true){
         min_budget = "";
         max_budget = "無預算限制";
     }else{
