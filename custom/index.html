@@ -343,87 +343,78 @@
         top: 10px;
     }
 
-    /* top */
-
-    .top.mobile,
-    .top.desktop {
-        width: 100%;
-    }
-
-    table.top {
-        width: 100%;
-    }
-
-    .top td {
-        background-color: #fff;
-        border-left: 0px solid #e6e6e6;
-        border-right: 0px solid #e6e6e6;
-        border-bottom: 2px solid #e6e6e6;
-        padding: 15px 10px;
-    }
-
-    .top tr:nth-child(1) td:nth-child(1){
-        border-right: 4px solid #e6e6e6;
-        border-left: 2px solid #e6e6e6;
-    }
-
-    .top td img {
-        width: 100%;
-        height: auto
-    }
-
-    .top .top-post {
-        background: #fff;
-        padding: 20px;
-        margin: 5px 2px;
-    }
-
-    #works{
-        background-image: url('http://static.tumblr.com/sirdwhf/hdjohdtt2/works1.png');
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-    }
-    #works:hover{
-        -webkit-animation-name: works-animation;
-        /* Safari 4.0 - 8.0 */
-        -webkit-animation-duration: 0.8s;
-        /* Safari 4.0 - 8.0 */
-        animation-name: works-animation;
-        animation-duration: 0.8s;
-        animation-fill-mode: forwards;
-    }
-    #works img{visibility: hidden;}
-    @-webkit-keyframes works-animation {
-        0% {background-image: url('http://static.tumblr.com/sirdwhf/hdjohdtt2/works1.png');}
-        12.5% {background-image: url('http://static.tumblr.com/sirdwhf/hdjohdtt2/works1.png');}
-        25% {background-image: url('http://static.tumblr.com/sirdwhf/Dcjohdtt8/works2.png');}
-        37.5% {background-image: url('http://static.tumblr.com/sirdwhf/wgyohdttc/works3.png');}
-        50% {background-image: url('http://static.tumblr.com/sirdwhf/ZRxohdtth/works4.png');}
-        62.5% {background-image: url('http://static.tumblr.com/sirdwhf/Ts6ohdttk/works5.png');}
-        75% {background-image: url('http://static.tumblr.com/sirdwhf/z4fohdtto/works6.png');}
-        87.5% {background-image: url('http://static.tumblr.com/sirdwhf/LAPohdtts/works7.png');}
-        100% {background-image: url('http://static.tumblr.com/sirdwhf/L7Iohdttv/works8.png');}
-    }
-    /* Standard syntax */
+    /* index */
     
-    @keyframes works-animation {
-        0% {background-image: url('http://static.tumblr.com/sirdwhf/hdjohdtt2/works1.png');}
-        12.5% {background-image: url('http://static.tumblr.com/sirdwhf/hdjohdtt2/works1.png');}
-        25% {background-image: url('http://static.tumblr.com/sirdwhf/Dcjohdtt8/works2.png');}
-        37.5% {background-image: url('http://static.tumblr.com/sirdwhf/wgyohdttc/works3.png');}
-        50% {background-image: url('http://static.tumblr.com/sirdwhf/ZRxohdtth/works4.png');}
-        62.5% {background-image: url('http://static.tumblr.com/sirdwhf/Ts6ohdttk/works5.png');}
-        75% {background-image: url('http://static.tumblr.com/sirdwhf/z4fohdtto/works6.png');}
-        87.5% {background-image: url('http://static.tumblr.com/sirdwhf/LAPohdtts/works7.png');}
-        100% {background-image: url('http://static.tumblr.com/sirdwhf/L7Iohdttv/works8.png');}
-    }
-
-    /* article */
-
     section {
         margin-bottom: 0px;
         padding: 5px 0px;
+        height: 100vh;
     }
+    
+    .main {
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        overflow: hidden
+    }
+    
+    #top {
+        height: 50%;
+    }
+    
+    #top .flex-column:nth-child(2) .index-post {
+        height: 33.33%;
+    }
+    
+    #fixed-posts {
+        height: 50%;
+    }
+    
+    .flex-horizontal {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+    }
+    
+    .flex-column {
+        flex: 1;
+    }
+    
+    .index-post {
+        width: 100%;
+        height: 100%;
+        padding: 2%;
+        background: #fff;
+        box-sizing: border-box;
+        border: 2px solid #e6e6e6;
+        text-align: center;
+    }
+    
+    .index-post span {
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+    
+    .index-post img {
+        max-width: 100%;
+        max-height: 100%;
+        vertical-align: middle;
+        display: inline;
+    }
+    
+    #fixed-posts .index-post {
+        float: left;
+        width: 25%;
+    }
+    
+    #fixed-posts .index-post.select {
+        width: 50%;
+    }
+
+    /* single post page */
 
     .single-post article {
         margin-top: 0px;
@@ -463,30 +454,6 @@
         text-decoration: underline;
     }
 
-    #fixed-posts {
-        display: flex;
-    }
-
-    .article {
-        border: 2px solid #e6e6e6;
-        padding: 20px;
-        background-color: #fff;
-        overflow-y: hidden;
-        max-height: 100%;
-        width: 25%;
-        text-align: center;
-    }
-
-    .article.select {
-        width: 50%;
-    }
-
-    .article img {
-        margin: 0px auto;
-        max-height: 100%;
-        max-width: 100%;
-    }
-
     /* tooltip */
 
     .tooltip {
@@ -497,32 +464,6 @@
     .tooltip-inner {
         font-size: 12px;
         letter-spacing: 2px;
-    }
-
-
-    /* ---- grid ---- */
-
-    .grid {
-        background: #E6E6E6;
-        margin-top: 0px;
-    }
-
-    .grid:after {
-        content: '';
-        display: block;
-        clear: both;
-    }
-
-    .grid-sizer,
-    .grid-item {
-        width: 33.33%;
-    }
-
-    .grid-item {
-        float: left;
-        background-color: #fff;
-        padding: 40px;
-        border: 2px #e6e6e6 solid;
     }
 
     /* image preview */
@@ -601,22 +542,8 @@
     }
 
     @media only screen and (min-width: 1800px) {
-        .grid-sizer,
-        .grid-item {
-            width: 25%;
-        }
-        .double_size {
-            width: 50%;
-        }
-        .article {
-            width: 25%;
-            padding: 40px;
-        }
-        .article.select {
-            width: 50%;
-        }
-        .top td{
-            padding: 30px 20px;
+        .index-post{
+            padding: 3%;
         }
         #navigation ul li div{
             padding-top: 20px;
@@ -625,79 +552,46 @@
     }
 
     @media only screen and (max-width: 1800px) {
-        .grid-sizer,
-        .grid-item {
-            width: 33.33%;
-        }
-        .double_size {
-            width: 33.33%;
-        }
-        .article {
-            width: 25%;
-            padding: 25px;
-        }
-        .article.select {
-            width: 50%;
-        }
+        
     }
 
     @media only screen and (max-width: 1420px) {
-        .grid-sizer,
-        .grid-item {
-            width: 50%;
-        }
-        .double_size {
-            width: 100%;
-        }
-        .article {
-            width: 25%;
-            padding: 25px;
-        }
-        .article.select {
-            width: 50%;
-        }
+        
     }
 
     @media only screen and (max-width: 1080px) {
         html{
             overflow-y: auto;
         }
-        .desktop table.top {
-            display: none;
+        .main{
+            padding: 0px;
+            overflow: auto;
         }
-        div.top.mobile {
-            display: initial;
+        #top{
+            display: block;
+            height: auto;
+        }
+        .index-post{
+            padding: 3%;
         }
         #fixed-posts{
-            display: block;
+            height: auto;
         }
-        .article {
-            width: 50%;
-            padding: 10px;
-            float: left;
-        }
-        .article.select {
+        #fixed-posts .index-post.select{
             width: 100%;
+        }
+        #fixed-posts .index-post{
+            width: 50%;
         }
     }
 
     @media only screen and (max-width: 1024px) {
-        .grid-sizer,
-        .grid-item {
-            width: 100%;
-        }
         header,
         div.center {
             width: 40%;
         }
         section {
             width: 60%;
-        }
-        .desktop table.top {
-            display: none;
-        }
-        div.top.mobile {
-            display: initial;
         }
     }
 
@@ -707,11 +601,6 @@
         }
         .mobile {
             display: initial;
-        }
-        .grid-sizer,
-        .grid-item {
-            width: 100%;
-            padding: 20px;
         }
         div.center {
             width: 100%;
@@ -901,11 +790,12 @@
             z-index: 10;
             display: none;
         }
-        .article {
+        #fixed-posts-mobile .index-post {
+            float: left;
             width: 50%;
-            padding: 10px;
         }
-        .article.select {
+
+        #fixed-posts-mobile .index-post.select {
             width: 100%;
         }
     }
@@ -996,45 +886,27 @@
     </header>
     {block:IndexPage}
     <section class="the-posts index desktop">
-        <table class="top" id="top">
-            <tr>
-                <td rowspan="3">
-                    <a href="works">
-                        <div id="works">
-                            <img src="http://static.tumblr.com/sirdwhf/469oflb8k/top-works.png">
-                        </div>
-                    </a>
-                </td>
-                <td>
-                    <a href="aboutus"><img src="http://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="service"><img src="http://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="contact"><img src="http://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
-                </td>
-            </tr>
-        </table>
-        <div class="top mobile">
-            <div class="top-post">
-                <a href="works-mobile"><img src="http://static.tumblr.com/sirdwhf/469oflb8k/top-works.png"></a>
+        <div class="main">
+            <div id="top" class="flex-horizontal">
+                <div class="flex-column">
+                    <div class="index-post">
+                        <span></span><a href="works"><img id="works" src="http://static.tumblr.com/sirdwhf/hdjohdtt2/works1.png"></a>
+                    </div>
+                </div>
+                <div class="flex-column">
+                    <div class="index-post">
+                        <span></span><a href="aboutus-mobile"><img src="http://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
+                    </div>
+                    <div class="index-post">
+                        <span></span><a href="service-mobile"><img src="http://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
+                    </div>
+                    <div class="index-post">
+                        <span></span><a href="contact-mobile"><img src="http://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
+                    </div>
+                </div>
             </div>
-            <div class="top-post">
-                <a href="aboutus-mobile"><img src="http://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
-            </div>
-            <div class="top-post">
-                <a href="service-mobile"><img src="http://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
-            </div>
-            <div class="top-post">
-                <a href="contact-mobile"><img src="http://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
-            </div>
+            <div id="fixed-posts"></div>
         </div>
-        <div id="fixed-posts">
     </section>
     {/block:IndexPage} 
 
@@ -1134,18 +1006,18 @@
             </div>
             {block:IndexPage}
             <section class="the-posts index">
-                <div class="top">
-                    <div class="top-post">
-                        <a href="works-mobile"><img src="http://static.tumblr.com/sirdwhf/469oflb8k/top-works.png"></a>
+                <div id="top">
+                    <div class="index-post">
+                        <span></span><a href="works"><img src="http://static.tumblr.com/sirdwhf/hdjohdtt2/works1.png"></a>
                     </div>
-                    <div class="top-post">
-                        <a href="aboutus-mobile"><img src="http://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
+                    <div class="index-post">
+                        <span></span><a href="aboutus-mobile"><img src="http://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
                     </div>
-                    <div class="top-post">
-                        <a href="service-mobile"><img src="http://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
+                    <div class="index-post">
+                        <span></span><a href="service-mobile"><img src="http://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
                     </div>
-                    <div class="top-post">
-                        <a href="contact-mobile"><img src="http://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
+                    <div class="index-post">
+                        <span></span><a href="contact-mobile"><img src="http://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
                     </div>
                 </div>
                 <div class="grid" id="fixed-posts-mobile"></div>
@@ -1668,10 +1540,12 @@ var google_remarketing_only = true;
         var isSinglePage = (path.indexOf("/post/") > -1);
 
         if(!isSinglePage){
+            $('#works').hover(function(event){
+                event.target.src="http://static.tumblr.com/sirdwhf/yrWohdvg3/works.gif";
+            }, function(){
+                event.target.src="http://static.tumblr.com/sirdwhf/hdjohdtt2/works1.png";
+            });
             query_all_posts();
-            window.onresize = function(event) {
-                fixHeight();
-            };
         }else{
             fixSinglePostPage();
         }
@@ -1745,9 +1619,6 @@ var google_remarketing_only = true;
             posts.select = select_posts;
 
             render_posts();
-            if(window.innerWidth > 1080){
-                fixHeight();
-            }
         });
     }
 
@@ -1785,7 +1656,7 @@ var google_remarketing_only = true;
         var article = document.createElement("div");
         article.setAttribute("id", post.id);
         article.setAttribute("rel", post.post_url);
-        article.className = "article";
+        article.className = "index-post";
         var tags = post.tags;
         for (var i = 0; i < tags.length; i++) {
             article.className += " " + tags[i];
@@ -1803,7 +1674,7 @@ var google_remarketing_only = true;
         var article = document.createElement("div");
         article.setAttribute("id", post.id);
         article.setAttribute("rel", post.post_url);
-        article.className = "article";
+        article.className = "index-post";
         var tags = post.tags;
         for (var i = 0; i < tags.length; i++) {
             article.className += " " + tags[i];
