@@ -19,10 +19,10 @@
     <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/z3pnekdqv/precrafted-social.css">
     <link rel="stylesheet" href="http://static.tumblr.com/e6lc7yi/g6Fnsuud3/fixie-styles.css">
     <!--bootstrap and drawer css-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/css/bootstrap-drawer.min.css">
     <link rel="stylesheet" type="text/css" href="css/mobile.css">
-    <link rel="stylesheet" type="text/css" href="css/contact-mobile.css">
+    <link rel="stylesheet" type="text/css" href="css/service-mobile.css">
 </head>
 <style type="text/css">
 </style>
@@ -117,109 +117,129 @@
                 </div>
                 <div class="title"><a href="/">Woolito Studio</a></div>
                 <div class="find-us">
-                    <a href="/contact-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/V2Lof6jne/find_us.png"></a>
+                    <a href="/contact-mobile"><img src="http://static.tumblr.com/sirdwhf/V2Lof6jne/find_us.png"></a>
                 </div>
             </div>
             <section class="content">
-                <div class="idea">
-                    <label class="chinese">告訴我們您的動畫IDEA</label>
-                    <label class="english">Talk About Your Animation</label>
-                    <div class="input-field">
-                        <textarea id="input-idea" rows="10">任何我們能幫助您的需求都歡迎寫下來</textarea>
-                    </div>
-                </div>
-                <div class="budget">
-                    <label class="chinese">預算</label>
-                    <label class="english">Budget</label>
-                    <label class="advice">讓我們提供您「最符合您預算」的建議</label>
-                    <div class="input-field">
-                        <span style="color: #0a9589">$</span>
-                        <span id="input-budget">100,000 ~ 200,000</span>
-                        <span class="glyphicon glyphicon-chevron-down" style="float: right;"></span>
-                    </div>
-                    <div id="budget-modal" class="modal fade" tabindex="-1" role="dialog">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <div class="budget-choice">無預算限制</div>
-                                    <div class="budget-choice">10,000 ~ 50,000</div>
-                                    <div class="budget-choice">50,000 ~ 100,000</div>
-                                    <div class="budget-choice" style="background-color: #ccc">100,000 ~ 200,000</div>
-                                    <div class="budget-choice">200,000 ~ 500,000</div>
-                                </div>
-                            </div>
+                <div class="area">
+                    <div class="photo">
+                        <img src="http://static.tumblr.com/sirdwhf/o1cohg139/animation.png">
+                        <div class="photo-mask">
+                            <span></span>
+                            <label>
+                                產品 / 服務介紹<br>
+                                APP / 網站介紹<br>
+                                活動宣傳<br>
+                                政令宣導
+                            </label>
                         </div>
                     </div>
+                    <label class="chinese">動畫設計</label>
+                    <label class="english">Animation Design</label>
                 </div>
-                <div class="name">
-                    <label class="chinese">稱呼</label>
-                    <label class="english">Name</label>
-                    <img class="tip" src="http://static.tumblr.com/sirdwhf/c8uoc40kz/error_flower.png">
-                    <label class="error">這是必填欄位喔！</label>
-                    <div class="input-field">
-                        <input type="text" id="input-name" />
+                <div class="area">
+                    <div class="photo">
+                        <img src="http://static.tumblr.com/sirdwhf/iMnohg136/character.png">
+                        <div class="photo-mask">
+                            <span></span>
+                            <label>
+                                設計您的<br>
+                                企業吉祥物
+                            </label>
+                        </div>
                     </div>
+                    <label class="chinese">角色設計</label>
+                    <label class="english">Character Design</label>
                 </div>
-                <div class="phone">
-                    <label class="chinese">聯絡電話</label>
-                    <label class="english">Telephone Number</label>
-                    <div class="input-field">
-                        <input type="tel" id="input-phone" onkeyup="return validatePhone(this, value)"/>
+                <div class="area">
+                    <div class="photo">
+                        <img src="http://static.tumblr.com/sirdwhf/SxSohg133/transfer.png">
+                        <div class="photo-mask">
+                            <span></span>
+                            <label>
+                                給我們一張圖片<br>
+                                我們把它<br>
+                                「動起來」
+                            </label>
+                        </div>
                     </div>
+                    <label class="chinese">靜態圖片 → 動態化</label>
+                    <label class="english">Static Image ⤏ Motion Graphic</label>
                 </div>
-                <div class="email">
-                    <label class="chinese">聯絡信箱</label>
-                    <label class="english">Email Address</label>
-                    <img class="tip" src="http://static.tumblr.com/sirdwhf/c8uoc40kz/error_flower.png">
-                    <label class="error">填寫格式錯誤！</label>
-                    <div class="input-field">
-                        <input type="email" id="input-email" />
+                <div class="area">
+                    <div class="photo">
+                        <img src="http://static.tumblr.com/sirdwhf/qevohg12z/idea.png">
+                        <div class="photo-mask">
+                            <span></span>
+                            <label>
+                                我們幫你想創意
+                            </label>
+                        </div>
                     </div>
+                    <label class="chinese">創意發想</label>
+                    <label class="english">GIVE you IDEAs</label>
                 </div>
-                <div class="btn-sender">
-                    <div id="btn-sender">
-                        <label class="chinese">傳送</label>
-                        <label class="english">Data transfer</label>
+                <div class="area">
+                    <div class="photo">
+                        <img src="http://static.tumblr.com/sirdwhf/ZZfohg12w/sticker.png">
+                        <div class="photo-mask">
+                            <span></span>
+                            <label>
+                                Line<br>
+                                WeChat
+                            </label>
+                        </div>
                     </div>
+                    <label class="chinese">動態貼圖</label>
+                    <label class="english">Animated Stickers</label>
+                </div>
+                <div class="area">
+                    <div class="photo">
+                        <img src="http://static.tumblr.com/sirdwhf/Gmoohg12s/graphic.png">
+                        <div class="photo-mask">
+                            <span></span>
+                            <label>
+                                海報<br>
+                                宣傳品<br>
+                                展場牆面設計
+                            </label>
+                        </div>
+                    </div>
+                    <label class="chinese">平面設計</label>
+                    <label class="english">Graphic Design</label>
+                </div>
+                <div id="content-footer">
+                    <p class="slogan">我們努力創作並分享笑容，希望能為彼此的生活點綴一些無厘頭的樂趣！</p>
+                    <article>Woolito Studio is an animation studio from Taipei Taiwan.</article>
+                    <article>We publishes various fun animation each month. This is our way of expressing our ideas on life and news.</article>
+                    <article>We work vary hard to create new ideas and videos.</article>
                 </div>
             </section>
         </div>
         <div class="mask"></div>
-        <div id="loading">
-            <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
-            <span>傳送資料中...</span>
-        </div>
     </div>
 </body>
-<!-- Google Code for &#26032;&#32178;&#31449;_&#30041;&#21934;&#38913; Conversion Page -->
 <script type="text/javascript">
 /* <![CDATA[ */
 var google_conversion_id = 941096043;
-var google_conversion_language = "en";
-var google_conversion_format = "3";
-var google_conversion_color = "ffffff";
-var google_conversion_label = "nx0wCI7ChGwQ6_jfwAM";
-var google_remarketing_only = false;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
 /* ]]> */
 </script>
 <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
 </script>
 <noscript>
-<div style="display:inline;">
-<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/941096043/?label=nx0wCI7ChGwQ6_jfwAM&amp;guid=ON&amp;script=0"/>
-</div>
+    <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/941096043/?guid=ON&amp;script=0" />
+    </div>
 </noscript>
 <!-- jquery js-->
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <!-- bootstrap and drawer js -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/js/drawer.min.js"></script>
-<!-- firebase -->
-<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
 <!-- hammer js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
 <!-- drawer listener -->
 <script src="http://static.tumblr.com/sirdwhf/7u1oh6p2k/woolito-slider.js"></script>
-<script src="js/contact-mobile.js"></script>
-
 </html>
