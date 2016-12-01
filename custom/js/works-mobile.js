@@ -304,6 +304,7 @@ function render_video(post) {
 }
 
 function render_text(post) {
+    console.log(post);
     var article = $("<div></div>");
     article.attr("id", post.id);
     article.addClass("type_text grid-item");
@@ -311,7 +312,7 @@ function render_text(post) {
     var article_content = $("<div></div>");
     article_content.addClass("article-content");
     var title = $("<h2></h2>");
-    var title_link = $("<a href='" + post.post_url + "' title='" + post.title + "'>" + post.slug + "</a>");
+    var title_link = $("<a href='" + post.post_url + "' title='" + post.title + "'>" + post.title + "</a>");
     title.append(title_link);
     var body = post.body;
     if (body.indexOf("<!-- more -->") > -1) {

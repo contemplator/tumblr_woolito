@@ -441,6 +441,7 @@ function render_video(post) {
 }
 
 function render_text(post) {
+    console.log(post);
     var article = $("<div></div>");
     article.attr("id", post.id);
     article.addClass("type_text grid-item");

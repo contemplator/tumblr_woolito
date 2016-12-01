@@ -355,3 +355,11 @@ div.play-button {
 .type_audio iframe{
     width: 100%;
 }
+@media only screen and (max-width: 1330px) {
+    .effect_field{
+        height: 45px;
+    }
+    .tip-open{
+        margin: -15px 0px 0px 0px;
+    }
+}
