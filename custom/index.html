@@ -211,7 +211,9 @@
     @import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
     html {
         overflow-y: hidden;
+        user-select: initial;
     }
+
     body {
         background-color: #e6e6e6;
         font-family: 'Noto Sans TC', sans-serif;
@@ -227,21 +229,17 @@
         text-decoration: none;
     }
 
-    .desktop {
-        display: initial;
-    }
-
-    .mobile {
-        display: none;
-    }
-
 
     /* navigation */
 
-    header div.center {
+    header .logo h1 {
+        font-weight: 300;
+        text-transform: none;
+    }
+
+    div.center {
         padding-top: 0px;
         padding-left: 0px;
-        padding-bottom: : 0px;
     }
 
     header .center .centered {
@@ -251,18 +249,21 @@
         background-color: #fff;
     }
 
+    div#shortcut {
+        border-radius: 0px 0px 50px 0px;
+    }
+
+    header .logo h1 a {
+        color: #000;
+        text-decoration: none;
+        font-weight: 300;
+        font-family: 'Noto Sans TC', sans-serif;
+    }
+
     header p.description {
         margin: 0px;
     }
 
-    header .logo h1 {
-        text-transform: none;
-    }
-
-    header .logo h1 a {
-        font-weight: 300;
-        color: #000;
-    }
 
     /* navigation */
 
@@ -328,6 +329,11 @@
         display: block;
     }
 
+    .business,
+    .original {
+        /*display: block;*/
+    }
+
     .business img,
     .original img {
         position: absolute;
@@ -356,7 +362,6 @@
         height: 100%;
         padding: 10px;
         box-sizing: border-box;
-        overflow: hidden
     }
     
     #top {
@@ -407,7 +412,7 @@
     
     #fixed-posts .index-post {
         float: left;
-        width: 25%;
+        width: 50%;
     }
     
     #fixed-posts .index-post.select {
@@ -540,6 +545,9 @@
         max-height: 100%;
         margin: 0px auto;
     }
+    .mobile {
+        display: none;
+    }
 
     @media only screen and (min-width: 1800px) {
         .index-post{
@@ -565,7 +573,6 @@
         }
         .main{
             padding: 0px;
-            overflow: auto;
         }
         #top{
             display: block;
@@ -581,7 +588,7 @@
             width: 100%;
         }
         #fixed-posts .index-post{
-            width: 50%;
+            width: 100%;
         }
     }
 
@@ -601,13 +608,6 @@
         }
         .mobile {
             display: initial;
-        }
-        div.center {
-            width: 100%;
-            height: 100vh;
-        }
-        .drawer {
-            max-width: 400px;
         }
         /* container header */
         .container {
@@ -662,8 +662,15 @@
             margin: 0px auto;
         }
         /* drawer */
+        .drawer {
+            max-width: 400px;
+        }
         .drawer-body {
             padding: 0px;
+        }
+        div.center {
+            width: 100%;
+            height: 100vh;
         }
         .center {
             padding-top: 0px;
@@ -748,7 +755,7 @@
             display: inline;
             width: auto;
             margin: 0px 5px;
-            width: auto;
+            height: 35px;
         }
         /* section */
         section {
@@ -778,8 +785,7 @@
             height: auto;
         }
         /* mobile */
-        .tmblr-iframe--controls.iframe-controls--phone-mobile,
-        .tmblr-iframe--mobile-logged-in-controls.iframe-controls--phone-mobile {
+        .tmblr-iframe.tmblr-iframe--unified-controls.tmblr-iframe--loaded.iframe-controls--phone-mobile, .tmblr-iframe.tmblr-iframe--app-cta-button.tmblr-iframe--loaded{
             display: none;
         }
         .tmblr-iframe--controls-phone-container {
@@ -797,7 +803,7 @@
         }
         #fixed-posts-mobile .index-post {
             float: left;
-            width: 50%;
+            width: 100%;
         }
 
         #fixed-posts-mobile .index-post.select {
@@ -895,18 +901,18 @@
             <div id="top" class="flex-horizontal">
                 <div class="flex-column">
                     <div class="index-post">
-                        <span></span><a href="works"><img id="works" src="http://static.tumblr.com/sirdwhf/BUIohepm9/works1.png"></a>
+                        <span></span><a href="works"><img id="works" src="http://static.tumblr.com/sirdwhf/vLsohk5kx/work1.gif"></a>
                     </div>
                 </div>
                 <div class="flex-column">
                     <div class="index-post">
-                        <span></span><a href="aboutus-mobile"><img src="http://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
+                        <span></span><a href="service"><img src="http://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
                     </div>
                     <div class="index-post">
-                        <span></span><a href="service-mobile"><img src="http://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
+                        <span></span><a href="#"><img src="http://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
                     </div>
                     <div class="index-post">
-                        <span></span><a href="contact-mobile"><img src="http://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
+                        <span></span><a href="contact"><img src="http://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
                     </div>
                 </div>
             </div>
@@ -1006,20 +1012,20 @@
                 </div>
                 <div class="title">Woolito Studio</div>
                 <div class="find-us">
-                    <a href="/contact-mobile" rel="external"><img src="http://static.tumblr.com/sirdwhf/V2Lof6jne/find_us.png"></a>
+                    <a href="/contact-mobile"><img src="http://static.tumblr.com/sirdwhf/V2Lof6jne/find_us.png"></a>
                 </div>
             </div>
             {block:IndexPage}
             <section class="the-posts index">
                 <div id="top">
                     <div class="index-post">
-                        <span></span><a href="works"><img src="http://static.tumblr.com/sirdwhf/BUIohepm9/works1.png"></a>
+                        <span></span><a href="works"><img src="http://static.tumblr.com/sirdwhf/vLsohk5kx/work1.gif"></a>
                     </div>
                     <div class="index-post">
-                        <span></span><a href="aboutus-mobile"><img src="http://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
+                        <span></span><a href="service-mobile"><img src="http://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
                     </div>
                     <div class="index-post">
-                        <span></span><a href="service-mobile"><img src="http://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
+                        <span></span><a href="#"><img src="http://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
                     </div>
                     <div class="index-post">
                         <span></span><a href="contact-mobile"><img src="http://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
@@ -1529,8 +1535,8 @@ var google_remarketing_only = true;
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/js/drawer.min.js"></script>
 <!-- hammer js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
-<script src="http://static.tumblr.com/sirdwhf/7u1oh6p2k/woolito-slider.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script> -->
+<script src="http://static.tumblr.com/sirdwhf/YrXohoxps/woolito-slider.js"></script>
 <script src="http://static.tumblr.com/sirdwhf/NJuog0slp/article.js"></script>
 
 <script type="text/javascript">
@@ -1546,9 +1552,9 @@ var google_remarketing_only = true;
 
         if(!isSinglePage){
             $('#works').hover(function(event){
-                event.target.src="http://static.tumblr.com/sirdwhf/EoWoheplv/works.gif";
+                event.target.src="http://static.tumblr.com/sirdwhf/uMTohk5l6/work2.gif";
             }, function(){
-                event.target.src="http://static.tumblr.com/sirdwhf/BUIohepm9/works1.png";
+                event.target.src="http://static.tumblr.com/sirdwhf/vLsohk5kx/work1.gif";
             });
             query_all_posts();
         }else{
@@ -1631,19 +1637,34 @@ var google_remarketing_only = true;
         var post_element;
         var desktopOrder = ["home", "select"];
         var mobileOrder = ["select", "home"];
+
+        // render desktop
         var order = desktopOrder;
-        var articles = document.getElementById("fixed-posts");
-        if(window.innerWidth < 1080 && window.innerWidth > 768){
-            order = mobileOrder;
-        }else if(window.innerWidth <= 768) {
-            articles = document.getElementById("fixed-posts-mobile");
+        if($(window).width() <= 1024){
             order = mobileOrder;
         }
-
+        var articles = document.getElementById("fixed-posts");
         for(var i=0; i<order.length; i++){
             var posts_array = posts[order[i]];
-            console.log(posts[order[i]]);
-            for(var j=0; j<posts_array.length; j++){
+            for(var j=0; j<1; j++){
+                switch (order[i]){
+                    case "home":
+                        post_element = render_home(posts_array[j]);
+                    case "select":
+                        post_element = render_select(posts_array[j]);
+                    default:
+                        break;
+                }
+                articles.appendChild(post_element);
+            }
+        }
+
+        // render mobile
+        articles = document.getElementById("fixed-posts-mobile");
+        order = mobileOrder;
+        for(var i=0; i<order.length; i++){
+            var posts_array = posts[order[i]];
+            for(var j=0; j<1; j++){
                 switch (order[i]){
                     case "home":
                         post_element = render_home(posts_array[j]);

@@ -126,6 +126,10 @@ function query_all_posts() {
                 continue;
             }
         }
+
+        // 重新排列 normal post 的順序，從 id 降冪排列該為 timestamp 降冪排列
+        normal_posts.sort(compare);
+        
         for(var i=0; i<top_posts.length; i++){
             posts.push(top_posts[i]);
         }
@@ -392,4 +396,12 @@ function render_icon(post) {
 
 function openNewTab(url){
     window.open(url, "_blank");
+}
+
+function compare(a, b) {
+    if (a.timestamp < b.timestamp)
+        return 1;
+    if (a.timestamp > b.timestamp)
+        return -1;
+    return 0;
 }

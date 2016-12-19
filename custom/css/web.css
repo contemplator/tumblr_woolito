@@ -1,3 +1,8 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+html {
+    user-select: initial;
+}
+
 body {
     background-color: #e6e6e6;
     font-family: 'Noto Sans TC', sans-serif;
@@ -8,7 +13,8 @@ h2 {
     text-transform: inherit;
 }
 
-a, a:hover{
+a,
+a:hover {
     text-decoration: none;
 }
 
@@ -28,7 +34,7 @@ div.center {
 header .center .centered {
     display: block;
     height: 100vh;
-    overflow: scroll;
+    overflow: auto;
     background-color: #fff;
 }
 
@@ -131,6 +137,7 @@ header p.description {
 .business img {
     top: 10px;
 }
+
 
 /* modal */
 
@@ -258,7 +265,7 @@ u {
     display: none;
 }
 
-#loading span{
+#loading span {
     margin: 0px 10px;
 }
 

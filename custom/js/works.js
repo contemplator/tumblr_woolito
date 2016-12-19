@@ -135,7 +135,7 @@ function query_all_posts() {
     $("#grid").html('<div class="grid-sizer"></div>');
 
     $.ajax({
-        url: "http://api.tumblr.com/v2/blog/woolito.tumblr.com/posts",
+        url: "https://api.tumblr.com/v2/blog/woolito.tumblr.com/posts",
         type: "GET",
         dataType: 'jsonp',
         data: {
@@ -159,6 +159,7 @@ function query_all_posts() {
                         top_posts.push(data_json[i]);
                     }else{
                         normal_posts.push(data_json[i]);
+
                     }
                 }
             } catch (err) {
@@ -166,6 +167,10 @@ function query_all_posts() {
                 continue;
             }
         }
+
+        // 重新排列 normal post 的順序，從 id 降冪排列該為 timestamp 降冪排列
+        normal_posts.sort(compare);
+
         for(var i=0; i<top_posts.length; i++){
             posts.push(top_posts[i]);
         }
@@ -441,7 +446,6 @@ function render_video(post) {
 }
 
 function render_text(post) {
-    console.log(post);
     var article = $("<div></div>");
     article.attr("id", post.id);
     article.addClass("type_text grid-item");
@@ -545,4 +549,12 @@ function showAlert(){
     setTimeout(function(){
         $alert.css("display", "none");
     }, 2000);
+}
+
+function compare(a, b) {
+    if (a.timestamp < b.timestamp)
+        return 1;
+    if (a.timestamp > b.timestamp)
+        return -1;
+    return 0;
 }

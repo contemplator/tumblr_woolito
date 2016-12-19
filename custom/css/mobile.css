@@ -1,4 +1,7 @@
 @import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
+html {
+    user-select: initial;
+}
 body {
     background-color: #e6e6e6;
     font-family: 'Noto Sans TC', sans-serif;
@@ -79,12 +82,18 @@ a, a:hover{
 .drawer-body {
     padding: 0px;
 }
-
+div.center {
+    width: 100%;
+    height: 100vh;
+}
 .center {
     padding-top: 0px;
     padding-left: 0px;
     background-color: #fff;
     text-align: center;
+}
+.drawer-controls {
+    height: 45px;
 }
 
 /* shortcut */
@@ -167,15 +176,18 @@ p.description {
 }
 
 .social_network {
-    margin-bottom: 5vh;
+    margin-top: 0px;
+    background: #fff;
     padding: 10px;
 }
-
+.social_network a{
+    margin: 0px 3px;
+}
 .social_network img {
     display: inline;
-    height: 6vh;
     width: auto;
-    margin: 0px 6px;
+    margin: 0px 5px;
+    height: 35px;
 }
 
 /* section */
