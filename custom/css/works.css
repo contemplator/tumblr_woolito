@@ -216,6 +216,18 @@ label {
 img {
     display: inline;
 }
+/* article stickers*/
+.stickers figure{
+    display: inline;
+}
+.stickers img{
+    display: inline;
+    width: calc(33.33% - 10px);
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    margin: 5px;
+}
+
 /* youtube */
 .post_iframe{
     position: relative;

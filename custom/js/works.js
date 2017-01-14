@@ -6,16 +6,9 @@ var preview_timer;
 
 $(function() {
     showLoading();
-    $('#selector').toggle('blind', function() {
-        $(".arrow_down").css("transform", "rotate(0deg)");
-    });
+    
     initSelector();
-    query_all_posts();
-
-    $(".effect_field").click(function() {
-        runEffect();
-        $(".tip-open").css("visibility", "hidden");
-    });
+    query_tumblr_api(0);
 
     $(window).bind('scroll resize', function() {
         var $this = $(this);
@@ -29,15 +22,6 @@ $(function() {
         }
     });
 });
-
-function query_post(id) {
-    for (var i = 0; i < posts.length; i++) {
-        post = posts[i];
-        if (post.id == id) {
-            return post;
-        }
-    }
-}
 
 function initSelector() {
     $.ajax({
@@ -68,6 +52,15 @@ function initSelector() {
 
             element.append(choice_element);
         }
+
+        $('#selector').toggle('blind', function() {
+            $(".arrow_down").css("transform", "rotate(0deg)");
+        });
+        
+        $(".effect_field").click(function() {
+            runEffect();
+            $(".tip-open").css("visibility", "hidden");
+        });
     });
 }
 
@@ -129,63 +122,68 @@ function runEffect(todo) {
     }
 }
 
-function query_all_posts() {
-    // query all posts from tumblr api, avoid still grab posts from tumblr everytimes when users change tag type
+function query_tumblr_api(offset_number){
     var key = "zcBf3tONWu9lQTSzrewHYU3WRdgbv1VtPGHXXMaZlZgN6Sz0lc";
-    $("#grid").html('<div class="grid-sizer"></div>');
-
     $.ajax({
         url: "https://api.tumblr.com/v2/blog/woolito.tumblr.com/posts",
         type: "GET",
         dataType: 'jsonp',
+        async: false,
         data: {
             api_key: key,
-            limit: 50
+            limit: 50,
+            offset: offset_number
         }
     }).done(function(data) {
-        var data_json = data.response.posts;
-        var top_posts = [];
-        var normal_posts = [];
-        for (var i = 0; i < data_json.length; i++) {
-            try {
-                tags = data_json[i].tags;
-                if (tags == undefined) {
-                    tags = [];
-                };
-                if (tags.indexOf("home_only") > -1 || tags.indexOf("select") > -1) {
-                    // console.log("home_only");
-                }else{
-                    if(tags.indexOf("top") > -1){
-                        top_posts.push(data_json[i]);
-                    }else{
-                        normal_posts.push(data_json[i]);
-
-                    }
-                }
-            } catch (err) {
-                console.log(err);
-                continue;
-            }
-        }
-
-        // 重新排列 normal post 的順序，從 id 降冪排列該為 timestamp 降冪排列
-        normal_posts.sort(compare);
-
-        for(var i=0; i<top_posts.length; i++){
-            posts.push(top_posts[i]);
-        }
-        for(var i=0; i<normal_posts.length; i++){
-            posts.push(normal_posts[i]);
-        }
-
-        if (!posts) {
-            $("#total_post").text("0");
+        $.merge(posts, data.response.posts);
+        if (data.response.posts.length == 50){
+            query_tumblr_api(offset_number + 50);
         } else {
-            $("#total_post").text(posts.length);
+            if (!posts) {
+                $("#total_post").text("0");
+            } else {
+                $("#total_post").text(posts.length);
+            }
+            sort_posts();
+            // query_posts("");
         }
-
-        query_posts("");
     });
+}
+
+function sort_posts(){
+    var new_posts = [];
+    var top_posts = [];
+    var normal_posts = [];
+    for(var i=0; i<posts.length; i++){
+        try {
+            tags = posts[i].tags;
+            if (tags == undefined) {
+                tags = [];
+            };
+            if (!(tags.indexOf("home_only") > -1) && !(tags.indexOf("select") > -1)) {
+                if(tags.indexOf("top") > -1){
+                    top_posts.push(posts[i]);
+                }else{
+                    normal_posts.push(posts[i]);
+                }
+            }
+        } catch (err) {
+            console.log(err);
+            continue;
+        }
+    }
+
+    top_posts.sort(compare);
+    normal_posts.sort(compare);
+
+    for(var i=0; i<top_posts.length; i++){
+        new_posts.push(top_posts[i]);
+    }
+    for(var i=0; i<normal_posts.length; i++){
+        new_posts.push(normal_posts[i]);
+    }
+    posts = new_posts;
+    query_posts("");
 }
 
 function query_posts(tag) {
@@ -223,7 +221,7 @@ function query_posts(tag) {
 }
 
 function render_posts(number_post, posts) {
-    var $grid = $("#grid")
+    var $grid = $("#grid");
     if (posts.length > 0) {
         for (var i=0; i < number_post; i++) {
             var post_type = posts[i].type;
@@ -316,8 +314,10 @@ function render_posts(number_post, posts) {
     $('[data-toggle="tooltip"]').tooltip();
 
     function lazyloadHandler(){
-        $grid.imagesLoaded().progress(function() {
-            $grid.masonry();
+        $grid.masonry({
+            columnWidth: '.grid-sizer',
+            itemSelector: '.grid-item',
+            percentPosition: true
         });
     }
 }
@@ -479,39 +479,46 @@ function render_text(post) {
 }
 
 function analysis_caption_iframe(caption, post_id, isDoubleSize) {
-    if (!(caption.indexOf("youtube_iframe") > -1)) {
+    if (!(caption.indexOf("data-provider=\"youtube\"") > -1)) {
         return caption;
     }
-    var patt = /https:\/\/www.youtube.com\/embed\/([A-Za-z0-9_\-]*)\?/i;
-    var patt2 = /<figure(.*)>(.*)<\/figure>/i;
-    var youtube_id;
-    try{
-        youtube_id = caption.match(patt)[1];
-    }catch(error){
-        console.log(caption);
-        console.log(post_id);
-        console.log(error);
-    }
-    var link_element = $('<a target="_blank"></a>');
+    var patt = /<figure .* data-provider=\"youtube\" .* data-url=\"(.*)\"><iframe .*>.*<\/iframe><\/figure>/;
+    var matcher = caption.match(patt);
 
-    link_element.attr("href", "http://woolito.tumblr.com/post/" + post_id + "/");
-    var shortcut_element = $("<img >");
-    shortcut_element.addClass("shortcut");
-    shortcut_element.addClass("lazy");
-    if(isDoubleSize){
-        // shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/maxresdefault.jpg");
-        shortcut_element.attr("data-original", "https://i.ytimg.com/vi/" + youtube_id + "/maxresdefault.jpg");
-    }else{
-        // shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
-        shortcut_element.attr("data-original", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
+    while (matcher != null) {
+        var youtube_url = decodeURIComponent(matcher[1]);
+        var youtube_id = youtube_url.substring(youtube_url.lastIndexOf("/") + 1);
+        var link_element = $('<a target="_blank"></a>');
+        link_element.attr("href", "http://woolito.tumblr.com/post/" + post_id + "/");
+        var shortcut_element = $("<img >");
+        shortcut_element.addClass("shortcut");
+        shortcut_element.addClass("lazy");
+        
+        if(youtube_id.indexOf("watch") > -1){
+            var start_index = youtube_id.indexOf("=") + 1;
+            var end_index = youtube_id.indexOf("&", start_index);
+            if(end_index > -1){
+                youtube_id = youtube_id.substring(start_index, end_index);
+            }else{
+                youtube_id = youtube_id.substring(start_index);
+            }
+        }
+        if(isDoubleSize){
+            shortcut_element.attr("data-original", "https://i.ytimg.com/vi/" + youtube_id + "/maxresdefault.jpg");
+        }else{
+            shortcut_element.attr("data-original", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
+        }
+
+        shortcut_element.attr("youtube_id", youtube_id);
+        shortcut_element.attr("data-toggle", "tooltip");
+        shortcut_element.attr("data-placement", "bottom");
+        shortcut_element.attr("title", "點擊觀看作品介紹");
+        link_element.html(shortcut_element);
+        link_element = link_element.prop('outerHTML');
+        caption = caption.replace(patt, link_element);
+        matcher = patt.exec(caption);
     }
-    shortcut_element.attr("youtube_id", youtube_id);
-    shortcut_element.attr("data-toggle", "tooltip");
-    shortcut_element.attr("data-placement", "bottom");
-    shortcut_element.attr("title", "點擊觀看作品介紹");
-    link_element.html(shortcut_element);
-    link_element = link_element.prop('outerHTML');
-    caption = caption.replace(patt2, link_element);
+    
     return caption;
 }
 

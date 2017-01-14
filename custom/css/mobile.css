@@ -203,8 +203,7 @@ section {
 
 /* mobile */
 
-.tmblr-iframe--controls.iframe-controls--phone-mobile,
-.tmblr-iframe--mobile-logged-in-controls.iframe-controls--phone-mobile {
+.tmblr-iframe.tmblr-iframe--unified-controls.tmblr-iframe--loaded.iframe-controls--phone-mobile, .tmblr-iframe.tmblr-iframe--app-cta-button.tmblr-iframe--loaded{
     display: none;
 }
 
