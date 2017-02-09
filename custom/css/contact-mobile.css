@@ -207,6 +207,13 @@ body.modal-open {
 }
 
 /* phone */
+.company #input-company{
+    width: 100%;
+    background-color: rgba(0,0,0,0);
+    border: none;
+}
+
+/* phone */
 .phone #input-phone{
     width: 100%;
     background-color: rgba(0,0,0,0);
@@ -274,12 +281,16 @@ div.btn-sender {
 #loading {
     position: fixed;
     top: 20%;
-    font-size: 300%;
+    font-size: 1.5em;
     color: #fff;
     width: 100%;
     text-align: center;
     z-index: 3;
     display: none;
+}
+
+#loading span{
+    margin: 10px;
 }
 
 .glyphicon-refresh-animate {

@@ -95,6 +95,7 @@ function enable_radio(element) {
     selected_element.append(selected_label).append(selected_img);
     $("#chosen").html(selected_element);
 
+    history.replaceState({}, 0, window.location.pathname+"?tag="+selected_tag);
     query_posts(selected_tag);
 }
 
@@ -105,11 +106,11 @@ function disable_radio(event, tag) {
     choice.attr("class", "choice unselected_choice");
     choice.attr("onclick", "enable_radio(this)");
     choice.find("hr").removeClass("selected_hr");
-
+    history.replaceState({}, 0, window.location.pathname);
     query_posts("");
 }
 
-function runEffect(todo) {
+function runEffect() {
     // depend on current status, decide to open or close
     if ($('#selector').is(':hidden')) {
         $('#selector').show('blind', function() {}, 300);
@@ -183,12 +184,23 @@ function sort_posts(){
         new_posts.push(normal_posts[i]);
     }
     posts = new_posts;
-    query_posts("");
+
+    if(window.location.search.indexOf("tag") > -1){
+        var search = window.location.search;
+        var selected_tag = ""
+        if(search.indexOf("tag") > -1){
+            selected_tag = search.substring(search.indexOf("=") + 1);
+        }
+        var selector = document.getElementById("selector");
+        var selected = selector.querySelectorAll("div[data-tag='"+selected_tag+"']");
+        enable_radio(selected);
+    }else{
+        query_posts("");
+    }
 }
 
 function query_posts(tag) {
     showLoading();
-
     var tags = [];
     selected_posts = [];
     $("#grid").html('<div class="grid-sizer"></div>');

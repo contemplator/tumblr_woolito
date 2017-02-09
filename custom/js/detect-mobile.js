@@ -1,41 +1,31 @@
 console.log("width: " + window.innerWidth);
 console.log("user agent: " + navigator.userAgent);
-console.log(get_current_location());
 var current_location = get_current_location();
+var search = window.location.search;
 if (ismobile() || ismobile_size()) {
-    if (current_location.indexOf("mobile") > -1) {
-        // break;
-    } else {
-        current_location = current_location + "-mobile";
-        // console.log(current_location);
+    if (current_location.indexOf("mobile") <= -1) {
+        // 如果是 mobile size 但是卻不是在 mobile 頁面
+        current_location = current_location + "-mobile" + search;
         location.href = current_location;
     }
 } else {
     if (current_location.indexOf("mobile") > -1) {
-        current_location = current_location.slice(0, current_location.indexOf("-"));
-        // console.log(current_location);
+        // 如果是 desktop size 卻不是在 desktop 頁面
+        current_location = current_location.slice(0, current_location.indexOf("-")) + search;
         location.href = current_location;
-    } else {
-        // break;
     }
 }
 
 window.addEventListener("resize", function() {
     if (ismobile() || ismobile_size()) {
-        if (current_location.indexOf("mobile") > -1) {
-            // break;
-        } else {
-            current_location = current_location + "-mobile";
-            // console.log(current_location);
+        if (current_location.indexOf("mobile") <= -1) {
+            current_location = current_location + "-mobile" + search;
             location.href = current_location;
         }
     } else {
         if (current_location.indexOf("mobile") > -1) {
-            current_location = current_location.slice(0, current_location.indexOf("-"));
-            // console.log(current_location);
+            current_location = current_location.slice(0, current_location.indexOf("-")) + search;
             location.href = current_location;
-        } else {
-            // break;
         }
     }
 });

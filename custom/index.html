@@ -1859,10 +1859,16 @@ var google_remarketing_only = true;
             var image = {};
             var imageElement = imagesElement[i];
 
-            image.src = imageElement.currentSrc;
+            // make 500 to 1280
+            var large_src = imageElement.src;
+            if(large_src.indexOf("gif") == -1){
+                large_src = large_src.replace("500.", "1280.");    
+            }
+
+            imageElement.setAttribute("src", large_src);
+            image.src = large_src;
             images.push(image);
         }
-        if(ismobile()) console.log(images.length + "");
 
         // init bottom of carousel
         var slider_ul = document.querySelectorAll('#images-slider ul')[0];
@@ -1887,13 +1893,7 @@ var google_remarketing_only = true;
             item.className = "item";
             var item_img = document.createElement("img");
 
-            // make 500 to 1280
-            var large_src = images[i].src;
-            if(large_src.indexOf("gif") == -1){
-                large_src = large_src.replace("500", "1280");    
-            }
-
-            item_img.setAttribute("src", large_src);
+            item_img.setAttribute("src", images[i].src);
             img.setAttribute("alt", "image");
             item.appendChild(item_img);
             listbox.appendChild(item);

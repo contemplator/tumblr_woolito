@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
-    <link rel="shortcut icon" href="http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png">
+    <link rel="shortcut icon" href="http://68.media.tumblr.com/avatar_8aeb4c547c3b_128.png">
     <meta property="og:site_name" content="Woolito Animation Studio">
     <meta property="og:title" content="Woolito Animation Studio">
     <meta property="og:url" content="http://woolito.tumblr.com/">
@@ -23,7 +23,19 @@
     display: none;
 }
 
+.tmblr-iframe.tmblr-iframe--app-cta-button.tmblr-iframe--loaded{
+    display: none;
+}
+
+.tmblr-iframe.tmblr-iframe--unified-controls.tmblr-iframe--loaded.iframe-controls--phone-mobile{
+    display: none;
+}
+
 .tmblr-iframe--controls-phone-container {
+    padding-top: 0px;
+}
+
+.tmblr-iframe-pushdown.tmblr-iframe-themed.tmblr-iframe-full-width{
     padding-top: 0px;
 }
 
@@ -86,7 +98,6 @@ $(function() {
         data: data,
         // success: showSuccess()
     }).done(function(response) {
-        console.log(response);
         renderResult(response);
     });
 });

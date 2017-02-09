@@ -104,6 +104,8 @@ function verifyInput() {
     if (!validateEmail(email)) {
         error.push("email");
     }
+
+    var company = $("#input-company").val().trim();
     // console.log(error);
     for (var i = 0; i < error.length; i++) {
         switch (error[i]) {
@@ -148,7 +150,8 @@ function verifyInput() {
             email: email,
             min_budget: min_budget,
             max_budget: max_budget,
-            phone: $("#input-phone").val()
+            phone: $("#input-phone").val(),
+            company: company
         }
     console.log(data);
 
@@ -167,7 +170,8 @@ function sendData(data) {
         email: data.email,
         min_budget: data.min_budget,
         max_budget: data.max_budget,
-        phone: data.phone
+        phone: data.phone,
+        company: data.company
     }).key;
     // console.log(newApplyKey);
 

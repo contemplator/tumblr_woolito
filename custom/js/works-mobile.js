@@ -4,7 +4,6 @@ var current_posts_number = 6;
 var standard_height = 0;
 // var selector_animation_switch;
 $(function() {
-
     initSelector();
     $("#selector").click(runEffect);
     query_tumblr_api(0);
@@ -40,6 +39,7 @@ function enable_radio(element) {
     clear_choices();
     var currentTarget = $(element);
     var currentBg = currentTarget.css("background-color");
+    console.log(currentBg);
     var select_works = $(".select-works");
     if (currentBg == "rgb(230, 230, 230)") { // selected
         currentTarget.css("background-color", "#3B3B3B");
@@ -57,10 +57,13 @@ function enable_radio(element) {
         select_works.html("<span>作品篩選 Filter</span>");
         select_works.append(div_element);
         select_works.append("<span>&nbsp/&nbsp</span>");
+        
+        history.replaceState({}, 0, window.location.pathname+"?tag="+currentTarget.attr("data-type"));
         query_posts(currentTarget.attr("data-type"));
     } else { // unselected
         currentTarget.css("background-color", "#E6E6E6");
         currentTarget.css("color", "#000000");
+        history.replaceState({}, 0, window.location.pathname);
         query_posts("");
     }
     runEffect();
@@ -77,6 +80,8 @@ function clear_choices() {
 function disable_radio(tag) {
     query_posts("");
     $(".select-works").html("<span>作品篩選 Filter</span><span>&nbsp/&nbsp&nbsp點此展開選單</span>");
+    console.log("asd");
+    history.replaceState({}, 0, window.location.pathname);
     clear_choices();
 }
 
@@ -100,7 +105,8 @@ function query_tumblr_api(offset_number){
             api_key: key,
             limit: 50,
             offset: offset_number
-        }
+        },
+        beforeSend: showLoading()
     }).done(function(data) {
         $.merge(posts, data.response.posts);
         if (data.response.posts.length == 50){
@@ -149,10 +155,23 @@ function sort_posts(){
         new_posts.push(normal_posts[i]);
     }
     posts = new_posts;
-    query_posts("");
+    if(window.location.search.indexOf("tag") > -1){
+        var search = window.location.search;
+        var selected_tag = ""
+        if(search.indexOf("tag") > -1){
+            selected_tag = search.substring(search.indexOf("=") + 1);
+        }
+        var selector = document.getElementById("selector-table");
+        var selected = selector.querySelectorAll("div[data-type='"+selected_tag+"']");
+        runEffect();
+        enable_radio(selected);
+    }else{
+        query_posts("");
+    }
 }
 
 function query_posts(tag) {
+    showLoading();
     var selected_posts = [];
     var tags = [];
 
@@ -217,16 +236,7 @@ function render_posts(posts) {
         }
     }
 
-    $(".shortcut")
-        .bind("beforeShow", function() {
-            alert("beforeShow");
-        })
-        .bind("afterShow", function() {
-            alert("afterShow");
-        })
-        .bind("show", function() {
-            alert('in show callback');
-        });
+    hideLoading();
 }
 
 function render_audio(post){
@@ -415,4 +425,14 @@ function compare(a, b) {
     if (a.timestamp > b.timestamp)
         return -1;
     return 0;
+}
+
+function showLoading(){
+    $(".mask").css("display", "inherit");
+    $("#loading").css("display", "inherit");
+}
+
+function hideLoading(){
+    $(".mask").css("display", "none");
+    $("#loading").css("display", "none");
 }
