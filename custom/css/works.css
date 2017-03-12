@@ -1,7 +1,9 @@
 /* Selector */
-.toggle{
+
+.toggle {
     margin-top: -5px;
 }
+
 #selector {
     width: 100%;
     background-color: #333;
@@ -21,7 +23,7 @@
     width: 33.33%;
 }
 
-#selector td .caption{
+#selector td .caption {
     font-size: 18px;
     color: #888;
     margin: 8px;
@@ -29,7 +31,7 @@
     letter-spacing: 2px;
 }
 
-#selector td .choice{
+#selector td .choice {
     float: left;
     width: 33.33%;
     font-size: 14px;
@@ -38,58 +40,74 @@
     cursor: pointer;
 }
 
-#selector td .choice:hover{
+#selector td .choice:hover {
     background-color: #333;
     color: #eee;
 }
 
-#selector td .choice .choice-ch{
+#selector td .choice .choice-ch {
     letter-spacing: 1px;
     white-space: nowrap;
 }
-#selector td .choice hr{
+
+#selector td .choice hr {
     margin-top: 1px;
     margin-bottom: 1px;
     border-top: 2px solid #777;
 }
-#selector td .choice .choice-en{
+
+#selector td .choice .choice-en {
     font-size: 10px;
     letter-spacing: -0.5px;
     white-space: nowrap;
 }
-.unselected_choice{
+
+.unselected_choice {
     background-color: #eee;
     color: #333;
 }
-.selected_choice{
+
+.selected_choice {
     background-color: #333;
     color: #eee;
 }
-#selector td .choice .selected_hr{
+
+#selector td .choice .selected_hr {
     border-top: 2px solid #eee;
 }
+
+
 /* effect*/
-#effect.fixed-menu{
+
+#effect.fixed-menu {
     position: fixed;
     top: -5px;
     width: 75%;
     z-index: 2;
 }
-.effect_field{
+
+.effect_field {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#393a3a+0,444445+35,403f3f+100 */
-    background: #393a3a; /* Old browsers */
-    background: -moz-linear-gradient(top,  #393a3a 0%, #444445 35%, #403f3f 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top,  #393a3a 0%,#444445 35%,#403f3f 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom,  #393a3a 0%,#444445 35%,#403f3f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#393a3a', endColorstr='#403f3f',GradientType=0 ); /* IE6-9 */
+    background: #393a3a;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #393a3a 0%, #444445 35%, #403f3f 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #393a3a 0%, #444445 35%, #403f3f 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #393a3a 0%, #444445 35%, #403f3f 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#393a3a', endColorstr='#403f3f', GradientType=0);
+    /* IE6-9 */
     color: #ddd;
     margin-bottom: 5px;
     cursor: pointer;
 }
-.effect_field:hover{
+
+.effect_field:hover {
     background: #00ffcc;
     color: #000;
 }
+
 .arrow_down,
 #effect_table span {
     display: table-cell;
@@ -120,9 +138,9 @@
     display: table;
     vertical-align: middle;
     margin: 4px 5px;
-
 }
-#effect_table .vertical_divider{
+
+#effect_table .vertical_divider {
     margin: 0px 7px;
     color: #787878;
     font-weight: 600;
@@ -149,78 +167,84 @@ label {
 #selected_tag {
     display: none;
 }
-.selected img{
+
+.selected img {
     width: 15px;
     height: 15px;
 }
-.tip-open{
+
+.tip-open {
     display: block;
     margin: -20px 0px 5px 0px;
     color: #AAA;
     text-align: center;
 }
+
+
 /* divider */
-#dividers{
+
+#dividers {
     width: 100%;
     height: 5px;
     margin-bottom: 4px;
 }
-.divider{
+
+.divider {
     float: left;
     width: 33.33%;
     height: inherit;
     box-shadow: 0px 5px 10px 1px #cccccc;
 }
-.divider:nth-child(1){
+
+.divider:nth-child(1) {
     background-color: #DA9A9B;
 }
-.divider:nth-child(2){
+
+.divider:nth-child(2) {
     background-color: #F9EC99;
 }
-.divider:nth-child(3){
+
+.divider:nth-child(3) {
     background-color: #7FBBB0;
 }
-/* read more */
-#readmore {
-    width: 33.33%;
-    margin: 0px auto;
-    text-align: center;
-    margin-top: 32px;
-    margin-bottom: 32px;
+
+
+/* tooltip */
+
+.tooltip {
+    position: absolute;
+    width: 140px;
 }
 
-#readmore button {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    width: 100%;
-    padding: 28px 24px;
-    line-height: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+.tooltip-inner {
     font-size: 12px;
-    background-color: #fff;
-    border: none;
-    color: #3498DB;
-    font-weight: 600;
+    letter-spacing: 2px;
 }
 
-#readmore button:hover {
-    background-color: #4990b8;
-    color: #fff;
+
+/* alert */
+
+#alert-message {
+    visibility: hidden;
+    position: fixed;
+    margin-bottom: 0px;
+    padding: .7em 2em;
+    font-size: 1.3em;
+    z-index: 1;
+    bottom: 40px;
+    right: 50px;
+    opacity: 0;
+    transition: visibility 300ms ease, opacity 800ms ease;
 }
 
-.load-more-loading,
-.load-more-end {
-    display: none;
-}
 
-img {
-    display: inline;
-}
 /* article stickers*/
-.stickers figure{
+
+.stickers figure {
     display: inline;
 }
-.stickers img{
+
+.stickers img {
     display: inline;
     width: calc(33.33% - 10px);
     border: 1px solid #aaa;
@@ -228,150 +252,11 @@ img {
     margin: 5px;
 }
 
-/* youtube */
-.post_iframe{
-    position: relative;
-    height: auto;
-}
-div.play-button { 
-    height: 72px; 
-    width: 72px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -36px;
-    margin-left: -36px;
-    background: url("http://i.imgur.com/TxzC70f.png");
-    background-repeat: no-repeat;
-    cursor: pointer;
-}
-#product_video iframe{
-    width: 90%;
-    margin-bottom: 3%;
-}
-.labnolIframe{
-    width: 100%;
-    height: 100%;
-}
-#preview_youtube{
-    height: 450px;
-    width: 600px;
-    border: 5px #363636 solid;
-    background-color: #363636;
-    z-index: 110;
-}
-#preview_youtube figure, #preview_youtube figure iframe{
-    height: 100%;
-    width: 100%;
-    border: 0px;
-}
-#preview_youtube #current_status{
-    position: absolute;
-    bottom: 0px;
-    color: #FFF;
-    background-color: #363636;
-    width: 100%;
-    height: 10%;
-    text-align: center;
-    font-size: 150%;
-    line-height: 1.5em;
-    display: table;
-}
-#preview_youtube #current_status div{
-    display: table-cell;
-    height: inherit;
-    vertical-align: middle;
-}
-.preview_hide{
-    display: none;
-}
-.preview_show{
-    display: initial;
-    position: absolute;
-}
-/* tooltip */
-.tooltip{
-    position: absolute;
-    width: 140px;
-}
-.tooltip-inner{
-    font-size: 12px;
-    letter-spacing: 2px;
-}
-
-/* alert */
-#alert-noposts{
-    position: fixed;
-    width: 80%;
-    max-width: 300px;
-    top: 30%;
-    text-align: center;
-    left: 0;
-    right: 0;
-    margin: 0px auto;
-    z-index: 3;
-    display: none;
-}
-
-#alert-noposts .alert-dismissible{
-    padding-right: 0px;
-}
-
-/* image preview */
-#image-preview{
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    left: 0;
-    right: 0;
-    margin: 0px auto;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.7);
-    opacity: 0;
-    z-index: 3;
-    display: none;
-}
-
-.arrow-left , .arrow-right, .preview-close{
-    color: #fff;
-    font-size: 1.5em;
-    cursor: pointer;
-    margin: 0px 20px;
-}
-
-.arrow-left , .arrow-right, .preview-close:hover{
-}
-
-.middle-table{
-    display: table;
-    vertical-align: middle;
-    width: 100%;
-    height: 100vh;
-}
-
-.table-field{
-    display: table-cell;
-    vertical-align: middle;
-}
-
-.preview-close{
-    display: table-row;
-}
-
-#image-preview img, .arrow-left , .arrow-right{
-    max-height: 80vh;
-    max-width: 60%;
-}
-
-/* article audio */
-.type_audio iframe{
-    width: 100%;
-}
 @media only screen and (max-width: 1330px) {
-    .effect_field{
+    .effect_field {
         height: 45px;
     }
-    .tip-open{
+    .tip-open {
         margin: -15px 0px 0px 0px;
     }
 }

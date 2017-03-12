@@ -1,28 +1,34 @@
 @import url(http://fonts.googleapis.com/earlyaccess/notosanstc.css);
-body{
+body {
     font-family: 'Noto Sans TC', sans-serif;
 }
-div.center{
+
+div.center {
     padding-top: 0px;
     padding-left: 0px;
 }
-div#shortcut{
+
+div#shortcut {
     border-radius: 0px 0px 50px 0px;
 }
+
 .logo a {
     color: #000;
     text-decoration: none;
 }
+
 header p.description {
     margin: 0px;
     color: #000;
 }
-#navigation{
+
+#navigation {
     margin-left: 0px;
     text-align: left;
     width: 100%;
     background-color: #e6e6e6;
 }
+
 #navigation ul li {
     width: 100%;
     margin-left: 0px;
@@ -64,7 +70,8 @@ header p.description {
     vertical-align: middle;
     margin-left: 10px;
 }
-.navigation-icon span{
+
+.navigation-icon span {
     float: right;
     line-height: 2.5em;
     color: #000;
@@ -82,17 +89,20 @@ header p.description {
     -moz-text-align-last: justify;
     -webkit-text-align-last: justify;
 }
-.navigation-label:after{
+
+.navigation-label:after {
     content: '';
     display: inline-block;
 }
-.navigation-bottom{
+
+.navigation-bottom {
     width: 100%;
     height: 3px;
     background: #b3b3b3;
     position: absolute;
     bottom: 0px;
 }
+
 div.justify {
     text-align: justify;
     text-justify: inter-ideograph;
@@ -107,12 +117,13 @@ div.justify:after {
     width: 100%;
 }
 
-#shortcut{
+#shortcut {
     background-color: #fff;
     padding: 20px;
-    border-radius: 10px 10px 50px 10px ;
+    border-radius: 10px 10px 50px 10px;
 }
-.bottom-white{
+
+.bottom-white {
     width: calc(100% - 32px);
     height: 30px;
     background-color: #FFF;
@@ -120,91 +131,126 @@ div.justify:after {
     position: absolute;
     bottom: 100px;
 }
-.modal-body img{
+
+.modal-body img {
     margin: 0px auto;
 }
-.modal-footer button{
+
+.modal-footer button {
     margin-left: 20px;
 }
-.modal-footer p{
+
+.modal-footer p {
     line-height: 30px;
     text-align: left;
 }
-#top{
+
+#top {
     width: 100%;
     display: table;
     margin: 5px -3px;
 }
-.top-post{
+
+.top-post {
     width: 50%;
     display: table-cell;
     vertical-align: middle;
 }
-.top-post a{
+
+.top-post a {
     display: block;
     padding: 1.2%;
     background-color: #fff;
     margin: 0px 5px 0px 5px;
 }
-.top-post a img{
+
+.top-post a img {
     width: 100%;
     height: auto;
 }
-.top-post:nth-child(2) a:nth-child(2){
+
+.top-post:nth-child(2) a:nth-child(2) {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-.social_network{
+
+.social_network {
     margin-top: 10px;
 }
-.social_network img{
+
+.social_network img {
     display: inline;
-    height: 35px;
-    width: auto;
 }
-.single-post article{
+
+.single-post article {
     margin: 30px auto;
     width: 100%;
 }
-.single-post article.type_text{
+
+.single-post article.type_text {
     max-width: 1024px;
 }
-.single-post article .article-content{
+
+.single-post article .article-content {
     padding: 0px;
 }
+
+
 /*@media screen and (max-height: 850px) {*/
+
+
 /*    .logo{*/
+
+
 /*        margin-top: 10px;*/
+
+
 /*    }*/
+
+
 /*    .description{*/
+
+
 /*        margin-top: 0px;*/
+
+
 /*        margin-bottom: 10px;*/
+
+
 /*    }*/
+
+
 /*    .centered nav{*/
+
+
 /*        margin-top: 30px;*/
+
+
 /*    }*/
+
+
 /*}*/
-@media only screen and (min-width: 1800px) {
-    
-}
-@media only screen and (min-width: 1420px) {
-    
-}
+
+@media only screen and (min-width: 1800px) {}
+
+@media only screen and (min-width: 1420px) {}
+
 @media only screen and (max-width: 1024px) {
-    #top{
+    #top {
         display: block;
     }
-    .top-post{
+    .top-post {
         width: 100%;
         display: block;
         margin: 5px 0px;
     }
 }
+
 @media only screen and (max-width: 768px) {
-    #top{
+    #top {
         display: block;
     }
-    .top-post{
+    .top-post {
         width: 100%;
         display: block;
         margin: 5px 0px;

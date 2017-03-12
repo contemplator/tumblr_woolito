@@ -340,3 +340,7 @@ u {
         width: 60%;
     }
 }
+
+.sticky-lrec-wrapper {
+    display: none;
+}
