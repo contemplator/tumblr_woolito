@@ -1,15 +1,18 @@
-// var posts = []; // 儲存目前所 query 到的 posts
-var selected_posts = []; // 儲存目前 query 到所選擇 tag 的 posts
+var top_posts = []; // 置頂的文章
+var normal_posts = []; // 儲存目前所 query 到的 posts
+var posts = []; // 儲存目前所 query 到的 posts
 var selected_tag = null; // 紀錄目前所選擇的 tag
 var preview_timer; // 用於預覽功能用，讓預覽圖延遲消失
 var $masonry; // masonry 物件
-var is_masonry_done = true;
-var posts_length = 0;
+var offset = 0;
 var is_query_done = false;
 var $alert; // 提示訊息
+var show_post_length = 0;
+var no_more_post = false;
 
 $(function() {
     get_url_parameters();
+    query_top_posts();
     initSelector();
     onScrollEvent();
 });
@@ -29,12 +32,12 @@ function get_url_parameters() {
     }
     if (param_object.tag) {
         selected_tag = param_object.tag;
-        query_posts();
-    } else {
-        query_top_posts();
     }
 }
 
+/**
+ * 取得置頂文章
+ */
 function query_top_posts() {
     var key = "zcBf3tONWu9lQTSzrewHYU3WRdgbv1VtPGHXXMaZlZgN6Sz0lc";
     $.ajax({
@@ -54,9 +57,15 @@ function query_top_posts() {
             return;
         }
 
-        is_masonry_done = false;
-        showMessage('成功取得作品資料', 'success');
-        render_posts(data.response.posts);
+        for (var i = 0; i < data.response.posts.length; i++) {
+            var post = data.response.posts[i];
+            if (post.tags.indexOf('home_only') > -1) {
+                data.response.posts.splice(i, 1);
+            }
+        }
+
+        posts = $.merge(top_posts, data.response.posts);
+        query_posts();
     });
 }
 
@@ -68,7 +77,6 @@ function query_top_posts() {
  * @returns 
  */
 function query_posts() {
-    if (is_query_done) return;
     var key = "zcBf3tONWu9lQTSzrewHYU3WRdgbv1VtPGHXXMaZlZgN6Sz0lc";
     $.ajax({
         url: "https://api.tumblr.com/v2/blog/woolito.tumblr.com/posts",
@@ -76,34 +84,31 @@ function query_posts() {
         dataType: 'jsonp',
         data: {
             api_key: key,
-            limit: 5,
-            offset: posts_length,
-            tag: selected_tag
-        },
-        beforeSend: showMessage('取得作品資料中...', 'info')
+            offset: offset
+        }
     }).done(function(data) {
         var current_length = data.response.posts.length;
-        if (!selected_tag) {
-            for (var i = 0; i < data.response.posts.length; i++) {
-                var post = data.response.posts[i];
-                var top_index = post.tags.indexOf('top');
-                if (top_index > -1) {
-                    data.response.posts.splice(i, 1);
-                }
+        for (var i = 0; i < data.response.posts.length; i++) {
+            var post = data.response.posts[i];
+            if (post.tags.indexOf('top') > -1 || post.tags.indexOf('home_only') > -1 || post.tags.indexOf('select') > -1) {
+                data.response.posts.splice(i, 1);
             }
+        }
+
+        posts = $.merge(posts, data.response.posts);
+
+        if (offset == 0) {
+            render_posts();
         }
 
         if (current_length == 0) {
             is_query_done = true;
-            showMessage('選擇的分類已經沒有其他作品資料', 'danger');
-            return;
+            console.log(posts.length);
         } else {
-            posts_length += current_length;
+            no_more_post = false;
+            offset += current_length;
+            query_posts();
         }
-
-        is_masonry_done = false;
-        showMessage('成功取得作品資料', 'success');
-        render_posts(data.response.posts);
     });
 }
 
@@ -114,19 +119,37 @@ function query_posts() {
  * @param {any} posts 
  * @returns 
  */
-function render_posts(posts) {
-    if (!$masonry) {
-        $masonry = $("#grid").masonry();;
-    }
+function render_posts() {
+    // is_masonry_done = false;
+    if (no_more_post) return;
+    if (!$masonry) $masonry = $("#grid").masonry();
 
     var post_element;
-    if (posts.length > 0) {
-        for (var i = 0; i < posts.length; i++) {
-            post_element = analysis_post(posts[i]);
-            $masonry.append(post_element);
-            $masonry.masonry('appended', post_element);
+    var count = 0;
+    while (count < 6) {
+        var current_post_num = show_post_length + count;
+        if (current_post_num > posts.length) {
+            no_more_post = true;
+            showMessage("作品列表已經到底了，不好意思", 'danger');
+            break;
         }
+        var post = posts[current_post_num];
+        var tags;
+        try {
+            tags = post.tags;
+        } catch (e) {
+            tags = [];
+        }
+        if (selected_tag && tags.indexOf(selected_tag) < 0) {
+            show_post_length++;
+            continue;
+        }
+        post_element = analysis_post(posts[current_post_num]);
+        $masonry.append(post_element);
+        $masonry.masonry('appended', post_element);
+        count++;
     }
+    show_post_length += count;
 
     $masonry.imagesLoaded()
         .done(function() {
@@ -137,9 +160,6 @@ function render_posts(posts) {
             });
             $('[data-toggle="tooltip"]').tooltip();
         });
-
-    if (is_masonry_done) return;
-    is_masonry_done = true;
 }
 
 function analysis_post(post) {
@@ -178,10 +198,9 @@ function onScrollEvent() {
             $("#grid").css("margin-top", "0px");
         }
 
-        // 若靠近最底下 300px 的話
-        if (($(document).height() - $this.height() - $this.scrollTop()) <= 300) {
-            if (is_masonry_done) query_posts();
-            is_masonry_done = false;
+        // 若靠近最底下 800px 的話
+        if (($(document).height() - $this.height() - $this.scrollTop()) <= 800) {
+            render_posts();
         }
     });
 }
@@ -207,14 +226,21 @@ function initSelector() {
 
             var html = "";
             var choice_element = $('<div class="choice unselected_choice"></div>');
+            choice_element.attr("onclick", "enable_radio(this)");
+            choice_element.attr("data-tag", tag);
+            choice_element.attr("data-label", chinese + " " + english);
             if (tag == selected_tag) {
                 var className = choice_element.attr("class");
                 className = className.replace('unselected_choice', "selected_choice");
                 choice_element.attr("class", className);
+                choice_element.attr("onclick", "disable_radio(event, '" + selected_tag + "')");
+
+                var selected_element = $('<div class="selected" onclick="disable_radio(event, \'' + selected_tag + '\')">');
+                var selected_label = $('<label for="selected_tag">' + chinese + " " + english + '</label>');
+                var selected_img = $('<img src="http://static.tumblr.com/sirdwhf/nsioaip0w/checked.png">');
+                selected_element.append(selected_label).append(selected_img);
+                $("#chosen").html(selected_element);
             }
-            choice_element.attr("onclick", "enable_radio(this)");
-            choice_element.attr("data-tag", tag);
-            choice_element.attr("data-label", chinese + " " + english);
             var ch_element = $('<div class="choice-ch"></div>');
             ch_element.text(chinese);
             var hr_element = $("<hr>");
@@ -255,7 +281,7 @@ function clear_selected() {
  * @param {any} element 
  */
 function enable_radio(element) {
-    is_query_done = false;
+    // is_query_done = false;
     var currentTarget = $(element);
 
     var current_css = currentTarget.attr("class");
@@ -279,7 +305,7 @@ function enable_radio(element) {
 
     history.replaceState({}, 0, window.location.pathname + "?tag=" + selected_tag);
     init_posts();
-    query_posts();
+    render_posts();
 }
 
 /**
@@ -298,14 +324,15 @@ function disable_radio(event, tag) {
     history.replaceState({}, 0, window.location.pathname);
     selected_tag = null;
     init_posts();
-    query_top_posts();
+    render_posts();
 }
 
 function init_posts() {
     window.scrollTo(0, 120);
-    posts = [];
-    posts_length = 0;
-    is_query_done = false;
+    // posts = [];
+    no_more_post = false;
+    show_post_length = 0;
+    // is_query_done = false;
     $("#grid").html('<div class="grid-sizer"></div>');
 }
 
