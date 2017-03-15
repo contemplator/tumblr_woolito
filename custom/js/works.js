@@ -1,14 +1,16 @@
-var top_posts = []; // 置頂的文章
+var top_posts = []; // 置頂的作品
 var normal_posts = []; // 儲存目前所 query 到的 posts
 var posts = []; // 儲存目前所 query 到的 posts
 var selected_tag = null; // 紀錄目前所選擇的 tag
 var preview_timer; // 用於預覽功能用，讓預覽圖延遲消失
 var $masonry; // masonry 物件
-var offset = 0;
-var is_query_done = false;
+var offset = 0; // query api 開始撈作品的順序
+var is_query_done = false; // 是否 query 到最後一篇作品
 var $alert; // 提示訊息
-var show_post_length = 0;
-var no_more_post = false;
+var render_post_length = 0; // 所有經過 render_posts 判斷的作品
+var show_post_length = 0; // 目前頁面上顯示的作品數
+var no_more_post = false; // render_posts 是否已經到底，但是如果有 query 到新的作品就改為 true
+var last_scroll_top = 0;
 
 $(function() {
     get_url_parameters();
@@ -36,7 +38,7 @@ function get_url_parameters() {
 }
 
 /**
- * 取得置頂文章
+ * 取得置頂作品
  */
 function query_top_posts() {
     var key = "zcBf3tONWu9lQTSzrewHYU3WRdgbv1VtPGHXXMaZlZgN6Sz0lc";
@@ -52,8 +54,7 @@ function query_top_posts() {
     }).done(function(data) {
         var current_length = data.response.posts.length;
         if (current_length == 0) {
-            is_query_done = true;
-            showMessage('發生意外問題，沒有置頂文章', 'danger');
+            showMessage('發生意外問題，沒有置頂作品', 'danger');
             return;
         }
 
@@ -103,9 +104,14 @@ function query_posts() {
 
         if (current_length == 0) {
             is_query_done = true;
-            console.log(posts.length);
+            showMessage("完成取得資料", 'success');
         } else {
-            no_more_post = false;
+            if (no_more_post) {
+                no_more_post = false;
+                if (show_post_length < 6) {
+                    render_posts();
+                }
+            }
             offset += current_length;
             query_posts();
         }
@@ -113,8 +119,8 @@ function query_posts() {
 }
 
 /**
- * 渲染文章
- * 判斷文章類型 -> 增加到頁面上 -> 設定 imageLoader 和 masonry(佈局)
+ * 渲染作品
+ * 判斷作品類型 -> 增加到頁面上 -> 設定 imageLoader 和 masonry(佈局)
  * 
  * @param {any} posts 
  * @returns 
@@ -127,10 +133,9 @@ function render_posts() {
     var post_element;
     var count = 0;
     while (count < 6) {
-        var current_post_num = show_post_length + count;
+        var current_post_num = render_post_length + count;
         if (current_post_num > posts.length) {
             no_more_post = true;
-            showMessage("作品列表已經到底了，不好意思", 'danger');
             break;
         }
         var post = posts[current_post_num];
@@ -141,15 +146,16 @@ function render_posts() {
             tags = [];
         }
         if (selected_tag && tags.indexOf(selected_tag) < 0) {
-            show_post_length++;
+            render_post_length++;
             continue;
         }
         post_element = analysis_post(posts[current_post_num]);
         $masonry.append(post_element);
         $masonry.masonry('appended', post_element);
         count++;
+        show_post_length++;
     }
-    show_post_length += count;
+    render_post_length += count;
 
     $masonry.imagesLoaded()
         .done(function() {
@@ -187,7 +193,7 @@ function analysis_post(post) {
  * 綁定使用者上下捲動的事件，用於固定上方的篩選器
  */
 function onScrollEvent() {
-    $(window).bind('scroll resize', function() {
+    $(window).bind('scroll resize', function(event) {
         var $this = $(this);
         var $this_Top = $this.scrollTop();
         if ($this_Top > 120) {
@@ -202,6 +208,11 @@ function onScrollEvent() {
         if (($(document).height() - $this.height() - $this.scrollTop()) <= 800) {
             render_posts();
         }
+
+        if (($(document).height() - $this.height() - $this.scrollTop()) <= 100) {
+            if ($this_Top > last_scroll_top && is_query_done) showMessage("作品列表已經到底了，不好意思", 'danger');
+        }
+        last_scroll_top = $this_Top;
     });
 }
 
@@ -331,7 +342,7 @@ function init_posts() {
     window.scrollTo(0, 120);
     // posts = [];
     no_more_post = false;
-    show_post_length = 0;
+    render_post_length = 0;
     // is_query_done = false;
     $("#grid").html('<div class="grid-sizer"></div>');
 }

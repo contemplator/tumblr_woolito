@@ -344,3 +344,7 @@ u {
 .sticky-lrec-wrapper {
     display: none;
 }
+
+.tmblr-iframe.tmblr-iframe--follow-teaser.sticky-ad-visible.open {
+    display: none;
+}
