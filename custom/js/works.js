@@ -209,8 +209,18 @@ function onScrollEvent() {
             render_posts();
         }
 
+        // 判斷是往下拉到高度 100 的位置
         if (($(document).height() - $this.height() - $this.scrollTop()) <= 100) {
             if ($this_Top > last_scroll_top && is_query_done) showMessage("作品列表已經到底了，不好意思", 'danger');
+        }
+
+        // 判斷是往下拉的動作
+        if ($this_Top > last_scroll_top) {
+            if (!$('#selector').is(':hidden')) {
+                $('#selector').hide('blind', function() {}, 300);
+                $("#select_section hr").css("display", "inherit");
+                $(".arrow_down").css("transform", "rotate(0deg)");
+            }
         }
         last_scroll_top = $this_Top;
     });
