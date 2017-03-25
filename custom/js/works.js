@@ -105,7 +105,6 @@ function query_posts() {
 
         if (current_length == 0) {
             is_query_done = true;
-            showMessage("完成取得資料", 'success');
         } else {
             if (no_more_post) {
                 no_more_post = false;
