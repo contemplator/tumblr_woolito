@@ -11,6 +11,7 @@ var render_post_length = 0; // 所有經過 render_posts 判斷的作品
 var show_post_length = 0; // 目前頁面上顯示的作品數
 var no_more_post = false; // render_posts 是否已經到底，但是如果有 query 到新的作品就改為 true
 var last_scroll_top = 0;
+var is_selector_open = true;
 
 $(function() {
     get_url_parameters();
@@ -216,10 +217,11 @@ function onScrollEvent() {
 
         // 判斷是往下拉的動作
         if ($this_Top > last_scroll_top) {
-            if (!$('#selector').is(':hidden')) {
+            if (!is_selector_open) {
                 $('#selector').hide('blind', function() {}, 300);
                 $("#select_section hr").css("display", "inherit");
                 $(".arrow_down").css("transform", "rotate(0deg)");
+                is_selector_open = !is_selector_open;
             }
         }
         last_scroll_top = $this_Top;
@@ -363,7 +365,7 @@ function init_posts() {
  */
 function runEffect() {
     // depend on current status, decide to open or close
-    if ($('#selector').is(':hidden')) {
+    if (is_selector_open) {
         $('#selector').show('blind', function() {}, 300);
         $("#select_section hr").css("display", "none");
         $(".arrow_down").css("transform", "rotate(180deg)");
@@ -372,6 +374,7 @@ function runEffect() {
         $("#select_section hr").css("display", "inherit");
         $(".arrow_down").css("transform", "rotate(0deg)");
     }
+    is_selector_open = !is_selector_open;
 }
 
 function render_photo(post) {

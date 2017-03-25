@@ -229,10 +229,11 @@ label {
     position: fixed;
     margin-bottom: 0px;
     padding: .7em 2em;
-    font-size: 1.3em;
+    font-size: 1.5em;
     z-index: 1;
-    bottom: 40px;
-    right: 50px;
+    top: 140px;
+    left: 50%;
+    transform: translateX(-50%);
     opacity: 0;
     transition: visibility 300ms ease, opacity 800ms ease;
 }
