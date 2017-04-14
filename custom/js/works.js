@@ -134,7 +134,7 @@ function render_posts() {
     var count = 0;
     while (count < 6) {
         var current_post_num = render_post_length + count;
-        if (current_post_num > posts.length) {
+        if (current_post_num > posts.length - 1) {
             no_more_post = true;
             break;
         }
@@ -165,6 +165,15 @@ function render_posts() {
                 percentPosition: true
             });
             $('[data-toggle="tooltip"]').tooltip();
+            $(".tmblr-full img").on('click', function(event) {
+                var id = '';
+                try {
+                    id = event.target.parentNode.parentNode.parentNode.id;
+                    window.open("http://www.woolito.com/post/" + id, '_blank');
+                } catch (error) {
+                    console.log(error);
+                }
+            })
         });
 }
 
@@ -211,7 +220,8 @@ function onScrollEvent() {
 
         // 判斷是往下拉到高度 100 的位置
         if (($(document).height() - $this.height() - $this.scrollTop()) <= 100) {
-            if ($this_Top > last_scroll_top && is_query_done) showMessage("作品列表已經到底了，不好意思", 'danger');
+            console.log("作品列表已經到底了");
+            // if ($this_Top > last_scroll_top && is_query_done) showMessage("作品列表已經到底了，不好意思", 'danger');
         }
 
         // 判斷是往下拉的動作

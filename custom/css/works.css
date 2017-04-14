@@ -253,6 +253,10 @@ label {
     margin: 5px;
 }
 
+.tmblr-full img {
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 1330px) {
     .effect_field {
         height: 45px;
