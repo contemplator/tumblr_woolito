@@ -268,6 +268,23 @@ div.play-button {
     display: none;
 }
 
+/* alert */
+
+#alert-message {
+    visibility: hidden;
+    position: fixed;
+    min-width: 170px;
+    margin-bottom: 0px;
+    padding: .2em .5em;
+    font-size: 1.3em;
+    z-index: 1;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: visibility 300ms ease, opacity 800ms ease;
+}
+
 #loading{
     background-color: #fff;
     border-radius: 10px;

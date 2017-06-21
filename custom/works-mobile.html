@@ -124,8 +124,8 @@
                 </div>
             </div>
             <section class="top-posts index">
-                <div class="grid">
-                    <div class="grid-sizer"></div>
+                <div id="grid">
+                    <!--<div class="grid-sizer"></div>-->
                 </div>
             </section>
             <div id="select-section">
@@ -141,11 +141,11 @@
                                 <span>&nbsp/&nbsp&nbsp點此展開選單</span>
                                 <!-- <span>&nbsp/&nbsp</span> -->
                             </div>
-                            <div class="select-number">
+                            <!--<div class="select-number">
                                 <span>共計</span>
                                 <span id="total_post"></span>
                                 <span>&nbsp部作品</span>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                     <div id="divider">
@@ -181,11 +181,12 @@
             </div>
         </div>
         <div class="mask"></div>
-        <div id="loading">
+        <!--<div id="loading">
             <span></span>
             <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
             <span>讀取資料中...</span>
-        </div>
+        </div>-->
+        <div id="alert-message" class="alert alert-default" role="alert"></div>
     </div>
 </body>
 <script type="text/javascript">
@@ -210,10 +211,8 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script type="text/javascript" src="https://www.youtube.com/iframe_api"></script>
 <script src="http://static.tumblr.com/sirdwhf/VFqo9dynz/youtube.js"></script>
-<!-- hammer js -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script> -->
-<!-- drawer listener -->
 <script src="http://static.tumblr.com/sirdwhf/YrXohoxps/woolito-slider.js"></script>
+<script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
 <script src="js/works-mobile.js"></script>
 

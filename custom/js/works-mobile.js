@@ -1,249 +1,232 @@
-var posts = [];
-var selected_posts = [];
-var current_posts_number = 6;
-var standard_height = 0;
-// var selector_animation_switch;
-$(function() {
+var selected_tag = null; // 紀錄目前所選擇的 tag
+var top_posts = []; // 置頂的作品
+var posts = []; // 儲存目前所 query 到的 posts
+var no_more_post = false; // render_posts 是否已經到底，但是如果有 query 到新的作品
+var render_post_length = 0; // 所有經過 render_posts 判斷的作品
+var show_post_length = 0; // 目前頁面上顯示的作品數
+var offset = 0; // query api 開始撈作品的順序
+var is_query_done = false; // 是否 query 到最後一篇作品
+var last_scroll_top = 0;
+var is_selector_open = false;
+
+var $alert; // 提示訊息
+
+$(function () {
+    get_url_parameters();
     initSelector();
     $("#selector").click(runEffect);
-    query_tumblr_api(0);
+    query_top_posts();
+    onScrollEvent();
+    // query_tumblr_api(0);
 });
 
-function initSelector() {
-    $.ajax({
-        dataType: "json",
-        url: 'https://spreadsheets.google.com/feeds/list/1HjUlFgljXvK76g2wEGAAlBpGTZKkHUZBIdBTM4BVmZs/od6/public/values?alt=json'
-    }).done(function(data) {
-        for (var i = 0; i < data.feed.entry.length; i++) {
-            var post = data.feed.entry[i];
-            var type = post.gsx$type.$t;
-            var chinese = post.gsx$chinese.$t;
-            var english = post.gsx$english.$t;
-            var tag = post.gsx$tag.$t;
+/**
+ * 綁定使用者上下捲動的事件，用於固定上方的篩選器
+ */
+function onScrollEvent() {
+    $(window).bind('scroll resize', function (event) {
+        var $this = $(this);
+        var $this_Top = $this.scrollTop();
 
-            var category_element = $("td[select-category='" + type + "']");
-            var option_element = $('<div class="select-option" data-type="' + tag + '"></div>');
-            var chinese_element = $('<div class="option-chinese">' + chinese + '</div>');
-            var english_element = $('<div class="option-english">' + english + '</div>');
-            option_element.append(chinese_element).append(english_element);
-            category_element.append(option_element);
+        // 若靠近最底下 800px 的話
+        if (($(document).height() - $this.height() - $this.scrollTop()) <= 800) {
+            render_posts();
         }
 
-        $(".select-option").click(function(event) {
-            enable_radio(this);
-        });
+        // 判斷是往下拉到高度 100 的位置
+        if (($(document).height() - $this.height() - $this.scrollTop()) <= 100) {
+            console.log("作品列表已經到底了");
+            // if ($this_Top > last_scroll_top && is_query_done) showMessage("作品列表已經到底了，不好意思", 'danger');
+        }
+
+        // 判斷是往下拉的動作
+        if ($this_Top > last_scroll_top) {
+            if (is_selector_open) {
+                runEffect();
+            }
+        }
+        last_scroll_top = $this_Top;
     });
 }
 
-function enable_radio(element) {
-    clear_choices();
-    var currentTarget = $(element);
-    var currentBg = currentTarget.css("background-color");
-    console.log(currentBg);
-    var select_works = $(".select-works");
-    if (currentBg == "rgb(230, 230, 230)") { // selected
-        currentTarget.css("background-color", "#3B3B3B");
-        currentTarget.css("color", "#FFFFFF");
-        var chinese = currentTarget.find(".option-chinese").text();
-        var english = currentTarget.find(".option-english").text();
-
-        var div_element = $('<div class="selected" onclick="disable_radio(this)"></div>');
-        var chinese_element = $('<div class="selected-chinese">' + chinese + '</div>');
-        var english_element = $('<div class="selected-english">' + english + '</div>');
-        var img_element = $("<img>");
-        img_element.attr("src", "http://static.tumblr.com/sirdwhf/yRso8llbo/radio_checkd.png");
-
-        div_element.append(img_element).append(chinese_element).append(english_element);
-        select_works.html("<span>作品篩選 Filter</span>");
-        select_works.append(div_element);
-        select_works.append("<span>&nbsp/&nbsp</span>");
-        
-        history.replaceState({}, 0, window.location.pathname+"?tag="+currentTarget.attr("data-type"));
-        query_posts(currentTarget.attr("data-type"));
-    } else { // unselected
-        currentTarget.css("background-color", "#E6E6E6");
-        currentTarget.css("color", "#000000");
-        history.replaceState({}, 0, window.location.pathname);
-        query_posts("");
+/**
+ * 處理帶有 tag 參數的 url
+ */
+function get_url_parameters() {
+    var url_search = location.search.substring(1);
+    var parameters = url_search.split('&');
+    var param_object = {};
+    for (var i = 0; i < parameters.length; i++) {
+        var parameter = parameters[i].split("=");
+        var key = parameter[0];
+        var value = parameter[1];
+        param_object[key] = value;
     }
-    runEffect();
-}
-
-function clear_choices() {
-    var choices = $(".select-option");
-    for (var i = 0; i < choices.length; i++) {
-        $(choices[i]).css("background-color", "#E6E6E6");
-        $(choices[i]).css("color", "#000000");
+    if (param_object.tag) {
+        selected_tag = param_object.tag;
     }
 }
 
-function disable_radio(tag) {
-    query_posts("");
-    $(".select-works").html("<span>作品篩選 Filter</span><span>&nbsp/&nbsp&nbsp點此展開選單</span>");
-    console.log("asd");
-    history.replaceState({}, 0, window.location.pathname);
-    clear_choices();
-}
-
-function runEffect() {
-    if($("#selector-table-div").css("display") == "none"){
-        $(".arrow img").css("transform", "rotate(180deg)");
-    }else{
-        $(".arrow img").css("transform", "rotate(0deg)");
-    }
-    $("#selector-table-div").slideToggle("slow");
-}
-
-function query_tumblr_api(offset_number){
+/**
+ * 取得置頂作品
+ */
+function query_top_posts() {
     var key = "zcBf3tONWu9lQTSzrewHYU3WRdgbv1VtPGHXXMaZlZgN6Sz0lc";
     $.ajax({
         url: "https://api.tumblr.com/v2/blog/woolito.tumblr.com/posts",
         type: "GET",
         dataType: 'jsonp',
-        async: false,
         data: {
             api_key: key,
-            limit: 50,
-            offset: offset_number
+            tag: 'top'
         },
-        beforeSend: showLoading()
-    }).done(function(data) {
-        $.merge(posts, data.response.posts);
-        if (data.response.posts.length == 50){
-            query_tumblr_api(offset_number + 50);
-        } else {
-            if (!posts) {
-                $("#total_post").text("0");
-            } else {
-                $("#total_post").text(posts.length);
+        beforeSend: showMessage('取得作品資料中...', 'info')
+    }).done(function (data) {
+        var current_length = data.response.posts.length;
+        if (current_length == 0) {
+            showMessage('發生意外問題，沒有置頂作品', 'danger');
+            return;
+        }
+
+        for (var i = 0; i < data.response.posts.length; i++) {
+            var post = data.response.posts[i];
+            if (post.tags.indexOf('home_only') > -1) {
+                data.response.posts.splice(i, 1);
             }
-            sort_posts();
+        }
+
+        posts = $.merge(top_posts, data.response.posts);
+        query_posts();
+    });
+}
+
+/**
+ * 取得作品資料
+ * 使用 tumblr api
+ * 判斷是否已經取得到最後一篇 -> 顯示讀取狀態 -> 取得結束 -> 顯示成功 -> 開始渲染
+ * 
+ * @returns 
+ */
+function query_posts() {
+    var key = "zcBf3tONWu9lQTSzrewHYU3WRdgbv1VtPGHXXMaZlZgN6Sz0lc";
+    $.ajax({
+        url: "https://api.tumblr.com/v2/blog/woolito.tumblr.com/posts",
+        type: "GET",
+        dataType: 'jsonp',
+        data: {
+            api_key: key,
+            offset: offset
+        }
+    }).done(function (data) {
+        var current_length = data.response.posts.length;
+        for (var i = 0; i < data.response.posts.length; i++) {
+            var post = data.response.posts[i];
+            if (post.tags.indexOf('top') > -1 || post.tags.indexOf('home_only') > -1 || post.tags.indexOf('select') > -1) {
+                data.response.posts.splice(i, 1);
+            }
+        }
+
+        posts = $.merge(posts, data.response.posts);
+
+        if (offset == 0) {
+            render_posts();
+        }
+
+        if (current_length == 0) {
+            is_query_done = true;
+        } else {
+            if (no_more_post) {
+                no_more_post = false;
+                if (show_post_length < 6) {
+                    render_posts();
+                }
+            }
+            offset += current_length;
+            query_posts();
         }
     });
 }
 
-function sort_posts(){
-    var new_posts = [];
-    var top_posts = [];
-    var normal_posts = [];
-    for(var i=0; i<posts.length; i++){
+/**
+ * 渲染作品
+ * 判斷作品類型 -> 增加到頁面上 -> 設定 imageLoader 和 masonry(佈局)
+ * 
+ * @param {any} posts 
+ * @returns 
+ */
+function render_posts() {
+    // is_masonry_done = false;
+    if (no_more_post) return;
+    var container = $("#grid");
+
+    var post_element;
+    var count = 0;
+    while (count < 6) {
+        var current_post_num = render_post_length + count;
+        if (current_post_num > posts.length - 1) {
+            no_more_post = true;
+            break;
+        }
+        var post = posts[current_post_num];
+        var tags;
         try {
-            tags = posts[i].tags;
-            if (tags == undefined) {
-                tags = [];
-            };
-            if (!(tags.indexOf("home_only") > -1) && !(tags.indexOf("select") > -1)) {
-                if(tags.indexOf("top") > -1){
-                    top_posts.push(posts[i]);
-                }else{
-                    normal_posts.push(posts[i]);
+            tags = post.tags;
+        } catch (e) {
+            tags = [];
+        }
+        if (selected_tag && tags.indexOf(selected_tag) < 0) {
+            render_post_length++;
+            continue;
+        }
+        post_element = analysis_post(posts[current_post_num]);
+        container.append(post_element);
+        // $masonry.masonry('appended', post_element);
+        count++;
+        show_post_length++;
+    }
+    render_post_length += count;
+
+    container.imagesLoaded()
+        .done(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+            $(".tmblr-full img").on('click', function (event) {
+                var id = '';
+                try {
+                    id = event.target.parentNode.parentNode.parentNode.id;
+                    window.open("http://www.woolito.com/post/" + id, '_blank');
+                } catch (error) {
+                    console.log(error);
                 }
-            }
-        } catch (err) {
-            console.log(err);
-            continue;
-        }
-    }
-
-    top_posts.sort(compare);
-    normal_posts.sort(compare);
-
-    for(var i=0; i<top_posts.length; i++){
-        new_posts.push(top_posts[i]);
-    }
-    for(var i=0; i<normal_posts.length; i++){
-        new_posts.push(normal_posts[i]);
-    }
-    posts = new_posts;
-    if(window.location.search.indexOf("tag") > -1){
-        var search = window.location.search;
-        var selected_tag = ""
-        if(search.indexOf("tag") > -1){
-            selected_tag = search.substring(search.indexOf("=") + 1);
-        }
-        var selector = document.getElementById("selector-table");
-        var selected = selector.querySelectorAll("div[data-type='"+selected_tag+"']");
-        runEffect();
-        enable_radio(selected);
-    }else{
-        query_posts("");
-    }
+            })
+        });
 }
 
-function query_posts(tag) {
-    showLoading();
-    var selected_posts = [];
-    var tags = [];
-
-    for (var i = 0; i < posts.length; i++) {
-        if (tag == "") {
-            selected_posts = posts;
-            continue;
-        }
-        try {
-            tags = posts[i].tags;
-            if (tags == undefined) {
-                tags = [];
-            };
-            if (tags.indexOf(tag) > -1) {
-                selected_posts.push(posts[i]);
-            }
-        } catch (err) {
-            console.log(err);
-            continue;
-        }
+function analysis_post(post) {
+    var post_type = post.type;
+    var post_html = null;
+    switch (post_type) {
+        case "video":
+            post_html = render_video(post);
+            break;
+        case "text":
+            post_html = render_text(post);
+            break;
+        case "photo":
+            post_html = render_photo(post);
+            break;
+        case "audio":
+            post_html = render_audio(post);
+        default:
+            break;
     }
-
-    if (!selected_posts) {
-        $("#total_post").text("0");
-    } else {
-        $("#total_post").text(selected_posts.length);
-    }
-
-    render_posts(selected_posts);
+    return post_html;
 }
 
-function render_posts(posts) {
-    var grid_holder = $(".grid");
-    grid_holder.html('<div class="grid-sizer"></div>');
-
-    if (posts.length > 0) {
-        for (var i = 0; i < posts.length; i++) {
-            var post_type = posts[i].type;
-            var post_html = null;
-            switch (post_type) {
-                case "video":
-                    post_html = render_video(posts[i]);
-                    break;
-                case "text":
-                    post_html = render_text(posts[i]);
-                    break;
-                case "photo":
-                    post_html = render_photo(posts[i]);
-                    break;
-                case "audio":
-                    post_html = render_audio(posts[i]);
-                    break;
-                default:
-                    break;
-            }
-
-            $(".grid").append(post_html);
-            $("img.lazy").lazyload({
-                threshold : 200,
-                effect : "fadeIn",
-            });
-        }
-    }
-
-    hideLoading();
-}
-
-function render_audio(post){
+function render_audio(post) {
     var article = $("<div></div>");
     article.attr("id", post.id);
     article.addClass("type_audio grid-item")
-    for(var i=0; i<post.tags.length; i++){
+    for (var i = 0; i < post.tags.length; i++) {
         article.addClass(post.tags[i]);
     }
     article.attr("rel", post.post_url);
@@ -270,8 +253,8 @@ function render_photo(post) {
     var photo_wrap = $('<div class="photo-wrap post"></div>');
     var photo_post = $('<div class="photo--post"></div>')
     var photo_link = $('<a href="' + post.post_url + '" target="_blank"></a>')
-    // var photo_img = $('<img src="' + post.photos[0]['alt_sizes'][0].url + '" alt="' + post.slug + '">');
-    var photo_img = $('<img data-original="' + post.photos[0]['alt_sizes'][0].url + '" alt="' + post.slug + '" class="lazy">');
+    var photo_img = $('<img src="' + post.photos[0]['alt_sizes'][0].url + '" alt="' + post.slug + '">');
+    // var photo_img = $('<img data-original="' + post.photos[0]['alt_sizes'][0].url + '" alt="' + post.slug + '" class="lazy">');
     photo_link.append(photo_img);
     photo_post.append(photo_link);
     photo_wrap.append(photo_post);
@@ -336,21 +319,21 @@ function render_text(post) {
     return article;
 }
 
-function analysis_caption_image(caption, post_id){
+function analysis_caption_image(caption, post_id) {
     // 為了讓 text post 內的圖片點擊後也可以連到 single post 頁面
     $caption = $(caption);
     var imgs = $caption.find("img");
     var replaced_patt = /<img(.*)\/>/i;
-    try{
+    try {
         var replaced_img = caption.match(replaced_patt)[0];
-    } catch (err){
+    } catch (err) {
         // console.log("Post id: " + post_id + "; error: " + err);
     }
-    
-    for(var i=0; i<imgs.length; i++){
+
+    for (var i = 0; i < imgs.length; i++) {
         var url = "http://woolito.tumblr.com/post/" + post_id + "/";
         $img = $(imgs[i]);
-        $img.attr("onclick", "openNewTab('"+url+"')");
+        $img.attr("onclick", "openNewTab('" + url + "')");
 
         var new_img_elemene = $img.prop('outerHTML');
         caption = caption.replace(replaced_img, new_img_elemene);
@@ -374,32 +357,34 @@ function analysis_caption_iframe(caption, post_id, isDoubleSize) {
         var shortcut_element = $("<img >");
         shortcut_element.addClass("shortcut");
         shortcut_element.addClass("lazy");
-        
-        if(youtube_id.indexOf("watch") > -1){
+
+        if (youtube_id.indexOf("watch") > -1) {
             var start_index = youtube_id.indexOf("=") + 1;
             var end_index = youtube_id.indexOf("&", start_index);
-            if(end_index > -1){
+            if (end_index > -1) {
                 youtube_id = youtube_id.substring(start_index, end_index);
-            }else{
+            } else {
                 youtube_id = youtube_id.substring(start_index);
             }
         }
-        if(isDoubleSize){
-            shortcut_element.attr("data-original", "https://i.ytimg.com/vi/" + youtube_id + "/maxresdefault.jpg");
-        }else{
-            shortcut_element.attr("data-original", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
+        if (isDoubleSize) {
+            shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/maxresdefault.jpg");
+            // shortcut_element.attr("data-original", "https://i.ytimg.com/vi/" + youtube_id + "/maxresdefault.jpg");
+        } else {
+            shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
+            // shortcut_element.attr("data-original", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
         }
 
         shortcut_element.attr("youtube_id", youtube_id);
-        shortcut_element.attr("data-toggle", "tooltip");
-        shortcut_element.attr("data-placement", "bottom");
-        shortcut_element.attr("title", "點擊觀看作品介紹");
+        // shortcut_element.attr("data-toggle", "tooltip");
+        // shortcut_element.attr("data-placement", "bottom");
+        // shortcut_element.attr("title", "點擊觀看作品介紹");
         link_element.html(shortcut_element);
         link_element = link_element.prop('outerHTML');
         caption = caption.replace(patt, link_element);
         matcher = patt.exec(caption);
     }
-    
+
     return caption;
 }
 
@@ -415,24 +400,136 @@ function render_icon(post) {
     return ul;
 }
 
-function openNewTab(url){
-    window.open(url, "_blank");
+function initSelector() {
+    $.ajax({
+        dataType: "json",
+        url: 'https://spreadsheets.google.com/feeds/list/1HjUlFgljXvK76g2wEGAAlBpGTZKkHUZBIdBTM4BVmZs/od6/public/values?alt=json'
+    }).done(function (data) {
+        for (var i = 0; i < data.feed.entry.length; i++) {
+            var post = data.feed.entry[i];
+            var type = post.gsx$type.$t;
+            var chinese = post.gsx$chinese.$t;
+            var english = post.gsx$english.$t;
+            var tag = post.gsx$tag.$t;
+
+            var category_element = $("td[select-category='" + type + "']");
+            var option_element = $('<div class="select-option" data-type="' + tag + '"></div>');
+            var chinese_element = $('<div class="option-chinese">' + chinese + '</div>');
+            var english_element = $('<div class="option-english">' + english + '</div>');
+            option_element.append(chinese_element).append(english_element);
+            category_element.append(option_element);
+
+            if (tag == selected_tag) {
+                var select_works = $(".select-works");
+                var div_element = $('<div class="selected" onclick="disable_radio(this)"></div>');
+                var chinese_element2 = $('<div class="selected-chinese">' + chinese + '</div>');
+                var english_element2 = $('<div class="selected-english">' + english + '</div>');
+                var img_element = $("<img>");
+                img_element.attr("src", "http://static.tumblr.com/sirdwhf/yRso8llbo/radio_checkd.png");
+
+                div_element.append(img_element).append(chinese_element2).append(english_element2);
+                select_works.html("<span>作品篩選 Filter</span>");
+                select_works.append(div_element);
+            }
+        }
+
+        $(".select-option").click(function (event) {
+            enable_radio(this);
+        });
+    });
 }
 
-function compare(a, b) {
-    if (a.timestamp < b.timestamp)
-        return 1;
-    if (a.timestamp > b.timestamp)
-        return -1;
-    return 0;
+function enable_radio(element) {
+    clear_choices();
+    var currentTarget = $(element);
+    var currentBg = currentTarget.css("background-color");
+    var select_works = $(".select-works");
+    if (currentBg == "rgb(230, 230, 230)") { // selected
+        currentTarget.css("background-color", "#3B3B3B");
+        currentTarget.css("color", "#FFFFFF");
+        var chinese = currentTarget.find(".option-chinese").text();
+        var english = currentTarget.find(".option-english").text();
+
+        var div_element = $('<div class="selected" onclick="disable_radio(this)"></div>');
+        var chinese_element = $('<div class="selected-chinese">' + chinese + '</div>');
+        var english_element = $('<div class="selected-english">' + english + '</div>');
+        var img_element = $("<img>");
+        img_element.attr("src", "http://static.tumblr.com/sirdwhf/yRso8llbo/radio_checkd.png");
+
+        div_element.append(img_element).append(chinese_element).append(english_element);
+        select_works.html("<span>作品篩選 Filter</span>");
+        select_works.append(div_element);
+        // select_works.append("<span>&nbsp/&nbsp</span>");
+
+        selected_tag = currentTarget.attr("data-type");
+        // query_posts();
+    } else { // unselected
+        currentTarget.css("background-color", "#E6E6E6");
+        currentTarget.css("color", "#000000");
+        selected_tag = "";
+        // query_posts();
+    }
+    history.replaceState({}, 0, window.location.pathname + "?tag=" + selected_tag);
+    init_posts();
+    render_posts();
+    runEffect();
 }
 
-function showLoading(){
-    $(".mask").css("display", "inherit");
-    $("#loading").css("display", "inherit");
+function clear_choices() {
+    var choices = $(".select-option");
+    for (var i = 0; i < choices.length; i++) {
+        $(choices[i]).css("background-color", "#E6E6E6");
+        $(choices[i]).css("color", "#000000");
+    }
 }
 
-function hideLoading(){
-    $(".mask").css("display", "none");
-    $("#loading").css("display", "none");
+function disable_radio(tag) {
+    $(".select-works").html("<span>作品篩選 Filter</span><span>&nbsp/&nbsp&nbsp點此展開選單</span>");
+    history.replaceState({}, 0, window.location.pathname + "?tag=" + selected_tag);
+    selected_tag = "";
+    init_posts();
+    render_posts();
+    clear_choices();
+}
+
+function runEffect() {
+    if ($("#selector-table-div").css("display") == "none") {
+        $(".arrow img").css("transform", "rotate(180deg)");
+        is_selector_open = true;
+    } else {
+        $(".arrow img").css("transform", "rotate(0deg)");
+        is_selector_open = false;
+    }
+    $("#selector-table-div").slideToggle("slow");
+}
+
+function init_posts() {
+    window.scrollTo(0, 0);
+    // posts = [];
+    no_more_post = false;
+    render_post_length = 0;
+    // is_query_done = false;
+    $("#grid").html('<div class="grid-sizer"></div>');
+}
+
+/**
+ * 顯示目前狀態的提示
+ * 
+ * @param {any} msg 
+ * @param {string} [type='success'] 
+ */
+function showMessage(msg, type = 'success') {
+    if (!$alert) {
+        $alert = $("#alert-message");
+    }
+    var className = $alert.attr('class');
+    className = className.replace(/alert-(\w+)/g, "alert-" + type);
+    $alert.attr('class', className);
+    $alert.text(msg);
+    $alert.css('visibility', 'visible')
+    $alert.css('opacity', '1');
+    setTimeout(function () {
+        $alert.css('visibility', 'hidden');
+        $alert.css('opacity', '0');
+    }, 2000);
 }
