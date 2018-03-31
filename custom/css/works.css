@@ -221,6 +221,10 @@ label {
     letter-spacing: 2px;
 }
 
+/* article  */
+.double_size .article_content figure img{
+    width: 100%;
+}
 
 /* alert */
 

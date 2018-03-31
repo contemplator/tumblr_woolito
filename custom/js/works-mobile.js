@@ -186,19 +186,19 @@ function render_posts() {
     }
     render_post_length += count;
 
-    container.imagesLoaded()
-        .done(function () {
-            $('[data-toggle="tooltip"]').tooltip();
-            $(".tmblr-full img").on('click', function (event) {
-                var id = '';
-                try {
-                    id = event.target.parentNode.parentNode.parentNode.id;
-                    window.open("http://www.woolito.com/post/" + id, '_blank');
-                } catch (error) {
-                    console.log(error);
-                }
-            })
-        });
+    // container.imagesLoaded()
+    //     .done(function () {
+    //         $('[data-toggle="tooltip"]').tooltip();
+    //         $(".tmblr-full img").on('click', function (event) {
+    //             var id = '';
+    //             try {
+    //                 id = event.target.parentNode.parentNode.parentNode.id;
+    //                 window.open("http://www.woolito.com/post/" + id, '_blank');
+    //             } catch (error) {
+    //                 console.log(error);
+    //             }
+    //         })
+    //     });
 }
 
 function analysis_post(post) {
