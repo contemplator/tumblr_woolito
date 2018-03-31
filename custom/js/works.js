@@ -503,9 +503,11 @@ function analysis_caption_iframe(caption, post_id, isDoubleSize) {
         if (isDoubleSize) {
             // shortcut_element.attr("data-original", "https://i.ytimg.com/vi/" + youtube_id + "/maxresdefault.jpg");
             shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/maxresdefault.jpg");
+            shortcut_element.addClass("max");
         } else {
             // shortcut_element.attr("data-original", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
             shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
+            shortcut_element.addClass("hq");
         }
 
         shortcut_element.attr("youtube_id", youtube_id);
