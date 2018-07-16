@@ -270,4 +270,5 @@ label {
 img.shortcut.hq {
   margin: -20px 0;
   clip-path: polygon(0 15%, 100% 15%, 100% 85%, 0 85% );
+  -webkit-clip-path: polygon(0 15%, 100% 15%, 100% 85%, 0 85%);
 }
