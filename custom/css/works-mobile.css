@@ -1,24 +1,16 @@
 /* posts-holder */
 
-.article_content img.shortcut {
-  width: 90%;
-  height: auto;
-  margin: 0px auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+.article-content figure,
+.article-content img{
+    margin: 16px 0;
 }
+
 /* select-section */
 
 #select-section {
   width: 100%;
-  /*position: fixed;
-    bottom: -341px;
-    z-index: 1;*/
   position: fixed;
   bottom: 0;
-}
-
-.toggle-field {
 }
 
 /* selector */
@@ -203,9 +195,6 @@
   margin-right: 2px;
 }
 
-.select-works .selected img {
-}
-
 /* grid-item */
 
 .grid-item iframe,
@@ -327,13 +316,6 @@ div.play-button {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
-}
-
-/* youtube 裁切上下黑邊 */
-img.shortcut.hq {
-  margin: -20px 0;
-  clip-path: polygon(0 15%, 100% 15%, 100% 85%, 0 85%);
-  -webkit-clip-path: polygon(0 15%, 100% 15%, 100% 85%, 0 85%);
 }
 
 .article-content figure > iframe {

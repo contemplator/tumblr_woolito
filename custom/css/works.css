@@ -223,6 +223,11 @@ label {
   width: 100%;
 }
 
+.article_content figure img,
+.article_content img{
+    margin: 16px 0;
+}
+
 /* alert */
 
 #alert-message {
@@ -245,8 +250,8 @@ label {
   display: inline;
 }
 
-.stickers img {
-  display: inline;
+.stickers .article_content img {
+  display: inline-block;
   width: calc(33.33% - 10px);
   border: 1px solid #aaa;
   border-radius: 8px;
@@ -264,11 +269,4 @@ label {
   .tip-open {
     margin: -15px 0px 0px 0px;
   }
-}
-
-/* youtube 裁切上下黑邊 */
-img.shortcut.hq {
-  margin: -20px 0;
-  clip-path: polygon(0 15%, 100% 15%, 100% 85%, 0 85% );
-  -webkit-clip-path: polygon(0 15%, 100% 15%, 100% 85%, 0 85%);
 }

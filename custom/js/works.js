@@ -165,15 +165,6 @@ function render_posts() {
                 percentPosition: true
             });
             $('[data-toggle="tooltip"]').tooltip();
-            $(".tmblr-full img").on('click', function(event) {
-                var id = '';
-                try {
-                    id = event.target.parentNode.parentNode.parentNode.id;
-                    window.open("http://www.woolito.com/post/" + id, '_blank');
-                } catch (error) {
-                    console.log(error);
-                }
-            })
         });
 }
 
@@ -468,6 +459,8 @@ function render_text(post) {
         body += '<a href="' + post['post_url'] + '" target=\"_blank\" class="readmore">KEEP READING</a>';
     }
     body = analysis_caption_iframe(body, post.id, isDoubleSize);
+    body = addImageLink(body, post.id);
+    body = body.replace(/<br\/>/g, '');
     article_content.append(title).append(body);
     var icon = render_icon(post);
     article_content.append(icon);
@@ -493,7 +486,6 @@ function analysis_caption_iframe(caption, post_id, isDoubleSize) {
         link_element.attr("href", "http://woolito.tumblr.com/post/" + post_id + "/");
         var shortcut_element = $("<img >");
         shortcut_element.addClass("shortcut");
-        // shortcut_element.addClass("lazy");
 
         if (youtube_id.indexOf("watch") > -1) {
             var start_index = youtube_id.indexOf("=") + 1;
@@ -505,12 +497,10 @@ function analysis_caption_iframe(caption, post_id, isDoubleSize) {
             }
         }
         if (isDoubleSize) {
-            // shortcut_element.attr("data-original", "https://i.ytimg.com/vi/" + youtube_id + "/maxresdefault.jpg");
             shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/maxresdefault.jpg");
             shortcut_element.addClass("max");
         } else {
-            // shortcut_element.attr("data-original", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
-            shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
+            shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/mqdefault.jpg");
             shortcut_element.addClass("hq");
         }
 
@@ -595,4 +585,26 @@ function extraVimeoContent(caption, post_id){
     }else{
         return caption;
     }
+}
+
+function addImageLink(caption, post_id){
+    var pattern = /<img [\w\W]+?>/g;
+    var matcher = caption.match(pattern);
+    if(matcher !== null){
+        matcher.forEach(match=>{
+            if(match.indexOf('tooltip') === -1){
+                var img_element = $(match);
+                img_element.attr("data-toggle", "tooltip");
+                img_element.attr("data-placement", "bottom");
+                img_element.attr("title", "點擊觀看作品介紹");
+
+                var link_element = $('<a target="_blank"></a>');
+                link_element.attr("href", "http://woolito.tumblr.com/post/" + post_id + "/");
+                link_element.append(img_element);
+                var result = link_element.prop('outerHTML');
+                caption = caption.replace(match, result);
+            }
+        });
+    }
+    return caption;
 }

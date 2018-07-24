@@ -312,6 +312,7 @@ function render_text(post) {
     }
     body = analysis_caption_iframe(body, post.id);
     body = analysis_caption_image(body, post.id);
+    body = body.replace(/<br\/>/g, '');
     article_content.append(title).append(body);
     var icon = render_icon(post);
     article_content.append(icon);
@@ -370,11 +371,9 @@ function analysis_caption_iframe(caption, post_id, isDoubleSize) {
         if (isDoubleSize) {
             shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/maxresdefault.jpg");
             shortcut_element.addClass("max");
-            // shortcut_element.attr("data-original", "https://i.ytimg.com/vi/" + youtube_id + "/maxresdefault.jpg");
         } else {
-            shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
+            shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/mqdefault.jpg");
             shortcut_element.addClass("hq");
-            // shortcut_element.attr("data-original", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
         }
 
         shortcut_element.attr("youtube_id", youtube_id);
