@@ -476,9 +476,13 @@ function render_text(post) {
 }
 
 function analysis_caption_iframe(caption, post_id, isDoubleSize) {
-    if (!(caption.indexOf("data-provider=\"youtube\"") > -1)) {
+    if (!(caption.indexOf("data-provider=\"youtube\"") > -1) && !(caption.indexOf("data-provider=\"vimeo\"") > -1)) {
         return caption;
+    }else if(caption.indexOf("data-provider=\"vimeo\"") > -1){
+        var result = extraVimeoContent(caption, post_id, isDoubleSize);
+        return result;
     }
+
     var patt = /<figure .* data-provider=\"youtube\" .* data-url=\"(.*)\"><iframe .*>.*<\/iframe><\/figure>/;
     var matcher = caption.match(patt);
 
@@ -556,4 +560,39 @@ function showMessage(msg, type = 'success') {
         $alert.css('visibility', 'hidden');
         $alert.css('opacity', '0');
     }, 2000);
+}
+
+function extraVimeoContent(caption, post_id){
+    // 取得 iframe
+    var patt = /<figure .* data-provider=\"vimeo\" .* data-url=\".*%2F([\d]*)\"><iframe .*>.*<\/iframe><\/figure>/;
+    var matcher = caption.match(patt);
+    // 取得 id
+    if(matcher != null){
+        var id = matcher[1];
+        // 透過 api 取得 img
+        $.get( "http://vimeo.com/api/v2/video/"+id+".xml", function( data ) {
+            var url = $(data).find("thumbnail_large").text();
+            // 產生 img html
+            var link_element = $('<a target="_blank"></a>');
+            link_element.attr("href", "http://woolito.tumblr.com/post/" + post_id + "/");
+            var shortcut_element = $("<img >");
+            shortcut_element.attr("src", url);
+            shortcut_element.addClass("shortcut");
+
+            shortcut_element.attr("vimeo_id", id);
+            shortcut_element.attr("data-toggle", "tooltip");
+            shortcut_element.attr("data-placement", "bottom");
+            shortcut_element.attr("title", "點擊觀看作品介紹");
+            link_element.html(shortcut_element);
+            link_element = link_element.prop('outerHTML');
+            caption = caption.replace(patt, link_element);
+            $("#vimeo-" + id).html(caption);
+            setTimeout(function(){
+                render_posts();
+            }, 100);
+        });
+        return "<div id=\"vimeo-"+id+"\"></div>";
+    }else{
+        return caption;
+    }
 }
