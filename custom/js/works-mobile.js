@@ -88,12 +88,9 @@ function query_top_posts() {
             return;
         }
 
-        for (var i = 0; i < data.response.posts.length; i++) {
-            var post = data.response.posts[i];
-            if (post.tags.indexOf('home_only') > -1) {
-                data.response.posts.splice(i, 1);
-            }
-        }
+        data.response.posts = data.response.posts.filter(post=>{
+            return !(post.tags.indexOf('home_only') > -1);
+        });
 
         posts = $.merge(top_posts, data.response.posts);
         query_posts();
@@ -119,12 +116,9 @@ function query_posts() {
         }
     }).done(function (data) {
         var current_length = data.response.posts.length;
-        for (var i = 0; i < data.response.posts.length; i++) {
-            var post = data.response.posts[i];
-            if (post.tags.indexOf('top') > -1 || post.tags.indexOf('home_only') > -1 || post.tags.indexOf('select') > -1) {
-                data.response.posts.splice(i, 1);
-            }
-        }
+        data.response.posts = data.response.posts.filter(post=>{
+            return !(post.tags.indexOf('top') > -1 || post.tags.indexOf('home_only') > -1 || post.tags.indexOf('select') > -1);
+        });
 
         posts = $.merge(posts, data.response.posts);
 
