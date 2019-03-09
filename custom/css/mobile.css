@@ -172,7 +172,7 @@ p.description {
 }
 
 #navigation .label-english {
-  display: inline;
+  display: inline-block;
   letter-spacing: 1px;
   font-size: 80%;
   width: 40%;
@@ -189,7 +189,7 @@ p.description {
 }
 
 .social_network img {
-  display: inline;
+  display: inline-block;
   width: auto;
   margin: 0px 5px;
   height: 35px;

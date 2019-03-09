@@ -77,7 +77,7 @@
 }
 
 #chosen .selected img {
-  display: inline;
+  display: inline-block;
   height: 3vh;
   width: auto;
   margin: 0px 0px 6px 20px;

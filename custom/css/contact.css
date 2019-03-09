@@ -113,15 +113,13 @@ img.tip {
 }
 
 .budget .input-field .dragfield {
-  /*width: calc(80% + 54px);*/
   width: 80%;
   margin: 0px auto;
-  /*height: 40px;*/
   position: relative;
 }
 
 .budget .input-field .selector {
-  display: inline;
+  display: inline-block;
   visibility: hidden;
   height: 40px;
   width: auto;
