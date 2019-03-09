@@ -258,6 +258,10 @@ label {
   margin: 5px;
 }
 
+.stickers.dev .article_content img {
+  width: 100%;
+}
+
 .tmblr-full img {
   cursor: pointer;
 }
