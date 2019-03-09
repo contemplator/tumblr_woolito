@@ -1,319 +1,319 @@
 #header {
-    /*background-color: #29c2af;*/
-    border: 0px;
+  /*background-color: #29c2af;*/
+  border: 0px;
 }
 
 textarea {
-    border: none;
-    overflow: auto;
-    outline: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    background-color: rgba(0, 0, 0, 0);
-    resize: none;
-    color: #a4a4a4;
+  border: none;
+  overflow: auto;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background-color: rgba(0, 0, 0, 0);
+  resize: none;
+  color: #a4a4a4;
 }
 
 input[type=text],
 input[type=email] {
-    border: none;
-    background-color: rgba(0, 0, 0, 0);
-    width: 100%;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  width: 100%;
 }
 
 input[type=text]:focus,
 input[type=email]:focus {
-    outline: none;
+  outline: none;
 }
 
 select {
-    width: 100%
+  width: 100%
 }
 
 option {
-    display: block;
-    width: inherit;
-    margin: 0px auto;
-    text-align: center;
+  display: block;
+  width: inherit;
+  margin: 0px auto;
+  text-align: center;
 }
 
 option #test {
-    margin: 0px auto;
+  margin: 0px auto;
 }
 
 section {
-    background-color: #3C3C3C;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    padding-top: 2px;
-    padding-bottom: 20px;
-    background-image: url('http://static.tumblr.com/sirdwhf/kQooc40d4/contact_bg.png');
-    background-repeat: no-repeat;
-    background-size: 140% auto;
-    background-position: center bottom;
+  background-color: #3C3C3C;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 2px;
+  padding-bottom: 20px;
+  background-image: url('http://static.tumblr.com/sirdwhf/kQooc40d4/contact_bg.png');
+  background-repeat: no-repeat;
+  background-size: 140% auto;
+  background-position: center bottom;
 }
 
-label{
-    margin: 0px 4px;
+label {
+  margin: 0px 4px;
 }
 
 
 /* header */
 
 .header {
-    text-align: center;
-    background-color: #29C2AF;
-    height: 70px;
+  text-align: center;
+  background-color: #29C2AF;
+  height: 70px;
 }
 
 .header h1 {
-    margin-top: 0px;
-    color: #FFF;
-    text-transform: none;
-    line-height: 70px;
-    padding-top: 1px;
+  margin-top: 0px;
+  color: #FFF;
+  text-transform: none;
+  line-height: 70px;
+  padding-top: 1px;
 }
 
 
 /* content */
 
 .content {
-    color: #fff;
+  color: #fff;
 }
 
 .content label {
-    display: inline-block;
-    letter-spacing: 0px;
-    font-size: 100%;
+  display: inline-block;
+  letter-spacing: 0px;
+  font-size: 100%;
 }
 
 .content label.chinese {
-    font-size: 100%;
-    font-weight: 400;
+  font-size: 100%;
+  font-weight: 400;
 }
 
 .content label.english {
-    margin-left: 0px;
-    font-size: 70%;
-    font-weight: 200;
+  margin-left: 0px;
+  font-size: 70%;
+  font-weight: 200;
 }
 
 .content label.error {
-    color: #df5c5c;
-    display: none;
+  color: #df5c5c;
+  display: none;
 }
 
 img.tip {
-    display: inline-block;
+  display: inline-block;
 }
 
-.content > div {
-    margin: 20px 0px;
+.content>div {
+  margin: 20px 0px;
 }
 
 .input-field {
-    border: 3px solid #fff;
-    border-radius: 5px;
-    padding: 5px;
-    margin-bottom: 30px;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 30px;
 }
 
 
 /* idea */
 
 .idea .input-field textarea {
-    height: auto !important;
+  height: auto !important;
 }
 
 
 /* contact */
 
 .idea .input-field {
-    background-image: url('http://static.tumblr.com/sirdwhf/SB8oc40du/contact_gg.png');
-    background-repeat: no-repeat;
-    background-size: 70% auto;
-    background-position: center bottom;
+  background-image: url('http://static.tumblr.com/sirdwhf/SB8oc40du/contact_gg.png');
+  background-repeat: no-repeat;
+  background-size: 70% auto;
+  background-position: center bottom;
 }
 
 .input-field textarea {
-    width: 100%;
+  width: 100%;
 }
 
 
 /* type */
 
 .type .input-field {
-    text-align: center;
+  text-align: center;
 }
 
 .type .input-field input[type='radio'] {
-    visibility: hidden;
-    position: absolute;
+  visibility: hidden;
+  position: absolute;
 }
 
 .type .input-field img.radio {
-    display: inline;
+  display: inline;
 }
 
 .type .input-field label {
-    margin-right: 30px;
-    margin-bottom: 0px;
-    vertical-align: top;
+  margin-right: 30px;
+  margin-bottom: 0px;
+  vertical-align: top;
 }
 
 
 /* budget */
 
 .budget #input-budget {
-    color: #0a9589;
+  color: #0a9589;
 }
 
-.budget .advice{
-    background-color: #00c3b1;
-    padding: 0px 5px;
-    border-radius: 3px;
-    color: #333;
+.budget .advice {
+  background-color: #00c3b1;
+  padding: 0px 5px;
+  border-radius: 3px;
+  color: #333;
 }
 
 body.modal-open {
-    overflow: visible;
+  overflow: visible;
 }
 
 .budget #budget-modal .modal-dialog {
-    position: fixed;
-    top: 30%;
-    right: 0;
-    left: 0;
-    margin-right: auto;
-    margin-left: auto;
-    width: 80%;
-    text-align: center;
+  position: fixed;
+  top: 30%;
+  right: 0;
+  left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
+  text-align: center;
 }
 
 .budget #budget-modal .modal-body {
-    padding: 0px;
+  padding: 0px;
 }
 
 .budget #budget-modal .budget-choice {
-    color: #000;
-    font-size: 1.2em;
-    padding: 10px 5px;
-    border-bottom: #ccc solid 1px;
+  color: #000;
+  font-size: 1.2em;
+  padding: 10px 5px;
+  border-bottom: #ccc solid 1px;
 }
 
 .budget #budget-modal .budget-choice:hover {
-    background-color: rgba(0, 184, 255, 0.38)
+  background-color: rgba(0, 184, 255, 0.38)
 }
 
 /* phone */
-.company #input-company{
-    width: 100%;
-    background-color: rgba(0,0,0,0);
-    border: none;
+.company #input-company {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
 }
 
 /* phone */
-.phone #input-phone{
-    width: 100%;
-    background-color: rgba(0,0,0,0);
-    border: none;
+.phone #input-phone {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
 }
 
 
 /* btn_sender */
 
 div.btn-sender {
-    text-align: center;
-    margin-bottom: 0px;
+  text-align: center;
+  margin-bottom: 0px;
 }
 
 #btn-sender {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .btn-sender #btn-sender {
-    display: inline-block;
-    padding: 10px 20px;
-    /*background-image: url('http://static.tumblr.com/sirdwhf/nD0oc40go/contact_send.png');
+  display: inline-block;
+  padding: 10px 20px;
+  /*background-image: url('http://static.tumblr.com/sirdwhf/nD0oc40go/contact_send.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;*/
-    border: 5px solid #39bbad;
-    border-radius: 15px;
-    color: #39bbad;
+  border: 5px solid #39bbad;
+  border-radius: 15px;
+  color: #39bbad;
 }
 
 .btn-sender #btn-sender:hover {
-    /*background-image: url('http://static.tumblr.com/sirdwhf/pV8oc40h5/contact_sending.png');*/
-    border: 5px solid #fff4a3;
-    color: #fff4a3;
+  /*background-image: url('http://static.tumblr.com/sirdwhf/pV8oc40h5/contact_sending.png');*/
+  border: 5px solid #fff4a3;
+  color: #fff4a3;
 }
 
 .btn-sender #btn-sender label.chinese {
-    font-size: 150%;
+  font-size: 150%;
 }
 
 .btn-sender #btn-sender label.english {
-    font-size: 120%;
-    font-weight: 500;
+  font-size: 120%;
+  font-weight: 500;
 }
 
 
 /* footer */
 
 .footer {
-    background-color: #fff;
-    border-radius: 20px 20px 0px 0px;
-    text-align: center;
-    padding: 20px;
+  background-color: #fff;
+  border-radius: 20px 20px 0px 0px;
+  text-align: center;
+  padding: 20px;
 }
 
 .footer p {
-    font-size: 100%;
-    margin: 1px 0px;
-    color: #697668;
-    font-weight: 600;
+  font-size: 100%;
+  margin: 1px 0px;
+  color: #697668;
+  font-weight: 600;
 }
 
 
 /* loading */
 
 #loading {
-    position: fixed;
-    top: 20%;
-    font-size: 1.5em;
-    color: #fff;
-    width: 100%;
-    text-align: center;
-    z-index: 3;
-    display: none;
+  position: fixed;
+  top: 20%;
+  font-size: 1.5em;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  z-index: 3;
+  display: none;
 }
 
-#loading span{
-    margin: 10px;
+#loading span {
+  margin: 10px;
 }
 
 .glyphicon-refresh-animate {
-    -webkit-animation: spin 1s linear infinite;
-    -moz-animation: spin 1s linear infinite;
-    animation: spin 1s linear infinite;
+  -webkit-animation: spin 1s linear infinite;
+  -moz-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
 }
 
 @-moz-keyframes spin {
-    100% {
-        -moz-transform: rotate(360deg);
-    }
+  100% {
+    -moz-transform: rotate(360deg);
+  }
 }
 
 @-webkit-keyframes spin {
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-    100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }

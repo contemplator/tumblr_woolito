@@ -95,7 +95,7 @@
   /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, #393a3a 0%, #444445 35%, #403f3f 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#393a3a', endColorstr='#403f3f', GradientType=0);
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#393a3a', endColorstr='#403f3f', GradientType=0);
   /* IE6-9 */
   color: #ddd;
   margin-bottom: 5px;
@@ -224,8 +224,8 @@ label {
 }
 
 .article_content figure img,
-.article_content img{
-    margin: 16px 0;
+.article_content img {
+  margin: 16px 0;
 }
 
 /* alert */
@@ -270,6 +270,7 @@ label {
   .effect_field {
     height: 45px;
   }
+
   .tip-open {
     margin: -15px 0px 0px 0px;
   }

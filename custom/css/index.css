@@ -1,118 +1,133 @@
 /* top */
 #top {
-    width: 100%;
+  width: 100%;
 }
-#top td{
-    background-color: #fff;
-    border: 4px solid #e6e6e6;
-    border-left: 2px solid #e6e6e6;
-    padding: 5px;
+
+#top td {
+  background-color: #fff;
+  border: 4px solid #e6e6e6;
+  border-left: 2px solid #e6e6e6;
+  padding: 5px;
 }
-#top td img{
-}
+
+#top td img {}
+
 /* top */
 
 /* read more */
 #readmore {
-    width: 33.33%;
-    margin: 0px auto;
-    text-align: center;
-    margin-top: 32px;
-    margin-bottom: 32px;
+  width: 33.33%;
+  margin: 0px auto;
+  text-align: center;
+  margin-top: 32px;
+  margin-bottom: 32px;
 }
 
 #readmore button {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    width: 100%;
-    padding: 28px 24px;
-    line-height: 12px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-size: 12px;
-    background-color: #fff;
-    border: none;
-    color: #3498DB;
-    font-weight: 600;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 100%;
+  padding: 28px 24px;
+  line-height: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+  background-color: #fff;
+  border: none;
+  color: #3498DB;
+  font-weight: 600;
 }
 
 #readmore button:hover {
-    background-color: #4990b8;
-    color: #fff;
+  background-color: #4990b8;
+  color: #fff;
 }
 
 .load-more-loading,
 .load-more-end {
-    display: none;
+  display: none;
 }
 
 img {
-    display: inline;
+  display: inline;
 }
+
 /* modal */
-.modal-body{
-    text-align: center;
+.modal-body {
+  text-align: center;
 }
+
 /* youtube */
-.post_iframe{
-    position: relative;
-    height: auto;
+.post_iframe {
+  position: relative;
+  height: auto;
 }
-div.play-button { 
-    height: 72px; 
-    width: 72px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -36px;
-    margin-left: -36px;
-    background: url("http://i.imgur.com/TxzC70f.png");
-    background-repeat: no-repeat;
-    cursor: pointer;
+
+div.play-button {
+  height: 72px;
+  width: 72px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -36px;
+  margin-left: -36px;
+  background: url("http://i.imgur.com/TxzC70f.png");
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
-#product_video iframe{
-    width: 90%;
-    margin-bottom: 3%;
+
+#product_video iframe {
+  width: 90%;
+  margin-bottom: 3%;
 }
-.labnolIframe{
-    width: 100%;
-    height: 100%;
+
+.labnolIframe {
+  width: 100%;
+  height: 100%;
 }
-#preview_youtube{
-    height: 450px;
-    width: 600px;
-    border: 5px #363636 solid;
-    background-color: #363636;
-    z-index: 110;
+
+#preview_youtube {
+  height: 450px;
+  width: 600px;
+  border: 5px #363636 solid;
+  background-color: #363636;
+  z-index: 110;
 }
-#preview_youtube figure, #preview_youtube figure iframe{
-    height: 100%;
-    width: 100%;
-    border: 0px;
+
+#preview_youtube figure,
+#preview_youtube figure iframe {
+  height: 100%;
+  width: 100%;
+  border: 0px;
 }
-#preview_youtube #current_status{
-    position: absolute;
-    bottom: 0px;
-    color: #FFF;
-    background-color: #363636;
-    width: 100%;
-    height: 12%;
-    text-align: center;
-    font-size: 2.5em;
-    line-height: 1.5em;
+
+#preview_youtube #current_status {
+  position: absolute;
+  bottom: 0px;
+  color: #FFF;
+  background-color: #363636;
+  width: 100%;
+  height: 12%;
+  text-align: center;
+  font-size: 2.5em;
+  line-height: 1.5em;
 }
-.preview_hide{
-    display: none;
+
+.preview_hide {
+  display: none;
 }
-.preview_show{
-    display: initial;
-    position: absolute;
+
+.preview_show {
+  display: initial;
+  position: absolute;
 }
+
 /* tooltip */
-.tooltip{
-    position: absolute;
-    width: 140px;
+.tooltip {
+  position: absolute;
+  width: 140px;
 }
-.tooltip-inner{
-    font-size: 12px;
-    letter-spacing: 2px;
+
+.tooltip-inner {
+  font-size: 12px;
+  letter-spacing: 2px;
 }

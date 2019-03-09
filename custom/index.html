@@ -2,1473 +2,1537 @@
 <html class="no-js" lang="zh">
 
 <head>
-    <!-- Basic Page Settings -->
-    <meta name="tumblr-theme" content="37056" />
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>{Title}{block:PostSummary} - {PostSummary}{/block:PostSummary}</title>
-    <meta name="author" content="{Title}"> {block:Description}
-    <meta name="description" content="{MetaDescription}" /> {/block:Description}
-    <link rel="shortcut icon" href="{Favicon}">
-    <link rel="apple-touch-icon" href="{PortraitURL-128}">
-    <link rel="alternate" type="application/rss+xml" href="{RSS}">
-    <!-- Main Style Settings -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link href='https://fonts.googleapis.com/earlyaccess/notosanstc.css' rel='stylesheet' type='text/css'> -->
-    <link rel="stylesheet" href="https://static.tumblr.com/e6lc7yi/z3pnekdqv/precrafted-social.css">
-    <link rel="stylesheet" href="https://static.tumblr.com/e6lc7yi/g6Fnsuud3/fixie-styles.css">
-    <!--bootstrap and drawer css-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/css/bootstrap-drawer.min.css">
-    <!-- Custom Options -->
-    <!-- Custom Colors -->
-    <!-- Custom Images -->
-    <meta name="image:Background" content="" />
-    <meta name="image:Logo" content="" />
-    <meta name="image:Avatar" content="" />
-    <!-- Custom Text -->
-    <meta name="text:Load More" content="Load More Posts" />
-    <meta name="text:Load More Loading" content="Loading..." />
-    <meta name="text:Load More End" content="No More Posts" />
-    <meta name="text:Footer Text" content="Your custom footer message" />
+  <!-- Basic Page Settings -->
+  <meta name="tumblr-theme" content="37056" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>{Title}{block:PostSummary} - {PostSummary}{/block:PostSummary}</title>
+  <meta name="author" content="{Title}"> {block:Description}
+  <meta name="description" content="{MetaDescription}" /> {/block:Description}
+  <link rel="shortcut icon" href="{Favicon}">
+  <link rel="apple-touch-icon" href="{PortraitURL-128}">
+  <link rel="alternate" type="application/rss+xml" href="{RSS}">
+  <!-- Main Style Settings -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link href='https://fonts.googleapis.com/earlyaccess/notosanstc.css' rel='stylesheet' type='text/css'> -->
+  <link rel="stylesheet" href="https://static.tumblr.com/e6lc7yi/z3pnekdqv/precrafted-social.css">
+  <link rel="stylesheet" href="https://static.tumblr.com/e6lc7yi/g6Fnsuud3/fixie-styles.css">
+  <!--bootstrap and drawer css-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-drawer/1.0.6/css/bootstrap-drawer.min.css">
+  <!-- Custom Options -->
+  <!-- Custom Colors -->
+  <!-- Custom Images -->
+  <meta name="image:Background" content="" />
+  <meta name="image:Logo" content="" />
+  <meta name="image:Avatar" content="" />
+  <!-- Custom Text -->
+  <meta name="text:Load More" content="Load More Posts" />
+  <meta name="text:Load More Loading" content="Loading..." />
+  <meta name="text:Load More End" content="No More Posts" />
+  <meta name="text:Footer Text" content="Your custom footer message" />
 
-    <meta name="text:Single Column Width" content="" />
-    <meta name="text:Grid Spacing" content="2" />
-    <meta name="text:Post Spacing" content="40" />
-    <meta name="text:Photoset Spacing" content="4" />
+  <meta name="text:Single Column Width" content="" />
+  <meta name="text:Grid Spacing" content="2" />
+  <meta name="text:Post Spacing" content="40" />
+  <meta name="text:Photoset Spacing" content="4" />
 
-    <meta name="text:Title Font Size" content="35" />
-    <meta name="text:Title Letter Spacing" content="2" />
+  <meta name="text:Title Font Size" content="35" />
+  <meta name="text:Title Letter Spacing" content="2" />
 
-    <meta name="text:Google Analytics Code" content="" />
-    <meta name="text:Disqus Shortname" content="" />
+  <meta name="text:Google Analytics Code" content="" />
+  <meta name="text:Disqus Shortname" content="" />
 
-    <meta name="text:Font Embed Code" content="" />
-    <meta name="text:Font Family Logo" content="" />
-    <meta name="text:Font Family Titles" content="" />
-    <meta name="text:Font Family Body" content="" />
+  <meta name="text:Font Embed Code" content="" />
+  <meta name="text:Font Family Logo" content="" />
+  <meta name="text:Font Family Titles" content="" />
+  <meta name="text:Font Family Body" content="" />
 
-    <meta name="text:URL Twitter" content="" />
-    <meta name="text:URL Facebook" content="" />
-    <meta name="text:URL Tumblr" content="" />
-    <meta name="text:URL Website" content="" />
-    <meta name="text:URL Google" content="" />
-    <meta name="text:URL Linkedin" content="" />
-    <meta name="text:URL Foursquare" content="" />
-    <meta name="text:URL Skype" content="" />
-    <meta name="text:URL Email" content="" />
-    <meta name="text:URL Instagram" content="" />
-    <meta name="text:URL Flickr" content="" />
-    <meta name="text:URL 500px" content="" />
-    <meta name="text:URL VSCO Grid" content="" />
-    <meta name="text:URL Camera" content="" />
-    <meta name="text:URL Eye" content="" />
-    <meta name="text:URL Pinterest" content="" />
-    <meta name="text:URL Heart" content="" />
-    <meta name="text:URL Youtube" content="" />
-    <meta name="text:URL Vimeo" content="" />
-    <meta name="text:URL Vine" content="" />
-    <meta name="text:URL Ebay" content="" />
-    <meta name="text:URL Store" content="" />
-    <meta name="text:URL Apple" content="" />
-    <meta name="text:URL Googleplay" content="" />
-    <meta name="text:URL Etsy" content="" />
-    <meta name="text:URL Dribbble" content="" />
-    <meta name="text:URL Behance" content="" />
-    <meta name="text:URL deviantART" content="" />
-    <meta name="text:URL Github" content="" />
-    <meta name="text:URL Medium" content="" />
-    <meta name="text:URL Quora" content="" />
-    <meta name="text:URL Weibo" content="" />
-    <meta name="text:URL Travel" content="" />
-    <meta name="text:URL Lastfm" content="" />
-    <meta name="text:URL Rdio" content="" />
-    <meta name="text:URL Spotify" content="" />
-    <meta name="text:URL Soundcloud" content="" />
-    <meta name="text:URL RSS" content="" />
+  <meta name="text:URL Twitter" content="" />
+  <meta name="text:URL Facebook" content="" />
+  <meta name="text:URL Tumblr" content="" />
+  <meta name="text:URL Website" content="" />
+  <meta name="text:URL Google" content="" />
+  <meta name="text:URL Linkedin" content="" />
+  <meta name="text:URL Foursquare" content="" />
+  <meta name="text:URL Skype" content="" />
+  <meta name="text:URL Email" content="" />
+  <meta name="text:URL Instagram" content="" />
+  <meta name="text:URL Flickr" content="" />
+  <meta name="text:URL 500px" content="" />
+  <meta name="text:URL VSCO Grid" content="" />
+  <meta name="text:URL Camera" content="" />
+  <meta name="text:URL Eye" content="" />
+  <meta name="text:URL Pinterest" content="" />
+  <meta name="text:URL Heart" content="" />
+  <meta name="text:URL Youtube" content="" />
+  <meta name="text:URL Vimeo" content="" />
+  <meta name="text:URL Vine" content="" />
+  <meta name="text:URL Ebay" content="" />
+  <meta name="text:URL Store" content="" />
+  <meta name="text:URL Apple" content="" />
+  <meta name="text:URL Googleplay" content="" />
+  <meta name="text:URL Etsy" content="" />
+  <meta name="text:URL Dribbble" content="" />
+  <meta name="text:URL Behance" content="" />
+  <meta name="text:URL deviantART" content="" />
+  <meta name="text:URL Github" content="" />
+  <meta name="text:URL Medium" content="" />
+  <meta name="text:URL Quora" content="" />
+  <meta name="text:URL Weibo" content="" />
+  <meta name="text:URL Travel" content="" />
+  <meta name="text:URL Lastfm" content="" />
+  <meta name="text:URL Rdio" content="" />
+  <meta name="text:URL Spotify" content="" />
+  <meta name="text:URL Soundcloud" content="" />
+  <meta name="text:URL RSS" content="" />
 
 
-    <!-- Custom Choices -->
-    <meta name="select:Pagination" content="pagination_load-more" title="Load More">
-    <meta name="select:Pagination" content="pagination_standard" title="Standard">
-    <meta name="select:Pagination" content="pagination_infinite-scroll" title="Infinite Scroll">
+  <!-- Custom Choices -->
+  <meta name="select:Pagination" content="pagination_load-more" title="Load More">
+  <meta name="select:Pagination" content="pagination_standard" title="Standard">
+  <meta name="select:Pagination" content="pagination_infinite-scroll" title="Infinite Scroll">
 
-    <meta name="select:Photo Link" content="post" title="Post">
-    <meta name="select:Photo Link" content="image" title="Image">
-    <meta name="select:Photo Link" content="lightbox" title="Lightbox">
-    <meta name="select:Photo Link" content="none" title="None">
-    <meta name="select:Photo Link Permalink" content="image" title="Image">
-    <meta name="select:Photo Link Permalink" content="lightbox" title="Lightbox">
-    <meta name="select:Photo Link Permalink" content="none" title="None">
+  <meta name="select:Photo Link" content="post" title="Post">
+  <meta name="select:Photo Link" content="image" title="Image">
+  <meta name="select:Photo Link" content="lightbox" title="Lightbox">
+  <meta name="select:Photo Link" content="none" title="None">
+  <meta name="select:Photo Link Permalink" content="image" title="Image">
+  <meta name="select:Photo Link Permalink" content="lightbox" title="Lightbox">
+  <meta name="select:Photo Link Permalink" content="none" title="None">
 
-    <meta name="select:Panorama Link" content="image" title="Lightbox">
-    <meta name="select:Panorama Link" content="post" title="Post">
-    <meta name="select:Panorama Link" content="none" title="None">
-    <meta name="select:Panorama Link Permalink" content="image" title="Lightbox">
-    <meta name="select:Panorama Link Permalink" content="none" title="None">
+  <meta name="select:Panorama Link" content="image" title="Lightbox">
+  <meta name="select:Panorama Link" content="post" title="Post">
+  <meta name="select:Panorama Link" content="none" title="None">
+  <meta name="select:Panorama Link Permalink" content="image" title="Lightbox">
+  <meta name="select:Panorama Link Permalink" content="none" title="None">
 
-    <meta name="select:Photoset Link" content="lightbox" title="Lightbox">
-    <meta name="select:Photoset Link" content="post" title="Post">
-    <meta name="select:Photoset Link" content="none" title="None">
-    <meta name="select:Photoset Link Permalink" content="lightbox" title="Lightbox">
-    <meta name="select:Photoset Link Permalink" content="none" title="None">
+  <meta name="select:Photoset Link" content="lightbox" title="Lightbox">
+  <meta name="select:Photoset Link" content="post" title="Post">
+  <meta name="select:Photoset Link" content="none" title="None">
+  <meta name="select:Photoset Link Permalink" content="lightbox" title="Lightbox">
+  <meta name="select:Photoset Link Permalink" content="none" title="None">
 
-    <meta name="if:Photoset Cover" content="0">
+  <meta name="if:Photoset Cover" content="0">
 
-    <meta name="if:Tile Background" content="0">
+  <meta name="if:Tile Background" content="0">
 
-    <meta name="if:Show Archive Link" content="1" />
+  <meta name="if:Show Archive Link" content="1" />
 
-    <meta name="if:Focus Mode" content="0" />
-    <meta name="if:Single Column Layout" content="0" />
-    <meta name="if:Sidebar On Right" content="0" />
+  <meta name="if:Focus Mode" content="0" />
+  <meta name="if:Single Column Layout" content="0" />
+  <meta name="if:Sidebar On Right" content="0" />
 
-    <meta name="if:White Icons" content="0" />
-    <meta name="if:Show Meta On Home" content="0">
-    <meta name="if:Show Group Author" content="0">
+  <meta name="if:White Icons" content="0" />
+  <meta name="if:Show Meta On Home" content="0">
+  <meta name="if:Show Group Author" content="0">
 
-    <meta name="if:Sharer" content="1">
-    <meta name="if:Sharer Twitter" content="1">
-    <meta name="if:Sharer Facebook" content="1">
-    <meta name="if:Sharer Google" content="1">
-    <meta name="if:Sharer Pinterest" content="1">
-    <!-- Custom CSS -->
-    <style type="text/css">
+  <meta name="if:Sharer" content="1">
+  <meta name="if:Sharer Twitter" content="1">
+  <meta name="if:Sharer Facebook" content="1">
+  <meta name="if:Sharer Google" content="1">
+  <meta name="if:Sharer Pinterest" content="1">
+  <!-- Custom CSS -->
+  <style type="text/css">
 
-    </style>
-    <!-- Google Analytics -->
-    <!-- Sharing meta tags -->
-    <meta property="og:site_name" content="{Title}" />{block:IndexPage}
-    <meta property="og:title" content="{block:TagPage}&quot;{PlaintextTag}&quot;-{/block:TagPage}{block:SearchPage}{lang:Search results for SearchQuery}-{/block:SearchPage}{Title}" />
-    <meta property="og:url" content="{blogURL}{block:TagPage}tagged/{URLSafeTag}{/block:TagPage}" />
-    <meta property="og:type" content="blog" />
-    <meta property="og:description" content="{MetaDescription}{block:TagPage}{PlaintextDescription}{/block:TagPage}" />
-    <meta property="og:image" content="{PortraitURL-128}" />{/block:IndexPage}{block:PermalinkPage}
-    <meta property="og:url" content="{Permalink}" />
-    <meta property="og:type" content="article" />{block:Posts}{block:Text}{block:Title}
-    <meta property="og:title" content="{PlaintextTitle}" />{/block:Title}
-    <meta property="og:description" content="{PlaintextBody}" />
-    <meta property="og:image" content="{PortraitURL-128}" />{/block:Text}{block:Photo}
-    <meta property="og:image" content="{PhotoURL-HighRes}" />{block:Caption}
-    <meta property="og:description" content="{PlaintextCaption}" />{/block:Caption}{/block:Photo}{block:Photoset}{block:Photos}
-    <meta property="og:image" content="{PhotoURL-HighRes}" />{/block:Photos}{block:Caption}
-    <meta property="og:description" content="{PlaintextCaption}" />{/block:Caption}{/block:Photoset}{block:Quote}
-    <meta property="og:title" content="{PlaintextQuote}" />
-    <meta property="og:description" content="{PlaintextSource}" />
-    <meta property="og:image" content="{PortraitURL-128}" />{/block:Quote}{block:Link}
-    <meta property="og:title" content="{PlaintextName}" />
-    <meta property="og:description" content="{PlaintextDescription}" />{block:Thumbnail}
-    <meta property="og:image" content="{Thumbnail}" />{/block:Thumbnail}{/block:Link}{block:Chat}
-    <meta property="og:title" content="{PlaintextTitle}" />
-    <meta property="og:description" content="{block:Lines}{block:Label}{Label}:{/block:Label}{Line}&bull;{/block:Lines}" />
-    <meta property="og:image" content="{PortraitURL-128}" />{/block:Chat}{block:Audio}
-    <meta property="og:title" content="{block:Artist}{Artist}-{/block:Artist}{block:TrackName}{TrackName}{/block:TrackName}" />
-    <meta property="og:description" content="{PlaintextCaption}" />{block:AlbumArt}
-    <meta property="og:image" content="{AlbumArtURL}" />{/block:AlbumArt}{/block:Audio}{block:Video}{block:Caption}
-    <meta property="og:description" content="{PlaintextCaption}" />{/block:Caption}{block:VideoThumbnail}
-    <meta property="og:image" content="{VideoThumbnailURL}" />{/block:VideoThumbnail}{/block:Video}{block:Answer}
-    <meta property="og:title" content="{PlaintextQuestion}" />
-    <meta property="og:description" content="{PlaintextAnswer}" />
-    <meta property="og:image" content="{PortraitURL-128}" />{/block:Answer}{/block:Posts}{/block:PermalinkPage} {block:PermalinkPage}
-    <meta name="twitter:url" content="{Permalink}" />{block:Posts}{block:Text}
-    <meta name="twitter:card" content="summary">{block:Title}
-    <meta name="twitter:title" content="{PlaintextTitle}" />{/block:Title}
-    <meta name="twitter:description" content="{PlaintextBody}" />
-    <meta name="twitter:image" content="{PortraitURL-128}" />{/block:Text}{block:Photo}
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{Title}" />
-    <meta name="twitter:image" content="{PhotoURL-500}" />{block:Caption}
-    <meta name="twitter:description" content="{PlaintextCaption}" />{/block:Caption}{/block:Photo}{block:Photoset}
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{Title}" />{block:Photos}
-    <meta name="twitter:image" content="{PhotoURL-500}" />{/block:Photos}{block:Caption}
-    <meta name="twitter:description" content="{PlaintextCaption}" />{/block:Caption}{/block:Photoset}{block:Quote}
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="{PlaintextQuote}" />
-    <meta name="twitter:description" content="{PlaintextSource}" />
-    <meta name="twitter:image" content="{PortraitURL-128}" />{/block:Quote}{block:Link}
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="{PlaintextName}" />
-    <meta name="twitter:description" content="{PlaintextDescription}" />{block:Thumbnail}
-    <meta name="twitter:image" content="{Thumbnail}" />{/block:Thumbnail}{/block:Link}{block:Chat}
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="{PlaintextTitle}" />
-    <meta name="twitter:description" content="{block:Lines}{block:Label}{Label}:{/block:Label}{Line}&bull;{/block:Lines}" />
-    <meta name="twitter:image" content="{PortraitURL-128}" />{/block:Chat}{block:Audio}
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="{block:Artist}{Artist}-{/block:Artist}{block:TrackName}{TrackName}{/block:TrackName}" />
-    <meta name="twitter:description" content="{PlaintextCaption}" />{block:AlbumArt}
-    <meta name="twitter:image" content="{AlbumArtURL}" />{/block:AlbumArt}{/block:Audio}{block:Video}
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="{PlaintextTitle}" />{block:Caption}
-    <meta name="twitter:description" content="{PlaintextCaption}" />{/block:Caption}{block:VideoThumbnail}
-    <meta name="twitter:image" content="{VideoThumbnailURL}" />{/block:VideoThumbnail}{/block:Video}{block:Answer}
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="{PlaintextQuestion}" />
-    <meta name="twitter:description" content="{PlaintextAnswer}" />
-    <meta name="twitter:image" content="{PortraitURL-128}" />{/block:Answer}{/block:Posts}{/block:PermalinkPage}
-    <style type="text/css">
-        @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
-        html {
-            overflow-y: hidden;
-            user-select: initial;
-        }
-        
-        body {
-            background-color: #e6e6e6;
-            font-family: 'Noto Sans TC', sans-serif;
-        }
-        
-        h2 {
-            font-size: 20px;
-            text-transform: inherit;
-        }
-        
-        a,
-        a:hover {
-            text-decoration: none;
-        }
-        /* navigation */
-        
-        header .logo h1 {
-            font-weight: 300;
-            text-transform: none;
-        }
-        
-        div.center {
-            padding-top: 0px;
-            padding-left: 0px;
-        }
-        
-        header .center .centered {
-            display: block;
-            height: 100vh;
-            overflow: auto;
-            background-color: #fff;
-        }
-        
-        div#shortcut {
-            border-radius: 0px 0px 50px 0px;
-        }
-        
-        header .logo h1 a {
-            color: #000;
-            text-decoration: none;
-            font-weight: 300;
-            font-family: 'Noto Sans TC', sans-serif;
-        }
-        
-        header p.description {
-            margin: 0px;
-        }
-        /* navigation */
-        
-        #navigation ul li {
-            border-top: 2px #ddd solid;
-            width: 90%;
-            margin: 0px auto;
-            font-size: 100%;
-            line-height: 1.5em;
-            font-weight: 400;
-            text-align: left;
-            list-style: none;
-        }
-        
-        #navigation ul li:hover {
-            background: #e5e5e4;
-        }
-        
-        #navigation ul li div {
-            padding-left: 15%;
-            padding-bottom: 10px;
-            padding-top: 10px;
-            color: #000;
-        }
-        
-        #navigation .label-chinese {
-            display: inline-block;
-            letter-spacing: 1px;
-            width: 45%;
-        }
-        
-        #navigation .label-english {
-            display: inline;
-            letter-spacing: 1px;
-            font-size: 80%;
-            width: 40%;
-        }
-        
-        #shortcut {
-            padding: 20px;
-        }
-        
-        .social_network {
-            margin-top: 20px;
-        }
-        
-        .social_network a {
-            margin: 0px 3px;
-        }
-        
-        .social_network img {
-            display: inline;
-            height: 35px;
-            width: auto;
-        }
-        
-        .youtube {
-            position: relative;
-        }
-        
-        .youtube:hover .original img,
-        .youtube:hover .business img {
-            display: block;
-        }
-        
-        .business,
-        .original {
-            /*display: block;*/
-        }
-        
-        .business img,
-        .original img {
-            position: absolute;
-            left: 35px;
-            display: none;
-        }
-        
-        .original img {
-            top: -25px;
-        }
-        
-        .business img {
-            top: 10px;
-        }
-        /* index */
-        
-        section {
-            margin-bottom: 0px;
-            padding: 5px 0px;
-            height: 100vh;
-        }
-        
-        .main {
-            width: 100%;
-            height: 100%;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-        
-        #top {
-            height: 50%;
-        }
-        
-        #top .flex-column:nth-child(2) .index-post {
-            height: 33.33%;
-        }
-        
-        #fixed-posts {
-            height: 50%;
-        }
-        
-        .flex-horizontal {
-            display: -webkit-flex;
-            display: flex;
-            -webkit-flex-direction: row;
-            flex-direction: row;
-        }
-        
-        .flex-column {
-            flex: 1;
-        }
-        
-        .index-post {
-            width: 100%;
-            height: 100%;
-            padding: 2%;
-            background: #fff;
-            box-sizing: border-box;
-            border: 2px solid #e6e6e6;
-            text-align: center;
-        }
-        
-        .index-post span {
-            display: inline-block;
-            height: 100%;
-            vertical-align: middle;
-        }
-        
-        .index-post img {
-            max-width: 100%;
-            max-height: 100%;
-            vertical-align: middle;
-            display: inline;
-        }
-        
-        #fixed-posts .index-post {
-            float: left;
-            width: 50%;
-        }
-        
-        #fixed-posts .index-post.select {
-            width: 50%;
-        }
-        /* single post page */
-        
-        .single-post article {
-            margin-top: 0px;
-        }
-        
-        .single-post article #youtube_iframe,
-        article.type_text embed,
-        article.type_text iframe,
-        article.type_text object,
-        article.type_text video {
-            width: 100%;
-            height: 400px;
-        }
-        
-        article.type_text .icons iframe {
-            height: 70%;
-        }
-        
-        .single-post article img {
-            cursor: pointer;
-        }
-        
-        .single-post article {
-            width: 100%;
-            margin-bottom: 0px;
-        }
-        
-        .article_content iframe {
-            width: 100%;
-        }
-        
-        article.stickers figure,
-        .single-post article.stickers .article-content img {
-            display: inline;
-        }
-        
-        .single-post article.stickers .article-content img {
-            width: calc(33.33% - 20px);
-            border: 1px solid #aaa;
-            border-radius: 10px;
-            margin: 10px;
-        }
-        
-        .video-container iframe {
-            width: 100%;
-            height: auto;
-        }
-        
-        .single-post article {
-            margin-top: 0px;
-        }
-        
-        .single-post ul.icons {
-            display: block;
-        }
-        
-        .readmore {
-            display: block;
-        }
-        
-        u {
-            text-decoration: underline;
-        }
-        /* tooltip */
-        
-        .tooltip {
-            position: absolute;
-            width: 140px;
-        }
-        
-        .tooltip-inner {
-            font-size: 12px;
-            letter-spacing: 2px;
-        }
-        /* image preview */
-        
-        #image-preview {
-            position: fixed;
-            width: 100%;
-            height: 100vh;
-            left: 0;
-            top: 0;
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 3;
-            display: none;
-        }
-        
-        .flex {
-            height: 88vh;
-            display: -webkit-flex;
-            display: flex;
-            -webkit-align-items: center;
-            align-items: center;
-            -webkit-justify-content: center;
-            justify-content: center;
-        }
-        
-        #image-preview .left,
-        #image-preview .right {
-            -webkit-flex: 1;
-            flex: 1;
-            cursor: pointer;
-            text-align: center;
-            color: #fff;
-            font-size: 2em;
-        }
-        
-        #image-preview #preview-image {
-            -webkit-flex: 9;
-            flex: 9;
-        }
-        
-        #image-preview #preview-image img {
-            max-width: 100%;
-            max-height: 86vh;
-            cursor: pointer;
-            margin: 0px auto;
-        }
-        
-        #images-slider {
-            height: 9vh;
-        }
-        
-        #images-slider ul {
-            text-align: center;
-            margin-bottom: 0px;
-            display: flex;
-            position: relative;
-            left: 0px;
-        }
-        
-        #images-slider li {
-            display: inline-block;
-            padding: 0px 5px;
-            height: 80px;
-            width: 110px;
-            cursor: pointer;
-        }
-        
-        #images-slider li span {
-            height: 100%;
-            display: inline-block;
-            vertical-align: middle;
-        }
-        
-        #images-slider li.active img {
-            box-shadow: 0px 0px 30px #ff0000;
-            cursor: pointer;
-        }
-        
-        #images-slider ul li img {
-            width: 90px;
-            max-width: 100px;
-            max-height: 100%;
-            margin: 0px auto;
-            display: inline;
-        }
-        
-        .mobile {
-            display: none;
-        }
-        
-        @media only screen and (min-width: 1800px) {
-            .index-post {
-                padding: 3%;
-            }
-            #navigation ul li div {
-                padding-top: 20px;
-                padding-bottom: 20px;
-            }
-            .single-post article #youtube_iframe,
-            article.type_text embed,
-            article.type_text iframe,
-            article.type_text object,
-            article.type_text video {
-                width: 100%;
-                height: 400px;
-            }
-            article.type_text .icons iframe {
-                height: 70%;
-            }
-        }
-        
-        @media only screen and (max-width: 1800px) {}
-        
-        @media only screen and (max-width: 1420px) {}
-        
-        @media only screen and (max-width: 1080px) {
-            html {
-                overflow-y: auto;
-            }
-            .main {
-                padding: 0px;
-            }
-            #top {
-                display: block;
-                height: auto;
-            }
-            .index-post {
-                padding: 3%;
-            }
-            #fixed-posts {
-                height: auto;
-            }
-            #fixed-posts .index-post.select {
-                width: 100%;
-            }
-            #fixed-posts .index-post {
-                width: 100%;
-            }
-        }
-        
-        @media only screen and (max-width: 1024px) {
-            header,
-            div.center {
-                width: 40%;
-            }
-            section {
-                width: 60%;
-            }
-            .single-post article #youtube_iframe,
-            article.type_text embed,
-            article.type_text iframe,
-            article.type_text object,
-            article.type_text video {
-                width: 100%;
-                height: 240px;
-            }
-            article.type_text .icons iframe {
-                height: 70%;
-            }
-        }
-        
-        @media only screen and (max-width: 768px) {
-            .desktop {
-                display: none;
-            }
-            .mobile {
-                display: initial;
-            }
-            /* container header */
-            .container {
-                padding-left: 0px;
-                padding-right: 0px;
-                background-color: #e3e3e3;
-                width: 100%;
-            }
-            #header {
-                background-color: #fff;
-                display: table;
-                padding: 0px 0px;
-                height: 40px;
-                width: 100%;
-                position: fixed;
-                top: 0px;
-                z-index: 2;
-                border-bottom: 1px solid #E6E6E6;
-            }
-            #header .drawer_icon {
-                display: table-cell;
-                vertical-align: middle;
-                text-align: center;
-                padding: 0px 0px;
-                border-right: 1px solid #E6E6E6;
-                width: 15%;
-            }
-            #header .drawer_icon img {
-                margin: 0px auto;
-            }
-            #header .title {
-                display: table-cell;
-                text-align: center;
-                color: #8D8D8D;
-                text-transform: uppercase;
-                vertical-align: middle;
-                width: 70%;
-                font-size: 150%;
-            }
-            #header .find-us {
-                display: table-cell;
-                vertical-align: middle;
-                height: inherit;
-                height: 40px;
-                width: auto;
-                text-align: right;
-            }
-            #header .find-us a,
-            #header .find-us img {
-                height: 100%;
-                width: auto;
-                margin: 0px auto;
-            }
-            /* drawer */
-            .drawer {
-                max-width: 400px;
-            }
-            .drawer-body {
-                padding: 0px;
-            }
-            div.center {
-                width: 100%;
-                height: 100vh;
-            }
-            .center {
-                padding-top: 0px;
-                padding-left: 0px;
-                background-color: #fff;
-                text-align: center;
-            }
-            .drawer-controls {
-                height: 45px;
-            }
-            /* shortcut */
-            #shortcut {
-                background-color: #fff;
-                padding: 10px;
-                border-radius: 10px 10px 50px 10px;
-            }
-            .avatar {
-                width: 40%;
-                margin: 5% auto;
-            }
-            .avatar img {
-                width: 100%;
-            }
-            .avatar.circle img {
-                border-radius: 100%;
-            }
-            .avatar img {
-                overflow: hidden;
-                display: inline-block;
-            }
-            .logo a {
-                color: #767676;
-                text-decoration: none;
-            }
-            .logo h1 a {
-                font-size: 65%;
-                font-weight: 300;
-            }
-            p.description {
-                margin: 0px;
-                font-size: 45%;
-            }
-            /* Navigation */
-            #navigation ul li {
-                border-top: 2px #ddd solid;
-                width: 90%;
-                margin: 0px auto;
-                font-size: 100%;
-                line-height: 1.5em;
-                font-weight: 400;
-                text-align: left;
-                list-style: none;
-            }
-            #navigation ul li:hover {
-                background: #e5e5e4;
-            }
-            #navigation ul li div {
-                padding-left: 15%;
-                padding-bottom: 10px;
-                padding-top: 10px;
-                color: #000;
-            }
-            #navigation .label-chinese {
-                display: inline-block;
-                letter-spacing: 1px;
-                width: 45%;
-            }
-            #navigation .label-english {
-                display: inline;
-                letter-spacing: 1px;
-                font-size: 80%;
-                width: 40%;
-            }
-            .social_network {
-                margin-top: 0px;
-                background: #fff;
-                padding: 10px;
-            }
-            .social_network img {
-                display: inline;
-                width: auto;
-                margin: 0px 5px;
-                height: 35px;
-            }
-            /* section */
-            section {
-                margin-top: 0px;
-                margin-bottom: 0px;
-                float: none;
-                width: 100%;
-                padding: 10px;
-            }
-            /* top */
-            .top .top-post img {
-                width: 100%;
-            }
-            /* article */
-            .caption {
-                margin-top: 10px;
-            }
-            .icons {
-                margin: 0px 0px -12px -5px;
-            }
-            .single-post article .article-content {
-                padding: 20px;
-            }
-            .single-post article #youtube_iframe,
-            article.type_text embed,
-            article.type_text iframe,
-            article.type_text object,
-            article.type_text video {
-                width: 100%;
-                height: 280px;
-            }
-            article.type_text .icons iframe {
-                height: 70%;
-            }
-            /* mobile */
-            .tmblr-iframe.tmblr-iframe--unified-controls.tmblr-iframe--loaded.iframe-controls--phone-mobile,
-            .tmblr-iframe.tmblr-iframe--app-cta-button.tmblr-iframe--loaded {
-                display: none;
-            }
-            .tmblr-iframe--controls-phone-container {
-                padding-top: 0px;
-            }
-            .mask {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background-color: rgba(0, 0, 0, 0.7);
-                z-index: 10;
-                display: none;
-            }
-            #fixed-posts-mobile .index-post {
-                float: left;
-                width: 100%;
-            }
-            #fixed-posts-mobile .index-post.select {
-                width: 100%;
-            }
-        }
-        
-        @media only screen and (max-width: 600px) {
-            .single-post article #youtube_iframe,
-            article.type_text embed,
-            article.type_text iframe,
-            article.type_text object,
-            article.type_text video {
-                width: 100%;
-                height: 200px;
-            }
-            article.type_text .icons iframe {
-                height: 70%;
-            }
-        }
-        
-        @media only screen and (max-width: 360px) {
-            .single-post article #youtube_iframe,
-            article.type_text embed,
-            article.type_text iframe,
-            article.type_text object,
-            article.type_text video {
-                width: 100%;
-                height: 150px;
-            }
-            article.type_text .icons iframe {
-                height: 70%;
-            }
-            #images-slider ul li img {
-                width: 60px;
-            }
-        }
-    </style>
+  </style>
+  <!-- Google Analytics -->
+  <!-- Sharing meta tags -->
+  <meta property="og:site_name" content="{Title}" />{block:IndexPage}
+  <meta property="og:title" content="{block:TagPage}&quot;{PlaintextTag}&quot;-{/block:TagPage}{block:SearchPage}{lang:Search results for SearchQuery}-{/block:SearchPage}{Title}" />
+  <meta property="og:url" content="{blogURL}{block:TagPage}tagged/{URLSafeTag}{/block:TagPage}" />
+  <meta property="og:type" content="blog" />
+  <meta property="og:description" content="{MetaDescription}{block:TagPage}{PlaintextDescription}{/block:TagPage}" />
+  <meta property="og:image" content="{PortraitURL-128}" />{/block:IndexPage}{block:PermalinkPage}
+  <meta property="og:url" content="{Permalink}" />
+  <meta property="og:type" content="article" />{block:Posts}{block:Text}{block:Title}
+  <meta property="og:title" content="{PlaintextTitle}" />{/block:Title}
+  <meta property="og:description" content="{PlaintextBody}" />
+  <meta property="og:image" content="{PortraitURL-128}" />{/block:Text}{block:Photo}
+  <meta property="og:image" content="{PhotoURL-HighRes}" />{block:Caption}
+  <meta property="og:description" content="{PlaintextCaption}" />{/block:Caption}{/block:Photo}{block:Photoset}{block:Photos}
+  <meta property="og:image" content="{PhotoURL-HighRes}" />{/block:Photos}{block:Caption}
+  <meta property="og:description" content="{PlaintextCaption}" />{/block:Caption}{/block:Photoset}{block:Quote}
+  <meta property="og:title" content="{PlaintextQuote}" />
+  <meta property="og:description" content="{PlaintextSource}" />
+  <meta property="og:image" content="{PortraitURL-128}" />{/block:Quote}{block:Link}
+  <meta property="og:title" content="{PlaintextName}" />
+  <meta property="og:description" content="{PlaintextDescription}" />{block:Thumbnail}
+  <meta property="og:image" content="{Thumbnail}" />{/block:Thumbnail}{/block:Link}{block:Chat}
+  <meta property="og:title" content="{PlaintextTitle}" />
+  <meta property="og:description" content="{block:Lines}{block:Label}{Label}:{/block:Label}{Line}&bull;{/block:Lines}" />
+  <meta property="og:image" content="{PortraitURL-128}" />{/block:Chat}{block:Audio}
+  <meta property="og:title" content="{block:Artist}{Artist}-{/block:Artist}{block:TrackName}{TrackName}{/block:TrackName}" />
+  <meta property="og:description" content="{PlaintextCaption}" />{block:AlbumArt}
+  <meta property="og:image" content="{AlbumArtURL}" />{/block:AlbumArt}{/block:Audio}{block:Video}{block:Caption}
+  <meta property="og:description" content="{PlaintextCaption}" />{/block:Caption}{block:VideoThumbnail}
+  <meta property="og:image" content="{VideoThumbnailURL}" />{/block:VideoThumbnail}{/block:Video}{block:Answer}
+  <meta property="og:title" content="{PlaintextQuestion}" />
+  <meta property="og:description" content="{PlaintextAnswer}" />
+  <meta property="og:image" content="{PortraitURL-128}" />{/block:Answer}{/block:Posts}{/block:PermalinkPage} {block:PermalinkPage}
+  <meta name="twitter:url" content="{Permalink}" />{block:Posts}{block:Text}
+  <meta name="twitter:card" content="summary">{block:Title}
+  <meta name="twitter:title" content="{PlaintextTitle}" />{/block:Title}
+  <meta name="twitter:description" content="{PlaintextBody}" />
+  <meta name="twitter:image" content="{PortraitURL-128}" />{/block:Text}{block:Photo}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{Title}" />
+  <meta name="twitter:image" content="{PhotoURL-500}" />{block:Caption}
+  <meta name="twitter:description" content="{PlaintextCaption}" />{/block:Caption}{/block:Photo}{block:Photoset}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{Title}" />{block:Photos}
+  <meta name="twitter:image" content="{PhotoURL-500}" />{/block:Photos}{block:Caption}
+  <meta name="twitter:description" content="{PlaintextCaption}" />{/block:Caption}{/block:Photoset}{block:Quote}
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{PlaintextQuote}" />
+  <meta name="twitter:description" content="{PlaintextSource}" />
+  <meta name="twitter:image" content="{PortraitURL-128}" />{/block:Quote}{block:Link}
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{PlaintextName}" />
+  <meta name="twitter:description" content="{PlaintextDescription}" />{block:Thumbnail}
+  <meta name="twitter:image" content="{Thumbnail}" />{/block:Thumbnail}{/block:Link}{block:Chat}
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{PlaintextTitle}" />
+  <meta name="twitter:description" content="{block:Lines}{block:Label}{Label}:{/block:Label}{Line}&bull;{/block:Lines}" />
+  <meta name="twitter:image" content="{PortraitURL-128}" />{/block:Chat}{block:Audio}
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{block:Artist}{Artist}-{/block:Artist}{block:TrackName}{TrackName}{/block:TrackName}" />
+  <meta name="twitter:description" content="{PlaintextCaption}" />{block:AlbumArt}
+  <meta name="twitter:image" content="{AlbumArtURL}" />{/block:AlbumArt}{/block:Audio}{block:Video}
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{PlaintextTitle}" />{block:Caption}
+  <meta name="twitter:description" content="{PlaintextCaption}" />{/block:Caption}{block:VideoThumbnail}
+  <meta name="twitter:image" content="{VideoThumbnailURL}" />{/block:VideoThumbnail}{/block:Video}{block:Answer}
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{PlaintextQuestion}" />
+  <meta name="twitter:description" content="{PlaintextAnswer}" />
+  <meta name="twitter:image" content="{PortraitURL-128}" />{/block:Answer}{/block:Posts}{/block:PermalinkPage}
+  <style type="text/css">
+    @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
+    html {
+      overflow-y: hidden;
+      user-select: initial;
+    }
+
+    body {
+      background-color: #e6e6e6;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    h2 {
+      font-size: 20px;
+      text-transform: inherit;
+    }
+
+    a,
+    a:hover {
+      text-decoration: none;
+    }
+
+    /* navigation */
+
+    header .logo h1 {
+      font-weight: 300;
+      text-transform: none;
+    }
+
+    div.center {
+      padding-top: 0px;
+      padding-left: 0px;
+    }
+
+    header .center .centered {
+      display: block;
+      height: 100vh;
+      overflow: auto;
+      background-color: #fff;
+    }
+
+    div#shortcut {
+      border-radius: 0px 0px 50px 0px;
+    }
+
+    header .logo h1 a {
+      color: #000;
+      text-decoration: none;
+      font-weight: 300;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    header p.description {
+      margin: 0px;
+    }
+
+    /* navigation */
+
+    #navigation ul li {
+      border-top: 2px #ddd solid;
+      width: 90%;
+      margin: 0px auto;
+      font-size: 100%;
+      line-height: 1.5em;
+      font-weight: 400;
+      text-align: left;
+      list-style: none;
+    }
+
+    #navigation ul li:hover {
+      background: #e5e5e4;
+    }
+
+    #navigation ul li div {
+      padding-left: 15%;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      color: #000;
+    }
+
+    #navigation .label-chinese {
+      display: inline-block;
+      letter-spacing: 1px;
+      width: 45%;
+    }
+
+    #navigation .label-english {
+      display: inline;
+      letter-spacing: 1px;
+      font-size: 80%;
+      width: 40%;
+    }
+
+    #shortcut {
+      padding: 20px;
+    }
+
+    .social_network {
+      margin-top: 20px;
+    }
+
+    .social_network a {
+      margin: 0px 3px;
+    }
+
+    .social_network img {
+      display: inline;
+      height: 35px;
+      width: auto;
+    }
+
+    .youtube {
+      position: relative;
+    }
+
+    .youtube:hover .original img,
+    .youtube:hover .business img {
+      display: block;
+    }
+
+    .business,
+    .original {
+      /*display: block;*/
+    }
+
+    .business img,
+    .original img {
+      position: absolute;
+      left: 35px;
+      display: none;
+    }
+
+    .original img {
+      top: -25px;
+    }
+
+    .business img {
+      top: 10px;
+    }
+
+    /* index */
+
+    section {
+      margin-bottom: 0px;
+      padding: 5px 0px;
+      height: 100vh;
+    }
+
+    .main {
+      width: 100%;
+      height: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    #top {
+      height: 50%;
+    }
+
+    #top .flex-column:nth-child(2) .index-post {
+      height: 33.33%;
+    }
+
+    #fixed-posts {
+      height: 50%;
+    }
+
+    .flex-horizontal {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-direction: row;
+      flex-direction: row;
+    }
+
+    .flex-column {
+      flex: 1;
+    }
+
+    .index-post {
+      width: 100%;
+      height: 100%;
+      padding: 2%;
+      background: #fff;
+      box-sizing: border-box;
+      border: 2px solid #e6e6e6;
+      text-align: center;
+    }
+
+    .index-post span {
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+
+    .index-post img {
+      max-width: 100%;
+      max-height: 100%;
+      vertical-align: middle;
+      display: inline;
+    }
+
+    #fixed-posts .index-post {
+      float: left;
+      width: 50%;
+    }
+
+    #fixed-posts .index-post.select {
+      width: 50%;
+    }
+
+    /* single post page */
+
+    .single-post article {
+      margin-top: 0px;
+    }
+
+    .single-post article #youtube_iframe,
+    article.type_text embed,
+    article.type_text iframe,
+    article.type_text object,
+    article.type_text video {
+      width: 100%;
+      height: 400px;
+    }
+
+    article.type_text .icons iframe {
+      height: 70%;
+    }
+
+    .single-post article img {
+      cursor: pointer;
+    }
+
+    .single-post article {
+      width: 100%;
+      margin-bottom: 0px;
+    }
+
+    .article_content iframe {
+      width: 100%;
+    }
+
+    article.stickers figure,
+    .single-post article.stickers .article-content img {
+      display: inline;
+    }
+
+    .single-post article.stickers .article-content img {
+      width: calc(33.33% - 20px);
+      border: 1px solid #aaa;
+      border-radius: 10px;
+      margin: 10px;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: auto;
+    }
+
+    .single-post article {
+      margin-top: 0px;
+    }
+
+    .single-post ul.icons {
+      display: block;
+    }
+
+    .readmore {
+      display: block;
+    }
+
+    u {
+      text-decoration: underline;
+    }
+
+    /* tooltip */
+
+    .tooltip {
+      position: absolute;
+      width: 140px;
+    }
+
+    .tooltip-inner {
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    /* image preview */
+
+    #image-preview {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      left: 0;
+      top: 0;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 3;
+      display: none;
+    }
+
+    .flex {
+      height: 88vh;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-align-items: center;
+      align-items: center;
+      -webkit-justify-content: center;
+      justify-content: center;
+    }
+
+    #image-preview .left,
+    #image-preview .right {
+      -webkit-flex: 1;
+      flex: 1;
+      cursor: pointer;
+      text-align: center;
+      color: #fff;
+      font-size: 2em;
+    }
+
+    #image-preview #preview-image {
+      -webkit-flex: 9;
+      flex: 9;
+    }
+
+    #image-preview #preview-image img {
+      max-width: 100%;
+      max-height: 86vh;
+      cursor: pointer;
+      margin: 0px auto;
+    }
+
+    #images-slider {
+      height: 9vh;
+    }
+
+    #images-slider ul {
+      text-align: center;
+      margin-bottom: 0px;
+      display: flex;
+      position: relative;
+      left: 0px;
+    }
+
+    #images-slider li {
+      display: inline-block;
+      padding: 0px 5px;
+      height: 80px;
+      width: 110px;
+      cursor: pointer;
+    }
+
+    #images-slider li span {
+      height: 100%;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    #images-slider li.active img {
+      box-shadow: 0px 0px 30px #ff0000;
+      cursor: pointer;
+    }
+
+    #images-slider ul li img {
+      width: 90px;
+      max-width: 100px;
+      max-height: 100%;
+      margin: 0px auto;
+      display: inline;
+    }
+
+    .mobile {
+      display: none;
+    }
+
+    @media only screen and (min-width: 1800px) {
+      .index-post {
+        padding: 3%;
+      }
+
+      #navigation ul li div {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .single-post article #youtube_iframe,
+      article.type_text embed,
+      article.type_text iframe,
+      article.type_text object,
+      article.type_text video {
+        width: 100%;
+        height: 400px;
+      }
+
+      article.type_text .icons iframe {
+        height: 70%;
+      }
+    }
+
+    @media only screen and (max-width: 1800px) {}
+
+    @media only screen and (max-width: 1420px) {}
+
+    @media only screen and (max-width: 1080px) {
+      html {
+        overflow-y: auto;
+      }
+
+      .main {
+        padding: 0px;
+      }
+
+      #top {
+        display: block;
+        height: auto;
+      }
+
+      .index-post {
+        padding: 3%;
+      }
+
+      #fixed-posts {
+        height: auto;
+      }
+
+      #fixed-posts .index-post.select {
+        width: 100%;
+      }
+
+      #fixed-posts .index-post {
+        width: 100%;
+      }
+    }
+
+    @media only screen and (max-width: 1024px) {
+
+      header,
+      div.center {
+        width: 40%;
+      }
+
+      section {
+        width: 60%;
+      }
+
+      .single-post article #youtube_iframe,
+      article.type_text embed,
+      article.type_text iframe,
+      article.type_text object,
+      article.type_text video {
+        width: 100%;
+        height: 240px;
+      }
+
+      article.type_text .icons iframe {
+        height: 70%;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      .desktop {
+        display: none;
+      }
+
+      .mobile {
+        display: initial;
+      }
+
+      /* container header */
+      .container {
+        padding-left: 0px;
+        padding-right: 0px;
+        background-color: #e3e3e3;
+        width: 100%;
+      }
+
+      #header {
+        background-color: #fff;
+        display: table;
+        padding: 0px 0px;
+        height: 40px;
+        width: 100%;
+        position: fixed;
+        top: 0px;
+        z-index: 2;
+        border-bottom: 1px solid #E6E6E6;
+      }
+
+      #header .drawer_icon {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        padding: 0px 0px;
+        border-right: 1px solid #E6E6E6;
+        width: 15%;
+      }
+
+      #header .drawer_icon img {
+        margin: 0px auto;
+      }
+
+      #header .title {
+        display: table-cell;
+        text-align: center;
+        color: #8D8D8D;
+        text-transform: uppercase;
+        vertical-align: middle;
+        width: 70%;
+        font-size: 150%;
+      }
+
+      #header .find-us {
+        display: table-cell;
+        vertical-align: middle;
+        height: inherit;
+        height: 40px;
+        width: auto;
+        text-align: right;
+      }
+
+      #header .find-us a,
+      #header .find-us img {
+        height: 100%;
+        width: auto;
+        margin: 0px auto;
+      }
+
+      /* drawer */
+      .drawer {
+        max-width: 400px;
+      }
+
+      .drawer-body {
+        padding: 0px;
+      }
+
+      div.center {
+        width: 100%;
+        height: 100vh;
+      }
+
+      .center {
+        padding-top: 0px;
+        padding-left: 0px;
+        background-color: #fff;
+        text-align: center;
+      }
+
+      .drawer-controls {
+        height: 45px;
+      }
+
+      /* shortcut */
+      #shortcut {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 10px 10px 50px 10px;
+      }
+
+      .avatar {
+        width: 40%;
+        margin: 5% auto;
+      }
+
+      .avatar img {
+        width: 100%;
+      }
+
+      .avatar.circle img {
+        border-radius: 100%;
+      }
+
+      .avatar img {
+        overflow: hidden;
+        display: inline-block;
+      }
+
+      .logo a {
+        color: #767676;
+        text-decoration: none;
+      }
+
+      .logo h1 a {
+        font-size: 65%;
+        font-weight: 300;
+      }
+
+      p.description {
+        margin: 0px;
+        font-size: 45%;
+      }
+
+      /* Navigation */
+      #navigation ul li {
+        border-top: 2px #ddd solid;
+        width: 90%;
+        margin: 0px auto;
+        font-size: 100%;
+        line-height: 1.5em;
+        font-weight: 400;
+        text-align: left;
+        list-style: none;
+      }
+
+      #navigation ul li:hover {
+        background: #e5e5e4;
+      }
+
+      #navigation ul li div {
+        padding-left: 15%;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        color: #000;
+      }
+
+      #navigation .label-chinese {
+        display: inline-block;
+        letter-spacing: 1px;
+        width: 45%;
+      }
+
+      #navigation .label-english {
+        display: inline;
+        letter-spacing: 1px;
+        font-size: 80%;
+        width: 40%;
+      }
+
+      .social_network {
+        margin-top: 0px;
+        background: #fff;
+        padding: 10px;
+      }
+
+      .social_network img {
+        display: inline;
+        width: auto;
+        margin: 0px 5px;
+        height: 35px;
+      }
+
+      /* section */
+      section {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        float: none;
+        width: 100%;
+        padding: 10px;
+      }
+
+      /* top */
+      .top .top-post img {
+        width: 100%;
+      }
+
+      /* article */
+      .caption {
+        margin-top: 10px;
+      }
+
+      .icons {
+        margin: 0px 0px -12px -5px;
+      }
+
+      .single-post article .article-content {
+        padding: 20px;
+      }
+
+      .single-post article #youtube_iframe,
+      article.type_text embed,
+      article.type_text iframe,
+      article.type_text object,
+      article.type_text video {
+        width: 100%;
+        height: 280px;
+      }
+
+      article.type_text .icons iframe {
+        height: 70%;
+      }
+
+      /* mobile */
+      .tmblr-iframe.tmblr-iframe--unified-controls.tmblr-iframe--loaded.iframe-controls--phone-mobile,
+      .tmblr-iframe.tmblr-iframe--app-cta-button.tmblr-iframe--loaded {
+        display: none;
+      }
+
+      .tmblr-iframe--controls-phone-container {
+        padding-top: 0px;
+      }
+
+      .mask {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 10;
+        display: none;
+      }
+
+      #fixed-posts-mobile .index-post {
+        float: left;
+        width: 100%;
+      }
+
+      #fixed-posts-mobile .index-post.select {
+        width: 100%;
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+
+      .single-post article #youtube_iframe,
+      article.type_text embed,
+      article.type_text iframe,
+      article.type_text object,
+      article.type_text video {
+        width: 100%;
+        height: 200px;
+      }
+
+      article.type_text .icons iframe {
+        height: 70%;
+      }
+    }
+
+    @media only screen and (max-width: 360px) {
+
+      .single-post article #youtube_iframe,
+      article.type_text embed,
+      article.type_text iframe,
+      article.type_text object,
+      article.type_text video {
+        width: 100%;
+        height: 150px;
+      }
+
+      article.type_text .icons iframe {
+        height: 70%;
+      }
+
+      #images-slider ul li img {
+        width: 60px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <header class="desktop">
-        <div class="center">
+  <header class="desktop">
+    <div class="center">
+      <div class="centered">
+        <div id="shortcut">
+          <div class="avatar">
+            <a href="/" title="Woolito Studio" class="avatar circle" rel="external">
+              <img src="https://68.media.tumblr.com/avatar_b52e662f5c5a_128.png" alt="Woolito Studio" class="default">
+            </a>
+          </div>
+          <div class="logo">
+            <h1><a href="/" rel="external" title="Woolito Studio">Woolito Studio</a></h1>
+          </div>
+          <p class="description">我們努力創作有趣的動畫與圖文並分享笑容</p>
+          <p class="description">希望能為彼此的生活點綴</p>
+          <p class="description">一些無厘頭的樂趣！</p>
+          <div class="social_network">
+            <a href="https://www.facebook.com/Woolito/" target="_blank"><img src="https://static.tumblr.com/sirdwhf/KOpolkwir/facebook.png"></a>
+            <a href="https://page.line.me/woolito" target="_blank"><img src="https://static.tumblr.com/sirdwhf/9lxolkwjx/line.png"></a>
+            <a href="https://www.instagram.com/woolito_studio/" target="_blank"><img src="https://static.tumblr.com/sirdwhf/enxolkwjm/instagram.png"></a>
+            <span class="youtube">
+              <a href="#"><img src="https://static.tumblr.com/sirdwhf/jtnolkwk6/youtube.png"></a>
+              <a href="https://www.youtube.com/user/WoolitoFilm" target="_blank" class="original"><img src="https://static.tumblr.com/sirdwhf/G2Qollqia/original.png"></a>
+              <a href="https://www.youtube.com/user/woooooolito" target="_blank" class="business"><img src="https://static.tumblr.com/sirdwhf/oLCollqig/business.png"></a>
+            </span>
+          </div>
+        </div>
+        <div id="navigation">
+          <ul>
+            <li>
+              <a href="/contact">
+                <div>
+                  <span class="label-chinese">聯繫我們</span>
+                  <span class="label-english">Contact</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/service">
+                <div>
+                  <span class="label-chinese">商業服務</span>
+                  <span class="label-english">Service</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/works">
+                <div>
+                  <span class="label-chinese">作品集</span>
+                  <span class="label-english">Works</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <div>
+                  <span class="label-chinese">沒靈感</span>
+                  <span class="label-english">Ideas</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="https://woolito.shoplineapp.com/" target="_blank">
+                <div>
+                  <span class="label-chinese">原創商品</span>
+                  <span class="label-english">Shop</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="https://store.line.me/stickershop/author/72619" target="_blank">
+                <div>
+                  <span class="label-chinese">LINE 貼圖</span>
+                  <span class="label-english">LINE Sticker</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  {block:IndexPage}
+  <section class="the-posts index desktop">
+    <div class="main">
+      <div id="top" class="flex-horizontal">
+        <div class="flex-column">
+          <div class="index-post">
+            <span></span>
+            <a href="works"><img id="works" src="https://static.tumblr.com/sirdwhf/vLsohk5kx/work1.gif"></a>
+          </div>
+        </div>
+        <div class="flex-column">
+          <div class="index-post">
+            <span></span>
+            <a href="service"><img src="https://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
+          </div>
+          <div class="index-post">
+            <span></span>
+            <a href="#"><img src="https://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
+          </div>
+          <div class="index-post">
+            <span></span>
+            <a href="contact"><img src="https://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
+          </div>
+        </div>
+      </div>
+      <div id="fixed-posts"></div>
+    </div>
+  </section>
+  {/block:IndexPage}
+
+
+  <div class="mobile has-drawer">
+    <div id="drawerExample" class="drawer dw-xs-10 dw-sm-6 dw-md-4 fold" aria-labelledby="drawerExample">
+      <div class="drawer-contents">
+        <div class="drawer-body">
+          <div class="center">
             <div class="centered">
-                <div id="shortcut">
-                    <div class="avatar">
-                        <a href="/" title="Woolito Studio" class="avatar circle" rel="external">
-                            <img src="https://68.media.tumblr.com/avatar_b52e662f5c5a_128.png" alt="Woolito Studio" class="default">
-                        </a>
-                    </div>
-                    <div class="logo">
-                        <h1><a href="/" rel="external" title="Woolito Studio">Woolito Studio</a></h1>
-                    </div>
-                    <p class="description">我們努力創作有趣的動畫與圖文並分享笑容</p>
-                    <p class="description">希望能為彼此的生活點綴</p>
-                    <p class="description">一些無厘頭的樂趣！</p>
-                    <div class="social_network">
-                        <a href="https://www.facebook.com/Woolito/" target="_blank"><img src="https://static.tumblr.com/sirdwhf/KOpolkwir/facebook.png"></a>
-                        <a href="https://page.line.me/woolito" target="_blank"><img src="https://static.tumblr.com/sirdwhf/9lxolkwjx/line.png"></a>
-                        <a href="https://www.instagram.com/woolito_studio/" target="_blank"><img src="https://static.tumblr.com/sirdwhf/enxolkwjm/instagram.png"></a>
-                        <span class="youtube">
-                            <a href="#"><img src="https://static.tumblr.com/sirdwhf/jtnolkwk6/youtube.png"></a>
-                            <a href="https://www.youtube.com/user/WoolitoFilm" target="_blank" class="original"><img src="https://static.tumblr.com/sirdwhf/G2Qollqia/original.png"></a>
-                            <a href="https://www.youtube.com/user/woooooolito" target="_blank" class="business"><img src="https://static.tumblr.com/sirdwhf/oLCollqig/business.png"></a>
-                        </span>
-                    </div>
+              <div id="shortcut">
+                <div class="avatar">
+                  <a href="/" title="Woolito Studio" class="avatar circle" rel="external">
+                    <img src="https://68.media.tumblr.com/avatar_b52e662f5c5a_128.png" alt="Woolito Studio" class="default">
+                  </a>
                 </div>
-                <div id="navigation">
-                    <ul>
-                        <li>
-                            <a href="/contact">
-                                <div>
-                                    <span class="label-chinese">聯繫我們</span>
-                                    <span class="label-english">Contact</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/service">
-                                <div>
-                                    <span class="label-chinese">商業服務</span>
-                                    <span class="label-english">Service</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/works">
-                                <div>
-                                    <span class="label-chinese">作品集</span>
-                                    <span class="label-english">Works</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <span class="label-chinese">沒靈感</span>
-                                    <span class="label-english">Ideas</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://woolito.shoplineapp.com/" target="_blank">
-                                <div>
-                                    <span class="label-chinese">原創商品</span>
-                                    <span class="label-english">Shop</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://store.line.me/stickershop/author/72619" target="_blank">
-                                <div>
-                                    <span class="label-chinese">LINE 貼圖</span>
-                                    <span class="label-english">LINE Sticker</span>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
+                <div class="logo">
+                  <h1><a href="/" rel="external" title="Woolito Studio">Woolito Studio</a></h1>
                 </div>
+                <p class="description">我們努力創作有趣的動畫與圖文並分享笑容</p>
+                <p class="description">希望能為彼此的生活點綴</p>
+                <p class="description">一些無厘頭的樂趣！</p>
+              </div>
+              <div id="navigation">
+                <ul>
+                  <li>
+                    <a href="/contact">
+                      <div>
+                        <span class="label-chinese">聯繫我們</span>
+                        <span class="label-english">Contact</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/service">
+                      <div>
+                        <span class="label-chinese">商業服務</span>
+                        <span class="label-english">Service</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/works">
+                      <div>
+                        <span class="label-chinese">作品集</span>
+                        <span class="label-english">Works</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <div>
+                        <span class="label-chinese">沒靈感</span>
+                        <span class="label-english">Ideas</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://woolito.shoplineapp.com/" target="_blank">
+                      <div>
+                        <span class="label-chinese">原創商品</span>
+                        <span class="label-english">Shop</span>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://store.line.me/stickershop/author/72619" target="_blank">
+                      <div>
+                        <span class="label-chinese">LINE 貼圖</span>
+                        <span class="label-english">LINE Sticker</span>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="social_network">
+                <a href="https://www.facebook.com/Woolito/" target="_blank"><img src="https://static.tumblr.com/sirdwhf/NRnoh89yk/facebook.png"></a>
+                <a href="https://page.line.me/woolito" target="_blank"><img src="https://static.tumblr.com/sirdwhf/uIToh89yr/line.png"></a>
+                <a href="https://www.instagram.com/woolito_studio/" target="_blank"><img src="https://static.tumblr.com/sirdwhf/Ky3oh89z6/instagram.png"></a>
+                <a href="https://www.youtube.com/user/WoolitoFilm" target="_blank"><img src="https://static.tumblr.com/sirdwhf/EBeoh89zf/youtube.png"></a>
+              </div>
             </div>
+          </div>
         </div>
-    </header>
-    {block:IndexPage}
-    <section class="the-posts index desktop">
-        <div class="main">
-            <div id="top" class="flex-horizontal">
-                <div class="flex-column">
-                    <div class="index-post">
-                        <span></span>
-                        <a href="works"><img id="works" src="https://static.tumblr.com/sirdwhf/vLsohk5kx/work1.gif"></a>
-                    </div>
-                </div>
-                <div class="flex-column">
-                    <div class="index-post">
-                        <span></span>
-                        <a href="service"><img src="https://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
-                    </div>
-                    <div class="index-post">
-                        <span></span>
-                        <a href="#"><img src="https://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
-                    </div>
-                    <div class="index-post">
-                        <span></span>
-                        <a href="contact"><img src="https://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
-                    </div>
-                </div>
-            </div>
-            <div id="fixed-posts"></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="header">
+        <div class="drawer_icon">
+          <img src="https://static.tumblr.com/sirdwhf/6PVobwmdh/drawer.png">
         </div>
-    </section>
-    {/block:IndexPage}
+        <div class="title">Woolito Studio</div>
+        <div class="find-us">
+          <a href="/contact-mobile"><img src="https://static.tumblr.com/sirdwhf/V2Lof6jne/find_us.png"></a>
+        </div>
+      </div>
+      {block:IndexPage}
+      <section class="the-posts index">
+        <div id="top">
+          <div class="index-post">
+            <span></span>
+            <a href="works"><img src="https://static.tumblr.com/sirdwhf/vLsohk5kx/work1.gif"></a>
+          </div>
+          <div class="index-post">
+            <span></span>
+            <a href="service-mobile"><img src="https://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
+          </div>
+          <div class="index-post">
+            <span></span>
+            <a href="#"><img src="https://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
+          </div>
+          <div class="index-post">
+            <span></span>
+            <a href="contact-mobile"><img src="https://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
+          </div>
+        </div>
+        <div class="grid" id="fixed-posts-mobile"></div>
+      </section>
+      {/block:IndexPage}
+    </div>
+
+    <div class="mask"></div>
+  </div>
+
+  {block:PermalinkPage}
+  <section class="the-posts single-post">
+    <div class="posts-holder">
+      {block:Posts inlineMediaWidth="1280" inlineNestedMediaWidth="1280"}
+      <article id="{PostID}" class="type_{PostType} {TagsAsClasses}" rel="{ReblogURL}">
+
+        <div class="article-content">
 
 
-    <div class="mobile has-drawer">
-        <div id="drawerExample" class="drawer dw-xs-10 dw-sm-6 dw-md-4 fold" aria-labelledby="drawerExample">
-            <div class="drawer-contents">
-                <div class="drawer-body">
-                    <div class="center">
-                        <div class="centered">
-                            <div id="shortcut">
-                                <div class="avatar">
-                                    <a href="/" title="Woolito Studio" class="avatar circle" rel="external">
-                                        <img src="https://68.media.tumblr.com/avatar_b52e662f5c5a_128.png" alt="Woolito Studio" class="default">
-                                    </a>
-                                </div>
-                                <div class="logo">
-                                    <h1><a href="/" rel="external" title="Woolito Studio">Woolito Studio</a></h1>
-                                </div>
-                                <p class="description">我們努力創作有趣的動畫與圖文並分享笑容</p>
-                                <p class="description">希望能為彼此的生活點綴</p>
-                                <p class="description">一些無厘頭的樂趣！</p>
-                            </div>
-                            <div id="navigation">
-                                <ul>
-                                    <li>
-                                        <a href="/contact">
-                                            <div>
-                                                <span class="label-chinese">聯繫我們</span>
-                                                <span class="label-english">Contact</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/service">
-                                            <div>
-                                                <span class="label-chinese">商業服務</span>
-                                                <span class="label-english">Service</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/works">
-                                            <div>
-                                                <span class="label-chinese">作品集</span>
-                                                <span class="label-english">Works</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <div>
-                                                <span class="label-chinese">沒靈感</span>
-                                                <span class="label-english">Ideas</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://woolito.shoplineapp.com/" target="_blank">
-                                            <div>
-                                                <span class="label-chinese">原創商品</span>
-                                                <span class="label-english">Shop</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="https://store.line.me/stickershop/author/72619" target="_blank">
-                                            <div>
-                                                <span class="label-chinese">LINE 貼圖</span>
-                                                <span class="label-english">LINE Sticker</span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="social_network">
-                                <a href="https://www.facebook.com/Woolito/" target="_blank"><img src="https://static.tumblr.com/sirdwhf/NRnoh89yk/facebook.png"></a>
-                                <a href="https://page.line.me/woolito" target="_blank"><img src="https://static.tumblr.com/sirdwhf/uIToh89yr/line.png"></a>
-                                <a href="https://www.instagram.com/woolito_studio/" target="_blank"><img src="https://static.tumblr.com/sirdwhf/Ky3oh89z6/instagram.png"></a>
-                                <a href="https://www.youtube.com/user/WoolitoFilm" target="_blank"><img src="https://static.tumblr.com/sirdwhf/EBeoh89zf/youtube.png"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <div class="container">
-            <div id="header">
-                <div class="drawer_icon">
-                    <img src="https://static.tumblr.com/sirdwhf/6PVobwmdh/drawer.png">
-                </div>
-                <div class="title">Woolito Studio</div>
-                <div class="find-us">
-                    <a href="/contact-mobile"><img src="https://static.tumblr.com/sirdwhf/V2Lof6jne/find_us.png"></a>
-                </div>
+
+          {block:Text}
+
+          <!-- Text Post -->
+
+          {block:Title}
+          <h2>{block:IndexPage}<a href="{Permalink}" title="{Title}">{/block:IndexPage}{Title}{block:IndexPage}</a>{/block:IndexPage}</h2>
+          {/block:Title} {Body} {/block:Text} {block:Photo}
+
+          <!-- Photo Post -->
+
+          <div class="photo-wrap {block:IndexPage}{select:Photo Link}{/block:IndexPage}{block:PermalinkPage}{select:Photo Link Permalink}{/block:PermalinkPage}">
+
+            <div class="photo--post">
+              <a href="{Permalink}" title="{Title}">
+                {block:IfSingleColumnLayout}
+                <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                {/block:IfSingleColumnLayout}
+                {block:IfNotSingleColumnLayout}
+                <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                {/block:IfNotSingleColumnLayout}
+              </a>
             </div>
+
+            <div class="photo--image">
+              {LinkOpenTag} {block:IfSingleColumnLayout}
+              <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" /> {/block:IfSingleColumnLayout} {block:IfNotSingleColumnLayout}
+              <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" /> {/block:IfNotSingleColumnLayout} {LinkCloseTag}
+            </div>
+
+            <div class="photo--lightbox">
+              <a href="{PhotoURL-HighRes}">
+                {block:IfSingleColumnLayout}
+                <img src="{PhotoURL-HighRes}" />
+                {/block:IfSingleColumnLayout}
+                {block:IfNotSingleColumnLayout}
+                <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" data-highres="{PhotoURL-HighRes}" />
+                {/block:IfNotSingleColumnLayout}
+              </a>
+            </div>
+
+            <div class="photo--none">
+              {block:IfSingleColumnLayout}
+              <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" /> {/block:IfSingleColumnLayout} {block:IfNotSingleColumnLayout}
+              <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" /> {/block:IfNotSingleColumnLayout}
+            </div>
+
+          </div>
+
+          {block:Caption}
+          <div class="caption">
+            {Caption}
+          </div>
+          {/block:Caption} {/block:Photo} {block:Panorama}
+
+          <!-- Panorama Post -->
+
+          <div class="photo-wrap {block:IndexPage}{select:Panorama Link}{/block:IndexPage}{block:PermalinkPage}{select:Panorama Link Permalink}{/block:PermalinkPage}">
+
+            <div class="photo--image">
+              {LinkOpenTag} {block:IfSingleColumnLayout}
+              <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" /> {/block:IfSingleColumnLayout} {block:IfNotSingleColumnLayout}
+              <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" /> {/block:IfNotSingleColumnLayout} {LinkCloseTag}
+            </div>
+
+            <div class="photo--post">
+              <a href="{Permalink}" title="{Title}">
+                {block:IfSingleColumnLayout}
+                <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                {/block:IfSingleColumnLayout}
+                {block:IfNotSingleColumnLayout}
+                <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+                {/block:IfNotSingleColumnLayout}
+              </a>
+            </div>
+
+            <div class="photo--none">
+              {block:IfSingleColumnLayout}
+              <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" /> {/block:IfSingleColumnLayout} {block:IfNotSingleColumnLayout}
+              <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" /> {/block:IfNotSingleColumnLayout}
+            </div>
+
+          </div>
+
+          {block:Caption}
+          <div class="caption">
+            {Caption}
+          </div>
+          {/block:Caption} {/block:Panorama} {block:Photoset}
+
+          <!-- Photoset Post -->
+
+          {block:IndexPage} {block:IfPhotosetCover}
+          <a href="{Permalink}" title="{Title}" class="photoset-wrap">
+            {block:Photos}
+            <img src="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+            {/block:Photos}
+          </a> {/block:IfPhotosetCover} {block:IfNotPhotosetCover}
+          <div class="photoset-grid {select:Photoset Link}" data-layout="{PhotosetLayout}" data-id="photoset{PostID}" data-post="{Permalink}" {block:IfPhotosetSpacing}data-gutter="{text:Photoset Spacing}" {block:IfPhotosetSpacing}>
+            {block:Photos}
+            <img src="{PhotoURL-500}" {block:HighRes}data-highres="{PhotoURL-HighRes}" {/block:HighRes} {block:Caption}alt="{Caption}" {/block:caption} data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" /> {/block:Photos}
+          </div>
+          {/block:IfNotPhotosetCover} {/block:IndexPage} {block:PermalinkPage}
+          <div class="photoset-grid {select:Photoset Link Permalink}" data-layout="{PhotosetLayout}" data-id="photoset{PostID}" {block:IfPhotosetSpacing}data-gutter="{text:Photoset Spacing}" {block:IfPhotosetSpacing}>
+            {block:Photos}
+            <img src="{PhotoURL-500}" {block:HighRes}data-highres="{PhotoURL-HighRes}" {/block:HighRes} {block:Caption}alt="{Caption}" {/block:caption} data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" /> {/block:Photos}
+          </div>
+          {/block:PermalinkPage} {block:Caption}
+          <div class="caption">
+            {Caption}
+          </div>
+          {/block:caption} {/block:Photoset} {block:Video}
+
+          <!-- Video Post -->
+
+          <div class="video-stage">
+            <div class="video-container" id="{postID}">
+              {VideoEmbed-700}
+            </div>
+          </div>
+
+          {block:Caption}
+          <div class="caption">
+            {Caption}
+          </div>
+          {/block:Caption} {/block:Video} {block:Audio}
+
+          <!-- Audio Post -->
+
+          {block:AudioEmbed}
+          <div class="audio-embed">
+            {AudioEmbed}
+          </div>
+          {/block:AudioEmbed} {block:ExternalAudio}
+          <a href="{ExternalAudioURL}">{lang:Download}</a> {/block:ExternalAudio} {block:Caption}
+          <div class="caption">
+            {Caption}
+          </div>
+          {/block:Caption} {/block:Audio} {block:Quote}
+
+          <!-- Quote Post -->
+
+          <div class="quote {Length}">
+            {Quote}
+          </div>
+
+          {block:Source}
+          <div class="quote-author">- {Source}</div>
+          {/block:Source} {/block:Quote} {block:Answer}
+
+          <!-- Answer Post -->
+
+          <div class="answer-wrap">
+            <div class="answer-image {AvatarShape}"><img src="{AskerPortraitURL-64}"></div>
+            <div class="answer-person">{Asker} asked:</div>
+            <div class="answer-text">{Question}</div>
+          </div>
+
+          <hr> {block:Answerer}
+          <div class="answer-wrap">
+            <div class="answer-image {AvatarShape}"><img src="{AnswererPortraitURL-64}" alt="{Title}" /></div>
+            <div class="answer-person">{Answerer} answered:</div>
+            <div class="answer-text">{Answer}</div>
+          </div>
+          <hr> {/block:Answerer}
+
+          <div class="answer-wrap">
+            {Replies}
+          </div>
+
+          {/block:Answer} {block:Chat}
+
+          <!-- Chat Post -->
+
+          {block:Title}
+          <h2>{block:IndexPage}<a href="{Permalink}" title="{Title}">{/block:IndexPage}{Title}{block:IndexPage}</a>{/block:IndexPage}</h2>
+          {/block:Title} {block:Lines}
+          <div class="line {Alt}">{block:Label}<strong>{Label}</strong>{/block:Label} {Line}</div>
+          {/block:Lines} {/block:Chat} {block:Link}
+
+          <!-- Link Post -->
+
+          <a href="{URL}" class="the-link" {Target}>
+            {block:Thumbnail}<img src="{Thumbnail-HighRes}" alt="{Name}" />{/block:Thumbnail}
+            <div class="the-link-text">
+              {block:Host}<span>{Host}</span>{/block:Host}
+              {Name} <i class="social-right"></i>
+              {block:Excerpt}<span>{Excerpt}</span>{/block:Excerpt}
+            </div>
+          </a> {block:Description}
+          <div class="caption">
+            {Description}
+          </div>
+          {/block:Description} {/block:Link} {block:Date}
+
+          <ul class="icons{block:IfWhiteIcons} white{/block:IfWhiteIcons}">
             {block:IndexPage}
-            <section class="the-posts index">
-                <div id="top">
-                    <div class="index-post">
-                        <span></span>
-                        <a href="works"><img src="https://static.tumblr.com/sirdwhf/vLsohk5kx/work1.gif"></a>
-                    </div>
-                    <div class="index-post">
-                        <span></span>
-                        <a href="service-mobile"><img src="https://static.tumblr.com/sirdwhf/Tp1oflb8t/top-about.png"></a>
-                    </div>
-                    <div class="index-post">
-                        <span></span>
-                        <a href="#"><img src="https://static.tumblr.com/sirdwhf/rICog6032/top-service.png"></a>
-                    </div>
-                    <div class="index-post">
-                        <span></span>
-                        <a href="contact-mobile"><img src="https://static.tumblr.com/sirdwhf/hzwoflb9f/top-contact.png"></a>
-                    </div>
-                </div>
-                <div class="grid" id="fixed-posts-mobile"></div>
-            </section>
-            {/block:IndexPage}
+            <li class="link">
+              <a href="{Permalink}" title="View Post" class="social-eye"></a>
+            </li>{/block:IndexPage}
+            <li class="like">{block:IfWhiteIcons}{LikeButton color="white" size="16"}{/block:IfWhiteIcons}{block:IfNotWhiteIcons}{LikeButton color="black" size="16"}{/block:IfNotWhiteIcons}</li>
+            <li class="reblog">
+              <i class="reblog-icon">{block:IfWhiteIcons}{ReblogButton color="white" size="16"}{/block:IfWhiteIcons}{block:IfNotWhiteIcons}{ReblogButton color="black" size="16"}{/block:IfNotWhiteIcons}</i>
+            </li>
+            {block:IfSharer}
+            <li class="sharer">
+              <a class="social-export"></a>
+              <div class="sharer-wrap">
+                <ul>
+                  {block:IfSharerTwitter}
+                  <li class="twitter">
+                    <a href="https://twitter.com/intent/tweet?url={ShortURL}" title="Share on Twitter" class="social-tweets" target="_blank"></a>
+                  </li>
+                  {/block:IfSharerTwitter} {block:IfSharerFacebook}
+                  <li class="facebook">
+                    <a href="https://www.facebook.com/sharer.php?u={Permalink}" title="Share on Facebook" class="social-facebook" target="_blank"></a>
+                  </li>
+                  {/block:IfSharerFacebook} {block:IfSharerGoogle}
+                  <li class="gplus">
+                    <a href="https://plus.google.com/share?url={Permalink}" title="Share on Google +" class="social-gplus" target="_blank"></a>
+                  </li>
+                  {/block:IfSharerGoogle} {block:IfSharerPinterest}
+                  <li class="pinterest">
+                    <a href="https://pinterest.com/pin/create/button/?url={Permalink}{block:Text}&media={PortraitURL-128}{/block:Text}{block:Photo}&media={PhotoURL-HighRes}{/block:Photo}{block:Panorama}&media={PhotoURL-Panorama}{/block:Panorama}{block:Photoset}{block:Photos}&media={PhotoURL-500}{/block:Photos}{/block:Photoset}{block:Quote}&media={PortraitURL-128}{/block:Quote}{block:Link}&media={PortraitURL-128}{/block:Link}{block:Chat}&media={PortraitURL-128}{/block:Chat}{block:Audio}&media={PortraitURL-128}{/block:Audio}{block:Video}&media={PortraitURL-128}{block:VideoThumbnail}&media={VideoThumbnailURL}{/block:VideoThumbnail}{/block:Video}{block:Answer}&media={PortraitURL-128}{/block:Answer}{block:PostTitle}&description={PostTitle}{/block:PostTitle}" title="Share on Pinterest" class="social-pinterest" target="_blank"></a>
+                  </li>
+                  {/block:IfSharerPinterest}
+                </ul>
+              </div>
+            </li>
+            {/block:IfSharer}
+          </ul>
+
+          {block:IfShowMetaOnHome} {block:IndexPage}
+          <div class="post-meta">
+            <a href="{Permalink}">{TimeAgo}</a> &nbsp;&nbsp; {block:RebloggedFrom}<a class="reblogged" href="{ReblogParentURL}" title="{ReblogParentTitle}">Reblogged from {ReblogParentTitle}</a>{/block:RebloggedFrom} &nbsp;&nbsp; {block:NoteCount}
+            <a href="{Permalink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}
+          </div>
+          {block:HasTags}
+          <div class="tagged">
+            {lang:Tagged}: {block:Tags}<a href="{TagURL}">#{Tag}</a> {/block:Tags}
+          </div>
+          {/block:HasTags} {/block:IndexPage} {/block:IfShowMetaOnHome} {block:IfDisqusShortname} {block:IndexPage}
+          <a class="dsq-comment-count" href="{Permalink}#disqus_thread">Comments</a>
+          <script type="text/javascript">
+            var disqus_shortname = '{text:Disqus Shortname}';
+            (function () {
+              var s = document.createElement('script');
+              s.async = true;
+              s.type = 'text/javascript';
+              s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+              (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+            }());
+          </script>
+          {/block:IndexPage} {/block:IfDisqusShortname} {block:PermalinkPage} {block:GroupMembers} {block:IfShowGroupAuthor}
+          <div class="group-author">
+            <a href="{PostAuthorURL}" title="{PostAuthorTitle}"><img src="{PostAuthorPortraitURL-30}" alt="{PostAuthorTitle}" class="{AvatarShape}">Posted by {PostAuthorTitle}</a>
+          </div>
+          {/block:IfShowGroupAuthor} {/block:GroupMembers}
+
+
+          <div class="post-meta">
+            {TimeAgo}<br /> {block:ContentSource} Source: {SourceLink}<br /> {/block:ContentSource} {block:RebloggedFrom}
+            <a class="reblogged" href="{ReblogParentURL}" title="{ReblogParentTitle}">Reblogged from {ReblogParentTitle}</a> {/block:RebloggedFrom}
+          </div>
+
+          {block:HasTags}
+          <div class="tagged">
+            {lang:Tagged}: {block:Tags}<a href="{TagURL}">#{Tag}</a> {/block:Tags}
+          </div>
+          {/block:HasTags} {block:IfDisqusShortname}
+          <div id="disqus_thread" class="disqus"></div>
+          <script type="text/javascript">
+            var disqus_shortname = '{text:Disqus Shortname}';
+            (function () {
+              var dsq = document.createElement('script');
+              dsq.type = 'text/javascript';
+              dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="https://disqus.com" class="dsq-brlink">Comments powered by <span class="logo-disqus">Disqus</span></a> {/block:IfDisqusShortname} {block:PostNotes}
+          <div id="notes" class="post-notes {AvatarShape}">
+            {PostNotes-16}
+          </div>
+          {/block:PostNotes} {/block:PermalinkPage} {/block:Date}
+
+
+
+
         </div>
 
-        <div class="mask"></div>
+      </article>
+      {/block:Posts}
+    </div>
+  </section>
+  <div id="image-preview">
+    <div id="myCarousel" class="flex carousel slide" data-ride="carousel" data-interval="false">
+      <a class="left" role="button" onclick="prePreview()">
+        <span class="arrow-left glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <div id="preview-image" class="carousel-inner" role="listbox" onclick="nextPreview()">
+      </div>
+      <a class="right" role="button" onclick="nextPreview()">
+        <span class="arrow-right glyphicon glyphicon-chevron-right"></span>
+      </a>
     </div>
 
-    {block:PermalinkPage}
-    <section class="the-posts single-post">
-        <div class="posts-holder">
-            {block:Posts inlineMediaWidth="1280" inlineNestedMediaWidth="1280"}
-            <article id="{PostID}" class="type_{PostType} {TagsAsClasses}" rel="{ReblogURL}">
-
-                <div class="article-content">
-
-
-
-
-                    {block:Text}
-
-                    <!-- Text Post -->
-
-                    {block:Title}
-                    <h2>{block:IndexPage}<a href="{Permalink}" title="{Title}">{/block:IndexPage}{Title}{block:IndexPage}</a>{/block:IndexPage}</h2>
-                    {/block:Title} {Body} {/block:Text} {block:Photo}
-
-                    <!-- Photo Post -->
-
-                    <div class="photo-wrap {block:IndexPage}{select:Photo Link}{/block:IndexPage}{block:PermalinkPage}{select:Photo Link Permalink}{/block:PermalinkPage}">
-
-                        <div class="photo--post">
-                            <a href="{Permalink}" title="{Title}">
-                            {block:IfSingleColumnLayout}
-                            <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
-                            {/block:IfSingleColumnLayout}
-                            {block:IfNotSingleColumnLayout}
-                            <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
-                            {/block:IfNotSingleColumnLayout}
-                        </a>
-                        </div>
-
-                        <div class="photo--image">
-                            {LinkOpenTag} {block:IfSingleColumnLayout}
-                            <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" /> {/block:IfSingleColumnLayout} {block:IfNotSingleColumnLayout}
-                            <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" /> {/block:IfNotSingleColumnLayout} {LinkCloseTag}
-                        </div>
-
-                        <div class="photo--lightbox">
-                            <a href="{PhotoURL-HighRes}">
-                            {block:IfSingleColumnLayout}
-                            <img src="{PhotoURL-HighRes}" />
-                            {/block:IfSingleColumnLayout}
-                            {block:IfNotSingleColumnLayout}
-                            <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" data-highres="{PhotoURL-HighRes}" />
-                            {/block:IfNotSingleColumnLayout}
-                        </a>
-                        </div>
-
-                        <div class="photo--none">
-                            {block:IfSingleColumnLayout}
-                            <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" /> {/block:IfSingleColumnLayout} {block:IfNotSingleColumnLayout}
-                            <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" /> {/block:IfNotSingleColumnLayout}
-                        </div>
-
-                    </div>
-
-                    {block:Caption}
-                    <div class="caption">
-                        {Caption}
-                    </div>
-                    {/block:Caption} {/block:Photo} {block:Panorama}
-
-                    <!-- Panorama Post -->
-
-                    <div class="photo-wrap {block:IndexPage}{select:Panorama Link}{/block:IndexPage}{block:PermalinkPage}{select:Panorama Link Permalink}{/block:PermalinkPage}">
-
-                        <div class="photo--image">
-                            {LinkOpenTag} {block:IfSingleColumnLayout}
-                            <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" /> {/block:IfSingleColumnLayout} {block:IfNotSingleColumnLayout}
-                            <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" /> {/block:IfNotSingleColumnLayout} {LinkCloseTag}
-                        </div>
-
-                        <div class="photo--post">
-                            <a href="{Permalink}" title="{Title}">
-                            {block:IfSingleColumnLayout}
-                            <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
-                            {/block:IfSingleColumnLayout}
-                            {block:IfNotSingleColumnLayout}
-                            <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
-                            {/block:IfNotSingleColumnLayout}
-                        </a>
-                        </div>
-
-                        <div class="photo--none">
-                            {block:IfSingleColumnLayout}
-                            <img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" /> {/block:IfSingleColumnLayout} {block:IfNotSingleColumnLayout}
-                            <img src="{block:IndexPage}{PhotoURL-500}{/block:IndexPage}{block:PermalinkPage}{PhotoURL-HighRes}{/block:PermalinkPage}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" /> {/block:IfNotSingleColumnLayout}
-                        </div>
-
-                    </div>
-
-                    {block:Caption}
-                    <div class="caption">
-                        {Caption}
-                    </div>
-                    {/block:Caption} {/block:Panorama} {block:Photoset}
-
-                    <!-- Photoset Post -->
-
-                    {block:IndexPage} {block:IfPhotosetCover}
-                    <a href="{Permalink}" title="{Title}" class="photoset-wrap">
-                    {block:Photos}
-                    <img src="{PhotoURL-500}" data-highres="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
-                    {/block:Photos}
-                </a> {/block:IfPhotosetCover} {block:IfNotPhotosetCover}
-                    <div class="photoset-grid {select:Photoset Link}" data-layout="{PhotosetLayout}" data-id="photoset{PostID}" data-post="{Permalink}" {block:IfPhotosetSpacing}data-gutter="{text:Photoset Spacing}" {block:IfPhotosetSpacing}>
-                        {block:Photos}
-                        <img src="{PhotoURL-500}" {block:HighRes}data-highres="{PhotoURL-HighRes}" {/block:HighRes} {block:Caption}alt="{Caption}" {/block:caption} data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" /> {/block:Photos}
-                    </div>
-                    {/block:IfNotPhotosetCover} {/block:IndexPage} {block:PermalinkPage}
-                    <div class="photoset-grid {select:Photoset Link Permalink}" data-layout="{PhotosetLayout}" data-id="photoset{PostID}" {block:IfPhotosetSpacing}data-gutter="{text:Photoset Spacing}" {block:IfPhotosetSpacing}>
-                        {block:Photos}
-                        <img src="{PhotoURL-500}" {block:HighRes}data-highres="{PhotoURL-HighRes}" {/block:HighRes} {block:Caption}alt="{Caption}" {/block:caption} data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}" /> {/block:Photos}
-                    </div>
-                    {/block:PermalinkPage} {block:Caption}
-                    <div class="caption">
-                        {Caption}
-                    </div>
-                    {/block:caption} {/block:Photoset} {block:Video}
-
-                    <!-- Video Post -->
-
-                    <div class="video-stage">
-                        <div class="video-container" id="{postID}">
-                            {VideoEmbed-700}
-                        </div>
-                    </div>
-
-                    {block:Caption}
-                    <div class="caption">
-                        {Caption}
-                    </div>
-                    {/block:Caption} {/block:Video} {block:Audio}
-
-                    <!-- Audio Post -->
-
-                    {block:AudioEmbed}
-                    <div class="audio-embed">
-                        {AudioEmbed}
-                    </div>
-                    {/block:AudioEmbed} {block:ExternalAudio}
-                    <a href="{ExternalAudioURL}">{lang:Download}</a> {/block:ExternalAudio} {block:Caption}
-                    <div class="caption">
-                        {Caption}
-                    </div>
-                    {/block:Caption} {/block:Audio} {block:Quote}
-
-                    <!-- Quote Post -->
-
-                    <div class="quote {Length}">
-                        {Quote}
-                    </div>
-
-                    {block:Source}
-                    <div class="quote-author">- {Source}</div>
-                    {/block:Source} {/block:Quote} {block:Answer}
-
-                    <!-- Answer Post -->
-
-                    <div class="answer-wrap">
-                        <div class="answer-image {AvatarShape}"><img src="{AskerPortraitURL-64}"></div>
-                        <div class="answer-person">{Asker} asked:</div>
-                        <div class="answer-text">{Question}</div>
-                    </div>
-
-                    <hr> {block:Answerer}
-                    <div class="answer-wrap">
-                        <div class="answer-image {AvatarShape}"><img src="{AnswererPortraitURL-64}" alt="{Title}" /></div>
-                        <div class="answer-person">{Answerer} answered:</div>
-                        <div class="answer-text">{Answer}</div>
-                    </div>
-                    <hr> {/block:Answerer}
-
-                    <div class="answer-wrap">
-                        {Replies}
-                    </div>
-
-                    {/block:Answer} {block:Chat}
-
-                    <!-- Chat Post -->
-
-                    {block:Title}
-                    <h2>{block:IndexPage}<a href="{Permalink}" title="{Title}">{/block:IndexPage}{Title}{block:IndexPage}</a>{/block:IndexPage}</h2>
-                    {/block:Title} {block:Lines}
-                    <div class="line {Alt}">{block:Label}<strong>{Label}</strong>{/block:Label} {Line}</div>
-                    {/block:Lines} {/block:Chat} {block:Link}
-
-                    <!-- Link Post -->
-
-                    <a href="{URL}" class="the-link" {Target}>
-                {block:Thumbnail}<img src="{Thumbnail-HighRes}" alt="{Name}"/>{/block:Thumbnail}
-                    <div class="the-link-text">
-                        {block:Host}<span>{Host}</span>{/block:Host}
-                        {Name} <i class="social-right"></i>
-                        {block:Excerpt}<span>{Excerpt}</span>{/block:Excerpt}
-                    </div>
-                </a> {block:Description}
-                    <div class="caption">
-                        {Description}
-                    </div>
-                    {/block:Description} {/block:Link} {block:Date}
-
-                    <ul class="icons{block:IfWhiteIcons} white{/block:IfWhiteIcons}">
-                        {block:IndexPage}
-                        <li class="link">
-                            <a href="{Permalink}" title="View Post" class="social-eye"></a>
-                        </li>{/block:IndexPage}
-                        <li class="like">{block:IfWhiteIcons}{LikeButton color="white" size="16"}{/block:IfWhiteIcons}{block:IfNotWhiteIcons}{LikeButton color="black" size="16"}{/block:IfNotWhiteIcons}</li>
-                        <li class="reblog">
-                            <i class="reblog-icon">{block:IfWhiteIcons}{ReblogButton color="white" size="16"}{/block:IfWhiteIcons}{block:IfNotWhiteIcons}{ReblogButton color="black" size="16"}{/block:IfNotWhiteIcons}</i>
-                        </li>
-                        {block:IfSharer}
-                        <li class="sharer">
-                            <a class="social-export"></a>
-                            <div class="sharer-wrap">
-                                <ul>
-                                    {block:IfSharerTwitter}
-                                    <li class="twitter">
-                                        <a href="https://twitter.com/intent/tweet?url={ShortURL}" title="Share on Twitter" class="social-tweets" target="_blank"></a>
-                                    </li>
-                                    {/block:IfSharerTwitter} {block:IfSharerFacebook}
-                                    <li class="facebook">
-                                        <a href="https://www.facebook.com/sharer.php?u={Permalink}" title="Share on Facebook" class="social-facebook" target="_blank"></a>
-                                    </li>
-                                    {/block:IfSharerFacebook} {block:IfSharerGoogle}
-                                    <li class="gplus">
-                                        <a href="https://plus.google.com/share?url={Permalink}" title="Share on Google +" class="social-gplus" target="_blank"></a>
-                                    </li>
-                                    {/block:IfSharerGoogle} {block:IfSharerPinterest}
-                                    <li class="pinterest">
-                                        <a href="https://pinterest.com/pin/create/button/?url={Permalink}{block:Text}&media={PortraitURL-128}{/block:Text}{block:Photo}&media={PhotoURL-HighRes}{/block:Photo}{block:Panorama}&media={PhotoURL-Panorama}{/block:Panorama}{block:Photoset}{block:Photos}&media={PhotoURL-500}{/block:Photos}{/block:Photoset}{block:Quote}&media={PortraitURL-128}{/block:Quote}{block:Link}&media={PortraitURL-128}{/block:Link}{block:Chat}&media={PortraitURL-128}{/block:Chat}{block:Audio}&media={PortraitURL-128}{/block:Audio}{block:Video}&media={PortraitURL-128}{block:VideoThumbnail}&media={VideoThumbnailURL}{/block:VideoThumbnail}{/block:Video}{block:Answer}&media={PortraitURL-128}{/block:Answer}{block:PostTitle}&description={PostTitle}{/block:PostTitle}"
-                                            title="Share on Pinterest" class="social-pinterest" target="_blank"></a>
-                                    </li>
-                                    {/block:IfSharerPinterest}
-                                </ul>
-                            </div>
-                        </li>
-                        {/block:IfSharer}
-                    </ul>
-
-                    {block:IfShowMetaOnHome} {block:IndexPage}
-                    <div class="post-meta">
-                        <a href="{Permalink}">{TimeAgo}</a> &nbsp;&nbsp; {block:RebloggedFrom}<a class="reblogged" href="{ReblogParentURL}" title="{ReblogParentTitle}">Reblogged from {ReblogParentTitle}</a>{/block:RebloggedFrom} &nbsp;&nbsp; {block:NoteCount}
-                        <a href="{Permalink}#notes">{NoteCountWithLabel}</a>{/block:NoteCount}
-                    </div>
-                    {block:HasTags}
-                    <div class="tagged">
-                        {lang:Tagged}: {block:Tags}<a href="{TagURL}">#{Tag}</a> {/block:Tags}
-                    </div>
-                    {/block:HasTags} {/block:IndexPage} {/block:IfShowMetaOnHome} {block:IfDisqusShortname} {block:IndexPage}
-                    <a class="dsq-comment-count" href="{Permalink}#disqus_thread">Comments</a>
-                    <script type="text/javascript">
-                        var disqus_shortname = '{text:Disqus Shortname}';
-                        (function() {
-                            var s = document.createElement('script');
-                            s.async = true;
-                            s.type = 'text/javascript';
-                            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-                            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-                        }());
-                    </script>
-                    {/block:IndexPage} {/block:IfDisqusShortname} {block:PermalinkPage} {block:GroupMembers} {block:IfShowGroupAuthor}
-                    <div class="group-author">
-                        <a href="{PostAuthorURL}" title="{PostAuthorTitle}"><img src="{PostAuthorPortraitURL-30}" alt="{PostAuthorTitle}" class="{AvatarShape}">Posted by {PostAuthorTitle}</a>
-                    </div>
-                    {/block:IfShowGroupAuthor} {/block:GroupMembers}
-
-
-                    <div class="post-meta">
-                        {TimeAgo}<br /> {block:ContentSource} Source: {SourceLink}<br /> {/block:ContentSource} {block:RebloggedFrom}
-                        <a class="reblogged" href="{ReblogParentURL}" title="{ReblogParentTitle}">Reblogged from {ReblogParentTitle}</a> {/block:RebloggedFrom}
-                    </div>
-
-                    {block:HasTags}
-                    <div class="tagged">
-                        {lang:Tagged}: {block:Tags}<a href="{TagURL}">#{Tag}</a> {/block:Tags}
-                    </div>
-                    {/block:HasTags} {block:IfDisqusShortname}
-                    <div id="disqus_thread" class="disqus"></div>
-                    <script type="text/javascript">
-                        var disqus_shortname = '{text:Disqus Shortname}';
-                        (function() {
-                            var dsq = document.createElement('script');
-                            dsq.type = 'text/javascript';
-                            dsq.async = true;
-                            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                        })();
-                    </script>
-                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                    <a href="https://disqus.com" class="dsq-brlink">Comments powered by <span class="logo-disqus">Disqus</span></a> {/block:IfDisqusShortname} {block:PostNotes}
-                    <div id="notes" class="post-notes {AvatarShape}">
-                        {PostNotes-16}
-                    </div>
-                    {/block:PostNotes} {/block:PermalinkPage} {/block:Date}
-
-
-
-
-                </div>
-
-            </article>
-            {/block:Posts}
-        </div>
-    </section>
-    <div id="image-preview">
-        <div id="myCarousel" class="flex carousel slide" data-ride="carousel" data-interval="false">
-            <a class="left" role="button" onclick="prePreview()">
-                <span class="arrow-left glyphicon glyphicon-chevron-left"></span>
-            </a>
-            <div id="preview-image" class="carousel-inner" role="listbox" onclick="nextPreview()">
-            </div>
-            <a class="right" role="button" onclick="nextPreview()">
-                <span class="arrow-right glyphicon glyphicon-chevron-right"></span>
-            </a>
-        </div>
-
-        <div id="images-slider">
-            <ul>
-            </ul>
-        </div>
+    <div id="images-slider">
+      <ul>
+      </ul>
     </div>
+  </div>
 
-    {/block:PermalinkPage}
+  {/block:PermalinkPage}
 </body>
 <script type="text/javascript">
-    /* <![CDATA[ */
-    var google_conversion_id = 941096043;
-    var google_custom_params = window.google_tag_params;
-    var google_remarketing_only = true;
-    /* ]]> */
+  /* <![CDATA[ */
+  var google_conversion_id = 941096043;
+  var google_custom_params = window.google_tag_params;
+  var google_remarketing_only = true;
+  /* ]]> */
 </script>
 <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
 </script>
 <noscript>
-<div style="display:inline;">
-<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/941096043/?guid=ON&amp;script=0"/>
-</div>
+  <div style="display:inline;">
+    <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/941096043/?guid=ON&amp;script=0" />
+  </div>
 </noscript>
 <!-- jquery -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
@@ -1489,380 +1553,380 @@
 <script src="https://static.tumblr.com/sirdwhf/NJuog0slp/article.js"></script>
 
 <script type="text/javascript">
-    var posts = {
-        home: [],
-        select: []
-    };
-    var images = [];
-    var images_max = 0;
-    var preview_start_left = 0;
-    var preview_step = 0;
-    var currentIndex = 0;
+  var posts = {
+    home: [],
+    select: []
+  };
+  var images = [];
+  var images_max = 0;
+  var preview_start_left = 0;
+  var preview_step = 0;
+  var currentIndex = 0;
 
-    $(function() {
-        console.log("width: " + $(window).width());
-        console.log("user agent: " + navigator.userAgent);
+  $(function () {
+    console.log("width: " + $(window).width());
+    console.log("user agent: " + navigator.userAgent);
 
-        var path = location.pathname;
-        var isSinglePage = (path.indexOf("/post/") > -1 || path.indexOf("/private/") > -1);
+    var path = location.pathname;
+    var isSinglePage = (path.indexOf("/post/") > -1 || path.indexOf("/private/") > -1);
 
-        if (!isSinglePage) {
-            $('#works').hover(function(event) {
-                event.target.src = "https://static.tumblr.com/sirdwhf/uMTohk5l6/work2.gif";
-            }, function() {
-                event.target.src = "https://static.tumblr.com/sirdwhf/vLsohk5kx/work1.gif";
-            });
-            query_all_posts();
-        } else {
-            fixSinglePostPage();
-        }
+    if (!isSinglePage) {
+      $('#works').hover(function (event) {
+        event.target.src = "https://static.tumblr.com/sirdwhf/uMTohk5l6/work2.gif";
+      }, function () {
+        event.target.src = "https://static.tumblr.com/sirdwhf/vLsohk5kx/work1.gif";
+      });
+      query_all_posts();
+    } else {
+      fixSinglePostPage();
+    }
+  });
+
+  function ismobile() {
+    if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function ismobile_size() {
+    var width = $(window).width();
+    var href = location.href;
+    var index = href.lastIndexOf("/") + 1;
+    href = href.substring(index);
+    if (width <= 768) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function fixHeight() {
+    var articles = document.getElementById("fixed-posts");
+    var topHeight = document.getElementById("top").offsetHeight;
+    var windowHeight = document.body.clientHeight;
+    var maxHeight = windowHeight - topHeight - 10;
+    articles.style.maxHeight = maxHeight + "px";
+    var selectArticles = document.getElementsByClassName("select");
+  }
+
+  function query_all_posts() {
+    var key = "zcBf3tONWu9lQTSzrewHYU3WRdgbv1VtPGHXXMaZlZgN6Sz0lc";
+    var home_posts = [];
+    var select_posts = [];
+
+    // query home_only
+    $.ajax({
+      url: "https://api.tumblr.com/v2/blog/woolito.tumblr.com/posts",
+      type: "GET",
+      dataType: 'jsonp',
+      data: {
+        api_key: key,
+        tag: "home_only",
+      }
+    }).done(function (data) {
+      var data_json = data.response.posts;
+      for (var i = 0; i < data_json.length; i++) {
+        home_posts.push(data_json[i]);
+      }
+      posts.home = home_posts;
+
+      if (posts.home.length != 0 && posts.select.length != 0) {
+        render_posts();
+      }
     });
 
-    function ismobile() {
-        if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
-            return true;
+    // query select
+    $.ajax({
+      url: "https://api.tumblr.com/v2/blog/woolito.tumblr.com/posts",
+      type: "GET",
+      dataType: 'jsonp',
+      data: {
+        api_key: key,
+        tag: "select",
+      }
+    }).done(function (data) {
+      var data_json = data.response.posts;
+      for (var i = 0; i < data_json.length; i++) {
+        select_posts.push(data_json[i]);
+      }
+      posts.select = select_posts;
+
+      if (posts.home.length != 0 && posts.select.length != 0) {
+        render_posts();
+      }
+    });
+  }
+
+  function render_posts() {
+    var post_element;
+    var desktopOrder = ["home", "select"];
+    var mobileOrder = ["select", "home"];
+
+    // render desktop
+    var order = desktopOrder;
+    if ($(window).width() <= 1024) {
+      order = mobileOrder;
+    }
+    var articles = document.getElementById("fixed-posts");
+    for (var i = 0; i < order.length; i++) {
+      var posts_array = posts[order[i]];
+      for (var j = 0; j < 1; j++) {
+        switch (order[i]) {
+          case "home":
+            post_element = render_home(posts_array[j]);
+          case "select":
+            post_element = render_select(posts_array[j]);
+          default:
+            break;
+        }
+        articles.appendChild(post_element);
+      }
+    }
+
+    // render mobile
+    articles = document.getElementById("fixed-posts-mobile");
+    order = mobileOrder;
+    for (var i = 0; i < order.length; i++) {
+      var posts_array = posts[order[i]];
+      for (var j = 0; j < 1; j++) {
+        switch (order[i]) {
+          case "home":
+            post_element = render_home(posts_array[j]);
+          case "select":
+            post_element = render_select(posts_array[j]);
+          default:
+            break;
+        }
+        articles.appendChild(post_element);
+      }
+    }
+  }
+
+  function render_home(post) {
+    var article = document.createElement("div");
+    article.setAttribute("id", post.id);
+    article.setAttribute("rel", post.post_url);
+    article.className = "index-post";
+    var tags = post.tags;
+    for (var i = 0; i < tags.length; i++) {
+      article.className += " " + tags[i];
+    }
+    var articleLink = document.createElement("a");
+    articleLink.setAttribute("href", post.link_url);
+    var articleImage = document.createElement("img");
+    articleImage.setAttribute("src", post.photos[0].original_size.url);
+    articleLink.appendChild(articleImage);
+    article.appendChild(articleLink);
+    return article;
+  }
+
+  function render_select(post) {
+    var article = document.createElement("div");
+    article.setAttribute("id", post.id);
+    article.setAttribute("rel", post.post_url);
+    article.className = "index-post";
+    var tags = post.tags;
+    for (var i = 0; i < tags.length; i++) {
+      article.className += " " + tags[i];
+    }
+    var articleLink = document.createElement("a");
+    articleLink.setAttribute("href", post.link_url);
+    var articleImage = document.createElement("img");
+    articleImage.setAttribute("src", post.photos[0].original_size.url);
+    articleLink.appendChild(articleImage);
+    article.appendChild(articleLink);
+    return article;
+  }
+
+  function analysis_caption_iframe(caption, post_id) {
+    if (!(caption.indexOf("youtube_iframe") > -1)) {
+      return caption;
+    }
+    var patt = /https:\/\/www.youtube.com\/embed\/(\w+)\?/i;
+    var patt2 = /<figure(.*)>(.*)<\/figure>/i;
+    var youtube_id = caption.match(patt)[1];
+    var link_element = $('<a target="_blank"></a>');
+    link_element.attr("href", "https://woolito.tumblr.com/post/" + post_id + "/");
+    var shortcut_element = $("<img >");
+    shortcut_element.addClass("shortcut");
+    shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
+    shortcut_element.attr("youtube_id", youtube_id);
+    shortcut_element.attr("data-toggle", "tooltip");
+    shortcut_element.attr("data-placement", "bottom");
+    shortcut_element.attr("title", "點擊觀看作品介紹");
+    link_element.html(shortcut_element);
+    link_element = link_element.prop('outerHTML');
+
+    caption = caption.replace(patt2, link_element);
+    return caption;
+  }
+
+  function fixMobile() {
+    $(".desktop").css("display", "none");
+    // $(".mobile").css("display", "block");
+  }
+
+  function fixSinglePostPage() {
+    var path = location.pathname;
+
+    // fix html no scroll bar
+    document.documentElement.style.overflowY = "auto";
+
+    // init bootstrap carousel
+    images_max = document.querySelectorAll('.article-content img').length;
+    $("article.stickers .article-content img").ready(function (event) {
+      getImages();
+    });
+
+    // change current active element
+    $('#myCarousel').on('slid.bs.carousel', function () {
+      var child = document.querySelectorAll("#preview-image .active")[0];
+      var parent = child.parentNode;
+      var index = Array.prototype.indexOf.call(parent.children, child);
+      var slide_lis = document.querySelectorAll("#images-slider ul li");
+      for (var i = 0; i < slide_lis.length; i++) {
+        if (index == i) {
+          slide_lis[i].className = "active";
         } else {
-            return false;
+          slide_lis[i].className = "";
         }
+      }
+    });
+  }
+
+  function getImages() {
+    preview_start_left = $(window).width() / 2 - 50;
+    var imagesElement = document.querySelectorAll('.article-content img');
+    for (var i = 0; i < imagesElement.length; i++) {
+      var image = {};
+      var imageElement = imagesElement[i];
+
+      // make 500 to 1280
+      var large_src = imageElement.src;
+      if (large_src.indexOf("gif") == -1) {
+        large_src = large_src.replace("500.", "1280.");
+      }
+
+      imageElement.setAttribute("src", large_src);
+      image.src = large_src;
+      images.push(image);
     }
 
-    function ismobile_size() {
-        var width = $(window).width();
-        var href = location.href;
-        var index = href.lastIndexOf("/") + 1;
-        href = href.substring(index);
-        if (width <= 768) {
-            return true;
-        } else {
-            return false;
-        }
+    // init bottom of carousel
+    var slider_ul = document.querySelectorAll('#images-slider ul')[0];
+    slider_ul.innerHTML = "";
+    for (var i = 0; i < images.length; i++) {
+      var li = document.createElement("li");
+      li.setAttribute("onclick", 'selectCarousel(' + i + ')');
+      var span = document.createElement("span");
+      var img = document.createElement("img");
+      img.setAttribute("src", images[i].src);
+      img.setAttribute("alt", "image");
+      li.appendChild(span);
+      li.appendChild(img);
+      slider_ul.appendChild(li);
     }
 
-    function fixHeight() {
-        var articles = document.getElementById("fixed-posts");
-        var topHeight = document.getElementById("top").offsetHeight;
-        var windowHeight = document.body.clientHeight;
-        var maxHeight = windowHeight - topHeight - 10;
-        articles.style.maxHeight = maxHeight + "px";
-        var selectArticles = document.getElementsByClassName("select");
+    // init main content of carousel
+    var listbox = document.querySelectorAll("#preview-image")[0];
+    listbox.innerHTML = "";
+    for (var i = 0; i < images.length; i++) {
+      var item = document.createElement("div");
+      item.className = "item";
+      var item_img = document.createElement("img");
+
+      item_img.setAttribute("src", images[i].src);
+      img.setAttribute("alt", "image");
+      item.appendChild(item_img);
+      listbox.appendChild(item);
     }
 
-    function query_all_posts() {
-        var key = "zcBf3tONWu9lQTSzrewHYU3WRdgbv1VtPGHXXMaZlZgN6Sz0lc";
-        var home_posts = [];
-        var select_posts = [];
+    // attach lightbox event on img
+    $(".article-content img").click(function (event) {
+      event.preventDefault();
+      showImagePreview(event);
+    });
 
-        // query home_only
-        $.ajax({
-            url: "https://api.tumblr.com/v2/blog/woolito.tumblr.com/posts",
-            type: "GET",
-            dataType: 'jsonp',
-            data: {
-                api_key: key,
-                tag: "home_only",
-            }
-        }).done(function(data) {
-            var data_json = data.response.posts;
-            for (var i = 0; i < data_json.length; i++) {
-                home_posts.push(data_json[i]);
-            }
-            posts.home = home_posts;
+    // bind listener 
+    document.addEventListener("keydown", function (event) {
+      var keyCode = event.keyCode;
+      switch (keyCode) {
+        case 27:
+          var preview = document.getElementById("image-preview");
+          if (preview.style.display != "none") {
+            preview.style.display = "none";
+          }
+          break;
+        case 37:
+          prePreview();
+          break;
+        case 39:
+          nextPreview();
+          break;
+      }
+    });
 
-            if (posts.home.length != 0 && posts.select.length != 0) {
-                render_posts();
-            }
-        });
+    // bind disappear listener
+    document.getElementById("image-preview").addEventListener("click", function (event) {
+      if (event.target.tagName.toLowerCase() != "img" &&
+        event.target.tagName.toLowerCase() != "span" &&
+        event.target.tagName.toLowerCase() != "a" &&
+        event.target.tagName.toLowerCase() != "li") {
+        document.getElementById("image-preview").style.display = "none";
+      }
+    });
+  }
 
-        // query select
-        $.ajax({
-            url: "https://api.tumblr.com/v2/blog/woolito.tumblr.com/posts",
-            type: "GET",
-            dataType: 'jsonp',
-            data: {
-                api_key: key,
-                tag: "select",
-            }
-        }).done(function(data) {
-            var data_json = data.response.posts;
-            for (var i = 0; i < data_json.length; i++) {
-                select_posts.push(data_json[i]);
-            }
-            posts.select = select_posts;
+  function showImagePreview(event) {
+    document.getElementById("image-preview").style.display = "initial";
+    var target = event.currentTarget;
+    var currentSrc = target.currentSrc;
+    var index = findObjectIndex(images, currentSrc);
 
-            if (posts.home.length != 0 && posts.select.length != 0) {
-                render_posts();
-            }
-        });
+    var items = document.querySelectorAll("#preview-image .item");
+    var lis = document.querySelectorAll("#images-slider li");
+    for (var i = 0; i < items.length; i++) {
+      items[i].className = "item";
+      lis[i].className = "";
+      if (index == i) {
+        items[i].className += " active";
+        lis[i].className = "active";
+      }
     }
+    selectCarousel(index);
+  }
 
-    function render_posts() {
-        var post_element;
-        var desktopOrder = ["home", "select"];
-        var mobileOrder = ["select", "home"];
+  function nextPreview() {
+    currentIndex++;
+    if (currentIndex == images_max) currentIndex = 0;
+    selectCarousel(currentIndex);
+  }
 
-        // render desktop
-        var order = desktopOrder;
-        if ($(window).width() <= 1024) {
-            order = mobileOrder;
-        }
-        var articles = document.getElementById("fixed-posts");
-        for (var i = 0; i < order.length; i++) {
-            var posts_array = posts[order[i]];
-            for (var j = 0; j < 1; j++) {
-                switch (order[i]) {
-                    case "home":
-                        post_element = render_home(posts_array[j]);
-                    case "select":
-                        post_element = render_select(posts_array[j]);
-                    default:
-                        break;
-                }
-                articles.appendChild(post_element);
-            }
-        }
+  function prePreview() {
+    currentIndex--;
+    if (currentIndex == -1) currentIndex = images_max - 1;
+    selectCarousel(currentIndex);
+  }
 
-        // render mobile
-        articles = document.getElementById("fixed-posts-mobile");
-        order = mobileOrder;
-        for (var i = 0; i < order.length; i++) {
-            var posts_array = posts[order[i]];
-            for (var j = 0; j < 1; j++) {
-                switch (order[i]) {
-                    case "home":
-                        post_element = render_home(posts_array[j]);
-                    case "select":
-                        post_element = render_select(posts_array[j]);
-                    default:
-                        break;
-                }
-                articles.appendChild(post_element);
-            }
-        }
+  function selectCarousel(index) {
+    currentIndex = index;
+    $("#myCarousel").carousel(index);
+    preview_step = $("#images-slider ul li")[0].offsetWidth;
+    $("#images-slider ul").animate({
+      "left": (preview_start_left - index * preview_step) + "px",
+    }, 500);
+  }
+
+  function findObjectIndex(array, value) {
+    for (var i = 0; i < array.length; i++) {
+      if (array[i].src == value) {
+        return i;
+      }
     }
-
-    function render_home(post) {
-        var article = document.createElement("div");
-        article.setAttribute("id", post.id);
-        article.setAttribute("rel", post.post_url);
-        article.className = "index-post";
-        var tags = post.tags;
-        for (var i = 0; i < tags.length; i++) {
-            article.className += " " + tags[i];
-        }
-        var articleLink = document.createElement("a");
-        articleLink.setAttribute("href", post.link_url);
-        var articleImage = document.createElement("img");
-        articleImage.setAttribute("src", post.photos[0].original_size.url);
-        articleLink.appendChild(articleImage);
-        article.appendChild(articleLink);
-        return article;
-    }
-
-    function render_select(post) {
-        var article = document.createElement("div");
-        article.setAttribute("id", post.id);
-        article.setAttribute("rel", post.post_url);
-        article.className = "index-post";
-        var tags = post.tags;
-        for (var i = 0; i < tags.length; i++) {
-            article.className += " " + tags[i];
-        }
-        var articleLink = document.createElement("a");
-        articleLink.setAttribute("href", post.link_url);
-        var articleImage = document.createElement("img");
-        articleImage.setAttribute("src", post.photos[0].original_size.url);
-        articleLink.appendChild(articleImage);
-        article.appendChild(articleLink);
-        return article;
-    }
-
-    function analysis_caption_iframe(caption, post_id) {
-        if (!(caption.indexOf("youtube_iframe") > -1)) {
-            return caption;
-        }
-        var patt = /https:\/\/www.youtube.com\/embed\/(\w+)\?/i;
-        var patt2 = /<figure(.*)>(.*)<\/figure>/i;
-        var youtube_id = caption.match(patt)[1];
-        var link_element = $('<a target="_blank"></a>');
-        link_element.attr("href", "https://woolito.tumblr.com/post/" + post_id + "/");
-        var shortcut_element = $("<img >");
-        shortcut_element.addClass("shortcut");
-        shortcut_element.attr("src", "https://i.ytimg.com/vi/" + youtube_id + "/hqdefault.jpg");
-        shortcut_element.attr("youtube_id", youtube_id);
-        shortcut_element.attr("data-toggle", "tooltip");
-        shortcut_element.attr("data-placement", "bottom");
-        shortcut_element.attr("title", "點擊觀看作品介紹");
-        link_element.html(shortcut_element);
-        link_element = link_element.prop('outerHTML');
-
-        caption = caption.replace(patt2, link_element);
-        return caption;
-    }
-
-    function fixMobile() {
-        $(".desktop").css("display", "none");
-        // $(".mobile").css("display", "block");
-    }
-
-    function fixSinglePostPage() {
-        var path = location.pathname;
-
-        // fix html no scroll bar
-        document.documentElement.style.overflowY = "auto";
-
-        // init bootstrap carousel
-        images_max = document.querySelectorAll('.article-content img').length;
-        $("article.stickers .article-content img").ready(function(event) {
-            getImages();
-        });
-
-        // change current active element
-        $('#myCarousel').on('slid.bs.carousel', function() {
-            var child = document.querySelectorAll("#preview-image .active")[0];
-            var parent = child.parentNode;
-            var index = Array.prototype.indexOf.call(parent.children, child);
-            var slide_lis = document.querySelectorAll("#images-slider ul li");
-            for (var i = 0; i < slide_lis.length; i++) {
-                if (index == i) {
-                    slide_lis[i].className = "active";
-                } else {
-                    slide_lis[i].className = "";
-                }
-            }
-        });
-    }
-
-    function getImages() {
-        preview_start_left = $(window).width() / 2 - 50;
-        var imagesElement = document.querySelectorAll('.article-content img');
-        for (var i = 0; i < imagesElement.length; i++) {
-            var image = {};
-            var imageElement = imagesElement[i];
-
-            // make 500 to 1280
-            var large_src = imageElement.src;
-            if (large_src.indexOf("gif") == -1) {
-                large_src = large_src.replace("500.", "1280.");
-            }
-
-            imageElement.setAttribute("src", large_src);
-            image.src = large_src;
-            images.push(image);
-        }
-
-        // init bottom of carousel
-        var slider_ul = document.querySelectorAll('#images-slider ul')[0];
-        slider_ul.innerHTML = "";
-        for (var i = 0; i < images.length; i++) {
-            var li = document.createElement("li");
-            li.setAttribute("onclick", 'selectCarousel(' + i + ')');
-            var span = document.createElement("span");
-            var img = document.createElement("img");
-            img.setAttribute("src", images[i].src);
-            img.setAttribute("alt", "image");
-            li.appendChild(span);
-            li.appendChild(img);
-            slider_ul.appendChild(li);
-        }
-
-        // init main content of carousel
-        var listbox = document.querySelectorAll("#preview-image")[0];
-        listbox.innerHTML = "";
-        for (var i = 0; i < images.length; i++) {
-            var item = document.createElement("div");
-            item.className = "item";
-            var item_img = document.createElement("img");
-
-            item_img.setAttribute("src", images[i].src);
-            img.setAttribute("alt", "image");
-            item.appendChild(item_img);
-            listbox.appendChild(item);
-        }
-
-        // attach lightbox event on img
-        $(".article-content img").click(function(event) {
-            event.preventDefault();
-            showImagePreview(event);
-        });
-
-        // bind listener 
-        document.addEventListener("keydown", function(event) {
-            var keyCode = event.keyCode;
-            switch (keyCode) {
-                case 27:
-                    var preview = document.getElementById("image-preview");
-                    if (preview.style.display != "none") {
-                        preview.style.display = "none";
-                    }
-                    break;
-                case 37:
-                    prePreview();
-                    break;
-                case 39:
-                    nextPreview();
-                    break;
-            }
-        });
-
-        // bind disappear listener
-        document.getElementById("image-preview").addEventListener("click", function(event) {
-            if (event.target.tagName.toLowerCase() != "img" &&
-                event.target.tagName.toLowerCase() != "span" &&
-                event.target.tagName.toLowerCase() != "a" &&
-                event.target.tagName.toLowerCase() != "li") {
-                document.getElementById("image-preview").style.display = "none";
-            }
-        });
-    }
-
-    function showImagePreview(event) {
-        document.getElementById("image-preview").style.display = "initial";
-        var target = event.currentTarget;
-        var currentSrc = target.currentSrc;
-        var index = findObjectIndex(images, currentSrc);
-
-        var items = document.querySelectorAll("#preview-image .item");
-        var lis = document.querySelectorAll("#images-slider li");
-        for (var i = 0; i < items.length; i++) {
-            items[i].className = "item";
-            lis[i].className = "";
-            if (index == i) {
-                items[i].className += " active";
-                lis[i].className = "active";
-            }
-        }
-        selectCarousel(index);
-    }
-
-    function nextPreview() {
-        currentIndex++;
-        if (currentIndex == images_max) currentIndex = 0;
-        selectCarousel(currentIndex);
-    }
-
-    function prePreview() {
-        currentIndex--;
-        if (currentIndex == -1) currentIndex = images_max - 1;
-        selectCarousel(currentIndex);
-    }
-
-    function selectCarousel(index) {
-        currentIndex = index;
-        $("#myCarousel").carousel(index);
-        preview_step = $("#images-slider ul li")[0].offsetWidth;
-        $("#images-slider ul").animate({
-            "left": (preview_start_left - index * preview_step) + "px",
-        }, 500);
-    }
-
-    function findObjectIndex(array, value) {
-        for (var i = 0; i < array.length; i++) {
-            if (array[i].src == value) {
-                return i;
-            }
-        }
-        return null;
-    }
+    return null;
+  }
 </script>
 
 </html>

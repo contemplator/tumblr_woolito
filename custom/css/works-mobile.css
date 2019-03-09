@@ -1,8 +1,8 @@
 /* posts-holder */
 
 .article-content figure,
-.article-content img{
-    margin: 16px 0;
+.article-content img {
+  margin: 16px 0;
 }
 
 /* select-section */
@@ -318,6 +318,6 @@ div.play-button {
   }
 }
 
-.article-content figure > iframe {
-    height: 200px;
+.article-content figure>iframe {
+  height: 200px;
 }
