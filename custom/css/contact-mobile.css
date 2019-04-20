@@ -48,7 +48,7 @@ section {
   margin-bottom: 0px;
   padding-top: 2px;
   padding-bottom: 20px;
-  background-image: url('http://static.tumblr.com/sirdwhf/kQooc40d4/contact_bg.png');
+  background-image: url('https://static.tumblr.com/sirdwhf/kQooc40d4/contact_bg.png');
   background-repeat: no-repeat;
   background-size: 140% auto;
   background-position: center bottom;
@@ -130,7 +130,7 @@ img.tip {
 /* contact */
 
 .idea .input-field {
-  background-image: url('http://static.tumblr.com/sirdwhf/SB8oc40du/contact_gg.png');
+  background-image: url('https://static.tumblr.com/sirdwhf/SB8oc40du/contact_gg.png');
   background-repeat: no-repeat;
   background-size: 70% auto;
   background-position: center bottom;
@@ -235,7 +235,7 @@ div.btn-sender {
 .btn-sender #btn-sender {
   display: inline-block;
   padding: 10px 20px;
-  /*background-image: url('http://static.tumblr.com/sirdwhf/nD0oc40go/contact_send.png');
+  /*background-image: url('https://static.tumblr.com/sirdwhf/nD0oc40go/contact_send.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;*/
   border: 5px solid #39bbad;
@@ -244,7 +244,7 @@ div.btn-sender {
 }
 
 .btn-sender #btn-sender:hover {
-  /*background-image: url('http://static.tumblr.com/sirdwhf/pV8oc40h5/contact_sending.png');*/
+  /*background-image: url('https://static.tumblr.com/sirdwhf/pV8oc40h5/contact_sending.png');*/
   border: 5px solid #fff4a3;
   color: #fff4a3;
 }

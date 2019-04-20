@@ -82,8 +82,8 @@ function validatePhone(element, value) {
 }
 
 function enable_type_radio(element) {
-  $(".type label img").attr("src", "http://static.tumblr.com/sirdwhf/7egof82eq/contact_uncheck_radio.png");
-  $(element.currentTarget).find("img").attr("src", "http://static.tumblr.com/sirdwhf/S1Uof82e4/contact_check_radio.png");
+  $(".type label img").attr("src", "https://static.tumblr.com/sirdwhf/7egof82eq/contact_uncheck_radio.png");
+  $(element.currentTarget).find("img").attr("src", "https://static.tumblr.com/sirdwhf/S1Uof82e4/contact_check_radio.png");
 }
 
 function verifyInput() {
