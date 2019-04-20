@@ -254,7 +254,7 @@ function initSelector() {
 
         var selected_element = $('<div class="selected" onclick="disable_radio(event, \'' + selected_tag + '\')">');
         var selected_label = $('<label for="selected_tag">' + chinese + " " + english + '</label>');
-        var selected_img = $('<img src="http://static.tumblr.com/sirdwhf/nsioaip0w/checked.png">');
+        var selected_img = $('<img src="https://static.tumblr.com/sirdwhf/nsioaip0w/checked.png">');
         selected_element.append(selected_label).append(selected_img);
         $("#chosen").html(selected_element);
       }
@@ -316,7 +316,7 @@ function enable_radio(element) {
 
   var selected_element = $('<div class="selected" onclick="disable_radio(event, \'' + selected_tag + '\')">');
   var selected_label = $('<label for="selected_tag">' + currentTarget.attr("data-label") + '</label>');
-  var selected_img = $('<img src="http://static.tumblr.com/sirdwhf/nsioaip0w/checked.png">');
+  var selected_img = $('<img src="https://static.tumblr.com/sirdwhf/nsioaip0w/checked.png">');
   selected_element.append(selected_label).append(selected_img);
   $("#chosen").html(selected_element);
 
@@ -477,7 +477,7 @@ function analysis_caption_iframe(caption, post_id, isDoubleSize) {
     var youtube_url = decodeURIComponent(matcher[1]);
     var youtube_id = youtube_url.substring(youtube_url.lastIndexOf("/") + 1);
     var link_element = $('<a target="_blank"></a>');
-    link_element.attr("href", "http://woolito.tumblr.com/post/" + post_id + "/");
+    link_element.attr("href", "https://woolito.tumblr.com/post/" + post_id + "/");
     var shortcut_element = $("<img >");
     shortcut_element.addClass("shortcut");
 
@@ -515,10 +515,10 @@ function render_icon(post) {
   var ul = $("<ul class='icons'></ul>");
   var li_link = $('<li class="link"><a href="' + post['post_url'] + '" target=\"_blank\" title="View Post" class="social-eye"></a></li>');
   // var li_like = $('<li class="like"><div class="like_button" data-post-id="' + post.id + '" data-blog-name="woolito" id="like_button_' + post.id + '"></div></li>');
-  // var iframe = $('<iframe id="like_iframe_' + post.id + '" src="http://assets.tumblr.com/assets/html/like_iframe.html?_v=c301660e229be2b44e2e912486577f3c#name=woolito&post_id=' + post.id + '&color=black&rk=' + post['reblog_key'] + '&root_id=' + post.id + '" scrolling="no" class="like_toggle" allowtransparency="true" width="16" height="16" frameborder="0" name="like_iframe_' + post.id + '"></iframe>');
+  // var iframe = $('<iframe id="like_iframe_' + post.id + '" src="https://assets.tumblr.com/assets/html/like_iframe.html?_v=c301660e229be2b44e2e912486577f3c#name=woolito&post_id=' + post.id + '&color=black&rk=' + post['reblog_key'] + '&root_id=' + post.id + '" scrolling="no" class="like_toggle" allowtransparency="true" width="16" height="16" frameborder="0" name="like_iframe_' + post.id + '"></iframe>');
   // li_like.find(".like_button").append(iframe);
-  var li_reblog = $('<li class="reblog"><i class="reblog-icon"><a targer="_blank" href="https://www.tumblr.com/reblog/' + post.id + '/' + post['reblog_key'] + '" class="reblog_button" style="display:block; width:16px; height:16px;"><svg width="100%" height="100%" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000"><path d="M5.01092527,5.99908429 L16.0088498,5.99908429 L16.136,9.508 L20.836,4.752 L16.136,0.083 L16.1360004,3.01110845 L2.09985349,3.01110845 C1.50585349,3.01110845 0.979248041,3.44726568 0.979248041,4.45007306 L0.979248041,10.9999998 L3.98376463,8.30993634 L3.98376463,6.89801007 C3.98376463,6.20867902 4.71892527,5.99908429 5.01092527,5.99908429 Z"></path><path d="M17.1420002,13.2800293 C17.1420002,13.5720293 17.022957,14.0490723 16.730957,14.0490723 L4.92919922,14.0490723 L4.92919922,11 L0.5,15.806 L4.92919922,20.5103758 L5.00469971,16.9990234 L18.9700928,16.9990234 C19.5640928,16.9990234 19.9453125,16.4010001 19.9453125,15.8060001 L19.9453125,9.5324707 L17.142,12.203"></path></svg></a></i></li>');
-  var li_share = $('<li class="sharer"><a class="social-export"></a><div class="sharer-wrap"><ul><li class="facebook"><a href="http://www.facebook.com/sharer.php?u=' + post['post_url'] + '" title="Share on Facebook" class="social-facebook" target="_blank" ></a></li><li class="gplus"><a href="https://plus.google.com/share?url=' + post['post_url'] + '" title="Share on Google +" class ="social-gplus" target="_blank"></a></li><li class="pinterest" ><a href="https://pinterest.com/pin/create/button/?url=' + post['post_url'] + '&amp;media=http://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" title="Share on Pinterest" class="social-pinterest" target="_blank"></a></li></ul></div></li>');
+  var li_reblog = $('<li class="reblog"><i class="reblog-icon"><a targer="_blank" href="https://www.tumblr.com/reblog/' + post.id + '/' + post['reblog_key'] + '" class="reblog_button" style="display:block; width:16px; height:16px;"><svg width="100%" height="100%" viewBox="0 0 21 21" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" fill="#000"><path d="M5.01092527,5.99908429 L16.0088498,5.99908429 L16.136,9.508 L20.836,4.752 L16.136,0.083 L16.1360004,3.01110845 L2.09985349,3.01110845 C1.50585349,3.01110845 0.979248041,3.44726568 0.979248041,4.45007306 L0.979248041,10.9999998 L3.98376463,8.30993634 L3.98376463,6.89801007 C3.98376463,6.20867902 4.71892527,5.99908429 5.01092527,5.99908429 Z"></path><path d="M17.1420002,13.2800293 C17.1420002,13.5720293 17.022957,14.0490723 16.730957,14.0490723 L4.92919922,14.0490723 L4.92919922,11 L0.5,15.806 L4.92919922,20.5103758 L5.00469971,16.9990234 L18.9700928,16.9990234 C19.5640928,16.9990234 19.9453125,16.4010001 19.9453125,15.8060001 L19.9453125,9.5324707 L17.142,12.203"></path></svg></a></i></li>');
+  var li_share = $('<li class="sharer"><a class="social-export"></a><div class="sharer-wrap"><ul><li class="facebook"><a href="https://www.facebook.com/sharer.php?u=' + post['post_url'] + '" title="Share on Facebook" class="social-facebook" target="_blank" ></a></li><li class="gplus"><a href="https://plus.google.com/share?url=' + post['post_url'] + '" title="Share on Google +" class ="social-gplus" target="_blank"></a></li><li class="pinterest" ><a href="https://pinterest.com/pin/create/button/?url=' + post['post_url'] + '&amp;media=https://67.media.tumblr.com/avatar_fbc2eabcb706_128.png" title="Share on Pinterest" class="social-pinterest" target="_blank"></a></li></ul></div></li>');
   ul.append(li_link).append(li_reblog).append(li_share);
   // ul.append(li_link).append(li_like).append(li_reblog).append(li_share);
   return ul;
@@ -554,11 +554,11 @@ function extraVimeoContent(caption, post_id) {
   if (matcher != null) {
     var id = matcher[1];
     // 透過 api 取得 img
-    $.get("http://vimeo.com/api/v2/video/" + id + ".xml", function (data) {
+    $.get("https://vimeo.com/api/v2/video/" + id + ".xml", function (data) {
       var url = $(data).find("thumbnail_large").text();
       // 產生 img html
       var link_element = $('<a target="_blank"></a>');
-      link_element.attr("href", "http://woolito.tumblr.com/post/" + post_id + "/");
+      link_element.attr("href", "https://woolito.tumblr.com/post/" + post_id + "/");
       var shortcut_element = $("<img >");
       shortcut_element.attr("src", url);
       shortcut_element.addClass("shortcut");
@@ -593,7 +593,7 @@ function addImageLink(caption, post_id) {
         img_element.attr("title", "點擊觀看作品介紹");
 
         var link_element = $('<a target="_blank"></a>');
-        link_element.attr("href", "http://woolito.tumblr.com/post/" + post_id + "/");
+        link_element.attr("href", "https://woolito.tumblr.com/post/" + post_id + "/");
         link_element.append(img_element);
         var result = link_element.prop('outerHTML');
         caption = caption.replace(match, result);
